@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Newspaper, Calendar, ArrowRight, Search } from 'lucide-react';
+import { ArrowRight, X, ZoomIn } from 'lucide-react';
 
 const B = import.meta.env.BASE_URL;
 
@@ -147,24 +147,13 @@ const allArticles = [
 ];
 
 export default function MediaCoveragePage({ setCurrentPage, onNavClick }) {
-  const [search, setSearch] = useState('');
-
-  const filtered = allArticles.filter(
-    (a) =>
-      a.headline.toLowerCase().includes(search.toLowerCase()) ||
-      a.publication.toLowerCase().includes(search.toLowerCase()) ||
-      a.date.toLowerCase().includes(search.toLowerCase())
-  );
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <div className="w-full">
       {/* ── Page Header ── */}
       <section className="bg-[#0f1b2d] text-white py-16">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-semibold uppercase tracking-wider mb-5">
-            <Newspaper size={15} />
-            In The Press
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold mb-4">
             Media <span className="text-rlhp-accentgreen">Coverage</span>
           </h1>
@@ -174,99 +163,82 @@ export default function MediaCoveragePage({ setCurrentPage, onNavClick }) {
         </div>
       </section>
 
-      {/* ── Stats Strip ── */}
-      <section className="bg-white border-b border-gray-200">
+      {/* ── Media Cards Grid ── */}
+      <section className="py-14 bg-gray-50">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-3 divide-x divide-gray-200">
-            {[
-              { num: '25+', label: 'Media Articles' },
-              { num: '8+', label: 'Publications' },
-              { num: '42+', label: 'Years of Coverage' },
-            ].map((s, i) => (
-              <div key={i} className="py-6 text-center">
-                <div className="text-2xl font-extrabold text-rlhp-darkgreen">{s.num}</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">{s.label}</div>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {allArticles.map((media, idx) => (
+              <article
+                key={idx}
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+              >
+                {/* Newspaper Image (Clickable to open) */}
+                <div 
+                  onClick={() => setSelectedImage(media)}
+                  className="relative h-64 sm:h-72 bg-slate-50 border-b border-gray-100 p-3 flex items-center justify-center overflow-hidden cursor-pointer"
+                >
+                  <img
+                    src={media.img}
+                    alt={media.headline}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-sm"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-gray-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                      <ZoomIn size={14} /> View
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Footer with Read Clipping button */}
+                <div className="p-5 border-t border-gray-100 bg-white flex items-center justify-between">
+                  <button
+                    onClick={() => setSelectedImage(media)}
+                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-50 hover:bg-rlhp-green text-rlhp-darkgreen hover:text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-2xs hover:shadow-md cursor-pointer"
+                  >
+                    <span>Read Clipping</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Search + Grid ── */}
-      <section className="py-14 bg-gray-50">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      {/* ── Lightbox Modal for Newspaper Image ── */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full max-h-[92vh] bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
+              <span className="font-extrabold text-gray-900 text-sm sm:text-base">
+                Newspaper Clipping View
+              </span>
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X size={18} />
+              </button>
+            </div>
 
-          {/* Search Bar */}
-          <div className="mb-10 max-w-md mx-auto">
-            <div className="relative">
-              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search by headline or publication..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-rlhp-green shadow-sm"
+            {/* Modal Image View */}
+            <div className="p-4 overflow-y-auto max-h-[80vh] flex items-center justify-center bg-gray-900/5">
+              <img
+                src={selectedImage.img}
+                alt="Newspaper Clipping"
+                className="max-h-[76vh] w-auto object-contain rounded-lg shadow-lg"
               />
             </div>
           </div>
-
-          {/* Results count */}
-          <p className="text-sm text-gray-400 mb-6">
-            Showing <span className="font-semibold text-gray-700">{filtered.length}</span> of {allArticles.length} articles
-          </p>
-
-          {/* Media Cards Grid */}
-          {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filtered.map((media, idx) => (
-                <article
-                  key={idx}
-                  className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col"
-                >
-                  {/* Newspaper Image */}
-                  <div className="relative h-64 bg-slate-50 border-b border-gray-100 p-3 flex items-center justify-center overflow-hidden">
-                    <img
-                      src={media.img}
-                      alt={media.headline}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-sm"
-                    />
-                    <span className="absolute top-3 left-3 bg-gray-900/80 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded">
-                      {media.publication}
-                    </span>
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 text-xs text-gray-400 mb-2 font-medium">
-                      <Calendar size={13} className="text-rlhp-green" />
-                      {media.date}
-                    </div>
-                    <h3 className="font-bold text-gray-900 text-base leading-snug group-hover:text-rlhp-green transition-colors mb-2 flex-1">
-                      {media.headline}
-                    </h3>
-                    <p className="text-xs text-gray-500 leading-relaxed">
-                      {media.summary}
-                    </p>
-                  </div>
-
-                  {/* Card Footer */}
-                  <div className="px-6 pb-5 pt-2 border-t border-gray-50">
-                    <span className="text-xs font-bold text-rlhp-green flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Read Clipping <ArrowRight size={13} />
-                    </span>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16 text-gray-400">
-              <Newspaper size={48} className="mx-auto mb-4 opacity-30" />
-              <p className="text-lg font-medium">No articles found for "{search}"</p>
-              <p className="text-sm mt-1">Try a different search term</p>
-            </div>
-          )}
         </div>
-      </section>
+      )}
     </div>
   );
 }

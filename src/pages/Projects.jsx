@@ -1,184 +1,192 @@
-import React, { useState, useEffect } from 'react';
-import { structuredProjects, districtsData } from '../data/rlhpData';
+import React, { useState } from 'react';
+import { orgDetails } from '../data/rlhpData';
 import { 
-  GraduationCap, Handshake, Baby, History, MapPin, 
-  ArrowRight, CheckCircle2, ChevronRight, Award, ExternalLink 
+  Users, Handshake, CheckCircle2, Heart, Scale, BookOpen, 
+  Sparkles, Award, ArrowRight, ShieldCheck, Activity, Building2, 
+  Leaf, UserCheck, Flame, Baby, HelpCircle
 } from 'lucide-react';
 
-export default function Projects({ initialCategory = 'education', setCurrentPage, onNavClick }) {
-  const [activeCategory, setActiveCategory] = useState(initialCategory || 'education');
-
-  useEffect(() => {
-    if (initialCategory) {
-      setActiveCategory(initialCategory);
-    }
-  }, [initialCategory]);
-
-  const categories = [
-    { id: 'education', label: 'Education', icon: GraduationCap, color: 'text-blue-600 bg-blue-100' },
-    { id: 'livelihood', label: 'Livelihood', icon: Handshake, color: 'text-amber-600 bg-amber-100' },
-    { id: 'childhood-care', label: 'Childhood & Alternative Care', icon: Baby, color: 'text-pink-600 bg-pink-100' },
-    { id: 'past-projects', label: 'Past Projects', icon: History, color: 'text-gray-700 bg-gray-100' }
+export default function Projects({ setCurrentPage, onNavClick }) {
+  // 13 Programme Icons
+  const programIcons = [
+    Heart,        // 1. Street Children’s Rehabilitation
+    ShieldCheck,  // 2. Child Rights and Child Rights Clubs (CRC)
+    BookOpen,     // 3. Library Programme
+    Users,        // 4. Women’s Empowerment and SHG Promotion
+    Award,        // 5. Vocational Training Programmes
+    Activity,     // 6. Malnutrition Prevention
+    Sparkles,     // 7. Youth and Adolescent Development
+    Activity,     // 8. Health Camps and Health Awareness
+    Baby,         // 9. Reproductive and Child Health (RCH)
+    Building2,    // 10. Community Development
+    Handshake,    // 11. Awareness and Government Scheme Linkages
+    Leaf,         // 12. Youth Engagement in Climate Change
+    Scale,        // 13. Adolescent Empowerment and Gender Justice
   ];
 
-  const currentProjectData = structuredProjects[activeCategory] || structuredProjects.education;
-
   return (
-    <div className="space-y-14 font-sans pb-16 bg-gray-50/50">
+    <div className="font-sans pb-20 bg-gradient-to-b from-[#fbfdfa] via-white to-gray-50/60">
       
-      {/* Hero Header */}
-      <section className="relative bg-gradient-to-br from-slate-950 via-[#063321] to-rlhp-darkgreen text-white py-16 sm:py-20 px-4 sm:px-8 text-center border-b border-rlhp-green/20">
-        <div className="max-w-4xl mx-auto space-y-4">
-          <span className="inline-block bg-rlhp-green/30 text-emerald-200 border border-emerald-400/30 text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full">
-            Strategic Development Interventions
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-            Our Projects & Initiatives
-          </h1>
-          <p className="text-sm sm:text-base text-emerald-100/90 max-w-2xl mx-auto font-normal">
-            Targeted child-centred projects creating sustainable change across Education, Livelihoods, Childhood Alternative Care, and Historic Relief Operations.
-          </p>
+      {/* ─── 1. TOP HERO SECTION: WHAT WE DO (Exact Replica of Reference 3) ─── */}
+      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Soft decorative glow */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-green-100/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-10 left-10 w-80 h-80 bg-emerald-50/60 rounded-full blur-2xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            
+            {/* Left Content (7 Cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              <div>
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-none mb-4 lowercase">
+                  what we <span className="text-rlhp-green italic font-serif">do</span>
+                </h1>
+                <div className="w-16 h-1.5 bg-rlhp-green rounded-full mb-6" />
+                <p className="text-lg sm:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl">
+                  {orgDetails.whatWeDo}
+                </p>
+              </div>
+
+              {/* Breadcrumb indicator */}
+              <div className="pt-2 text-xs sm:text-sm font-semibold text-gray-400">
+                Home / <span className="text-rlhp-green font-bold">what we do</span>
+              </div>
+            </div>
+
+            {/* Right Card Image (5 Cols) - Exact layout like Reference Image 3 */}
+            <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
+              <div className="relative w-full max-w-[460px] h-[300px] sm:h-[340px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white transition-transform duration-500 hover:scale-[1.02]">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/gallery/ashabhavana_girls_learning.jpg`}
+                  alt="What We Do - Rural Literacy and Health Programme"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
-        {/* Category Navigation Tabs */}
-        <div className="flex justify-center">
-          <div className="bg-white p-2 rounded-2xl border border-gray-200 shadow-sm flex flex-wrap gap-2 justify-center max-w-4xl w-full">
-            {categories.map((cat) => {
-              const Icon = cat.icon;
-              const isActive = activeCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                    isActive 
-                      ? 'bg-rlhp-green text-white shadow-md' 
-                      : 'bg-transparent text-gray-700 hover:bg-gray-100'
-                  }`}
-                >
-                  <Icon size={16} />
-                  <span>{cat.label}</span>
-                </button>
-              );
-            })}
-          </div>
+      {/* ─── 2. OUR PROGRAMS / OUR PROJECTS SECTION (Exact Replica of Reference 4 with Green Logo Colors) ─── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
+        <div className="mb-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
+            Our <span className="text-rlhp-green italic font-serif">Programs</span>
+          </h2>
+          <div className="w-14 h-1 bg-rlhp-green rounded-full mt-3" />
+          <p className="text-sm sm:text-base text-gray-600 font-medium mt-3">
+            Our key areas of work include:
+          </p>
         </div>
 
-        {/* Category Header Card */}
-        <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm space-y-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-gray-150 pb-6">
-            <div>
-              <span className="text-xs font-bold text-rlhp-orange uppercase tracking-wider bg-orange-100 px-3 py-1 rounded-full">
-                {currentProjectData.badge}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mt-2">
-                {currentProjectData.title}
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1 max-w-2xl">
-                {currentProjectData.desc}
-              </p>
-            </div>
-
-            {/* Impact Metric Chips */}
-            <div className="flex flex-wrap gap-3">
-              {currentProjectData.stats.map((st, idx) => (
-                <div key={idx} className="bg-emerald-50 border border-emerald-100 p-3 rounded-xl text-center min-w-[120px]">
-                  <div className="text-lg font-black text-rlhp-darkgreen">{st.value}</div>
-                  <div className="text-[10px] font-semibold text-gray-600 uppercase mt-0.5">{st.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Project Initiatives Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            {currentProjectData.items.map((item, idx) => (
-              <div 
+        {/* 3 Columns Grid of Vertical Gradient Cards (as in Reference 4) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          {orgDetails.ourPrograms.map((prog, idx) => {
+            const Icon = programIcons[idx] || Sparkles;
+            return (
+              <div
                 key={idx}
-                className="bg-gray-50/80 rounded-2xl overflow-hidden border border-gray-200 hover:border-rlhp-green hover:shadow-md transition-all group flex flex-col justify-between"
+                className="relative rounded-2xl p-7 sm:p-9 text-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group overflow-hidden cursor-default"
+                style={{
+                  background: 'linear-gradient(180deg, #2D8A35 0%, #1C5620 65%, #133D16 100%)',
+                }}
               >
-                <div>
-                  <div className="h-52 overflow-hidden bg-slate-900 relative">
-                    <img 
-                      src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`} 
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-3 left-3 right-3 text-white font-extrabold text-base">
-                      {item.title}
-                    </div>
-                  </div>
+                {/* Decorative background glow on hover */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform pointer-events-none" />
 
-                  <div className="p-5 space-y-3">
-                    <p className="text-xs text-gray-600 leading-relaxed">
-                      {item.desc}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 pt-2">
-                      {item.tags.map((tag, tIdx) => (
-                        <span key={tIdx} className="text-[10px] bg-white border border-gray-200 text-gray-700 px-2 py-0.5 rounded-md font-semibold">
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
+                {/* Top White Circular Badge with Icon Illustration */}
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-white to-green-50 shadow-xl mx-auto flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 border border-white/60">
+                  <div className="w-14 h-14 rounded-full bg-emerald-50/80 flex items-center justify-center">
+                    <Icon size={30} className="text-[#1C5620] stroke-[2.2]" />
                   </div>
                 </div>
 
-                <div className="p-5 pt-0">
-                  <div className="pt-3 border-t border-gray-200 flex items-center justify-between text-xs font-bold text-rlhp-green">
-                    <span>Active Community Programme</span>
-                    <CheckCircle2 size={16} />
-                  </div>
-                </div>
+                {/* Program Title */}
+                <h3 className="text-xl font-black text-white mb-3 leading-snug tracking-tight">
+                  {prog.title}
+                </h3>
+
+                {/* Program Description */}
+                <p className="text-xs sm:text-sm text-green-50/95 leading-relaxed font-normal">
+                  {prog.description}
+                </p>
               </div>
-            ))}
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ─── 3. WITH WHOM WE WORK (In Color #38853E Container) ─── */}
+      <section className="w-full bg-[#38853E] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 shadow-inner">
+        <div className="max-w-6xl mx-auto space-y-8">
+          
+          {/* Header */}
+          <div className="text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+              With Whom We Work
+            </h2>
+            <div className="w-16 h-1.5 bg-white/80 mx-auto rounded-full mt-3" />
+          </div>
+
+          {/* Intro text */}
+          <div className="text-sm sm:text-base text-green-50 leading-relaxed max-w-4xl mx-auto text-center font-medium space-y-3">
+            <p>
+              RLHP works with children, families and communities living in vulnerable and marginalised situations across urban, peri-urban and rural areas of South India. Our focus is on reaching those who face social, economic and geographical barriers to education, healthcare, protection and livelihood opportunities.
+            </p>
+            <p>
+              We work closely with children, adolescents, youth, women and families who experience different forms of vulnerability and exclusion:
+            </p>
+          </div>
+
+          {/* Target Groups Bullet List */}
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20 max-w-4xl mx-auto space-y-3 text-sm text-gray-900">
+            <ul className="space-y-3.5">
+              {orgDetails.withWhomWeWork.groups.map((group, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#38853E] mt-1.5 flex-shrink-0" />
+                  <div>
+                    <strong className="text-gray-950 font-bold">{group.title}:</strong>{' '}
+                    <span className="text-gray-700">{group.description}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Collaborations Sub-Header & Intro */}
+          <div className="max-w-4xl mx-auto text-center pt-2">
+            <p className="text-sm sm:text-base font-bold text-white">
+              To strengthen community development and create sustainable impact, we collaborate with:
+            </p>
+          </div>
+
+          {/* Collaborations Bullet List */}
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20 max-w-4xl mx-auto space-y-3 text-sm text-gray-900">
+            <ul className="space-y-3.5">
+              {orgDetails.withWhomWeWork.collaborations.map((collab, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#38853E] mt-1.5 flex-shrink-0" />
+                  <div>
+                    <strong className="text-gray-950 font-bold">{collab.title}</strong> –{' '}
+                    <span className="text-gray-700">{collab.description}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Concluding Box */}
+          <div className="max-w-4xl mx-auto text-center pt-2">
+            <p className="text-sm sm:text-base text-green-50 font-medium italic leading-relaxed">
+              Through these partnerships and collective efforts, RLHP works towards building inclusive, empowered and resilient communities where every child, woman and young person has the opportunity to live with dignity and build a better future.
+            </p>
           </div>
 
         </div>
-
-        {/* Location-Specific Operations Summary */}
-        <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm space-y-6">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-rlhp-lightgreen text-rlhp-green flex items-center justify-center font-bold">
-              <MapPin size={20} />
-            </div>
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Project Operations by District</h3>
-              <p className="text-xs text-gray-500">Executing programs across 10 districts of South & North Karnataka</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {districtsData.map((d) => (
-              <div key={d.id} className="p-4 rounded-xl bg-gray-50 border border-gray-200 hover:border-rlhp-green transition-all space-y-2">
-                <div className="flex items-center justify-between">
-                  <h4 className="font-bold text-sm text-gray-900 flex items-center gap-1.5">
-                    <MapPin size={14} className="text-rlhp-orange" />
-                    <span>{d.name}</span>
-                  </h4>
-                  <span className="text-[10px] font-bold text-rlhp-green bg-emerald-100 px-2 py-0.5 rounded-full">
-                    {d.projectsCount} Units
-                  </span>
-                </div>
-                <p className="text-xs text-gray-600 line-clamp-2">{d.description}</p>
-                <div className="space-y-1 pt-1 border-t border-gray-150">
-                  {d.projects.slice(0, 2).map((p, pIdx) => (
-                    <div key={pIdx} className="text-[11px] font-semibold text-gray-700 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-rlhp-green"></span>
-                      <span className="truncate">{p}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-      </div>
+      </section>
 
     </div>
   );

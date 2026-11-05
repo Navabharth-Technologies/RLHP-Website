@@ -73,14 +73,14 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
               <img
                 src={`${B}rlhp-logo.png`}
                 alt="RLHP Logo"
-                className="h-12 w-12 sm:h-13 sm:w-13 rounded-full object-contain bg-white p-0.5 ring-2 ring-[#236B28]/50 group-hover:ring-[#4CAF50] transition-all duration-200 shadow-md"
+                className="h-11 w-11 sm:h-12 sm:w-12 rounded-full object-contain bg-white p-0.5 ring-2 ring-[#236B28]/50 group-hover:ring-[#4CAF50] transition-all duration-200 shadow-md shrink-0"
               />
               <div className="leading-tight">
-                <span className="block text-white font-black text-[15px] sm:text-[17px] tracking-tight">
+                <span className="block text-[#4CAF50] font-black text-[14.5px] sm:text-[16px] tracking-tight group-hover:text-[#66BB6A] transition-colors">
                   Rural Literacy &amp; Health Programme
                 </span>
-                <span className="block text-[#4CAF50] text-[11px] sm:text-[11.5px] font-bold tracking-wider">
-                  Changing the world through Education • Est. 1984
+                <span className="block text-white text-[10px] sm:text-[11px] font-medium tracking-normal opacity-90 mt-0.5">
+                  Empowering through health, education and livelihood
                 </span>
               </div>
             </button>
@@ -97,24 +97,10 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
                   {item.label}
                 </button>
               ))}
-
-              {/* Desktop Donate Button */}
-              <button
-                onClick={() => go('bank-details')}
-                className="ml-2 bg-[#236B28] hover:bg-[#154219] text-white font-bold text-xs px-4 py-2 rounded-md shadow-sm transition-all duration-200 uppercase tracking-wider"
-              >
-                Donate
-              </button>
             </div>
 
             {/* ── Mobile Hamburger ── */}
             <div className="xl:hidden flex items-center gap-2">
-              <button
-                onClick={() => go('bank-details')}
-                className="bg-[#236B28] text-white font-bold text-xs px-3 py-1.5 rounded-md"
-              >
-                Donate
-              </button>
               <button
                 onClick={() => setMobileOpen((v) => !v)}
                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"

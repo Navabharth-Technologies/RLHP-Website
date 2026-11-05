@@ -25,10 +25,6 @@ export default function GalleryPage({ onSelectMedia, setCurrentPage, onNavClick,
       <section className="bg-rlhp-darkgreen text-white py-16 px-4 sm:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-rlhp-darkgreen via-emerald-900 to-rlhp-darkgreen opacity-90" />
         <div className="relative max-w-7xl mx-auto space-y-4">
-          <div className="inline-flex items-center space-x-2 bg-rlhp-green/30 border border-rlhp-lightgreen/30 px-3 py-1 rounded-full text-rlhp-lightgreen text-xs font-semibold">
-            <Camera size={14} />
-            <span>30 Original Field Photographs & Media Archive</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">Photo Gallery & Field Operations</h1>
           <p className="text-xs sm:text-sm text-rlhp-lightgreen max-w-2xl mx-auto font-medium leading-relaxed">
             Real ground-level photographs capturing 42+ years of community development, child protection, women federations, and health drives across Mysuru & Karnataka.
@@ -37,44 +33,6 @@ export default function GalleryPage({ onSelectMedia, setCurrentPage, onNavClick,
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        {/* Static Resources & Media Hub */}
-        <ResourcesMediaHub activePage="gallery" onNavClick={onNavClick} setCurrentPage={setCurrentPage} />
-
-        {/* Global Search */}
-        <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
-          <GlobalSearchBar
-            onNavClick={onNavClick}
-            setCurrentPage={setCurrentPage}
-            onSelectNews={onSelectNews}
-            className="w-full sm:w-96"
-          />
-        </div>
-
-        {/* Category Filters */}
-        <div className="flex flex-wrap gap-2 justify-center">
-          {categories.map((cat) => {
-            const count = getCategoryCount(cat);
-            return (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
-                  activeCategory === cat 
-                    ? 'bg-rlhp-green text-white shadow-md shadow-rlhp-green/20' 
-                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
-                }`}
-              >
-                <span>{cat}</span>
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                  activeCategory === cat ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'
-                }`}>
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
         {/* Masonry / Grid Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredGallery.map((item) => (
@@ -119,32 +77,6 @@ export default function GalleryPage({ onSelectMedia, setCurrentPage, onNavClick,
             </div>
           ))}
         </div>
-
-        {/* Media Coverage Section */}
-        <section className="bg-gradient-to-br from-gray-50 to-emerald-50/30 p-8 rounded-2xl border border-gray-200 space-y-6">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-rlhp-lightgreen text-rlhp-green flex items-center justify-center shadow-sm">
-              <Newspaper size={20} />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-rlhp-darkgreen">Media Coverage & Press Clips</h2>
-              <p className="text-xs text-gray-500">Newspaper coverage highlighting RLHP initiatives and achievements</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {mediaClippings.map((clip, idx) => (
-              <div key={idx} className="bg-white p-5 rounded-xl border border-gray-200 shadow-2xs space-y-2 hover:border-rlhp-green hover:shadow-md transition-all">
-                <span className="text-[10px] font-bold text-gray-400">{clip.paper} • {clip.date}</span>
-                <h4 className="font-bold text-xs text-gray-800 leading-snug">{clip.title}</h4>
-                <a href="#clip" onClick={(e) => { e.preventDefault(); alert(`Opening news clip: ${clip.title}`); }} className="text-xs text-rlhp-orange hover:text-rlhp-darkorange font-semibold inline-flex items-center space-x-1 pt-1">
-                  <span>Read Press Link</span>
-                  <ExternalLink size={12} />
-                </a>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
     </div>
   );

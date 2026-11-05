@@ -85,72 +85,54 @@ export default function Home({ setCurrentPage, onNavClick }) {
   /* ─── TESTIMONIALS DATA ─── */
   const testimonials = [
     {
-      text: "I spent my childhood on the streets, struggling to meet my basic needs while continuing my education through hardships. RLHP identified me and provided care, education and support at Asha Bhavana Girls' Home. With these opportunities, I was able to transform my life. Today, I am proud to be an advocate practising at the Magistrate Court in Bengaluru. I am grateful to RLHP for helping me build a life of dignity, confidence and independence.",
+      text: "I spent my childhood on the streets, struggling to meet my basic needs while continuing my education through hardships. RLHP identified me and provided care, education and support at Asha Bhavana Girls’ Home. With these opportunities, I was able to transform my life. Today, I am proud to be an advocate practising at the Magistrate Court in Bengaluru. I am grateful to RLHP for helping me build a life of dignity, confidence and independence.",
       name: "Nagarathna",
       designation: "Advocate, Bengaluru",
-      badge: "Adv.",
-      badgeSub: "Magistrate Court",
-      badgeColor: "bg-rlhp-green",
+      tag: "Advocate practising at Magistrate Court",
     },
     {
-      text: "After losing both my parents at a young age, I found a safe home, care and guidance at Asha Kirana Boys' Shelter Home. With RLHP's support, I completed my 10th standard with 437 marks and received vocational training in two-wheeler repair. Today, I work as a mechanic at a reputed TVS showroom in Mysuru, earning ₹14,000 per month and living independently. I am grateful to RLHP and Asha Kirana for helping me become self-reliant and build a better future.",
+      text: "After losing both my parents at a young age, I found a safe home, care and guidance at Asha Kirana Boys’ Shelter Home. With RLHP’s support, I completed my 10th standard with 437 marks and received vocational training in two-wheeler repair. Today, I work as a mechanic at a reputed TVS showroom in Mysuru, earning ₹14,000 per month and living independently. I am grateful to RLHP and Asha Kirana for helping me become self-reliant and build a better future.",
       name: "Prashanth",
       designation: "Mysuru",
-      badge: "TVS",
-      badgeSub: "Mechanic",
-      badgeColor: "bg-[#154219]",
+      tag: "Employed & Self-Reliant",
     },
     {
-      text: "After losing my parents at the age of three, I spent my childhood collecting rags and struggling for basic needs. RLHP identified me and brought me to Asha Kirana Boys' Shelter Home, where I received care, education and a safe environment. With RLHP's support, I completed my SSLC and received vocational training in carpentry at Seva Sadhana, Bengaluru. Today, I am a skilled carpenter, earning ₹15,000 per month and living independently. My dream is to start my own carpentry business and support children from disadvantaged backgrounds. I am forever grateful to RLHP and Asha Kirana for giving me the opportunity to build a dignified life.",
+      text: "After losing my parents at the age of three, I spent my childhood collecting rags and struggling for basic needs. RLHP identified me and brought me to Asha Kirana Boys’ Shelter Home, where I received care, education and a safe environment. With RLHP’s support, I completed my SSLC and received vocational training in carpentry at Seva Sadhana, Bengaluru. Today, I am a skilled carpenter, earning ₹15,000 per month and living independently. My dream is to start my own carpentry business and support children from disadvantaged backgrounds. I am forever grateful to RLHP and Asha Kirana for giving me the opportunity to build a dignified life.",
       name: "Narayana",
       designation: "Bengaluru",
-      badge: "Carpenter",
-      badgeSub: "Skilled Trade",
-      badgeColor: "bg-rlhp-green",
+      tag: "Skilled Carpenter",
     },
     {
       text: "My three-year-old son Manoj was underweight, weighing just 10.5 kg, and was not attending the Anganwadi regularly. With the guidance and support of RLHP, he was enrolled in the Anganwadi and began receiving nutritious food and supplements. Gradually, his health improved, and today he weighs 13.1 kg, is active and happy. I am grateful to RLHP and the Anganwadi worker for helping my child move towards a healthier future and educating me about the importance of child nutrition.",
       name: "Shruti",
       designation: "Kumbrallimata Village",
-      badge: "Health",
-      badgeSub: "Nutrition",
-      badgeColor: "bg-[#154219]",
+      tag: "Child Health & Nutrition",
     },
     {
-      text: "I came to Asha Bhavana in 2009 at the age of five, having lost my parents' care and support. At Asha Bhavana, I received a safe home, education, counselling and guidance that helped me grow in confidence. With RLHP's continued support, I completed my schooling and pursued paramedical studies in Channarayapatna. Today, I am independent and able to support myself. I am deeply grateful to Asha Bhavana and RLHP for helping me build a life of dignity and self-reliance.",
+      text: "I came to Asha Bhavana in 2009 at the age of five, having lost my parents’ care and support. At Asha Bhavana, I received a safe home, education, counselling and guidance that helped me grow in confidence. With RLHP’s continued support, I completed my schooling and pursued paramedical studies in Channarayapatna. Today, I am independent and able to support myself. I am deeply grateful to Asha Bhavana and RLHP for helping me build a life of dignity and self-reliance.",
       name: "Sneha",
       designation: "",
-      badge: "Medical",
-      badgeSub: "Graduate",
-      badgeColor: "bg-rlhp-green",
+      tag: "Paramedical Studies Graduate",
     },
     {
-      text: "My brother and I were brought to Asha Kirana Child Care Centre after RLHP identified our family's vulnerable situation. At Asha Kirana, I received care, education and encouragement that helped me grow in confidence. I completed my SSLC with 501 marks and later pursued a two-year Electrician and Plumbing course at Seva Sadhana Institute, Bengaluru. Today, I work as an Electrician at St. John's Hospital, Bengaluru, earning ₹18,000 per month. I am financially independent and dream of supporting my mother and giving back to Asha Kirana by helping other children build a better future. I am deeply grateful to RLHP for shaping my life.",
+      text: "My brother and I were brought to Asha Kirana Child Care Centre after RLHP identified our family’s vulnerable situation. At Asha Kirana, I received care, education and encouragement that helped me grow in confidence. I completed my SSLC with 501 marks and later pursued a two-year Electrician and Plumbing course at Seva Sadhana Institute, Bengaluru. Today, I work as an Electrician at St. John’s Hospital, Bengaluru, earning ₹18,000 per month. I am financially independent and dream of supporting my mother and giving back to Asha Kirana by helping other children build a better future. I am deeply grateful to RLHP for shaping my life.",
       name: "Guna",
       designation: "Bengaluru",
-      badge: "Electrician",
-      badgeSub: "St. John's",
-      badgeColor: "bg-[#154219]",
+      tag: "Hospital Electrician",
     },
     {
-      text: "My family faced financial difficulties, and supporting the education of three children was a challenge. Through RLHP's sponsorship programme in partnership with ChildFund International, I received educational support, guidance and opportunities to develop life skills and confidence. The programme also supported my mother through entrepreneurship training and a seed grant of ₹20,000, enabling her to start a flower business. Today, her business contributes to our family income and helps us continue our education. I am grateful to RLHP and ChildFund International for empowering my family and giving us hope for a better future.",
+      text: "My family faced financial difficulties, and supporting the education of three children was a challenge. Through RLHP’s sponsorship programme in partnership with ChildFund International, I received educational support, guidance and opportunities to develop life skills and confidence. The programme also supported my mother through entrepreneurship training and a seed grant of ₹20,000, enabling her to start a flower business. Today, her business contributes to our family income and helps us continue our education. I am grateful to RLHP and ChildFund International for empowering my family and giving us hope for a better future.",
       name: "Zoya Sulthana",
       designation: "",
-      badge: "Education",
-      badgeSub: "Sponsored",
-      badgeColor: "bg-rlhp-green",
+      tag: "Education & Family Livelihood",
     },
     {
       text: "I am grateful to ChildFund and my sponsor for supporting my education through DFC assistance, which helped me successfully complete my M.Com with Distinction. The youth development programme also strengthened my leadership, teamwork and communication skills. With a strong interest in accountancy, I aspire to become a Bank Manager. Their continued encouragement has given me the confidence and motivation to pursue my dreams and build a bright future.",
       name: "Neha Anjum",
       designation: "",
-      badge: "M.Com",
-      badgeSub: "Distinction",
-      badgeColor: "bg-[#154219]",
+      tag: "M.Com Distinction Graduate",
     },
   ];
-
-  const visibleTestimonials = showAllTestimonials ? testimonials : testimonials.slice(0, 3);
 
   return (
     <div className="w-full">
@@ -302,20 +284,22 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <div className="w-12 h-[3px] bg-rlhp-green mx-auto rounded-full" />
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 items-stretch">
             {/* Left Column: Story & Bullets (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-snug">
-                42+ Years Working for Children's Rights
-              </h3>
+            <div className="lg:col-span-7 space-y-6 flex flex-col justify-between">
+              <div className="space-y-6">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-snug">
+                  42+ Years Working for Children's Rights
+                </h3>
 
-              <div className="text-gray-600 text-base leading-relaxed space-y-4">
-                <p>
-                  Since 1984, <strong className="text-gray-900">Rural Literacy and Health Programme (RLHP)</strong> has been working towards holistic, child-centred development. What began with a focus on the health and education of scavengers (Pourakarmikas) and their children has grown into a wider community development movement, reaching over <strong className="text-gray-900">2 million lives</strong> across 10 districts in Karnataka and four states in South India.
-                </p>
-                <p>
-                  We work in the most marginalized communities—from urban informal settlements to rural villages. Where others see impossibility, we see children full of potential and communities ready to transform.
-                </p>
+                <div className="text-gray-600 text-base leading-relaxed space-y-4">
+                  <p>
+                    Since 1984, <strong className="text-gray-900">Rural Literacy and Health Programme (RLHP)</strong> has been working towards holistic, child-centred development. What began with a focus on the health and education of scavengers (Pourakarmikas) and their children has grown into a wider community development movement, reaching over <strong className="text-gray-900">2 million lives</strong> across 10 districts in Karnataka and four states in South India.
+                  </p>
+                  <p>
+                    We work in the most marginalized communities—from urban informal settlements to rural villages. Where others see impossibility, we see children full of potential and communities ready to transform.
+                  </p>
+                </div>
               </div>
 
               {/* Bullet checkmarks */}
@@ -336,12 +320,12 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </div>
 
             {/* Right Column: Commitment Card (5 cols) */}
-            <div className="lg:col-span-5">
-              <div className="relative bg-gradient-to-br from-gray-50 to-green-50/40 border border-green-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 rounded-full bg-rlhp-green/10 flex items-center justify-center mb-4">
-                  <Heart size={24} className="text-rlhp-green" />
+            <div className="lg:col-span-5 flex">
+              <div className="relative w-full bg-[#1C5620] text-white rounded-2xl p-8 sm:p-10 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
+                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-6 shadow-inner">
+                  <Heart size={28} className="text-white fill-white/20" />
                 </div>
-                <p className="text-gray-800 text-base leading-relaxed font-medium">
+                <p className="text-white text-lg sm:text-xl leading-relaxed font-medium italic">
                   "Our commitment is to ensure that every child has access to education and opportunities that uplift their families from poverty."
                 </p>
               </div>
@@ -375,81 +359,93 @@ export default function Home({ setCurrentPage, onNavClick }) {
         {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0f1b2d] via-[#12233a] to-[#0f1b2d]" />
 
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
               Our Programme <span className="text-rlhp-accentgreen">Priorities</span>
             </h2>
             <p className="text-gray-300 text-base max-w-[650px] mx-auto">
-              RLHP's approach to holistic, child-centred development focuses on breaking the cycle of poverty through targeted interventions.
+              RLHP's approach to holistic, child-centred development focuses on
             </p>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Cards Grid: 5 columns in a single line on desktop without scrolling */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 xl:gap-5">
             {[
               {
-                img: `${B}images/gallery/iep_remedial_class.jpg`,
+                img: `${B}images/gallery/child_rights_workshop.jpg`,
                 category: 'Age 0-18 Years',
                 title: 'Child Rights and Protection',
-                desc: 'Promoting child rights and protection by preventing child marriage, child labour and abuse, while ensuring children\'s safety, participation and development.',
+                desc: "Promoting child rights and protection by preventing child marriage, child labour and abuse, while ensuring children's safety, participation and development.",
                 metric: '80K+ Children Protected',
                 page: 'projects',
                 opt: 'education',
               },
               {
-                img: `${B}images/gallery/shg_leadership_training.jpg`,
-                category: 'Youth & Women',
-                title: 'Adolescent & Youth Empowerment',
-                desc: 'Empowering adolescents and youth through life skills, career guidance and leadership development, while supporting women self-help groups with livelihood opportunities.',
-                metric: '15,000+ Youth & Women Empowered',
+                img: `${B}images/gallery/adolescent_skill_training.jpg`,
+                category: 'Youth & Leadership',
+                title: 'Adolescent and Youth Empowerment',
+                desc: 'Empowering adolescents and youth through life skills, leadership development, gender equality, health awareness and opportunities for personal and social growth.',
+                metric: '15,000+ Youth Empowered',
                 page: 'projects',
                 opt: 'livelihood',
               },
               {
-                img: `${B}images/gallery/ashabhavana_girls_learning.jpg`,
-                category: 'Alternative Care',
-                title: 'Childhood & Alternative Care',
-                desc: 'Providing safe shelter, nutrition, healthcare, and education for vulnerable and street-connected children through Asha Kirana (Boys) and Asha Bhavana (Girls) homes.',
-                metric: '2,100+ Children Sheltered',
+                img: `${B}images/gallery/iep_remedial_class.jpg`,
+                category: 'Education',
+                title: 'Education and Learning',
+                desc: 'Ensuring access to quality education and improved learning opportunities through school enrolment, learning support, remedial education and academic development.',
+                metric: 'Quality Education',
                 page: 'projects',
-                opt: 'care',
+                opt: 'education',
+              },
+              {
+                img: `${B}images/gallery/gram_panchayat_interface.jpg`,
+                category: 'Community & Govt',
+                title: 'Community Development through Government Schemes',
+                desc: 'Strengthening communities by creating awareness and facilitating access to government welfare schemes, entitlements and essential services to improve livelihoods and quality of life.',
+                metric: 'Welfare & Entitlements',
+                page: 'projects',
+                opt: 'community',
+              },
+              {
+                img: `${B}images/gallery/shg_leadership_training.jpg`,
+                category: 'Livelihood',
+                title: 'Livelihood Promotion and Economic Empowerment',
+                desc: 'Promoting sustainable livelihoods through skill development, vocational training, self-employment opportunities and income-generating activities to strengthen the economic independence of individuals and families.',
+                metric: 'Economic Independence',
+                page: 'projects',
+                opt: 'livelihood',
               },
             ].map((card, i) => (
               <div
                 key={i}
                 onClick={() => nav(card.page, card.opt)}
-                className="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer flex flex-col text-gray-900"
+                className="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-rlhp-green/30 hover:-translate-y-2 border-2 border-transparent hover:border-rlhp-green transition-all duration-300 group cursor-pointer flex flex-col text-gray-900"
               >
                 {/* Image */}
-                <div className="relative h-52 overflow-hidden bg-gray-100">
+                <div className="relative h-44 overflow-hidden bg-gray-100">
                   <img
                     src={card.img}
                     alt={card.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <span className="absolute bottom-3 left-4 bg-rlhp-green text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded">
+                  <span className="absolute bottom-2 left-3 bg-rlhp-green text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded shadow">
                     {card.category}
                   </span>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug">
-                    {card.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
-                    {card.desc}
-                  </p>
-                  <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                    <span className="text-xs font-bold text-rlhp-green uppercase tracking-wide">
-                      {card.metric}
-                    </span>
-                    <span className="text-xs font-semibold text-rlhp-green flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Learn More <ArrowRight size={13} />
-                    </span>
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-gray-900 group-hover:text-rlhp-green transition-colors mb-2 leading-snug">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed">
+                      {card.desc}
+                    </p>
                   </div>
                 </div>
 
@@ -457,16 +453,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 <div className="card-hover-line" />
               </div>
             ))}
-          </div>
-
-          {/* Explore all button */}
-          <div className="text-center mt-12">
-            <button
-              onClick={() => nav('projects')}
-              className="inline-flex items-center gap-2 bg-rlhp-green hover:bg-rlhp-darkgreen text-white font-semibold text-sm px-7 py-3 rounded-lg shadow transition-all duration-200"
-            >
-              Explore Our All Programmes <ArrowRight size={16} />
-            </button>
           </div>
         </div>
       </section>
@@ -494,60 +480,72 @@ export default function Home({ setCurrentPage, onNavClick }) {
               </span>
             </h2>
             <p className="text-gray-500 text-base mt-4">
-              Real experiences from individuals, children, and communities whose lives have been transformed through RLHP's care and empowerment
             </p>
           </div>
 
-          {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-[1100px] mx-auto">
-            {visibleTestimonials.map((t, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col"
-              >
-                {/* Quote Icon */}
-                <Quote size={28} className="text-rlhp-green/40 mb-3 flex-shrink-0" />
-
-                {/* Testimonial Text */}
-                <p className="text-gray-700 italic text-sm leading-relaxed mb-5 flex-1">
-                  "{t.text}"
-                </p>
-
-                {/* Footer: Name + Badge */}
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                  <div className={`w-12 h-12 rounded-full ${t.badgeColor} text-white flex flex-col items-center justify-center text-center shadow-inner flex-shrink-0`}>
-                    <span className="text-[10px] font-extrabold leading-none">{t.badge}</span>
-                    <span className="text-[7px] uppercase tracking-wider mt-0.5 text-green-100">{t.badgeSub}</span>
+          {/* Testimonials List — Zigzag Organic Blob & Card Layout */}
+          <div className="flex flex-col space-y-12 max-w-[1000px] mx-auto">
+            {testimonials.map((t, i) => {
+              const isEven = i % 2 === 0;
+              return (
+                <div
+                  key={i}
+                  className={`flex flex-col sm:flex-row items-center gap-6 sm:gap-10 ${isEven ? 'sm:flex-row' : 'sm:flex-row-reverse'
+                    }`}
+                >
+                  {/* Organic Green Shape for Image Placeholder */}
+                  <div className="flex-shrink-0 relative">
+                    <div
+                      className="w-28 h-28 sm:w-36 sm:h-36 shadow-lg transition-transform duration-300 hover:scale-105"
+                      style={{
+                        background: 'linear-gradient(135deg, #2D8A35 0%, #1C5620 60%, #123C15 100%)',
+                        borderRadius: isEven
+                          ? '42% 58% 70% 30% / 45% 45% 55% 55%'
+                          : '58% 42% 35% 65% / 55% 60% 40% 45%',
+                      }}
+                    />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-sm">{t.name}</h4>
-                    {t.designation && (
-                      <span className="text-xs text-gray-400">{t.designation}</span>
-                    )}
+
+                  {/* Testimonial Quote Card */}
+                  <div className="flex-1 w-full relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:border-rlhp-green hover:shadow-xl hover:shadow-rlhp-green/10 transition-all duration-300 group">
+                    {/* Top Quote Icon Badge */}
+                    <div className="absolute -top-4 left-6 sm:left-8 w-8 h-8 rounded-full bg-green-50 border border-green-200 group-hover:bg-rlhp-green group-hover:border-rlhp-green transition-colors flex items-center justify-center shadow-sm">
+                      <Quote size={16} className="text-rlhp-green group-hover:text-white transition-colors" />
+                    </div>
+
+                    {/* Testimonial Quote Text */}
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed italic mt-2 mb-6 group-hover:text-gray-900 transition-colors">
+                      “{t.text}”
+                    </p>
+
+                    {/* Footer Information */}
+                    <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <h4 className="font-bold text-gray-900 text-base group-hover:text-rlhp-green transition-colors">
+                          {t.name}
+                        </h4>
+                        {t.designation && (
+                          <p className="text-xs text-gray-500 font-medium">
+                            {t.designation}
+                          </p>
+                        )}
+                      </div>
+
+                      {t.tag && (
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-rlhp-green border border-green-200/60 group-hover:bg-rlhp-green group-hover:text-white transition-all">
+                          {t.tag}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* View More / View Less Button */}
-          <div className="text-center mt-10">
-            <button
-              onClick={() => setShowAllTestimonials(!showAllTestimonials)}
-              className="inline-flex items-center gap-2 bg-white border-2 border-rlhp-green text-rlhp-green hover:bg-rlhp-green hover:text-white font-semibold text-sm px-8 py-3 rounded-full shadow-sm transition-all duration-300"
-            >
-              {showAllTestimonials ? 'View Less' : 'View More'}
-              <ChevronDown size={16} className={`transition-transform duration-300 ${showAllTestimonials ? 'rotate-180' : ''}`} />
-            </button>
+              );
+            })}
           </div>
 
           {/* Stories Footer Handwritten Note */}
           <div className="text-center mt-8 pt-6">
             <p className="stories-footer-handwritten mb-2">
-              Every story starts with someone who cares...
-            </p>
-            <p className="text-gray-600 text-sm">
-              Your support of <strong className="text-rlhp-green font-bold">₹2,000</strong> can write the next testimony of hope and self-reliance.
             </p>
           </div>
         </div>
@@ -600,17 +598,11 @@ export default function Home({ setCurrentPage, onNavClick }) {
           </div>
 
           {/* Quote Box below stats */}
-          <div className="max-w-[850px] mx-auto bg-green-50/60 border-l-4 border-rlhp-green rounded-r-xl p-6 sm:p-8">
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed italic">
-              "Every year, we reach <strong className="text-rlhp-green font-bold">thousands of marginalized children</strong> who would otherwise never have access to education and protection. Your support doesn't just change one life—it transforms entire families and communities across generations."
-            </p>
-          </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 6: YOUR ACTION CHANGES EVERYTHING
-          - Buttons removed from cards, content kept
+          SECTION 6: Together, We Make a Difference
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-20 bg-[#0c192c] text-white overflow-hidden">
         {/* Decorative blur elements */}
@@ -619,223 +611,83 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
-              YOUR ACTION <br />
-              <span className="text-rlhp-accentgreen">CHANGES EVERYTHING</span>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              Together, <span className="text-rlhp-accentgreen">We Make a Difference</span>
             </h2>
-            <p className="text-gray-300 text-base max-w-[650px] mx-auto">
-              Right now, thousands of children are waiting for a chance at education and safety. You can be that chance.
-            </p>
           </div>
 
-          {/* 3 Action Cards — Buttons Removed */}
+          {/* 3 Action Cards */}
           <div className="grid md:grid-cols-3 gap-8 mb-14">
             {/* Card 1: Donate Today */}
-            <div className="bg-[#13233c] border border-white/10 rounded-xl p-8 flex flex-col hover:border-rlhp-green/60 transition-colors">
-              <div className="text-rlhp-accentgreen mb-5">
-                <Heart size={36} className="fill-rlhp-accentgreen/20" />
+            <div 
+              onClick={() => nav('bank-details')}
+              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center hover:border-rlhp-accentgreen hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg"
+            >
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 transition-transform">
+                <Heart size={56} className="fill-rlhp-accentgreen/20" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Donate Today</h3>
-              <p className="text-gray-300 text-sm leading-relaxed flex-1">
-                ₹2,000 provides a child with education, meals, and school supplies. Contributions are eligible for 80G tax exemption.
-              </p>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
+                Donate Today
+              </h3>
             </div>
 
             {/* Card 2: Corporate Partnership */}
-            <div className="bg-[#13233c] border border-white/10 rounded-xl p-8 flex flex-col hover:border-rlhp-green/60 transition-colors">
-              <div className="text-rlhp-accentgreen mb-5">
-                <Handshake size={36} />
+            <div 
+              onClick={() => nav('contact')}
+              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center hover:border-rlhp-accentgreen hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg"
+            >
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 transition-transform">
+                <Handshake size={56} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Corporate Partnership</h3>
-              <p className="text-gray-300 text-sm leading-relaxed flex-1">
-                Transform hundreds of lives through CSR initiatives. Partner with RLHP on education, healthcare, and livelihood programs.
-              </p>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
+                Corporate Partnership
+              </h3>
             </div>
 
             {/* Card 3: Volunteer Your Skills */}
-            <div className="bg-[#13233c] border border-white/10 rounded-xl p-8 flex flex-col hover:border-rlhp-green/60 transition-colors">
-              <div className="text-rlhp-accentgreen mb-5">
-                <Users size={36} />
+            <div 
+              onClick={() => nav('contact')}
+              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center hover:border-rlhp-accentgreen hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg"
+            >
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 transition-transform">
+                <Users size={56} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Volunteer Your Skills</h3>
-              <p className="text-gray-300 text-sm leading-relaxed flex-1">
-                Teach, mentor, conduct healthcare camps, or support digital learning. Give your time to directly change a child's future.
-              </p>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
+                Volunteer Your Skills
+              </h3>
             </div>
           </div>
 
-          {/* Action Banner (Green background with Donate CTA) */}
-          <div className="bg-rlhp-green rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-            <div className="text-left">
+          {/* Action Banner (Green background without Donate Now button) */}
+          <div className="bg-rlhp-green rounded-2xl p-8 sm:p-10 flex items-center justify-center text-center shadow-xl">
+            <div className="max-w-2xl">
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
                 Transform a Child's Life Today
               </h3>
-              <p className="text-green-100 text-sm sm:text-base max-w-xl">
+              <p className="text-green-100 text-sm sm:text-base">
                 Your donation provides a child with education, nutrition, and hope for an entire year.
               </p>
             </div>
-            <button
-              onClick={() => nav('bank-details')}
-              className="bg-white text-rlhp-darkgreen hover:bg-gray-100 font-bold text-sm sm:text-base px-8 py-3.5 rounded-lg shadow-md transition-all flex-shrink-0"
-            >
-              Donate Now
-            </button>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 7: OUR ACTIVITIES - ANNUAL REPORTS
+          SECTION 7: OUR PROGRAMMES
       ═══════════════════════════════════════════════════════════════════ */}
-      <section id="our-activities" className="relative py-20 bg-gray-50 border-t border-gray-200 overflow-hidden">
+      <section id="our-programmes" className="relative py-20 bg-gray-50 border-t border-gray-200 overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-sm font-extrabold tracking-[0.2em] text-rlhp-green uppercase mb-2">
-              OUR ACTIVITIES
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
+              Our <span className="text-rlhp-green">Programmes</span>
             </h2>
-            <div className="w-12 h-[3px] bg-rlhp-green mx-auto rounded-full mb-3" />
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
-              Annual Reports &amp; Field Documentation
-            </h3>
-            <p className="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto">
-              Transparent reporting on four decades of child education, community interventions, and statutory audits across South India.
-            </p>
+            <div className="w-14 h-[3px] bg-rlhp-green mx-auto rounded-full" />
           </div>
 
-          {/* Sub-section: Annual Reports */}
-          <div className="bg-white rounded-2xl p-6 sm:p-10 border border-gray-200 shadow-sm">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-gray-150">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-rlhp-darkgreen text-xs font-bold uppercase tracking-wider mb-2">
-                  <ShieldCheck size={14} className="text-rlhp-green" /> Official Audits &amp; Filings
-                </div>
-                <h4 className="text-2xl font-black text-gray-900">
-                  Annual Reports
-                </h4>
-                <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                  Download or inspect certified audit reports, balance sheets, and annual activity evaluations.
-                </p>
-              </div>
-
-              <button
-                onClick={() => nav('financials')}
-                className="inline-flex items-center gap-2 bg-rlhp-lightgreen text-rlhp-darkgreen hover:bg-rlhp-green hover:text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors duration-200 self-start sm:self-auto"
-              >
-                View Financial Hub <ArrowRight size={14} />
-              </button>
-            </div>
-
-            {/* Reports Cards Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  id: 'ar-2025',
-                  title: 'Annual Report 2024-2025',
-                  year: '2024-2025',
-                  type: 'Official Signed Audit',
-                  desc: 'Comprehensive audit, operational review & audited balance sheet certified by Chartered Accountants (UDIN: 25251076BMIISA9978).',
-                  file: `${B}documents/audit-report-2024-2025.pdf`,
-                  fileName: 'RLHP_Audit_Report_2024-2025.pdf',
-                  badgeColor: 'bg-emerald-100 text-emerald-800',
-                  pages: '3 Pages • Signed PDF'
-                },
-                {
-                  id: 'ar-2024',
-                  title: 'Annual Report 2023-2024',
-                  year: '2023-2024',
-                  type: 'Annual Impact Review',
-                  desc: 'Key milestones, impact metrics across 10 districts & community outreach in child protection, nutrition, and schooling.',
-                  badgeColor: 'bg-blue-100 text-blue-800',
-                  pages: 'Official Report • PDF'
-                },
-                {
-                  id: 'ar-2023',
-                  title: 'Annual Report 2022-2023',
-                  year: '2022-2023',
-                  type: 'Annual Review & Audit',
-                  desc: 'Post-pandemic community recovery, livelihood drives, women SHG micro-enterprises & audited financial statements.',
-                  badgeColor: 'bg-purple-100 text-purple-800',
-                  pages: 'Official Report • PDF'
-                },
-                {
-                  id: 'ar-base',
-                  title: 'Baseline Survey Report',
-                  year: '2024',
-                  type: 'Socio-Economic Survey',
-                  desc: 'In-depth socio-economic baseline assessment of Pourakarmika families and rural habitations across Karnataka.',
-                  badgeColor: 'bg-amber-100 text-amber-800',
-                  pages: 'Field Survey • PDF'
-                },
-                {
-                  id: 'ar-iep',
-                  title: 'IEP Activity Report',
-                  year: '2024',
-                  type: 'Education Framework',
-                  desc: 'Individualized Education Plan diagnostic evaluation & remediation methodologies for learning difficulties in rural schools.',
-                  badgeColor: 'bg-teal-100 text-teal-800',
-                  pages: 'Activity Report • PDF'
-                },
-                {
-                  id: 'ar-pta',
-                  title: 'PTA Governance Report',
-                  year: '2024',
-                  type: 'Community Governance',
-                  desc: 'Strengthening community school governance, Anganwadi monitoring, child dropout prevention and parent participation.',
-                  badgeColor: 'bg-rose-100 text-rose-800',
-                  pages: 'Governance Report • PDF'
-                },
-              ].map((report, idx) => (
-                <div
-                  key={idx}
-                  className="bg-gray-50/60 rounded-xl border border-gray-200 p-6 flex flex-col justify-between hover:shadow-md hover:border-rlhp-green/50 transition-all duration-200 group"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${report.badgeColor}`}>
-                        {report.type}
-                      </span>
-                      <span className="text-xs font-semibold text-gray-400">
-                        {report.year}
-                      </span>
-                    </div>
-
-                    <h5 className="font-bold text-gray-900 text-base mb-2 group-hover:text-rlhp-green transition-colors leading-snug">
-                      {report.title}
-                    </h5>
-
-                    <p className="text-xs text-gray-600 leading-relaxed mb-4">
-                      {report.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-gray-200/60 flex items-center justify-between gap-3">
-                    <span className="text-[11px] text-gray-400 font-medium flex items-center gap-1">
-                      <FileText size={13} className="text-rlhp-green" /> {report.pages}
-                    </span>
-
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => handleViewReport(report)}
-                        className="px-3 py-1.5 rounded-md bg-white border border-gray-200 text-gray-700 hover:text-rlhp-green hover:border-rlhp-green text-xs font-semibold flex items-center gap-1 transition-colors shadow-2xs"
-                        title="View Report"
-                      >
-                        <Eye size={12} /> View
-                      </button>
-                      <button
-                        onClick={() => handleDownloadReport(report)}
-                        disabled={downloadingReport === report.title}
-                        className="px-3 py-1.5 rounded-md bg-rlhp-green hover:bg-rlhp-darkgreen text-white text-xs font-semibold flex items-center gap-1 transition-colors shadow-2xs"
-                        title="Download PDF"
-                      >
-                        <Download size={12} />
-                        {downloadingReport === report.title ? 'Downloading...' : 'PDF'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          {/* Clean Container for User's Content */}
+          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200 shadow-sm min-h-[160px] flex items-center justify-center text-center">
+            {/* Content placeholder ready for user's content */}
           </div>
         </div>
       </section>
