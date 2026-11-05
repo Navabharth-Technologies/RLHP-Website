@@ -699,9 +699,9 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 title: 'Annual Report 2022-2023',
                 period: 'April 2022 to March 2023',
                 cover: `${B}reports/report-2022-2023.jpg`,
+                pdfUrl: `${B}reports/RLHP_Annual_Report_2022_2023.pdf`,
                 date: 'March 31, 2023',
                 pages: [
-                  `${B}reports/report-2022-2023.jpg`,
                   `${B}reports/report-2022-2023.jpg`
                 ]
               },
