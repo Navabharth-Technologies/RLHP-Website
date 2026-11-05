@@ -59,24 +59,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
     setDownloadingReport(null);
   };
 
-  const heroSlides = [
-    {
-      img: `${B}images/hero_slide_1.jpg`,
-    },
-    {
-      img: `${B}images/hero_slide_2.jpg`,
-    },
-    {
-      img: `${B}images/hero_slide_3.jpg`,
-    },
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [heroSlides.length]);
+  /* ─── HERO SINGLE BACKGROUND IMAGE ─── */
+  const heroImage = `${B}images/hero_single_child.jpg`;
 
   /* ─── TESTIMONIALS DATA ─── */
   const testimonials = [
@@ -136,20 +120,14 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 1: HERO SECTION
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative w-full overflow-hidden bg-[#0a1628] text-white min-h-[640px] lg:min-h-[720px] flex items-center">
-        {/* Background Image with cross-fade */}
-        {heroSlides.map((slide, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === currentSlide ? 'opacity-100 z-0' : 'opacity-0 -z-10'
-              }`}
-          >
-            <img
-              src={slide.img}
-              alt="RLHP Hero"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
+        {/* Static Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImage}
+            alt="RLHP Child Education"
+            className="w-full h-full object-cover object-[center_25%]"
+          />
+        </div>
 
         {/* Dark overlay for contrast */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/80 to-[#0a1628]/40 z-[1]" />
