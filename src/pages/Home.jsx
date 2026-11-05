@@ -155,21 +155,11 @@ export default function Home({ setCurrentPage, onNavClick }) {
           </svg>
         </div>
 
-        {/* Hero Content Container - Aligned to the RIGHT, completely transparent card matching Image 1 */}
-        <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-8 py-20 w-full flex justify-end">
-          <div className="max-w-[640px] bg-transparent p-2 sm:p-4">
-            {/* Giant Prominent RLHP Headline matching Image 1 */}
-            <div className="mb-4">
-              <span className="inline-block text-5xl sm:text-6xl lg:text-[76px] font-black text-[#4CAF50] tracking-tight drop-shadow-lg">
-                RLHP
-              </span>
-              <span className="block text-xs sm:text-sm font-bold text-white/90 uppercase tracking-[0.2em] mt-1 drop-shadow-sm">
-                Rural Literacy and Health Programme
-              </span>
-            </div>
-
+        {/* Hero Content Container - Moved completely to the right edge with generous margin */}
+        <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 py-20 flex justify-end">
+          <div className="w-full max-w-[560px] lg:mr-4 xl:mr-10 bg-transparent p-2">
             {/* Main Headline with Smooth Paint Stroke Underline on Community */}
-            <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-white leading-snug mb-8 tracking-tight drop-shadow">
+            <h1 className="text-6xl sm:text-9xl lg:text-[60px] font-bold text-white leading-[1.2] mb-7 tracking-tight drop-shadow-md">
               Transforming Lives of Children, Women and{' '}
               <span className="relative inline-block text-white">
                 Community
@@ -191,7 +181,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </h1>
 
             {/* Hero CTA Actions */}
-            <div className="flex flex-wrap items-center gap-4 mb-10">
+            <div className="flex flex-wrap items-center gap-4 mb-9">
               <button
                 onClick={() => nav('bank-details')}
                 className="inline-flex items-center gap-2.5 bg-rlhp-green hover:bg-rlhp-darkgreen text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
@@ -208,7 +198,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </div>
 
             {/* Hero Metrics Strip */}
-            <div className="pt-6 border-t border-white/20 grid grid-cols-3 gap-6 max-w-[500px]">
+            <div className="pt-6 border-t border-white/20 grid grid-cols-3 gap-6 max-w-[480px]">
               <div>
                 <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">2M+</div>
                 <div className="text-xs sm:text-sm text-gray-200 font-medium uppercase tracking-wider mt-0.5">Lives Reached</div>
