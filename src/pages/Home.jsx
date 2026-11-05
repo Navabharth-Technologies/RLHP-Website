@@ -62,18 +62,12 @@ export default function Home({ setCurrentPage, onNavClick }) {
   const heroSlides = [
     {
       img: `${B}images/hero_slide_1.jpg`,
-      titleWord: 'Community',
-      sub: 'Over 2 million lives touched across 10 districts in Karnataka and 4 states in South India. Reaching children and women with education, health, and holistic empowerment.',
     },
     {
       img: `${B}images/hero_slide_2.jpg`,
-      titleWord: 'Generations',
-      sub: 'Education is the foundation of change. Reaching over 80,000 children with quality learning, remedial coaching, and child protection.',
     },
     {
       img: `${B}images/hero_slide_3.jpg`,
-      titleWord: 'Children',
-      sub: 'Providing safe shelter, nutrition, and education for vulnerable and street-connected children through Asha Kirana and Asha Bhavana homes.',
     },
   ];
 
@@ -186,38 +180,19 @@ export default function Home({ setCurrentPage, onNavClick }) {
         {/* Hero Content Container */}
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 py-20 w-full">
           <div className="max-w-[720px]">
-            {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#236B28]/20 border border-[#236B28]/40 text-[#4CAF50] text-xs font-semibold uppercase tracking-wider mb-5">
-              <span className="w-2 h-2 rounded-full bg-[#4CAF50] animate-pulse" />
-              Rural Literacy and Health Programme (RLHP)
+            {/* Tagline Badge with Enriched Highlighted RLHP */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#236B28]/30 border border-[#4CAF50]/50 text-white text-xs sm:text-sm font-semibold tracking-wider mb-6 backdrop-blur-sm shadow-md">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#4CAF50] animate-pulse" />
+              <span>Rural Literacy and Health Programme</span>
+              <span className="px-2 py-0.5 rounded-md bg-[#4CAF50] text-[#0a1628] font-black text-sm sm:text-base tracking-wider shadow-sm">
+                RLHP
+              </span>
             </div>
 
-            {/* Main Headline with SVG Paint Stroke Highlight */}
-            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-white leading-[1.15] mb-5 tracking-tight">
-              Transforming Lives of Children, Women and{' '}
-              <span className="relative inline-block text-white">
-                {heroSlides[currentSlide].titleWord}
-                <svg
-                  className="absolute -bottom-2 left-0 w-full overflow-visible"
-                  height="12"
-                  viewBox="0 0 300 12"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0,6 Q75,0 150,6 T300,6"
-                    stroke="#236B28"
-                    strokeWidth="8"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
+            {/* Main Headline */}
+            <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-white leading-snug mb-8 tracking-tight">
+              Transforming Lives of Children, Women and Community
             </h1>
-
-            {/* Sub-paragraph */}
-            <p className="text-base sm:text-lg text-gray-200/90 leading-relaxed mb-8 max-w-[620px]">
-              {heroSlides[currentSlide].sub}
-            </p>
 
             {/* Hero CTA Actions */}
             <div className="flex flex-wrap items-center gap-4 mb-12">
@@ -296,7 +271,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
                 <div className="text-gray-600 text-base leading-relaxed space-y-4">
                   <p>
-                    Since 1984, <strong className="text-gray-900">Rural Literacy and Health Programme (RLHP)</strong> has been working towards holistic, child-centred development. What began with a focus on the health and education of scavengers (Pourakarmikas) and their children has grown into a wider community development movement, reaching over <strong className="text-gray-900">2 million lives</strong> across 10 districts in Karnataka and four states in South India.
+                    Since 1984, <strong className="text-gray-900">Rural Literacy and Health Programme (RLHP)</strong> has been working towards holistic, child-centred development. What began with a focus on the health and education of urban poor (Pourakarmikas) and their children has grown into a wider community development approach, reaching over <strong className="text-gray-900">2 million lives</strong> across 10 districts in Karnataka and four states in South India.
                   </p>
                   <p>
                     We work in the most marginalized communities—from urban informal settlements to rural villages. Where others see impossibility, we see children full of potential and communities ready to transform.
