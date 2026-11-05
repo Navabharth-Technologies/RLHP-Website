@@ -3,9 +3,10 @@ import {
   ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, Quote,
   FileText, GraduationCap, Handshake, ShieldCheck, Download,
   Baby, Heart, Users, Building2, MapPin, Phone, Mail, ExternalLink,
-  Calendar, Check, Camera, Eye, ChevronDown
+  Calendar, Check, Camera, Eye, ChevronDown, BookOpen
 } from 'lucide-react';
 import { downloadPDFDocument } from '../utils/fileDownloader';
+import FlipbookModal from '../components/FlipbookModal';
 
 const B = import.meta.env.BASE_URL;
 
@@ -20,6 +21,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showAllTestimonials, setShowAllTestimonials] = useState(false);
   const [downloadingReport, setDownloadingReport] = useState(null);
+  const [activeFlipbook, setActiveFlipbook] = useState(null);
 
   const handleViewReport = (report) => {
     if (report.file) {
@@ -674,23 +676,124 @@ export default function Home({ setCurrentPage, onNavClick }) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 7: OUR PROGRAMMES
+          SECTION 7: OUR PROGRAMMES (Interactive Flipbook Reports matching reference 2)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section id="our-programmes" className="relative py-20 bg-gray-50 border-t border-gray-200 overflow-hidden">
+      <section id="our-programmes" className="relative py-24 bg-white border-t border-gray-100 overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
-              Our <span className="text-rlhp-green">Programmes</span>
+          {/* Header */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight uppercase mb-3">
+              Our Programmes
             </h2>
-            <div className="w-14 h-[3px] bg-rlhp-green mx-auto rounded-full" />
+            <div className="w-16 h-[3px] bg-rlhp-green mx-auto rounded-full mb-3" />
+            <p className="text-sm sm:text-base text-gray-500 max-w-xl mx-auto">
+              Stay updated with our latest reports, programmes, newsletters and impact stories
+            </p>
           </div>
 
-          {/* Clean Container for User's Content */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200 shadow-sm min-h-[160px] flex items-center justify-center text-center">
-            {/* Content placeholder ready for user's content */}
+          {/* 4 Cards Grid - Replicating Reference 2 Design with uploaded cover images 2, 3, 4, 5 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+            {[
+              {
+                id: 'report-2022-2023',
+                title: 'Annual Report 2022-2023',
+                period: 'April 2022 to March 2023',
+                cover: `${B}reports/report-2022-2023.jpg`,
+                date: 'March 31, 2023',
+                pages: [
+                  `${B}reports/report-2022-2023.jpg`,
+                  `${B}reports/report-2022-2023.jpg`
+                ]
+              },
+              {
+                id: 'report-2023-2024',
+                title: 'Annual Report 2023-2024',
+                period: 'April 2023 to March 2024',
+                cover: `${B}reports/report-2023-2024.jpg`,
+                date: 'March 31, 2024',
+                pages: [
+                  `${B}reports/report-2023-2024.jpg`,
+                  `${B}reports/report-2023-2024.jpg`
+                ]
+              },
+              {
+                id: 'report-2024-2025',
+                title: 'Annual Report 2024-2025',
+                period: 'April 2024 to March 2025',
+                cover: `${B}reports/report-2024-2025.jpg`,
+                date: 'March 31, 2025',
+                pages: [
+                  `${B}reports/report-2024-2025.jpg`,
+                  `${B}reports/report-2024-2025.jpg`
+                ]
+              },
+              {
+                id: 'report-2025-2026',
+                title: 'Annual Report 2025-2026',
+                period: 'April 2025 to March 2026',
+                cover: `${B}reports/report-2025-2026.jpg`,
+                date: 'March 31, 2026',
+                pages: [
+                  `${B}reports/report-2025-2026.jpg`,
+                  `${B}reports/report-2025-2026.jpg`
+                ]
+              }
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                onClick={() => setActiveFlipbook(item)}
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:border-rlhp-green/50 transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
+              >
+                {/* Book Cover Container */}
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 flex items-center justify-center p-3">
+                  <div className="relative w-full h-full rounded-lg overflow-hidden shadow-md group-hover:shadow-lg transition-shadow">
+                    <img
+                      src={item.cover}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Book spine overlay */}
+                    <div className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-black/30 to-transparent pointer-events-none" />
+                    {/* Hover badge */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="px-4 py-2 rounded-full bg-rlhp-green text-white text-xs font-bold shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <BookOpen size={14} /> Read Report
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Body */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[11px] font-semibold text-gray-400 block mb-1">
+                      {item.date}
+                    </span>
+                    <h3 className="text-base font-bold text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug line-clamp-2">
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between">
+                    <span className="text-xs font-bold text-rlhp-green group-hover:underline flex items-center gap-1">
+                      Read More <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-rlhp-green/40 group-hover:bg-rlhp-green transition-colors" />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Interactive 3D Book Turn-Page Modal */}
+      {activeFlipbook && (
+        <FlipbookModal
+          report={activeFlipbook}
+          onClose={() => setActiveFlipbook(null)}
+        />
+      )}
 
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 8: OUR PARTNERS
