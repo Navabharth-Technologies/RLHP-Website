@@ -68,18 +68,18 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
             {/* ── Logo + Brand ── */}
             <button
               onClick={() => go('home')}
-              className="flex items-center gap-3 sm:gap-3.5 flex-shrink-0 text-left group"
+              className="flex items-center gap-3.5 sm:gap-4 flex-shrink-0 text-left group"
             >
               <img
                 src={`${B}rlhp-logo.png`}
                 alt="RLHP Logo"
-                className="h-11 w-11 sm:h-12 sm:w-12 rounded-full object-contain bg-white p-0.5 ring-2 ring-[#236B28]/50 group-hover:ring-[#4CAF50] transition-all duration-200 shadow-md shrink-0"
+                className="h-13 w-13 sm:h-14 sm:w-14 rounded-full object-contain bg-white p-0.5 ring-2 ring-[#236B28]/60 group-hover:ring-[#4CAF50] transition-all duration-200 shadow-lg shrink-0"
               />
               <div className="leading-tight">
-                <span className="block text-[#4CAF50] font-black text-[14.5px] sm:text-[16px] tracking-tight group-hover:text-[#66BB6A] transition-colors">
+                <span className="block text-[#4CAF50] font-black text-[16px] sm:text-[18.5px] tracking-tight group-hover:text-[#66BB6A] transition-colors drop-shadow-sm">
                   Rural Literacy &amp; Health Programme
                 </span>
-                <span className="block text-white text-[10px] sm:text-[11px] font-medium tracking-normal opacity-90 mt-0.5">
+                <span className="block text-white text-[11px] sm:text-[12px] font-medium tracking-normal opacity-95 mt-0.5">
                   Empowering through health, education and livelihood
                 </span>
               </div>

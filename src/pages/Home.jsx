@@ -120,20 +120,20 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 1: HERO SECTION
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative w-full overflow-hidden bg-[#0a1628] text-white min-h-[640px] lg:min-h-[720px] flex items-center">
-        {/* Static Background Image */}
+        {/* Static Background Image with Face Highlighted on Left */}
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
             alt="RLHP Child Education"
-            className="w-full h-full object-cover object-[center_25%]"
+            className="w-full h-full object-cover object-[left_20%] sm:object-[15%_20%]"
           />
         </div>
 
-        {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/80 to-[#0a1628]/40 z-[1]" />
+        {/* Dynamic Dark Gradient: clearer on left so girl's face is highlighted, darker on right behind text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/40 via-[#0a1628]/75 to-[#0a1628]/95 z-[1]" />
 
-        {/* Curved Green SVG Element */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 pointer-events-none overflow-hidden z-[2] hidden md:block">
+        {/* Curved Green SVG Element pushed to far edge */}
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-2/5 pointer-events-none overflow-hidden z-[2] opacity-40 hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
@@ -155,36 +155,30 @@ export default function Home({ setCurrentPage, onNavClick }) {
           </svg>
         </div>
 
-        {/* Hero Content Container */}
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 py-20 w-full">
-          <div className="max-w-[720px]">
-            {/* Giant Prominent RLHP Headline */}
-            <div className="mb-4">
-              <span className="inline-block text-5xl sm:text-6xl lg:text-[76px] font-black text-[#4CAF50] tracking-tight drop-shadow-md">
-                RLHP
+        {/* Hero Content Container - Aligned to the RIGHT so the face on the left is fully visible */}
+        <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-8 py-20 w-full flex justify-end">
+          <div className="max-w-[620px] bg-[#0a1628]/60 sm:bg-[#0a1628]/40 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/10 shadow-2xl">
+            {/* Main Headline in Italic Serif / Playful style */}
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold italic text-white leading-[1.25] mb-8 tracking-tight font-serif">
+              Transforming Lives of{' '}
+              <span className="text-[#4CAF50] underline decoration-[#4CAF50]/60 decoration-wavy underline-offset-4">
+                Children
               </span>
-              <span className="block text-sm sm:text-base font-semibold text-gray-300 uppercase tracking-widest mt-1">
-                Rural Literacy and Health Programme
-              </span>
-            </div>
-
-            {/* Sub-headline */}
-            <h1 className="text-xl sm:text-2xl lg:text-[26px] font-medium text-white/90 leading-snug mb-8 tracking-normal max-w-xl">
-              Transforming Lives of Children, Women and Community
+              , Women and Community
             </h1>
 
             {/* Hero CTA Actions */}
-            <div className="flex flex-wrap items-center gap-4 mb-12">
+            <div className="flex flex-wrap items-center gap-4 mb-10">
               <button
                 onClick={() => nav('bank-details')}
-                className="inline-flex items-center gap-2.5 bg-rlhp-green hover:bg-rlhp-darkgreen text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2.5 bg-rlhp-green hover:bg-rlhp-darkgreen text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
               >
                 <Heart size={18} className="fill-white" />
                 Donate
               </button>
               <button
                 onClick={() => nav('about', 'identity')}
-                className="inline-flex items-center gap-2 border-2 border-white/80 text-white hover:bg-white hover:text-gray-900 font-semibold text-sm sm:text-base px-7 py-3.5 rounded-lg transition-all duration-200"
+                className="inline-flex items-center gap-2 border-2 border-white/80 text-white hover:bg-white hover:text-gray-900 font-semibold text-sm sm:text-base px-7 py-3.5 rounded-xl transition-all duration-200"
               >
                 Learn Our Story
               </button>
