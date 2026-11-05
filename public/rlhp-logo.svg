@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <!-- Text Paths for Curved Ring Labels -->
+    <path id="topTextPath" d="M 35,150 A 115,115 0 1,1 265,150" fill="none" />
+    <path id="bottomTextPath" d="M 265,150 A 115,115 0 0,1 35,150" fill="none" />
+  </defs>
+
+  <!-- Background circle (optional transparent or white) -->
+  <circle cx="150" cy="150" r="145" fill="#FFFFFF" />
+
+  <!-- Outer Double Green Borders -->
+  <circle cx="150" cy="150" r="142" fill="none" stroke="#236B28" stroke-width="4" />
+  <circle cx="150" cy="150" r="136" fill="none" stroke="#236B28" stroke-width="2" />
+
+  <!-- Inner Double Ring -->
+  <circle cx="150" cy="150" r="98" fill="none" stroke="#236B28" stroke-width="3" />
+  <circle cx="150" cy="150" r="94" fill="none" stroke="#236B28" stroke-width="1.5" />
+
+  <!-- Curved Top Text: RURAL LITERACY & HEALTH PROGRAMME - MYSORE -->
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="15" fill="#236B28" letter-spacing="1">
+    <textPath href="#topTextPath" startOffset="50%" text-anchor="middle">
+      RURAL LITERACY &amp; HEALTH PROGRAMME • MYSORE
+    </textPath>
+  </text>
+
+  <!-- Curved Bottom Text: ★ RLHP ★ -->
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="20" fill="#236B28" letter-spacing="2">
+    <textPath href="#bottomTextPath" startOffset="50%" text-anchor="middle">
+      ★ RLHP ★
+    </textPath>
+  </text>
+
+  <!-- INNER EMBLEM -->
+  <g transform="translate(150, 150)">
+    <!-- 3 Community Figures Connected in Circle -->
+    <!-- Lower Bottom Figure -->
+    <path d="M -45 10 C -45 42, 45 42, 45 10 C 32 32, -32 32, -45 10 Z" fill="#236B28" />
+    <circle cx="0" cy="28" r="8" fill="#236B28" />
+    
+    <!-- Left Figure -->
+    <path d="M -10 -45 C -42 -45, -42 45, -10 45 C -32 32, -32 -32, -10 -45 Z" fill="#236B28" />
+    <circle cx="-28" cy="0" r="8" fill="#236B28" />
+
+    <!-- Right Figure -->
+    <path d="M 10 -45 C 42 -45, 42 45, 10 45 C 32 32, 32 -32, 10 -45 Z" fill="#236B28" />
+    <circle cx="28" cy="0" r="8" fill="#236B28" />
+
+    <!-- Central Drop / Seed Ring -->
+    <circle cx="0" cy="-2" r="30" fill="none" stroke="#236B28" stroke-width="4" />
+    <path d="M 0,-32 C 18,-15 18,15 0,30 C -18,15 -18,-15 0,-32 Z" fill="none" stroke="#236B28" stroke-width="3" />
+    
+    <!-- Inner Seed Spiral -->
+    <path d="M 0,10 C -8,10 -10,0 0,-10 C 8,-10 8,-2 2,2 C -2,4 -4,0 0,-4" fill="none" stroke="#236B28" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Plant Sprout Growing Upward -->
+    <!-- Central Stem -->
+    <path d="M 0,-30 L 0,-85" stroke="#236B28" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Sprout Leaves -->
+    <!-- Leaf 1 Left Bottom -->
+    <path d="M 0,-45 C -18,-48 -22,-60 -5,-62 C 0,-62 0,-50 0,-45 Z" fill="#236B28" />
+    <!-- Leaf 2 Right Bottom -->
+    <path d="M 0,-50 C 18,-53 22,-65 5,-67 C 0,-67 0,-55 0,-50 Z" fill="#236B28" />
+    
+    <!-- Leaf 3 Left Mid -->
+    <path d="M 0,-60 C -18,-63 -22,-75 -5,-77 C 0,-77 0,-65 0,-60 Z" fill="#236B28" />
+    <!-- Leaf 4 Right Mid -->
+    <path d="M 0,-65 C 18,-68 22,-80 5,-82 C 0,-82 0,-70 0,-65 Z" fill="#236B28" />
+    
+    <!-- Top Leaf Pair -->
+    <path d="M 0,-80 C -12,-85 -12,-95 0,-96 C 12,-95 12,-85 0,-80 Z" fill="#236B28" />
+  </g>
+</svg>
