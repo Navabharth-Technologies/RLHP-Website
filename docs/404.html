@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>RLHP - Redirecting...</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/RLHP-Website/rlhp-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rural Literacy &amp; Health Programme (RLHP) | Empowering Communities</title>
+    <meta name="description" content="RLHP Mysore is a non-profit organization working for 42+ years for the empowerment of children, women, youth, health, education, and marginalized communities in Karnataka, India." />
+    <!-- GitHub Pages SPA redirect handler -->
     <script>
-      // GitHub Pages SPA redirect trick
-      // Redirects 404s back to index.html preserving the URL
-      var segmentCount = 1; // number of path segments in your repo name
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
     </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/RLHP-Website/assets/index-DIHReON7.js"></script>
+    <link rel="stylesheet" crossorigin href="/RLHP-Website/assets/index-Bp2gCNG7.css">
   </head>
-  <body>
-    Redirecting...
+  <body class="bg-gray-50 text-gray-800 antialiased font-sans">
+    <div id="root"></div>
   </body>
 </html>
-

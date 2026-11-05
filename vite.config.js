@@ -3,7 +3,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/RLHP_web/',
+  base: '/RLHP-Website/',
+  build: {
+    outDir: 'docs'
+  },
   server: {
     host: '127.0.0.1',
     port: 5173

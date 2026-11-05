@@ -190,7 +190,7 @@ export default function OurIdentity({ setCurrentPage }) {
         {/* 5. MISSION & VISION (Redesigned with Brand Green Logo Theme) */}
         <section id="mission-vision" className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Mission Card */}
-          <div 
+          <div
             className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group border border-emerald-500/30"
             style={{
               background: 'linear-gradient(145deg, #184c20 0%, #236B28 50%, #0e2d13 100%)',
@@ -205,9 +205,6 @@ export default function OurIdentity({ setCurrentPage }) {
                   <Target size={28} className="text-white" />
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-300">
-                    Statement of Purpose
-                  </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
                     Mission
                   </h3>
@@ -223,7 +220,7 @@ export default function OurIdentity({ setCurrentPage }) {
           </div>
 
           {/* Vision Card */}
-          <div 
+          <div
             className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group border border-emerald-500/30"
             style={{
               background: 'linear-gradient(145deg, #1C5620 0%, #2D8A35 55%, #133D16 100%)',
@@ -238,9 +235,6 @@ export default function OurIdentity({ setCurrentPage }) {
                   <Compass size={28} className="text-white" />
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-300">
-                    Ultimate Aspiration
-                  </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
                     Vision
                   </h3>
