@@ -86,7 +86,7 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
             </button>
 
             {/* ── Desktop Navigation Menu (Direct Links, No Dropdowns) ── */}
-            <div className="hidden xl:flex items-center gap-1 lg:gap-2">
+            <div className="hidden xl:flex items-center gap-1.5 lg:gap-3 ml-8 sm:ml-12">
               {NAV.map((item) => (
                 <button
                   key={item.label}

@@ -60,7 +60,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
   };
 
   /* ─── HERO SINGLE BACKGROUND IMAGE ─── */
-  const heroImage = `${B}images/hero_single_child.jpg`;
+  const heroImage = `${B}images/hero_main_banner.jpg`;
 
   /* ─── TESTIMONIALS DATA ─── */
   const testimonials = [
@@ -158,17 +158,18 @@ export default function Home({ setCurrentPage, onNavClick }) {
         {/* Hero Content Container */}
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 py-20 w-full">
           <div className="max-w-[720px]">
-            {/* Tagline Badge with Enriched Highlighted RLHP */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#236B28]/30 border border-[#4CAF50]/50 text-white text-xs sm:text-sm font-semibold tracking-wider mb-6 backdrop-blur-sm shadow-md">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#4CAF50] animate-pulse" />
-              <span>Rural Literacy and Health Programme</span>
-              <span className="px-2 py-0.5 rounded-md bg-[#4CAF50] text-[#0a1628] font-black text-sm sm:text-base tracking-wider shadow-sm">
+            {/* Giant Prominent RLHP Headline */}
+            <div className="mb-4">
+              <span className="inline-block text-5xl sm:text-6xl lg:text-[76px] font-black text-[#4CAF50] tracking-tight drop-shadow-md">
                 RLHP
+              </span>
+              <span className="block text-sm sm:text-base font-semibold text-gray-300 uppercase tracking-widest mt-1">
+                Rural Literacy and Health Programme
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-white leading-snug mb-8 tracking-tight">
+            {/* Sub-headline */}
+            <h1 className="text-xl sm:text-2xl lg:text-[26px] font-medium text-white/90 leading-snug mb-8 tracking-normal max-w-xl">
               Transforming Lives of Children, Women and Community
             </h1>
 
@@ -281,7 +282,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   <Heart size={28} className="text-white fill-white/20" />
                 </div>
                 <p className="text-white text-lg sm:text-xl leading-relaxed font-medium italic">
-                  "Our commitment is to ensure that every child has access to education and opportunities that uplift their families from poverty."
+                  “Our commitment is to ensure that every child has access to quality education, every individual has opportunities to grow, and every community is empowered to build a better future. We believe that empowering children, strengthening families and fostering inclusive communities can create lasting positive change across generations.”
                 </p>
               </div>
             </div>
@@ -575,7 +576,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
           {/* 3 Action Cards */}
           <div className="grid md:grid-cols-3 gap-8 mb-14">
             {/* Card 1: Donate Today */}
-            <div 
+            <div
               onClick={() => nav('bank-details')}
               className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center hover:border-rlhp-accentgreen hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg"
             >
@@ -588,7 +589,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </div>
 
             {/* Card 2: Corporate Partnership */}
-            <div 
+            <div
               onClick={() => nav('contact')}
               className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center hover:border-rlhp-accentgreen hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg"
             >
@@ -601,7 +602,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </div>
 
             {/* Card 3: Volunteer Your Skills */}
-            <div 
+            <div
               onClick={() => nav('contact')}
               className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center hover:border-rlhp-accentgreen hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg"
             >
