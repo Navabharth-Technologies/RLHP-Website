@@ -792,13 +792,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
             ].map((p, idx) => (
               <div
                 key={idx}
-                className="h-28 bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 group"
+                className="h-28 bg-white border border-gray-200 rounded-2xl p-4 flex items-center justify-center shadow-sm hover:shadow-lg hover:border-rlhp-green/40 transition-all duration-300 hover:-translate-y-1 group"
                 title={p.name}
               >
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="max-h-16 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             ))}
