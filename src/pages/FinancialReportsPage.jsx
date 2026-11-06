@@ -60,12 +60,12 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
               </div>
             </div>
 
-            {/* Right Slanted Children Picture (Authentic child face photo) */}
+            {/* Right Slanted Children Picture (Authentic gallery photo) */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div className="relative group max-w-md w-full transform sm:rotate-2 hover:rotate-0 transition-all duration-500">
                 <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white">
                   <img
-                    src={`${B}images/child_face_financials.jpg`}
+                    src={`${B}images/financials_hero_children.jpg`}
                     alt="Children in Community"
                     className="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500"
                   />

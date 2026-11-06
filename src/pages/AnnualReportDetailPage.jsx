@@ -66,8 +66,20 @@ export default function AnnualReportDetailPage({
         const pdf = await loadingTask.promise;
         if (isCancelled) return;
 
-        const count = pdf.numPages;
-        setTotalPages(count + 2); // 1 front cover + count PDF pages + 1 back cover
+        // Check if last page is blank (e.g. empty or only a lonely page number header)
+        let effectiveCount = count;
+        try {
+          const lastPageObj = await pdf.getPage(count);
+          const textObj = await lastPageObj.getTextContent();
+          const cleanText = textObj.items.map(i => i.str).join('').trim();
+          if (cleanText.length === 0 || /^\d{1,3}$/.test(cleanText)) {
+            effectiveCount = count - 1; // Drop the empty trailing page
+          }
+        } catch (e) {
+          // keep count
+        }
+
+        setTotalPages(effectiveCount + 2); // 1 front cover + content pages + 1 back cover
 
         const pagesList = [];
 
@@ -76,8 +88,8 @@ export default function AnnualReportDetailPage({
           pagesList.push({ type: 'img', src: report.cover, label: 'Front Cover' });
         }
 
-        // Render first 2 pages immediately so book displays without delay
-        const initialLoadCount = Math.min(count, 4);
+        // Render first few pages immediately so book displays without delay
+        const initialLoadCount = Math.min(effectiveCount, 4);
 
         for (let i = 1; i <= initialLoadCount; i++) {
           if (isCancelled) return;
@@ -99,7 +111,7 @@ export default function AnnualReportDetailPage({
         setLoading(false);
 
         // Lazily render remaining pages in background
-        for (let i = initialLoadCount + 1; i <= count; i++) {
+        for (let i = initialLoadCount + 1; i <= effectiveCount; i++) {
           if (isCancelled) return;
           const page = await pdf.getPage(i);
           const viewport = page.getViewport({ scale: 2.2 });
@@ -117,7 +129,7 @@ export default function AnnualReportDetailPage({
           }
         }
 
-        // 3. BACK COVER
+        // 3. BACK COVER (only added once)
         if (report.backCover) {
           pagesList.push({ type: 'img', src: report.backCover, label: 'Back Cover' });
         }
@@ -470,13 +482,6 @@ export default function AnnualReportDetailPage({
                           src={rightPageData.dataUrl || rightPageData.src} 
                           alt="Right Page" 
                           className="w-full h-full object-contain select-none block bg-white" 
-                        />
-                      ) : report.backCover ? (
-                        /* Use Back Cover as the closing page so there are NO blank pages */
-                        <img 
-                          src={report.backCover} 
-                          alt="Back Cover" 
-                          className="w-full h-full object-cover select-none block bg-white" 
                         />
                       ) : null}
 

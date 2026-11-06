@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  X, ChevronLeft, ChevronRight, Download, BookOpen, ZoomIn, ZoomOut, 
-  RotateCw, Loader2, Sparkles, Volume2, VolumeX, Maximize2, Minimize2 
+  X, ChevronLeft, ChevronRight, Loader2, Download
 } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 
-// Configure pdfjs worker to use local bundle copied to public
 if (typeof window !== 'undefined') {
   pdfjsLib.GlobalWorkerOptions.workerSrc = `${import.meta.env.BASE_URL}pdf.worker.min.js`;
 }
@@ -15,60 +13,71 @@ export default function FlipbookModal({ report, onClose }) {
 
   const [pdfDoc, setPdfDoc] = useState(null);
   const [totalPages, setTotalPages] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1); // 1-based page index (odd = right side or single cover)
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState('next');
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [renderedPages, setRenderedPages] = useState([]);
 
-  const leftCanvasRef = useRef(null);
-  const rightCanvasRef = useRef(null);
-  const singleCanvasRef = useRef(null);
-  const modalContainerRef = useRef(null);
-
-  // Play subtle page-turn swoosh sound using Web Audio API
+  // Audio page turn sound
   const playPageSound = () => {
-    if (!soundEnabled) return;
     try {
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = audioCtx.createOscillator();
       const gainNode = audioCtx.createGain();
       
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(140, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.15);
+      osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(35, audioCtx.currentTime + 0.16);
       
       gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.16);
       
       osc.connect(gainNode);
       gainNode.connect(audioCtx.destination);
       
       osc.start();
-      osc.stop(audioCtx.currentTime + 0.15);
+      osc.stop(audioCtx.currentTime + 0.16);
     } catch {
-      // AudioContext unavailable or blocked
+      // Audio unavailable
     }
   };
 
-  // Load PDF Document
   useEffect(() => {
     let isCancelled = false;
     setLoading(true);
+    setRenderedPages([]);
+    setCurrentPage(1);
 
     const loadPdf = async () => {
       try {
-        const loadingTask = pdfjsLib.getDocument(report.pdfUrl || report.cover);
+        const loadingTask = pdfjsLib.getDocument(report.pdfUrl);
         const doc = await loadingTask.promise;
+        if (isCancelled) return;
+
+        setPdfDoc(doc);
+        const count = doc.numPages;
+        setTotalPages(count);
+
+        const pages = [];
+        for (let i = 1; i <= count; i++) {
+          if (isCancelled) return;
+          const page = await doc.getPage(i);
+          const viewport = page.getViewport({ scale: 2.2 });
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          const context = canvas.getContext('2d', { alpha: false });
+          await page.render({ canvasContext: context, viewport }).promise;
+          pages.push(canvas.toDataURL('image/jpeg', 0.95));
+        }
+
         if (!isCancelled) {
-          setPdfDoc(doc);
-          setTotalPages(doc.numPages);
-          setCurrentPage(1);
+          setRenderedPages(pages);
           setLoading(false);
         }
       } catch (err) {
-        console.error('Failed to load PDF in flipbook:', err);
+        console.error('Failed to load PDF in FlipbookModal:', err);
         if (!isCancelled) setLoading(false);
       }
     };
@@ -84,56 +93,11 @@ export default function FlipbookModal({ report, onClose }) {
     };
   }, [report.pdfUrl]);
 
-  // Helper to render a single PDF page into a canvas
-  const renderPdfPage = async (pageNumber, canvas) => {
-    if (!pdfDoc || !canvas || pageNumber < 1 || pageNumber > totalPages) return;
-    try {
-      const page = await pdfDoc.getPage(pageNumber);
-      const viewport = page.getViewport({ scale: 1.5 });
-      const context = canvas.getContext('2d');
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-
-      const renderContext = {
-        canvasContext: context,
-        viewport: viewport
-      };
-      await page.render(renderContext).promise;
-    } catch (err) {
-      console.warn(`Error rendering page ${pageNumber}:`, err);
-    }
-  };
-
-  // Determine whether to show single page (Cover page 1, or mobile) or two-page spread (pages 2-3, 4-5...)
-  const isCover = currentPage === 1;
-
-  // Render pages when currentPage or pdfDoc changes
-  useEffect(() => {
-    if (!pdfDoc) return;
-
-    if (isCover) {
-      if (singleCanvasRef.current) {
-        renderPdfPage(1, singleCanvasRef.current);
-      }
-    } else {
-      // Left page is even, Right page is odd
-      const leftPageNum = currentPage % 2 === 0 ? currentPage : currentPage - 1;
-      const rightPageNum = leftPageNum + 1;
-
-      if (leftCanvasRef.current) renderPdfPage(leftPageNum, leftCanvasRef.current);
-      if (rightCanvasRef.current && rightPageNum <= totalPages) {
-        renderPdfPage(rightPageNum, rightCanvasRef.current);
-      }
-    }
-  }, [currentPage, pdfDoc, isCover, totalPages]);
-
-  // Navigation handlers with 3D animation
+  // Turn page handlers
   const handleNext = () => {
     if (isFlipping) return;
-    if (isCover) {
-      if (totalPages > 1) {
-        triggerFlip('next', 2);
-      }
+    if (currentPage === 1) {
+      triggerFlip('next', 2);
     } else if (currentPage + 2 <= totalPages) {
       triggerFlip('next', currentPage + 2);
     } else if (currentPage + 1 <= totalPages) {
@@ -143,249 +107,168 @@ export default function FlipbookModal({ report, onClose }) {
 
   const handlePrev = () => {
     if (isFlipping) return;
-    if (currentPage === 2 || currentPage === 3) {
+    if (currentPage <= 3) {
       triggerFlip('prev', 1);
-    } else if (currentPage > 2) {
+    } else {
       triggerFlip('prev', Math.max(1, currentPage - 2));
     }
   };
 
-  const triggerFlip = (direction, targetPage) => {
-    setFlipDirection(direction);
+  const triggerFlip = (dir, targetPage) => {
+    setFlipDirection(dir);
     setIsFlipping(true);
     playPageSound();
 
     setTimeout(() => {
       setCurrentPage(targetPage);
       setIsFlipping(false);
-    }, 450);
+    }, 380);
   };
 
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      modalContainerRef.current?.requestFullscreen?.();
-      setIsFullscreen(true);
-    } else {
-      document.exitFullscreen?.();
-      setIsFullscreen(false);
-    }
-  };
+  // Keyboard and Esc listeners
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') handleNext();
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') handlePrev();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
+
+  const isCover = currentPage === 1;
+  const leftPageIdx = currentPage % 2 === 0 ? currentPage : currentPage - 1;
+  const rightPageIdx = leftPageIdx + 1;
+
+  const leftData = renderedPages[leftPageIdx - 1];
+  const rightData = renderedPages[rightPageIdx - 1];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-md select-none animate-fadeIn">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-8 bg-black/90 backdrop-blur-md select-none animate-fadeIn"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
       <div 
-        ref={modalContainerRef}
-        className="relative w-full max-w-6xl bg-[#141a15] border border-emerald-500/30 rounded-3xl shadow-2xl flex flex-col overflow-hidden text-white transition-all duration-300"
-        style={{ height: '92vh', maxHeight: '860px' }}
+        className="relative w-full max-w-6xl h-[92vh] max-h-[880px] bg-[#3a3b3d] rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden border border-white/10"
+        onClick={(e) => e.stopPropagation()}
       >
-        {/* Header Toolbar */}
-        <div className="flex items-center justify-between px-5 sm:px-8 py-3.5 bg-[#0f1410] border-b border-emerald-500/20">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-rlhp-green/20 border border-rlhp-green/40 flex items-center justify-center text-rlhp-accent">
-              <BookOpen size={19} />
-            </div>
-            <div>
-              <h3 className="text-sm sm:text-base font-bold text-white tracking-wide truncate max-w-xs sm:max-w-md">
-                {report.title}
-              </h3>
-              <p className="text-[11px] text-emerald-400/80">
-                {isCover ? 'Cover Page' : `Pages ${currentPage % 2 === 0 ? currentPage : currentPage - 1} - ${Math.min(totalPages, (currentPage % 2 === 0 ? currentPage : currentPage - 1) + 1)}`} of {totalPages || '...'}
-              </p>
-            </div>
+        {/* Floating Close (X / Wrong) Button Only */}
+        <button
+          onClick={onClose}
+          className="absolute top-5 right-6 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 hover:bg-black/90 text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/20 hover:scale-105"
+          title="Close (Esc)"
+        >
+          <X size={20} />
+          <span>Close (Esc)</span>
+        </button>
+
+        {/* Left Navigation Arrow */}
+        <button
+          onClick={handlePrev}
+          disabled={currentPage <= 1 || isFlipping}
+          className={`absolute left-3 sm:left-6 z-40 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-black/75 hover:bg-black text-white border-2 border-white/40 hover:border-white transition-all shadow-2xl cursor-pointer ${
+            currentPage <= 1 ? 'opacity-20 cursor-not-allowed pointer-events-none' : 'hover:scale-110 active:scale-95'
+          }`}
+          title="Turn to Previous Page"
+        >
+          <ChevronLeft size={34} />
+        </button>
+
+        {/* Loading Indicator */}
+        {loading && (
+          <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/60 backdrop-blur-xs gap-3 text-white">
+            <Loader2 size={42} className="animate-spin text-emerald-400" />
+            <p className="text-xs font-semibold tracking-wide">
+              Loading High-Clarity Pages...
+            </p>
           </div>
+        )}
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Audio Toggle */}
-            <button
-              onClick={() => setSoundEnabled(!soundEnabled)}
-              className="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-gray-300 hover:text-white transition-colors"
-              title={soundEnabled ? 'Mute page turn sound' : 'Enable page turn sound'}
+        {/* Realistic Book Stage */}
+        <div 
+          className="w-full flex items-center justify-center overflow-hidden p-4 sm:p-8"
+          style={{ perspective: '2200px' }}
+        >
+          {isCover ? (
+            /* Single Front Cover Page 1 */
+            <div
+              onClick={handleNext}
+              className={`relative w-full max-w-[460px] aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                isFlipping
+                  ? 'rotate-y-[-40deg] scale-[0.98] origin-left brightness-90 shadow-2xl'
+                  : 'rotate-y-0 scale-100 origin-center brightness-100 hover:scale-[1.02]'
+              }`}
+              style={{ transformStyle: 'preserve-3d' }}
+              title="Click to Open Document"
             >
-              {soundEnabled ? <Volume2 size={17} /> : <VolumeX size={17} />}
-            </button>
-
-            {/* Fullscreen Toggle */}
-            <button
-              onClick={toggleFullscreen}
-              className="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-gray-300 hover:text-white transition-colors hidden sm:block"
-              title="Toggle Fullscreen"
-            >
-              {isFullscreen ? <Minimize2 size={17} /> : <Maximize2 size={17} />}
-            </button>
-
-            {/* Download PDF */}
-            {report.pdfUrl && (
-              <a
-                href={report.pdfUrl}
-                download
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rlhp-green hover:bg-rlhp-accent text-white text-xs font-bold transition-all shadow-md hover:shadow-emerald-900/40"
-                title="Download original PDF"
-              >
-                <Download size={14} /> <span className="hidden sm:inline">Download</span>
-              </a>
-            )}
-
-            {/* Close Button */}
-            <button
-              onClick={onClose}
-              className="p-2 rounded-xl bg-white/10 hover:bg-white/25 text-gray-300 hover:text-white transition-colors ml-1"
-              aria-label="Close flipbook"
-            >
-              <X size={20} />
-            </button>
-          </div>
-        </div>
-
-        {/* 3D Realistic Book Viewing Area */}
-        <div className="flex-1 flex items-center justify-center p-3 sm:p-6 overflow-hidden bg-gradient-to-b from-[#111612] via-[#0b0e0c] to-[#080a08] relative">
-          {/* Previous Page Button */}
-          <button
-            onClick={handlePrev}
-            disabled={currentPage === 1 || isFlipping}
-            className={`absolute left-2 sm:left-5 z-30 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/70 hover:bg-rlhp-green text-white border border-white/20 hover:border-rlhp-green transition-all shadow-2xl ${
-              currentPage === 1 ? 'opacity-25 cursor-not-allowed' : 'hover:scale-110 active:scale-95'
-            }`}
-            title="Turn to previous page"
-          >
-            <ChevronLeft size={28} />
-          </button>
-
-          {/* Loading state indicator */}
-          {loading && (
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm gap-3">
-              <Loader2 size={36} className="text-rlhp-accent animate-spin" />
-              <p className="text-xs text-emerald-300 font-medium tracking-wide">
-                Preparing Book Flip Experience...
-              </p>
+              <div className="absolute top-0 bottom-0 left-0 w-8 pointer-events-none z-10 bg-gradient-to-r from-black/50 via-black/15 to-transparent" />
+              {renderedPages[0] && (
+                <img 
+                  src={renderedPages[0]} 
+                  alt="Page 1" 
+                  className="w-full h-full object-contain block bg-white" 
+                />
+              )}
             </div>
-          )}
-
-          {/* Realistic 3D Book Turn Stage */}
-          <div 
-            className="relative w-full max-w-4xl h-full flex items-center justify-center"
-            style={{ perspective: '2200px' }}
-          >
-            {isCover ? (
-              /* Single Cover Book (Front or Back) */
-              <div 
-                className={`relative h-[88%] max-h-[640px] aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_20px_50px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-emerald-950/40 transition-all duration-500 ${
-                  isFlipping
-                    ? 'rotate-y-[-35deg] scale-[0.97] origin-left brightness-90 shadow-2xl'
-                    : 'rotate-y-0 scale-100 origin-center brightness-100'
+          ) : (
+            /* Open Two-Page Spread */
+            <div 
+              className="relative w-full max-w-5xl flex items-center justify-center rounded-2xl shadow-[0_35px_80px_rgba(0,0,0,0.95)] overflow-hidden border border-black/30"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
+              {/* Left Page */}
+              <div
+                onClick={handlePrev}
+                className={`relative flex-1 aspect-[1/1.38] bg-white overflow-hidden border-r border-gray-300 origin-right transition-all duration-400 cursor-pointer ${
+                  isFlipping && flipDirection === 'prev'
+                    ? 'rotate-y-[40deg] brightness-75 shadow-2xl'
+                    : 'rotate-y-0 brightness-100'
                 }`}
                 style={{ transformStyle: 'preserve-3d' }}
+                title="Click Left to Flip Back"
               >
-                {/* Book Spine depth */}
-                <div className="absolute top-0 bottom-0 left-0 w-8 pointer-events-none z-10 bg-gradient-to-r from-black/50 via-black/15 to-transparent" />
-                <div className="absolute top-0 bottom-0 left-0 w-1 bg-white/40 z-10" />
-
-                {/* Render canvas for page 1 or fallback image */}
-                {pdfDoc ? (
-                  <canvas ref={singleCanvasRef} className="w-full h-full object-contain bg-white" />
-                ) : (
-                  <img src={report.cover} alt="Cover" className="w-full h-full object-cover" />
+                {leftData && (
+                  <img src={leftData} alt="Left Page" className="w-full h-full object-contain block bg-white" />
                 )}
-
-                {/* Subtle paper gloss */}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/5 to-white/10" />
-                <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none bg-gradient-to-tl from-black/20 to-transparent" />
+                <div className="absolute top-0 bottom-0 right-0 w-10 pointer-events-none bg-gradient-to-l from-black/35 via-black/10 to-transparent" />
               </div>
-            ) : (
-              /* Open Two-Page Spread Book */
-              <div 
-                className="relative h-[88%] max-h-[640px] w-full max-w-4xl flex items-center justify-center rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95)] overflow-hidden border border-emerald-900/30"
+
+              {/* Center Spine */}
+              <div className="w-[4px] h-full bg-gradient-to-r from-neutral-800 via-neutral-900 to-neutral-700 z-20 shrink-0" />
+
+              {/* Right Page */}
+              <div
+                onClick={handleNext}
+                className={`relative flex-1 aspect-[1/1.38] bg-white overflow-hidden border-l border-gray-300 origin-left transition-all duration-400 cursor-pointer ${
+                  isFlipping && flipDirection === 'next'
+                    ? 'rotate-y-[-40deg] brightness-75 shadow-2xl'
+                    : 'rotate-y-0 brightness-100'
+                }`}
                 style={{ transformStyle: 'preserve-3d' }}
+                title="Click Right to Flip Next"
               >
-                {/* Left Page (Even) */}
-                <div 
-                  className={`relative flex-1 h-full bg-white overflow-hidden border-r border-gray-300 origin-right transition-all duration-500 ${
-                    isFlipping && flipDirection === 'prev'
-                      ? 'rotate-y-[45deg] brightness-75 shadow-2xl'
-                      : 'rotate-y-0 brightness-100'
-                  }`}
-                  style={{ transformStyle: 'preserve-3d' }}
-                >
-                  <canvas ref={leftCanvasRef} className="w-full h-full object-contain bg-white" />
-                  {/* Left inner spine shadow */}
-                  <div className="absolute top-0 bottom-0 right-0 w-8 pointer-events-none bg-gradient-to-l from-black/35 via-black/10 to-transparent" />
-                  <div className="absolute top-0 bottom-0 left-0 w-3 pointer-events-none bg-gradient-to-r from-black/15 to-transparent" />
-                </div>
-
-                {/* Center Book Spine */}
-                <div className="w-[3px] h-full bg-gradient-to-r from-neutral-800 via-neutral-900 to-neutral-700 z-20 shadow-inner" />
-
-                {/* Right Page (Odd) */}
-                <div 
-                  className={`relative flex-1 h-full bg-white overflow-hidden border-l border-gray-300 origin-left transition-all duration-500 ${
-                    isFlipping && flipDirection === 'next'
-                      ? 'rotate-y-[-45deg] brightness-75 shadow-2xl'
-                      : 'rotate-y-0 brightness-100'
-                  }`}
-                  style={{ transformStyle: 'preserve-3d' }}
-                >
-                  <canvas ref={rightCanvasRef} className="w-full h-full object-contain bg-white" />
-                  {/* Right inner spine shadow */}
-                  <div className="absolute top-0 bottom-0 left-0 w-8 pointer-events-none bg-gradient-to-r from-black/35 via-black/10 to-transparent" />
-                  <div className="absolute top-0 bottom-0 right-0 w-3 pointer-events-none bg-gradient-to-l from-black/15 to-transparent" />
-                  {/* Page corner curl hint */}
-                  <div className="absolute bottom-0 right-0 w-10 h-10 pointer-events-none bg-gradient-to-tl from-black/25 via-transparent to-transparent" />
-                </div>
+                {rightData && (
+                  <img src={rightData} alt="Right Page" className="w-full h-full object-contain block bg-white" />
+                )}
+                <div className="absolute top-0 bottom-0 left-0 w-10 pointer-events-none bg-gradient-to-r from-black/35 via-black/10 to-transparent" />
               </div>
-            )}
-          </div>
-
-          {/* Next Page Button */}
-          <button
-            onClick={handleNext}
-            disabled={currentPage >= totalPages || isFlipping}
-            className={`absolute right-2 sm:right-5 z-30 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/70 hover:bg-rlhp-green text-white border border-white/20 hover:border-rlhp-green transition-all shadow-2xl ${
-              currentPage >= totalPages ? 'opacity-25 cursor-not-allowed' : 'hover:scale-110 active:scale-95'
-            }`}
-            title="Turn to next page"
-          >
-            <ChevronRight size={28} />
-          </button>
+            </div>
+          )}
         </div>
 
-        {/* Footer controls & page jumper */}
-        <div className="px-5 sm:px-8 py-3 bg-[#0f1410] border-t border-emerald-500/20 flex flex-wrap items-center justify-between text-xs text-gray-300 gap-3">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-rlhp-green animate-pulse" />
-            <span className="font-semibold text-white">Realistic 3D Book Flip Viewer</span>
-          </div>
-
-          {/* Quick Page Jump Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto max-w-full sm:max-w-md py-1 px-1">
-            <button
-              onClick={() => triggerFlip('prev', 1)}
-              className={`h-6 px-3 rounded-full text-[11px] font-bold transition-all ${
-                currentPage === 1 ? 'bg-rlhp-green text-white shadow-md' : 'bg-white/5 hover:bg-white/15 text-gray-400'
-              }`}
-            >
-              Cover
-            </button>
-            {Array.from({ length: Math.ceil((totalPages - 1) / 2) }).map((_, idx) => {
-              const spreadStart = 2 + idx * 2;
-              const spreadEnd = Math.min(totalPages, spreadStart + 1);
-              const isActive = (currentPage === spreadStart || currentPage === spreadEnd) && currentPage !== 1;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => triggerFlip(spreadStart > currentPage ? 'next' : 'prev', spreadStart)}
-                  className={`h-6 px-2.5 rounded-full text-[11px] font-semibold transition-all ${
-                    isActive ? 'bg-rlhp-green text-white shadow-md' : 'bg-white/5 hover:bg-white/15 text-gray-400'
-                  }`}
-                >
-                  {spreadStart}-{spreadEnd}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="text-[11px] text-gray-400 hidden md:block">
-            Click arrows or page numbers to turn pages like a book
-          </div>
-        </div>
+        {/* Right Navigation Arrow */}
+        <button
+          onClick={handleNext}
+          disabled={currentPage >= totalPages || isFlipping}
+          className={`absolute right-3 sm:right-6 z-40 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-black/75 hover:bg-black text-white border-2 border-white/40 hover:border-white transition-all shadow-2xl cursor-pointer ${
+            currentPage >= totalPages ? 'opacity-20 cursor-not-allowed pointer-events-none' : 'hover:scale-110 active:scale-95'
+          }`}
+          title="Turn to Next Page"
+        >
+          <ChevronRight size={34} />
+        </button>
       </div>
     </div>
   );
