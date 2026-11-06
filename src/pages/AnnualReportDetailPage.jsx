@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   ChevronLeft, ChevronRight, Calendar, Folder, Download, BookOpen, 
-  ArrowLeft, Loader2, Maximize2, Minimize2, X
+  ArrowLeft, Loader2, Maximize2, Minimize2, X, ZoomIn
 } from 'lucide-react';
-import { PageFlip } from 'page-flip';
 import * as pdfjsLib from 'pdfjs-dist';
 
 // Point pdfjs to local worker file copied to public
@@ -20,14 +19,15 @@ export default function AnnualReportDetailPage({
 }) {
   const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
-  const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const [currentPage, setCurrentPageNum] = useState(1); // 1 = cover
+  const [isFlipping, setIsFlipping] = useState(false);
+  const [flipDir, setFlipDir] = useState('next');
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const bookContainerRef = useRef(null);
-  const fullscreenContainerRef = useRef(null);
-  const pageFlipInstanceRef = useRef(null);
+  // Store rendered high-res data URLs for instant, glitch-free viewing
+  const [renderedPages, setRenderedPages] = useState([]);
 
-  // Play realistic page turn audio sound
+  // Audio page turn sound
   const playPageSound = () => {
     try {
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -47,16 +47,18 @@ export default function AnnualReportDetailPage({
       osc.start();
       osc.stop(audioCtx.currentTime + 0.16);
     } catch {
-      // AudioContext unavailable or silent
+      // Audio blocked or silent
     }
   };
 
-  // Render all PDF pages into the DOM and initialize StPageFlip (page-flip)
+  // Pre-render all pages (Front cover + PDF pages + Back cover) into crystal-clear images
   useEffect(() => {
     let isCancelled = false;
     setLoading(true);
+    setRenderedPages([]);
+    setCurrentPageNum(1);
 
-    const initBook = async () => {
+    const loadAndRender = async () => {
       try {
         if (!report?.pdfUrl) return;
 
@@ -65,137 +67,114 @@ export default function AnnualReportDetailPage({
         if (isCancelled) return;
 
         const count = pdf.numPages;
-        setTotalPages(count);
+        setTotalPages(count + 2); // 1 front cover + count PDF pages + 1 back cover
 
-        const container = bookContainerRef.current;
-        if (!container) return;
+        const pagesList = [];
 
-        // Clean container previous pages
-        container.innerHTML = '';
-
-        // High resolution rendering for sharp text and images (devicePixelRatio * 2.2 scale)
-        const renderScale = 2.4; 
-
-        // Helper to create an image page element
-        const createImagePage = (src, altText = "Book Page") => {
-          const pageDiv = document.createElement('div');
-          pageDiv.className = 'page bg-white shadow-md overflow-hidden flex items-center justify-center';
-          pageDiv.style.backgroundColor = '#ffffff';
-
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = altText;
-          img.style.width = '100%';
-          img.style.height = '100%';
-          img.style.objectFit = 'cover';
-          img.style.display = 'block';
-
-          pageDiv.appendChild(img);
-          return pageDiv;
-        };
-
-        // 1. FRONT COVER PAGE (page 0 / front of the book)
+        // 1. FRONT COVER (Page 1)
         if (report.cover) {
-          container.appendChild(createImagePage(report.cover, `${report.title} Front Cover`));
+          pagesList.push({ type: 'img', src: report.cover, label: 'Front Cover' });
         }
 
-        // 2. INNER PDF PAGES
-        for (let i = 1; i <= count; i++) {
+        // Render first 2 pages immediately so book displays without delay
+        const initialLoadCount = Math.min(count, 4);
+
+        for (let i = 1; i <= initialLoadCount; i++) {
           if (isCancelled) return;
           const page = await pdf.getPage(i);
-          const viewport = page.getViewport({ scale: renderScale });
-
-          const pageDiv = document.createElement('div');
-          pageDiv.className = 'page bg-white shadow-md overflow-hidden flex items-center justify-center';
-          pageDiv.style.backgroundColor = '#ffffff';
+          // High clarity 2.2x scale for sharp text reading
+          const viewport = page.getViewport({ scale: 2.2 });
 
           const canvas = document.createElement('canvas');
           canvas.width = viewport.width;
           canvas.height = viewport.height;
-          canvas.style.width = '100%';
-          canvas.style.height = '100%';
-          canvas.style.objectFit = 'contain';
-          canvas.style.display = 'block';
-
           const context = canvas.getContext('2d', { alpha: false });
+
           await page.render({ canvasContext: context, viewport }).promise;
-
-          pageDiv.appendChild(canvas);
-          container.appendChild(pageDiv);
-        }
-
-        // 3. BACK COVER PAGE (ensuring NO blank pages at the end)
-        if (report.backCover) {
-          // If total pages added so far is even, adding one gives odd number of pages ending with back cover
-          container.appendChild(createImagePage(report.backCover, `${report.title} Back Cover`));
+          pagesList.push({ type: 'canvas', dataUrl: canvas.toDataURL('image/jpeg', 0.95), pageNum: i });
         }
 
         if (isCancelled) return;
+        setRenderedPages([...pagesList]);
+        setLoading(false);
 
-        // Destroy previous PageFlip instance if any
-        if (pageFlipInstanceRef.current) {
-          pageFlipInstanceRef.current.destroy();
-          pageFlipInstanceRef.current = null;
+        // Lazily render remaining pages in background
+        for (let i = initialLoadCount + 1; i <= count; i++) {
+          if (isCancelled) return;
+          const page = await pdf.getPage(i);
+          const viewport = page.getViewport({ scale: 2.2 });
+
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          const context = canvas.getContext('2d', { alpha: false });
+
+          await page.render({ canvasContext: context, viewport }).promise;
+          pagesList.push({ type: 'canvas', dataUrl: canvas.toDataURL('image/jpeg', 0.95), pageNum: i });
+          
+          if (!isCancelled && i % 3 === 0) {
+            setRenderedPages([...pagesList]);
+          }
         }
 
-        // Initialize PageFlip library
-        const isMobile = window.innerWidth < 768;
-        const pageFlip = new PageFlip(container, {
-          width: isMobile ? 380 : (isFullscreen ? 560 : 490),
-          height: isMobile ? 540 : (isFullscreen ? 780 : 680),
-          size: 'stretch',
-          minWidth: 320,
-          maxWidth: 900,
-          minHeight: 450,
-          maxHeight: 1200,
-          drawShadow: true,
-          flippingTime: 650,
-          usePortrait: true,
-          startPage: 0,
-          showCover: true,
-          maxShadowOpacity: 0.45,
-          mobileScrollSupport: false
-        });
+        // 3. BACK COVER
+        if (report.backCover) {
+          pagesList.push({ type: 'img', src: report.backCover, label: 'Back Cover' });
+        }
 
-        pageFlip.loadFromHTML(container.querySelectorAll('.page'));
-
-        pageFlip.on('flip', (e) => {
-          setCurrentPageIndex(e.data);
-          playPageSound();
-        });
-
-        pageFlipInstanceRef.current = pageFlip;
-        setLoading(false);
+        if (!isCancelled) {
+          setRenderedPages([...pagesList]);
+        }
       } catch (err) {
-        console.error('Error rendering flipbook pages:', err);
+        console.error('Error rendering PDF report pages:', err);
         if (!isCancelled) setLoading(false);
       }
     };
 
-    initBook();
+    loadAndRender();
 
     return () => {
       isCancelled = true;
-      if (pageFlipInstanceRef.current) {
-        pageFlipInstanceRef.current.destroy();
-        pageFlipInstanceRef.current = null;
-      }
     };
-  }, [report, isFullscreen]);
+  }, [report]);
 
+  const totalBookPages = renderedPages.length || (totalPages || 1);
+
+  // Turn page handlers
   const turnNext = () => {
-    if (pageFlipInstanceRef.current) {
-      pageFlipInstanceRef.current.flipNext();
+    if (isFlipping) return;
+    if (currentPage === 1) {
+      // From front cover, open to spread 2 & 3
+      triggerFlip('next', 2);
+    } else if (currentPage + 2 <= totalBookPages) {
+      triggerFlip('next', currentPage + 2);
+    } else if (currentPage + 1 <= totalBookPages) {
+      triggerFlip('next', currentPage + 1);
     }
   };
 
   const turnPrev = () => {
-    if (pageFlipInstanceRef.current) {
-      pageFlipInstanceRef.current.flipPrev();
+    if (isFlipping) return;
+    if (currentPage <= 3) {
+      // Turn back to front cover
+      triggerFlip('prev', 1);
+    } else {
+      triggerFlip('prev', Math.max(1, currentPage - 2));
     }
   };
 
-  // Keyboard navigation & Esc to close fullscreen
+  const triggerFlip = (direction, targetPage) => {
+    setFlipDir(direction);
+    setIsFlipping(true);
+    playPageSound();
+
+    setTimeout(() => {
+      setCurrentPageNum(targetPage);
+      setIsFlipping(false);
+    }, 380);
+  };
+
+  // Keyboard navigation & Esc key listener
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape' && isFullscreen) {
@@ -208,11 +187,23 @@ export default function AnnualReportDetailPage({
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [isFullscreen]);
+  }, [isFullscreen, currentPage, totalBookPages, isFlipping]);
 
   const matchYear = report.title?.match(/\d{4}[–-]\d{4}/);
   const displayYear = matchYear ? matchYear[0].replace(/20(\d\d)$/, '$1') : report.title;
   const otherReports = allReports.filter(r => r.id !== report.id);
+
+  const isCover = currentPage === 1;
+  const isBackCover = currentPage >= totalBookPages && totalBookPages > 1;
+
+  // For open book spread:
+  // leftPage is even (currentPage % 2 === 0 ? currentPage : currentPage - 1)
+  // rightPage is leftPage + 1
+  const leftPageIdx = currentPage % 2 === 0 ? currentPage : currentPage - 1;
+  const rightPageIdx = leftPageIdx + 1;
+
+  const leftPageData = renderedPages[leftPageIdx - 1];
+  const rightPageData = renderedPages[rightPageIdx - 1];
 
   return (
     <div className="font-sans min-h-screen bg-gradient-to-b from-[#fbfdfa] via-white to-gray-50/60 pb-24">
@@ -279,16 +270,16 @@ export default function AnnualReportDetailPage({
                   <Folder size={14} className="text-[#E49E23]" />
                   <span>Reports</span>
                 </div>
-                {totalPages > 0 && (
+                {totalBookPages > 0 && (
                   <div className="flex items-center gap-1.5 bg-emerald-50 text-rlhp-darkgreen px-2.5 py-0.5 rounded-full font-bold">
                     <BookOpen size={13} />
-                    <span>{totalPages} Pages</span>
+                    <span>{totalBookPages} Pages</span>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* Right Slanted Cover Preview with Realistic Elevation Shadow */}
+            {/* Right Slanted Cover Preview with Elevation Shadow */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div className="relative group max-w-[280px] sm:max-w-[320px] w-full transform sm:rotate-2 hover:rotate-0 transition-all duration-500">
                 <div className="absolute -inset-2 bg-gradient-to-r from-emerald-600/20 to-teal-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all opacity-70" />
@@ -314,42 +305,45 @@ export default function AnnualReportDetailPage({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* ── Left Column (8 Cols): Realistic Book-turn Flipbook (Clean Stage) ── */}
+          {/* ── Left Column (8 Cols): Realistic Book-turn Flipbook Stage ── */}
           <div className="lg:col-span-8">
             <div 
-              ref={fullscreenContainerRef}
-              className={`relative bg-[#5a5c5e] rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center border border-gray-400/30 select-none transition-all duration-300 ${
+              className={`relative bg-[#505254] rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center border border-gray-400/30 select-none transition-all duration-300 ${
                 isFullscreen 
-                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-black/95 p-4 sm:p-10'
-                  : 'min-h-[550px] sm:min-h-[740px] p-2 sm:p-6'
+                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-black/95 p-4 sm:p-12'
+                  : 'min-h-[580px] sm:min-h-[720px] p-4 sm:p-8'
               }`}
             >
               
-              {/* Fullscreen Close ("Wrong" / Esc) button */}
+              {/* Fullscreen Close Button */}
               {isFullscreen ? (
                 <button
                   onClick={() => setIsFullscreen(false)}
-                  className="absolute top-4 right-4 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 hover:bg-white/40 text-white font-bold text-xs shadow-2xl backdrop-blur-md cursor-pointer transition-all"
-                  title="Close Fullscreen (Esc)"
+                  className="absolute top-5 right-5 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/25 hover:bg-white/40 text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/20 hover:scale-105"
+                  title="Exit Fullscreen (Esc)"
                 >
-                  <X size={18} />
+                  <X size={20} />
                   <span>Exit Fullscreen (Esc)</span>
                 </button>
               ) : (
-                /* Fullscreen Trigger Overlay Button in Top-Right */
+                /* Fullscreen Enlarge Button */
                 <button
                   onClick={() => setIsFullscreen(true)}
-                  className="absolute top-4 right-4 z-40 p-2.5 rounded-full bg-black/50 hover:bg-rlhp-green text-white shadow-xl transition-all cursor-pointer backdrop-blur-xs hover:scale-110"
+                  className="absolute top-4 right-4 z-40 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-black/50 hover:bg-rlhp-green text-white shadow-xl transition-all cursor-pointer backdrop-blur-xs hover:scale-105 text-xs font-bold border border-white/20"
                   title="Enlarge to Full Screen"
                 >
-                  <Maximize2 size={18} />
+                  <Maximize2 size={16} />
+                  <span className="hidden sm:inline">Full Screen</span>
                 </button>
               )}
 
               {/* Left Navigation Arrow */}
               <button
                 onClick={turnPrev}
-                className="absolute left-3 sm:left-5 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer hover:scale-110 active:scale-95"
+                disabled={currentPage <= 1 || isFlipping}
+                className={`absolute left-3 sm:left-6 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer ${
+                  currentPage <= 1 ? 'opacity-20 cursor-not-allowed pointer-events-none' : 'hover:scale-110 active:scale-95'
+                }`}
                 title="Turn to Previous Page"
               >
                 <ChevronLeft size={28} />
@@ -365,19 +359,137 @@ export default function AnnualReportDetailPage({
                 </div>
               )}
 
-              {/* Realistic 3D Turn Over Book Stage (StPageFlip container) */}
-              <div className="w-full flex items-center justify-center overflow-hidden py-4">
-                <div 
-                  ref={bookContainerRef} 
-                  id="flipbook-book"
-                  className="mx-auto"
-                />
+              {/* Realistic 3D Book Stage */}
+              <div 
+                className="w-full flex items-center justify-center overflow-hidden py-4"
+                style={{ perspective: '2200px' }}
+              >
+                {isCover ? (
+                  /* ─── SINGLE FRONT COVER BOOK ─── */
+                  <div 
+                    onClick={turnNext}
+                    className={`relative w-full max-w-[420px] sm:max-w-[460px] aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                      isFlipping
+                        ? 'rotate-y-[-40deg] scale-[0.98] origin-left brightness-90 shadow-2xl'
+                        : 'rotate-y-0 scale-100 origin-center brightness-100 hover:scale-[1.02]'
+                    }`}
+                    style={{ transformStyle: 'preserve-3d' }}
+                    title="Click to Open Book"
+                  >
+                    {/* Left Spine Depth & Gloss */}
+                    <div className="absolute top-0 bottom-0 left-0 w-8 pointer-events-none z-10 bg-gradient-to-r from-black/50 via-black/15 to-transparent" />
+                    <div className="absolute top-0 bottom-0 left-0 w-1 bg-white/40 z-10" />
+
+                    <img 
+                      src={report.cover} 
+                      alt="Front Cover" 
+                      className="w-full h-full object-cover select-none block" 
+                    />
+
+                    {/* Paper Light Reflection */}
+                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/5 to-white/15" />
+                    <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none bg-gradient-to-tl from-black/25 via-transparent to-transparent" />
+                  </div>
+                ) : isBackCover && !leftPageData ? (
+                  /* ─── SINGLE BACK COVER BOOK (Closing Page) ─── */
+                  <div 
+                    onClick={turnPrev}
+                    className={`relative w-full max-w-[420px] sm:max-w-[460px] aspect-[1/1.38] rounded-l-2xl rounded-r-md shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                      isFlipping
+                        ? 'rotate-y-[40deg] scale-[0.98] origin-right brightness-90 shadow-2xl'
+                        : 'rotate-y-0 scale-100 origin-center brightness-100 hover:scale-[1.02]'
+                    }`}
+                    style={{ transformStyle: 'preserve-3d' }}
+                    title="Click to Flip Back"
+                  >
+                    <div className="absolute top-0 bottom-0 right-0 w-8 pointer-events-none z-10 bg-gradient-to-l from-black/50 via-black/15 to-transparent" />
+                    <img 
+                      src={report.backCover} 
+                      alt="Back Cover" 
+                      className="w-full h-full object-cover select-none block" 
+                    />
+                  </div>
+                ) : (
+                  /* ─── OPEN TWO-PAGE SPREAD ─── */
+                  <div 
+                    className={`relative w-full flex items-center justify-center rounded-2xl shadow-[0_30px_70px_rgba(0,0,0,0.9)] overflow-hidden border border-black/30 transition-all duration-300 ${
+                      isFullscreen ? 'max-w-6xl max-h-[85vh]' : 'max-w-4xl max-h-[75vh]'
+                    }`}
+                    style={{ transformStyle: 'preserve-3d' }}
+                  >
+                    {/* LEFT PAGE */}
+                    <div 
+                      onClick={turnPrev}
+                      className={`relative flex-1 aspect-[1/1.38] bg-white overflow-hidden border-r border-gray-300 origin-right transition-all duration-400 cursor-pointer ${
+                        isFlipping && flipDir === 'prev'
+                          ? 'rotate-y-[40deg] brightness-75 shadow-2xl'
+                          : 'rotate-y-0 brightness-100'
+                      }`}
+                      style={{ transformStyle: 'preserve-3d' }}
+                      title="Click Left Page to Turn Back"
+                    >
+                      {leftPageData ? (
+                        <img 
+                          src={leftPageData.dataUrl || leftPageData.src} 
+                          alt="Left Page" 
+                          className="w-full h-full object-contain select-none block bg-white" 
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-white flex items-center justify-center text-gray-300 text-xs">
+                          {report.title}
+                        </div>
+                      )}
+
+                      {/* Left spine shadow */}
+                      <div className="absolute top-0 bottom-0 right-0 w-10 pointer-events-none bg-gradient-to-l from-black/40 via-black/10 to-transparent" />
+                      <div className="absolute top-0 bottom-0 left-0 w-4 pointer-events-none bg-gradient-to-r from-black/15 to-transparent" />
+                    </div>
+
+                    {/* CENTER BOOK SPINE */}
+                    <div className="w-[4px] h-full bg-gradient-to-r from-neutral-800 via-neutral-900 to-neutral-700 z-20 shadow-inner shrink-0" />
+
+                    {/* RIGHT PAGE */}
+                    <div 
+                      onClick={turnNext}
+                      className={`relative flex-1 aspect-[1/1.38] bg-white overflow-hidden border-l border-gray-300 origin-left transition-all duration-400 cursor-pointer ${
+                        isFlipping && flipDir === 'next'
+                          ? 'rotate-y-[-40deg] brightness-75 shadow-2xl'
+                          : 'rotate-y-0 brightness-100'
+                      }`}
+                      style={{ transformStyle: 'preserve-3d' }}
+                      title="Click Right Page to Turn Next"
+                    >
+                      {rightPageData ? (
+                        <img 
+                          src={rightPageData.dataUrl || rightPageData.src} 
+                          alt="Right Page" 
+                          className="w-full h-full object-contain select-none block bg-white" 
+                        />
+                      ) : report.backCover ? (
+                        /* Use Back Cover as the closing page so there are NO blank pages */
+                        <img 
+                          src={report.backCover} 
+                          alt="Back Cover" 
+                          className="w-full h-full object-cover select-none block bg-white" 
+                        />
+                      ) : null}
+
+                      {/* Right spine shadow */}
+                      <div className="absolute top-0 bottom-0 left-0 w-10 pointer-events-none bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
+                      <div className="absolute top-0 bottom-0 right-0 w-4 pointer-events-none bg-gradient-to-l from-black/15 to-transparent" />
+                      <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none bg-gradient-to-tl from-black/25 via-transparent to-transparent" />
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Right Navigation Arrow */}
               <button
                 onClick={turnNext}
-                className="absolute right-3 sm:right-5 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer hover:scale-110 active:scale-95"
+                disabled={currentPage >= totalBookPages || isFlipping}
+                className={`absolute right-3 sm:right-6 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer ${
+                  currentPage >= totalBookPages ? 'opacity-20 cursor-not-allowed pointer-events-none' : 'hover:scale-110 active:scale-95'
+                }`}
                 title="Turn to Next Page"
               >
                 <ChevronRight size={28} />
