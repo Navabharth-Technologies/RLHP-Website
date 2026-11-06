@@ -182,11 +182,6 @@ export default function MediaCoveragePage({ setCurrentPage, onNavClick }) {
                     alt={media.headline}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-sm"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-gray-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
-                      <ZoomIn size={14} /> View
-                    </span>
-                  </div>
                 </div>
 
                 {/* Card Footer with Read Clipping button */}
@@ -212,28 +207,24 @@ export default function MediaCoveragePage({ setCurrentPage, onNavClick }) {
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative max-w-4xl w-full max-h-[92vh] bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            className="relative max-w-5xl w-full max-h-[92vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
-              <span className="font-extrabold text-gray-900 text-sm sm:text-base">
-                Newspaper Clipping View
-              </span>
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X size={18} />
-              </button>
-            </div>
+            {/* Wrong (Close X) Button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-12 right-0 sm:-right-12 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors cursor-pointer shadow-lg z-20 backdrop-blur-xs"
+              title="Close (Esc)"
+            >
+              <X size={22} />
+            </button>
 
             {/* Modal Image View */}
-            <div className="p-4 overflow-y-auto max-h-[80vh] flex items-center justify-center bg-gray-900/5">
+            <div className="overflow-hidden rounded-2xl shadow-2xl flex items-center justify-center bg-black/40 p-2 border border-white/10">
               <img
                 src={selectedImage.img}
                 alt="Newspaper Clipping"
-                className="max-h-[76vh] w-auto object-contain rounded-lg shadow-lg"
+                className="max-h-[85vh] w-auto max-w-full object-contain rounded-xl"
               />
             </div>
           </div>

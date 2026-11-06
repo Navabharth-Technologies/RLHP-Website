@@ -13,10 +13,10 @@ export default function OurIdentity({ setCurrentPage }) {
     <div className="space-y-16 font-sans pb-16 bg-gray-50/50">
 
       {/* 1. TOP HERO SECTION - ABOUT US / OUR IDENTITY */}
-      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#fbfdfa] via-white to-gray-50/60 overflow-hidden">
+      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#eaf4eb]/90 via-[#f2f8f3] to-white border-b border-green-100/60 overflow-hidden">
         {/* Subtle decorative background glow */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-green-100/40 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-10 left-10 w-80 h-80 bg-emerald-50/60 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-green-200/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-10 left-10 w-80 h-80 bg-emerald-100/40 rounded-full blur-2xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
