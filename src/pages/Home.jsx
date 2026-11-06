@@ -377,13 +377,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 3: PROGRAMME PRIORITIES
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-24 text-white overflow-hidden bg-slate-900">
-        {/* Background photo of children with clear visibility */}
+        {/* Child smiling face background image matching reference 3 */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${B}images/programme_priorities_bg.jpg)` }}
+          style={{ backgroundImage: `url(${B}images/child_face_priorities_backdrop.jpg)` }}
         />
-        {/* Lighter overlay to let children faces show through clearly */}
-        <div className="absolute inset-0 bg-black/45 bg-gradient-to-t from-black/80 via-black/35 to-black/70" />
+        {/* Subtle dark gradient overlay allowing the child's smiling face to be clearly visible */}
+        <div className="absolute inset-0 bg-black/40 bg-gradient-to-r from-black/70 via-black/35 to-black/30" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
