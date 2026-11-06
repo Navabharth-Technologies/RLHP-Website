@@ -682,9 +682,9 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 title: 'Annual Report 2024-2025',
                 period: 'April 2024 to March 2025',
                 cover: `${B}reports/report-2024-2025.jpg`,
+                pdfUrl: `${B}reports/RLHP_Annual_Report_2024_2025.pdf`,
                 date: 'March 31, 2025',
                 pages: [
-                  `${B}reports/report-2024-2025.jpg`,
                   `${B}reports/report-2024-2025.jpg`
                 ]
               },
