@@ -66,6 +66,8 @@ export default function AnnualReportDetailPage({
         const pdf = await loadingTask.promise;
         if (isCancelled) return;
 
+        const count = pdf.numPages;
+
         // Check if last page is blank (e.g. empty or only a lonely page number header)
         let effectiveCount = count;
         try {
