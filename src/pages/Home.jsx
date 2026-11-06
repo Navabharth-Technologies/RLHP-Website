@@ -6,7 +6,7 @@ import {
   Calendar, Check, Camera, Eye, ChevronDown, BookOpen
 } from 'lucide-react';
 import { downloadPDFDocument } from '../utils/fileDownloader';
-import FlipbookModal from '../components/FlipbookModal';
+import AnnualReportDetailPage from './AnnualReportDetailPage';
 
 const B = import.meta.env.BASE_URL;
 
@@ -21,7 +21,61 @@ export default function Home({ setCurrentPage, onNavClick }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showAllTestimonials, setShowAllTestimonials] = useState(false);
   const [downloadingReport, setDownloadingReport] = useState(null);
-  const [activeFlipbook, setActiveFlipbook] = useState(null);
+  const [selectedReportDetail, setSelectedReportDetail] = useState(null);
+
+  // List of all 4 annual reports for cards, detail view and related posts
+  const annualReportsList = [
+    {
+      id: 'report-2022-2023',
+      title: 'Annual Report 2022-2023',
+      period: 'April 2022 to March 2023',
+      cover: `${B}reports/report-2022-2023.jpg`,
+      pdfUrl: `${B}reports/RLHP_Annual_Report_2022_2023.pdf`,
+      date: 'March 31, 2023',
+    },
+    {
+      id: 'report-2023-2024',
+      title: 'Annual Report 2023-2024',
+      period: 'April 2023 to March 2024',
+      cover: `${B}reports/report-2023-2024.jpg`,
+      pdfUrl: `${B}reports/RLHP_Annual_Report_2023_2024.pdf`,
+      date: 'March 31, 2024',
+    },
+    {
+      id: 'report-2024-2025',
+      title: 'Annual Report 2024-2025',
+      period: 'April 2024 to March 2025',
+      cover: `${B}reports/report-2024-2025.jpg`,
+      pdfUrl: `${B}reports/RLHP_Annual_Report_2024_2025.pdf`,
+      date: 'March 31, 2025',
+    },
+    {
+      id: 'report-2025-2026',
+      title: 'Annual Report 2025-2026',
+      period: 'April 2025 to March 2026',
+      cover: `${B}reports/report-2025-2026.jpg`,
+      pdfUrl: `${B}reports/RLHP_Annual_Report_2025_2026.pdf`,
+      date: 'March 31, 2026',
+    }
+  ];
+
+  if (selectedReportDetail) {
+    return (
+      <AnnualReportDetailPage
+        report={selectedReportDetail}
+        allReports={annualReportsList}
+        onSelectReport={(rep) => {
+          setSelectedReportDetail(rep);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        onBack={() => {
+          setSelectedReportDetail(null);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        setCurrentPage={setCurrentPage}
+      />
+    );
+  }
 
   const handleViewReport = (report) => {
     if (report.file) {
@@ -654,55 +708,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
           {/* 4 Cards Grid - Replicating Reference 2 Design with uploaded cover images 2, 3, 4, 5 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
-            {[
-              {
-                id: 'report-2022-2023',
-                title: 'Annual Report 2022-2023',
-                period: 'April 2022 to March 2023',
-                cover: `${B}reports/report-2022-2023.jpg`,
-                pdfUrl: `${B}reports/RLHP_Annual_Report_2022_2023.pdf`,
-                date: 'March 31, 2023',
-                pages: [
-                  `${B}reports/report-2022-2023.jpg`
-                ]
-              },
-              {
-                id: 'report-2023-2024',
-                title: 'Annual Report 2023-2024',
-                period: 'April 2023 to March 2024',
-                cover: `${B}reports/report-2023-2024.jpg`,
-                pdfUrl: `${B}reports/RLHP_Annual_Report_2023_2024.pdf`,
-                date: 'March 31, 2024',
-                pages: [
-                  `${B}reports/report-2023-2024.jpg`
-                ]
-              },
-              {
-                id: 'report-2024-2025',
-                title: 'Annual Report 2024-2025',
-                period: 'April 2024 to March 2025',
-                cover: `${B}reports/report-2024-2025.jpg`,
-                pdfUrl: `${B}reports/RLHP_Annual_Report_2024_2025.pdf`,
-                date: 'March 31, 2025',
-                pages: [
-                  `${B}reports/report-2024-2025.jpg`
-                ]
-              },
-              {
-                id: 'report-2025-2026',
-                title: 'Annual Report 2025-2026',
-                period: 'April 2025 to March 2026',
-                cover: `${B}reports/report-2025-2026.jpg`,
-                pdfUrl: `${B}reports/RLHP_Annual_Report_2025_2026.pdf`,
-                date: 'March 31, 2026',
-                pages: [
-                  `${B}reports/report-2025-2026.jpg`
-                ]
-              }
-            ].map((item, idx) => (
+            {annualReportsList.map((item, idx) => (
               <div
                 key={idx}
-                onClick={() => setActiveFlipbook(item)}
+                onClick={() => {
+                  setSelectedReportDetail(item);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:border-rlhp-green/50 transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
               >
                 {/* Book Cover Container */}
@@ -747,14 +759,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
           </div>
         </div>
       </section>
-
-      {/* Interactive 3D Book Turn-Page Modal */}
-      {activeFlipbook && (
-        <FlipbookModal
-          report={activeFlipbook}
-          onClose={() => setActiveFlipbook(null)}
-        />
-      )}
 
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 8: OUR PARTNERS
