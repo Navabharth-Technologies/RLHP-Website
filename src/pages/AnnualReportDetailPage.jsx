@@ -324,7 +324,7 @@ export default function AnnualReportDetailPage({
             <div 
               className={`relative shadow-2xl overflow-hidden flex items-center justify-center select-none transition-all duration-300 ${
                 isFullscreen 
-                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-[#0d0e11] p-4 sm:p-10 flex flex-col justify-center'
+                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-[#505254] p-4 sm:p-10 flex flex-col justify-center'
                   : 'bg-[#505254] rounded-2xl border border-gray-400/30 min-h-[580px] sm:min-h-[720px] p-4 sm:p-8'
               }`}
             >

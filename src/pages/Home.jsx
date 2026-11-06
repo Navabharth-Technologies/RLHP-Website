@@ -377,13 +377,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 3: PROGRAMME PRIORITIES
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-24 text-white overflow-hidden bg-slate-900">
-        {/* Classroom students studying background image matching user request */}
+        {/* Classroom students studying background image - positioned nicely with object-top and subtle tint for face visibility */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
+          className="absolute inset-0 bg-cover bg-[center_20%] bg-no-repeat transition-all duration-700"
           style={{ backgroundImage: `url(${B}images/priorities_bg_students.jpg)` }}
         />
-        {/* Balanced dark-emerald gradient overlay to keep text ultra-readable while highlighting classroom children */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#09180e]/85 via-[#0e2415]/75 to-[#09180e]/90 backdrop-blur-[1.5px]" />
+        {/* Clear transparent overlay allowing students' faces and classroom to be clearly visible while maintaining text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/75" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -641,15 +641,19 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 6: Together, We Make a Difference
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-20 bg-[#0c192c] text-white overflow-hidden">
-        {/* Decorative blur elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-rlhp-green/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-rlhp-green/10 blur-3xl pointer-events-none" />
+      <section className="relative py-28 text-white overflow-hidden bg-slate-900">
+        {/* Authentic smiling children with craft work background image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-[center_25%] bg-no-repeat transition-all duration-700"
+          style={{ backgroundImage: `url(${B}images/together_difference_bg.jpg)` }}
+        />
+        {/* Soft, harmonious dark gradient overlay to ensure children are clearly seen and cards pop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c192c]/75 via-[#0c192c]/60 to-[#0c192c]/85" />
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
               Together, <span className="text-rlhp-accentgreen">We Make a Difference</span>
             </h2>
           </div>
@@ -658,7 +662,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
           <div className="grid md:grid-cols-3 gap-8 mb-14">
             {/* Card 1: Donate Today */}
             <div
-              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
+              className="bg-[#13233c]/90 backdrop-blur-sm border border-white/15 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
                 <Heart size={56} className="fill-rlhp-accentgreen/20 group-hover:fill-rlhp-green/30" />
@@ -670,7 +674,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
             {/* Card 2: Corporate Partnership */}
             <div
-              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
+              className="bg-[#13233c]/90 backdrop-blur-sm border border-white/15 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
                 <Handshake size={56} />
@@ -682,7 +686,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
             {/* Card 3: Volunteer Your Skills */}
             <div
-              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
+              className="bg-[#13233c]/90 backdrop-blur-sm border border-white/15 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
                 <Users size={56} />
