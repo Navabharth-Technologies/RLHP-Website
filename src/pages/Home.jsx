@@ -671,9 +671,9 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 title: 'Annual Report 2023-2024',
                 period: 'April 2023 to March 2024',
                 cover: `${B}reports/report-2023-2024.jpg`,
+                pdfUrl: `${B}reports/RLHP_Annual_Report_2023_2024.pdf`,
                 date: 'March 31, 2024',
                 pages: [
-                  `${B}reports/report-2023-2024.jpg`,
                   `${B}reports/report-2023-2024.jpg`
                 ]
               },
@@ -693,9 +693,9 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 title: 'Annual Report 2025-2026',
                 period: 'April 2025 to March 2026',
                 cover: `${B}reports/report-2025-2026.jpg`,
+                pdfUrl: `${B}reports/RLHP_Annual_Report_2025_2026.pdf`,
                 date: 'March 31, 2026',
                 pages: [
-                  `${B}reports/report-2025-2026.jpg`,
                   `${B}reports/report-2025-2026.jpg`
                 ]
               }
