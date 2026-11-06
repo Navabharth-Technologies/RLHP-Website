@@ -320,21 +320,21 @@ export default function AnnualReportDetailPage({
           {/* ── Left Column (8 Cols): Realistic Book-turn Flipbook Stage ── */}
           <div className="lg:col-span-8">
             <div 
-              className={`relative bg-[#505254] rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center border border-gray-400/30 select-none transition-all duration-300 ${
+              className={`relative shadow-2xl overflow-hidden flex items-center justify-center select-none transition-all duration-300 ${
                 isFullscreen 
-                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-[#3a3b3d] p-4 sm:p-10 flex flex-col justify-center'
-                  : 'min-h-[580px] sm:min-h-[720px] p-4 sm:p-8'
+                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-[#0d0e11] p-4 sm:p-10 flex flex-col justify-center'
+                  : 'bg-[#505254] rounded-2xl border border-gray-400/30 min-h-[580px] sm:min-h-[720px] p-4 sm:p-8'
               }`}
             >
               
-              {/* Fullscreen Close Button with High Z-Index & Drop Shadow */}
+              {/* Fullscreen Close Button */}
               {isFullscreen ? (
                 <button
                   onClick={() => setIsFullscreen(false)}
-                  className="absolute top-6 right-8 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/30 hover:scale-105"
+                  className="absolute top-6 right-8 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-black/70 hover:bg-black text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/20 hover:scale-105"
                   title="Exit Fullscreen (Esc)"
                 >
-                  <X size={20} />
+                  <X size={18} />
                   <span>Exit Fullscreen (Esc)</span>
                 </button>
               ) : (

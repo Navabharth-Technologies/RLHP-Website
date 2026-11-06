@@ -447,14 +447,14 @@ export default function Home({ setCurrentPage, onNavClick }) {
             ].map((card, i) => (
               <div
                 key={i}
-                className="relative bg-white rounded-xl overflow-hidden shadow-md border-2 border-transparent transition-all duration-300 flex flex-col text-gray-900 select-none"
+                className="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-rlhp-green/30 hover:-translate-y-2 border-2 border-transparent hover:border-rlhp-green transition-all duration-300 group flex flex-col text-gray-900 select-none"
               >
                 {/* Image */}
                 <div className="relative h-44 overflow-hidden bg-gray-100">
                   <img
                     src={card.img}
                     alt={card.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <span className="absolute bottom-2 left-3 bg-rlhp-green text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded shadow">
@@ -465,7 +465,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 {/* Content */}
                 <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug">
+                    <h3 className="text-base font-bold text-gray-900 group-hover:text-rlhp-green transition-colors mb-2 leading-snug">
                       {card.title}
                     </h3>
                     <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed">
@@ -473,6 +473,9 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     </p>
                   </div>
                 </div>
+
+                {/* Animated green hover line */}
+                <div className="card-hover-line" />
               </div>
             ))}
           </div>
@@ -651,40 +654,40 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </h2>
           </div>
 
-          {/* 3 Action Cards (Static display) */}
+          {/* 3 Action Cards (Static display with Green Hover Effect) */}
           <div className="grid md:grid-cols-3 gap-8 mb-14">
             {/* Card 1: Donate Today */}
             <div
-              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg select-none"
+              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
             >
-              <div className="text-rlhp-accentgreen mb-6">
-                <Heart size={56} className="fill-rlhp-accentgreen/20" />
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
+                <Heart size={56} className="fill-rlhp-accentgreen/20 group-hover:fill-rlhp-green/30" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
                 Donate Today
               </h3>
             </div>
 
             {/* Card 2: Corporate Partnership */}
             <div
-              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg select-none"
+              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
             >
-              <div className="text-rlhp-accentgreen mb-6">
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
                 <Handshake size={56} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
                 Corporate Partnership
               </h3>
             </div>
 
             {/* Card 3: Volunteer Your Skills */}
             <div
-              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg select-none"
+              className="bg-[#13233c] border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
             >
-              <div className="text-rlhp-accentgreen mb-6">
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
                 <Users size={56} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
                 Volunteer Your Skills
               </h3>
             </div>

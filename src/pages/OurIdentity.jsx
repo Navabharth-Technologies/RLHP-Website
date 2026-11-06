@@ -165,30 +165,30 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className="relative bg-gradient-to-b from-white to-orange-50/20 rounded-2xl p-6 sm:p-7 border border-orange-150/60 shadow-sm hover:shadow-xl hover:border-[#D97706] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group h-full cursor-default"
+                    className="relative bg-gradient-to-b from-white to-emerald-50/20 rounded-2xl p-6 sm:p-7 border border-emerald-100 shadow-sm hover:shadow-xl hover:border-rlhp-green transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group h-full cursor-default"
                   >
                     <div>
-                      {/* Top: Year Highlight & Relevant Orange Badge Symbol */}
-                      <div className="flex items-center justify-between mb-3 pb-3 border-b border-orange-100">
-                        <span className="text-3xl sm:text-4xl font-black text-[#B45309] group-hover:text-[#D97706] transition-colors tracking-tight font-serif">
+                      {/* Top: Year Highlight & Relevant Green Badge Symbol */}
+                      <div className="flex items-center justify-between mb-3 pb-3 border-b border-emerald-100">
+                        <span className="text-3xl sm:text-4xl font-black text-[#1C5620] group-hover:text-rlhp-green transition-colors tracking-tight font-serif">
                           {item.year}
                         </span>
                         
-                        {/* Relevant symbol badge matching timeline icon */}
-                        <div className="w-10 h-10 rounded-2xl bg-[#FFFBEB] text-[#D97706] border border-amber-200 flex items-center justify-center group-hover:bg-[#D97706] group-hover:text-white transition-all shadow-xs">
+                        {/* Relevant symbol badge matching timeline icon with green brand color */}
+                        <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-rlhp-green border border-emerald-200 flex items-center justify-center group-hover:bg-rlhp-green group-hover:text-white transition-all shadow-xs">
                           <MIcon size={20} />
                         </div>
                       </div>
 
-                      {/* Orange Accent Line */}
-                      <div className="w-8 h-1 bg-[#D97706]/40 group-hover:w-16 group-hover:bg-[#D97706] transition-all duration-300 rounded-full mb-3" />
+                      {/* Green Accent Line */}
+                      <div className="w-8 h-1 bg-emerald-500/40 group-hover:w-16 group-hover:bg-rlhp-green transition-all duration-300 rounded-full mb-3" />
 
                       {/* Title & Subtitle */}
-                      <h3 className="font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-[#92400E] transition-colors leading-snug mb-1">
+                      <h3 className="font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug mb-1">
                         {item.title}
                       </h3>
                       {item.subtitle && (
-                        <p className="text-xs font-bold text-[#D97706] mb-2 uppercase tracking-wide">
+                        <p className="text-xs font-bold text-rlhp-green mb-2 uppercase tracking-wide">
                           {item.subtitle}
                         </p>
                       )}
