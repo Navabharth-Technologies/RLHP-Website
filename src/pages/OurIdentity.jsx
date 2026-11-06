@@ -3,7 +3,8 @@ import { orgDetails } from '../data/rlhpData';
 import {
   Compass, Target, Heart, Award, Shield, CheckCircle2,
   Users, Calendar, MapPin, Handshake, Sparkles, Building2,
-  ZoomIn, X, ChevronRight, Globe, Scale, Eye, Sprout, UserCheck, ShieldCheck, Star
+  ZoomIn, X, ChevronRight, Globe, Scale, Eye, Sprout, UserCheck, ShieldCheck, Star,
+  Home as HomeIcon, Map, ArrowUp, Ship, VenetianMask, Trees
 } from 'lucide-react';
 
 export default function OurIdentity({ setCurrentPage }) {
@@ -128,8 +129,8 @@ export default function OurIdentity({ setCurrentPage }) {
           </div>
         </section>
 
-        {/* 4. OUR JOURNEY (Milestone Cards Layout) */}
-        <section id="our-journey" className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200/80 shadow-sm space-y-8">
+        {/* 4. OUR JOURNEY (Matching Official Timeline Reference) */}
+        <section id="our-journey" className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200/80 shadow-sm space-y-8 overflow-hidden">
           <div className="space-y-2">
             <span className="text-xs font-bold text-rlhp-darkgreen uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full inline-block">
               Historical Milestones
@@ -137,48 +138,74 @@ export default function OurIdentity({ setCurrentPage }) {
             <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
               Our Journey
             </h2>
-            <div className="w-12 h-1 bg-rlhp-green rounded-full" />
+            <div className="w-12 h-1 bg-[#D97706] rounded-full" />
             <p className="text-xs sm:text-sm text-gray-500 max-w-2xl pt-1">
+              Four decades of transformative grassroots empowerment, child protection and community development across South India.
             </p>
           </div>
 
-          {/* Responsive Milestone Cards Grid: 1 col on mobile, 2 on tablet, 3-4 on desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-2">
+          {/* Full Graphic Timeline Banner matching Reference */}
+          <div className="overflow-x-auto pb-4 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="min-w-[900px] rounded-2xl bg-gradient-to-r from-[#fef8f0] via-[#fffbf5] to-[#fef8f0] p-6 border border-orange-100/80 shadow-inner">
+              <img 
+                src={`${import.meta.env.BASE_URL}images/about/our_journey_timeline.png`} 
+                alt="Our Journey Timeline Graphic" 
+                className="w-full h-auto object-contain select-none"
+              />
+            </div>
+          </div>
+
+          {/* Responsive Milestone Cards Grid with Relevant Orange/Green Badge Symbols matching Reference */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
             {(() => {
-              const milestoneIcons = [
-                Heart,      // 1 slum
-                Users,      // Expanded to 24 slum
-                Building2,  // Street Children Shelter Homes
-                MapPin,     // 3 Districts
-                Shield,     // Tsunami Relief
-                Globe,      // North Karnataka Expansion
-                Handshake,  // Kerala Flood Relief
-              ];
+              const iconMap = {
+                'home': HomeIcon,
+                'pin': MapPin,
+                'users': Users,
+                'shelter': Building2,
+                'map': Map,
+                'arrow-up': ArrowUp,
+                'boat': Ship,
+                'mask': ShieldCheck,
+                'palm': Trees
+              };
+
               return orgDetails.journey.map((item, idx) => {
-                const MIcon = milestoneIcons[idx] || Sparkles;
+                const MIcon = iconMap[item.icon] || Sparkles;
+
                 return (
                   <div
                     key={idx}
-                    className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200/90 shadow-sm hover:shadow-xl hover:border-rlhp-green transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group h-full cursor-default"
+                    className="relative bg-gradient-to-b from-white to-orange-50/20 rounded-2xl p-6 sm:p-7 border border-orange-150/60 shadow-sm hover:shadow-xl hover:border-[#D97706] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group h-full cursor-default"
                   >
                     <div>
-                      {/* Top: Year Highlight & Relevant Icon Badge */}
-                      <div className="flex items-center justify-between mb-3 pb-3 border-b border-gray-100">
-                        <span className="text-3xl sm:text-4xl font-black text-rlhp-darkgreen group-hover:text-rlhp-green transition-colors tracking-tight font-mono">
+                      {/* Top: Year Highlight & Relevant Orange Badge Symbol */}
+                      <div className="flex items-center justify-between mb-3 pb-3 border-b border-orange-100">
+                        <span className="text-3xl sm:text-4xl font-black text-[#B45309] group-hover:text-[#D97706] transition-colors tracking-tight font-serif">
                           {item.year}
                         </span>
-                        <div className="w-8 h-8 rounded-full bg-emerald-50 text-rlhp-green border border-emerald-100 flex items-center justify-center group-hover:bg-rlhp-green group-hover:text-white transition-colors shadow-2xs">
-                          <MIcon size={16} />
+                        
+                        {/* Relevant symbol badge matching timeline icon */}
+                        <div className="w-10 h-10 rounded-2xl bg-[#FFFBEB] text-[#D97706] border border-amber-200 flex items-center justify-center group-hover:bg-[#D97706] group-hover:text-white transition-all shadow-xs">
+                          <MIcon size={20} />
                         </div>
                       </div>
 
-                      {/* Green Accent Line */}
-                      <div className="w-8 h-1 bg-rlhp-green/40 group-hover:w-14 group-hover:bg-rlhp-green transition-all duration-300 rounded-full mb-3" />
+                      {/* Orange Accent Line */}
+                      <div className="w-8 h-1 bg-[#D97706]/40 group-hover:w-16 group-hover:bg-[#D97706] transition-all duration-300 rounded-full mb-3" />
 
-                      {/* Title / Achievement */}
-                      <h3 className="font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-rlhp-darkgreen transition-colors leading-snug">
+                      {/* Title & Subtitle */}
+                      <h3 className="font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-[#92400E] transition-colors leading-snug mb-1">
                         {item.title}
                       </h3>
+                      {item.subtitle && (
+                        <p className="text-xs font-bold text-[#D97706] mb-2 uppercase tracking-wide">
+                          {item.subtitle}
+                        </p>
+                      )}
+                      <p className="text-xs text-gray-600 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 );

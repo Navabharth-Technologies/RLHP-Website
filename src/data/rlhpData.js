@@ -69,15 +69,71 @@ export const orgDetails = {
   // Inception Story
   inceptionStory: "Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management. Its area of operation is the slums and villages of Mysore, Mandya and Chamarajanagar districts of Karnataka, South India.",
 
-  // Our Journey
+  // Our Journey - Exact 10 Milestones matching Official Timeline Reference
   journey: [
-    { year: "1984", title: "1 slum", description: "Began child-centred community work in 1 slum focusing on scavengers (Pourakarmikas)." },
-    { year: "1984", title: "Expanded to 24 slum - Mysuru", description: "Rapid scaling across 24 slums of Mysuru city addressing health and literacy." },
-    { year: "1990", title: "Street Children Shelter Homes", description: "Started Asha Bhavana Girls Shelter Home and Asha Kirana Boys Shelter Home." },
-    { year: "1999", title: "3 Districts", description: "Expanded operations across Mysuru, Chamarajanagar, and Mandya districts." },
-    { year: "2004", title: "Tsunami Relief", description: "Emergency and rehabilitation disaster relief response in coastal Tamil Nadu." },
-    { year: "2014", title: "North Karnataka Expansion", description: "Expanded to 5 districts: Bidar, Kalaburagi, Raichur, Davangere, and Chitradurga." },
-    { year: "2018", title: "Kerala Flood Relief", description: "Massive humanitarian aid, relief kits, and rebuilding assistance during Kerala floods." }
+    { 
+      year: "1984", 
+      title: "Started in 1 Slum in Mysuru", 
+      subtitle: "Urban Settlement Programme",
+      icon: "home",
+      description: "Began child-centred community work in 1 slum focusing on Pourakarmikas and urban poor families." 
+    },
+    { 
+      year: "1989", 
+      title: "Expanded to More Slums in Mysuru", 
+      subtitle: "Citywide Slum Outreach",
+      icon: "pin",
+      description: "Rapid scaling across multiple slums of Mysuru city addressing child health, nutrition and literacy." 
+    },
+    { 
+      year: "1990", 
+      title: "Outreach with Street Children", 
+      subtitle: "Child Protection Drive",
+      icon: "users",
+      description: "Direct protection and identification outreach program for street and runaway children." 
+    },
+    { 
+      year: "1990", 
+      title: "Rehabilitation Homes for Boys and Girls", 
+      subtitle: "Asha Bhavana & Asha Kirana",
+      icon: "shelter",
+      description: "Established residential rehabilitation and care shelters for vulnerable girls and boys." 
+    },
+    { 
+      year: "1999", 
+      title: "Expanded to 3 Districts", 
+      subtitle: "Mysuru, Mandya & Chamarajanagar",
+      icon: "map",
+      description: "Expanded integrated community development operations across 3 southern districts of Karnataka." 
+    },
+    { 
+      year: "2014", 
+      title: "Expanded to North Karnataka, 5 Districts", 
+      subtitle: "Regional Expansion",
+      icon: "arrow-up",
+      description: "Extended interventions to Bidar, Kalaburagi, Raichur, Davangere, and Chitradurga." 
+    },
+    { 
+      year: "2018", 
+      title: "Flood Relief Work, Kerala", 
+      subtitle: "Emergency Humanitarian Mission",
+      icon: "boat",
+      description: "Emergency humanitarian aid, medical rescue support, and rehabilitation kits during Kerala floods." 
+    },
+    { 
+      year: "2020", 
+      title: "COVID-19 Relief Work", 
+      subtitle: "Pandemic Emergency Response",
+      icon: "mask",
+      description: "Emergency food rations, medical equipment, and community sanitization across vulnerable zones." 
+    },
+    { 
+      year: "2026", 
+      title: "Expanded to 2 More Coastal Districts", 
+      subtitle: "Coastal Karnataka Footprint",
+      icon: "palm",
+      description: "Strengthening community child protection and educational empowerment across coastal Karnataka." 
+    }
   ],
 
   // 10 Principles
