@@ -372,18 +372,22 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 3: PROGRAMME PRIORITIES
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-20 bg-[#0f1b2d] text-white overflow-hidden">
-        {/* Background gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1b2d] via-[#12233a] to-[#0f1b2d]" />
+      <section className="relative py-24 text-white overflow-hidden">
+        {/* Background photo of children with deep contrast darkening overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
+          style={{ backgroundImage: `url(${B}images/programme_priorities_bg.jpg)` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/80 to-black/90 backdrop-blur-[1px]" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
-              Our Programme <span className="text-rlhp-accentgreen">Priorities</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-wide">
+              OUR PROGRAMME <span className="text-[#E49E23]">PRIORITIES</span>
             </h2>
-            <p className="text-gray-300 text-base max-w-[650px] mx-auto">
-              RLHP's approach to holistic, child-centred development focuses on
+            <p className="text-gray-200 text-sm sm:text-base max-w-[650px] mx-auto font-medium">
+              Comprehensive programs breaking the cycle of poverty through education
             </p>
           </div>
 

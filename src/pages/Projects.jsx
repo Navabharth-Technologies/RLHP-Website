@@ -25,7 +25,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
   ];
 
   return (
-    <div className="font-sans pb-20 bg-gray-50/50">
+    <div className="font-sans bg-gray-50/50">
       
       {/* ─── 1. TOP HERO SECTION: WHAT WE DO (Exact Replica of Reference 3) ─── */}
       <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#eaf4eb]/90 via-[#f2f8f3] to-white border-b border-green-100/60 overflow-hidden">
@@ -179,7 +179,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           </div>
 
           {/* Concluding Box */}
-          <div className="max-w-4xl mx-auto text-center pt-2">
+          <div className="max-w-4xl mx-auto text-center pt-2 pb-6">
             <p className="text-sm sm:text-base text-green-50 font-medium italic leading-relaxed">
               Through these partnerships and collective efforts, RLHP works towards building inclusive, empowered and resilient communities where every child, woman and young person has the opportunity to live with dignity and build a better future.
             </p>

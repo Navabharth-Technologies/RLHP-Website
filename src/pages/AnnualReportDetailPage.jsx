@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   ChevronLeft, ChevronRight, Calendar, Folder, Download, BookOpen, 
-  ArrowLeft, Loader2
+  ArrowLeft, Loader2, Maximize2, Minimize2, X
 } from 'lucide-react';
 import { PageFlip } from 'page-flip';
 import * as pdfjsLib from 'pdfjs-dist';
@@ -21,8 +21,10 @@ export default function AnnualReportDetailPage({
   const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const bookContainerRef = useRef(null);
+  const fullscreenContainerRef = useRef(null);
   const pageFlipInstanceRef = useRef(null);
 
   // Play realistic page turn audio sound
@@ -71,11 +73,15 @@ export default function AnnualReportDetailPage({
         // Clean container previous pages
         container.innerHTML = '';
 
+        // High resolution rendering for sharp text and images (devicePixelRatio * 2.2 scale)
+        const dpr = Math.max(window.devicePixelRatio || 1, 2);
+        const renderScale = 2.4; 
+
         // Render each page into a canvas wrapped in a div.page
         for (let i = 1; i <= count; i++) {
           if (isCancelled) return;
           const page = await pdf.getPage(i);
-          const viewport = page.getViewport({ scale: 1.5 });
+          const viewport = page.getViewport({ scale: renderScale });
 
           const pageDiv = document.createElement('div');
           pageDiv.className = 'page bg-white shadow-md overflow-hidden flex items-center justify-center';
@@ -89,7 +95,7 @@ export default function AnnualReportDetailPage({
           canvas.style.objectFit = 'contain';
           canvas.style.display = 'block';
 
-          const context = canvas.getContext('2d');
+          const context = canvas.getContext('2d', { alpha: false });
           await page.render({ canvasContext: context, viewport }).promise;
 
           pageDiv.appendChild(canvas);
@@ -107,19 +113,19 @@ export default function AnnualReportDetailPage({
         // Initialize PageFlip library
         const isMobile = window.innerWidth < 768;
         const pageFlip = new PageFlip(container, {
-          width: isMobile ? 360 : 450,
-          height: isMobile ? 500 : 620,
+          width: isMobile ? 380 : (isFullscreen ? 560 : 490),
+          height: isMobile ? 540 : (isFullscreen ? 780 : 680),
           size: 'stretch',
-          minWidth: 280,
-          maxWidth: 600,
-          minHeight: 400,
-          maxHeight: 850,
+          minWidth: 320,
+          maxWidth: 900,
+          minHeight: 450,
+          maxHeight: 1200,
           drawShadow: true,
-          flippingTime: 700,
+          flippingTime: 650,
           usePortrait: true,
           startPage: 0,
           showCover: true,
-          maxShadowOpacity: 0.5,
+          maxShadowOpacity: 0.45,
           mobileScrollSupport: false
         });
 
@@ -147,7 +153,7 @@ export default function AnnualReportDetailPage({
         pageFlipInstanceRef.current = null;
       }
     };
-  }, [report]);
+  }, [report, isFullscreen]);
 
   const turnNext = () => {
     if (pageFlipInstanceRef.current) {
@@ -161,15 +167,20 @@ export default function AnnualReportDetailPage({
     }
   };
 
-  // Keyboard navigation
+  // Keyboard navigation & Esc to close fullscreen
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'PageDown') turnNext();
-      if (e.key === 'ArrowLeft' || e.key === 'PageUp') turnPrev();
+      if (e.key === 'Escape' && isFullscreen) {
+        setIsFullscreen(false);
+      } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        turnNext();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        turnPrev();
+      }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  });
+  }, [isFullscreen]);
 
   const matchYear = report.title?.match(/\d{4}[–-]\d{4}/);
   const displayYear = matchYear ? matchYear[0].replace(/20(\d\d)$/, '$1') : report.title;
@@ -270,30 +281,58 @@ export default function AnnualReportDetailPage({
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          2. MAIN CONTENT AREA: CLEAN FLIPBOOK (NO TOOLBARS) + RELATED POSTS
+          2. MAIN CONTENT AREA: CLEAN FLIPBOOK + RELATED POSTS
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* ── Left Column (8 Cols): Realistic Book-turn Flipbook (Clean Stage) ── */}
           <div className="lg:col-span-8">
-            <div className="relative bg-[#626466] rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center border border-gray-400/30 min-h-[550px] sm:min-h-[720px] p-2 sm:p-6 select-none">
+            <div 
+              ref={fullscreenContainerRef}
+              className={`relative bg-[#5a5c5e] rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center border border-gray-400/30 select-none transition-all duration-300 ${
+                isFullscreen 
+                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-black/95 p-4 sm:p-10'
+                  : 'min-h-[550px] sm:min-h-[740px] p-2 sm:p-6'
+              }`}
+            >
               
+              {/* Fullscreen Close ("Wrong" / Esc) button */}
+              {isFullscreen ? (
+                <button
+                  onClick={() => setIsFullscreen(false)}
+                  className="absolute top-4 right-4 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 hover:bg-white/40 text-white font-bold text-xs shadow-2xl backdrop-blur-md cursor-pointer transition-all"
+                  title="Close Fullscreen (Esc)"
+                >
+                  <X size={18} />
+                  <span>Exit Fullscreen (Esc)</span>
+                </button>
+              ) : (
+                /* Fullscreen Trigger Overlay Button in Top-Right */
+                <button
+                  onClick={() => setIsFullscreen(true)}
+                  className="absolute top-4 right-4 z-40 p-2.5 rounded-full bg-black/50 hover:bg-rlhp-green text-white shadow-xl transition-all cursor-pointer backdrop-blur-xs hover:scale-110"
+                  title="Enlarge to Full Screen"
+                >
+                  <Maximize2 size={18} />
+                </button>
+              )}
+
               {/* Left Navigation Arrow */}
               <button
                 onClick={turnPrev}
-                className="absolute left-3 sm:left-5 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer hover:scale-110 active:scale-95"
+                className="absolute left-3 sm:left-5 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer hover:scale-110 active:scale-95"
                 title="Turn to Previous Page"
               >
-                <ChevronLeft size={26} />
+                <ChevronLeft size={28} />
               </button>
 
               {/* Loading Indicator */}
               {loading && (
                 <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/60 backdrop-blur-xs gap-3 text-white">
-                  <Loader2 size={38} className="animate-spin text-emerald-400" />
+                  <Loader2 size={42} className="animate-spin text-emerald-400" />
                   <p className="text-xs font-semibold tracking-wide">
-                    Opening Realistic Book Flip Pages...
+                    Rendering High-Clarity Book Pages...
                   </p>
                 </div>
               )}
@@ -310,15 +349,15 @@ export default function AnnualReportDetailPage({
               {/* Right Navigation Arrow */}
               <button
                 onClick={turnNext}
-                className="absolute right-3 sm:right-5 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer hover:scale-110 active:scale-95"
+                className="absolute right-3 sm:right-5 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer hover:scale-110 active:scale-95"
                 title="Turn to Next Page"
               >
-                <ChevronRight size={26} />
+                <ChevronRight size={28} />
               </button>
             </div>
           </div>
 
-          {/* ── Right Column (4 Cols): Related Posts (Exact Replica of Reference Image) ── */}
+          {/* ── Right Column (4 Cols): Related Posts ── */}
           <aside className="lg:col-span-4 space-y-6">
             <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
               
