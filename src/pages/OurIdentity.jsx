@@ -122,9 +122,6 @@ export default function OurIdentity({ setCurrentPage }) {
               <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
                 Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
               </p>
-              <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
-                Its area of operation is the slums and villages of Mysore, Mandya and Chamarajanagar districts of Karnataka, South India.
-              </p>
             </div>
           </div>
         </section>
@@ -173,7 +170,7 @@ export default function OurIdentity({ setCurrentPage }) {
                         <span className="text-3xl sm:text-4xl font-black text-[#1C5620] group-hover:text-rlhp-green transition-colors tracking-tight font-serif">
                           {item.year}
                         </span>
-                        
+
                         {/* Relevant symbol badge matching timeline icon with green brand color */}
                         <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-rlhp-green border border-emerald-200 flex items-center justify-center group-hover:bg-rlhp-green group-hover:text-white transition-all shadow-xs">
                           <MIcon size={20} />

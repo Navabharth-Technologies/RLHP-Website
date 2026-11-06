@@ -315,10 +315,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
                 <div className="text-gray-600 text-base leading-relaxed space-y-4">
                   <p>
-                    Since 1984, <strong className="text-gray-900">Rural Literacy and Health Programme (RLHP)</strong> has been working towards holistic, child-centred development. What began with a focus on the health and education of urban poor (Pourakarmikas) and their children has grown into a wider community development approach, reaching over <strong className="text-gray-900">2 million lives</strong> across 10 districts in Karnataka and four states in South India.
+                    Since 1984, <strong className="text-gray-900">Rural Literacy and Health Programme (RLHP)</strong> has been working towards holistic, child-centred development. What began with a focus on the health and education of urban poor and their children has grown into a wider community development approach, reaching over <strong className="text-gray-900">2 million lives</strong> across 10 districts in Karnataka and four states in South India.
                   </p>
                   <p>
-                    We work in the most marginalized communities—from urban informal settlements to rural villages. Where others see impossibility, we see children full of potential and communities ready to transform.
+                    We work in the most marginalized communities—from urban poor to rural population, where others see impossibility, we see children full of potential and communities ready to transform.
                   </p>
                 </div>
               </div>
@@ -378,7 +378,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-20 text-white overflow-hidden bg-slate-900">
         {/* Classroom students background image - aligned to top to showcase children's faces clearly without cutoff */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-[center_10%] sm:bg-[center_top] bg-no-repeat transition-all duration-700"
           style={{ backgroundImage: `url(${B}images/priorities_bg_students.jpg)` }}
         />
@@ -447,35 +447,68 @@ export default function Home({ setCurrentPage, onNavClick }) {
             ].map((card, i) => (
               <div
                 key={i}
-                className="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-rlhp-green/30 hover:-translate-y-2 border-2 border-transparent hover:border-rlhp-green transition-all duration-300 group flex flex-col text-gray-900 select-none"
+                className="group relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
               >
-                {/* Image */}
-                <div className="relative h-44 overflow-hidden bg-gray-100">
-                  <img
-                    src={card.img}
-                    alt={card.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <span className="absolute bottom-2 left-3 bg-rlhp-green text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded shadow">
-                    {card.category}
-                  </span>
-                </div>
+                {/* 3D Flip Card Inner Container */}
+                <div className="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180 rounded-2xl shadow-xl">
+                  
+                  {/* ── FRONT FACE: Full-Length Card Image with Title Badge ── */}
+                  <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    {/* Gradient overlay for contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+                    
+                    {/* Top Category Tag */}
+                    <span className="absolute top-3.5 left-3.5 bg-rlhp-green/95 backdrop-blur-xs text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md border border-white/20">
+                      {card.category}
+                    </span>
 
-                {/* Content */}
-                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-base font-bold text-gray-900 group-hover:text-rlhp-green transition-colors mb-2 leading-snug">
-                      {card.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed">
-                      {card.desc}
-                    </p>
+                    {/* Bottom Title on Front Card */}
+                    <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
+                      <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2" />
+                      <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
+                        {card.title}
+                      </h3>
+                      <p className="text-[11px] text-emerald-300 font-semibold mt-1 flex items-center gap-1">
+                        <span>Flip card for details</span> →
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Animated green hover line */}
-                <div className="card-hover-line" />
+                  {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
+                  <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/50 shadow-2xl flex flex-col justify-between">
+                    <div>
+                      {/* Top Header */}
+                      <span className="inline-block bg-white/20 text-emerald-100 text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-3 border border-white/20">
+                        {card.category}
+                      </span>
+                      <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
+                        {card.title}
+                      </h3>
+                      <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3" />
+                      
+                      {/* Description */}
+                      <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
+                        {card.desc}
+                      </p>
+                    </div>
+
+                    {/* Bottom Metric Badge */}
+                    <div className="pt-3 border-t border-white/20 flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-emerald-200">
+                        {card.metric}
+                      </span>
+                      <span className="text-[10px] text-white/70 italic">
+                        RLHP Priority
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             ))}
           </div>
@@ -521,9 +554,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   {/* Organic Green Shape for Image Placeholder with smooth motion animation */}
                   <div className="flex-shrink-0 relative">
                     <div
-                      className={`w-28 h-28 sm:w-36 sm:h-36 shadow-lg transition-transform duration-300 hover:scale-110 ${
-                        isEven ? 'animate-morph-float' : 'animate-morph-float-delayed'
-                      }`}
+                      className={`w-28 h-28 sm:w-36 sm:h-36 shadow-lg transition-transform duration-300 hover:scale-110 ${isEven ? 'animate-morph-float' : 'animate-morph-float-delayed'
+                        }`}
                       style={{
                         background: 'linear-gradient(135deg, #2D8A35 0%, #1C5620 60%, #123C15 100%)',
                         borderRadius: isEven
@@ -541,16 +573,15 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     </div>
 
                     {/* Testimonial Quote Text with Unique Font for Each Card */}
-                    <p 
-                      className={`text-gray-700 text-sm sm:text-base leading-relaxed mt-2 mb-6 group-hover:text-gray-900 transition-colors ${
-                        i % 4 === 0 
-                          ? 'font-serif italic font-normal tracking-wide' 
-                          : i % 4 === 1 
-                          ? 'font-sans font-medium tracking-normal text-gray-800' 
-                          : i % 4 === 2 
-                          ? 'font-mono text-[13px] sm:text-sm font-normal text-gray-800' 
-                          : 'font-serif font-light text-[15px] sm:text-[17px] leading-loose text-gray-800'
-                      }`}
+                    <p
+                      className={`text-gray-700 text-sm sm:text-base leading-relaxed mt-2 mb-6 group-hover:text-gray-900 transition-colors ${i % 4 === 0
+                        ? 'font-serif italic font-normal tracking-wide'
+                        : i % 4 === 1
+                          ? 'font-sans font-medium tracking-normal text-gray-800'
+                          : i % 4 === 2
+                            ? 'font-mono text-[13px] sm:text-sm font-normal text-gray-800'
+                            : 'font-serif font-light text-[15px] sm:text-[17px] leading-loose text-gray-800'
+                        }`}
                     >
                       “{t.text}”
                     </p>
@@ -643,7 +674,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-28 text-white overflow-hidden bg-slate-900">
         {/* Authentic smiling children with craft work background image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-[center_25%] bg-no-repeat transition-all duration-700"
           style={{ backgroundImage: `url(${B}images/together_difference_bg.jpg)` }}
         />

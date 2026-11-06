@@ -17,7 +17,7 @@ export default function Footer({ setCurrentPage, onNavClick }) {
     <footer id="colophon" className="site-footer bg-[#0a1628] text-gray-200 border-t border-gray-800">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
-          
+
           {/* Column 1: Organization Branding & Address */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -88,7 +88,7 @@ export default function Footer({ setCurrentPage, onNavClick }) {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-rlhp-accentgreen flex-shrink-0" />
-                <a href="tel:08212451216" className="hover:text-white transition-colors">
+                <a href="tel:08212454686" className="hover:text-white transition-colors">
                   0821 2451216
                 </a>
               </li>

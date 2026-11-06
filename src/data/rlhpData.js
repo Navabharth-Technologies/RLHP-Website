@@ -3,7 +3,7 @@
 export const orgDetails = {
   name: "Rural Literacy and Health Programme",
   acronym: "RLHP",
-  tagline: "Empowering through health, education and livelihood",
+  tagline: "Empowering people through health, education and livelihood",
   bulletLine: "Transforming lives of children, women and community",
   location: "Mysuru, Karnataka, India",
   foundedYear: 1984,
@@ -48,7 +48,7 @@ export const orgDetails = {
   },
   vision: "To create a just, free, equitable and sustainable society",
   mission: "To empower the marginalised poor in slums and villages, vulnerable children and others affected by natural calamities and climate changes to respond to the challenges of growing poverty and rights violations, through collective and affirmative action leading to sustainable development and self-reliance.",
-  
+
   // Founders - Separate
   founders: [
     { name: "Mr. Joy Maliekal", designation: "Founder RLHP", image: "/images/team/joy_maliekal.jpg" },
@@ -71,68 +71,68 @@ export const orgDetails = {
 
   // Our Journey - Exact 10 Milestones matching Official Timeline Reference
   journey: [
-    { 
-      year: "1984", 
-      title: "Started in 1 Slum in Mysuru", 
+    {
+      year: "1984",
+      title: "Started in 1 Slum in Mysuru",
       subtitle: "Urban Settlement Programme",
       icon: "home",
-      description: "Began child-centred community work in 1 slum focusing on Pourakarmikas and urban poor families." 
+      description: "Began child-centred community work in 1 slum focusing on Pourakarmikas and urban poor families."
     },
-    { 
-      year: "1989", 
-      title: "Expanded to More Slums in Mysuru", 
+    {
+      year: "1989",
+      title: "Expanded to More Slums in Mysuru",
       subtitle: "Citywide Slum Outreach",
       icon: "pin",
-      description: "Rapid scaling across multiple slums of Mysuru city addressing child health, nutrition and literacy." 
+      description: "Rapid scaling across multiple slums of Mysuru city addressing child health, nutrition and literacy."
     },
-    { 
-      year: "1990", 
-      title: "Outreach with Street Children", 
+    {
+      year: "1990",
+      title: "Outreach with Street Children",
       subtitle: "Child Protection Drive",
       icon: "users",
-      description: "Direct protection and identification outreach program for street and runaway children." 
+      description: "Direct protection and identification outreach program for street and runaway children."
     },
-    { 
-      year: "1990", 
-      title: "Rehabilitation Homes for Boys and Girls", 
+    {
+      year: "1990",
+      title: "Rehabilitation Homes for Boys and Girls",
       subtitle: "Asha Bhavana & Asha Kirana",
       icon: "shelter",
-      description: "Established residential rehabilitation and care shelters for vulnerable girls and boys." 
+      description: "Established residential rehabilitation and care shelters for vulnerable girls and boys."
     },
-    { 
-      year: "1999", 
-      title: "Expanded to 3 Districts", 
+    {
+      year: "1999",
+      title: "Expanded to 3 Districts",
       subtitle: "Mysuru, Mandya & Chamarajanagar",
       icon: "map",
-      description: "Expanded integrated community development operations across 3 southern districts of Karnataka." 
+      description: "Expanded integrated community development operations across 3 southern districts of Karnataka."
     },
-    { 
-      year: "2014", 
-      title: "Expanded to North Karnataka, 5 Districts", 
+    {
+      year: "2014",
+      title: "Expanded to North Karnataka, 5 Districts",
       subtitle: "Regional Expansion",
       icon: "arrow-up",
-      description: "Extended interventions to Bidar, Kalaburagi, Raichur, Davangere, and Chitradurga." 
+      description: "Extended interventions to Bidar, Kalaburagi, Raichur, Davangere, and Chitradurga."
     },
-    { 
-      year: "2018", 
-      title: "Flood Relief Work, Kerala", 
+    {
+      year: "2018",
+      title: "Flood Relief Work, Kerala",
       subtitle: "Emergency Humanitarian Mission",
       icon: "boat",
-      description: "Emergency humanitarian aid, medical rescue support, and rehabilitation kits during Kerala floods." 
+      description: "Emergency humanitarian aid, medical rescue support, and rehabilitation kits during Kerala floods."
     },
-    { 
-      year: "2020", 
-      title: "COVID-19 Relief Work", 
+    {
+      year: "2020",
+      title: "COVID-19 Relief Work",
       subtitle: "Pandemic Emergency Response",
       icon: "mask",
-      description: "Emergency food rations, medical equipment, and community sanitization across vulnerable zones." 
+      description: "Emergency food rations, medical equipment, and community sanitization across vulnerable zones."
     },
-    { 
-      year: "2026", 
-      title: "Expanded to 2 More Coastal Districts", 
+    {
+      year: "2026",
+      title: "Expanded to 2 More Coastal Districts",
       subtitle: "Coastal Karnataka Footprint",
       icon: "palm",
-      description: "Strengthening community child protection and educational empowerment across coastal Karnataka." 
+      description: "Strengthening community child protection and educational empowerment across coastal Karnataka."
     }
   ],
 
@@ -882,7 +882,7 @@ export const awardsData = [
 ];
 
 export const publicationsData = ourReportsList.map((r, i) => ({
-  id: `pub-${i+1}`,
+  id: `pub-${i + 1}`,
   title: r.title,
   year: r.year,
   category: r.type,

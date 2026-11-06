@@ -141,8 +141,8 @@ export default function App() {
         onNavClick={handleNavClick}
       />
 
-      {/* Main Page Area — pt-[76px] offsets the fixed navbar */}
-      <main className="flex-1 pt-[76px]">
+      {/* Main Page Area — offsets the fixed navbar */}
+      <main className="flex-1 pt-[82px] sm:pt-[88px]">
         {renderPage()}
       </main>
 
