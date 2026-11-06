@@ -5,9 +5,9 @@ import {
 } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 
-// Configure pdfjs worker to use CDN or local bundle
+// Configure pdfjs worker to use local bundle copied to public
 if (typeof window !== 'undefined') {
-  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `${import.meta.env.BASE_URL}pdf.worker.min.js`;
 }
 
 export default function FlipbookModal({ report, onClose }) {

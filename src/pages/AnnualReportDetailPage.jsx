@@ -310,16 +310,16 @@ export default function AnnualReportDetailPage({
             <div 
               className={`relative bg-[#505254] rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center border border-gray-400/30 select-none transition-all duration-300 ${
                 isFullscreen 
-                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-black/95 p-4 sm:p-12'
+                  ? 'fixed inset-0 z-50 rounded-none border-0 w-screen h-screen bg-[#3a3b3d] p-4 sm:p-10 flex flex-col justify-center'
                   : 'min-h-[580px] sm:min-h-[720px] p-4 sm:p-8'
               }`}
             >
               
-              {/* Fullscreen Close Button */}
+              {/* Fullscreen Close Button with High Z-Index & Drop Shadow */}
               {isFullscreen ? (
                 <button
                   onClick={() => setIsFullscreen(false)}
-                  className="absolute top-5 right-5 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/25 hover:bg-white/40 text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/20 hover:scale-105"
+                  className="absolute top-6 right-8 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/30 hover:scale-105"
                   title="Exit Fullscreen (Esc)"
                 >
                   <X size={20} />
@@ -337,16 +337,16 @@ export default function AnnualReportDetailPage({
                 </button>
               )}
 
-              {/* Left Navigation Arrow */}
+              {/* Left Navigation Arrow - Prominently Visible matching Reference 2 */}
               <button
                 onClick={turnPrev}
                 disabled={currentPage <= 1 || isFlipping}
-                className={`absolute left-3 sm:left-6 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer ${
-                  currentPage <= 1 ? 'opacity-20 cursor-not-allowed pointer-events-none' : 'hover:scale-110 active:scale-95'
+                className={`absolute left-3 sm:left-8 z-50 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-black/75 hover:bg-black text-white border-2 border-white/40 hover:border-white transition-all shadow-[0_4px_25px_rgba(0,0,0,0.6)] cursor-pointer ${
+                  currentPage <= 1 ? 'opacity-15 cursor-not-allowed pointer-events-none' : 'hover:scale-110 active:scale-95'
                 }`}
                 title="Turn to Previous Page"
               >
-                <ChevronLeft size={28} />
+                <ChevronLeft size={34} />
               </button>
 
               {/* Loading Indicator */}
@@ -359,16 +359,20 @@ export default function AnnualReportDetailPage({
                 </div>
               )}
 
-              {/* Realistic 3D Book Stage */}
+              {/* Realistic 3D Book Stage (Centered horizontally & vertically) */}
               <div 
-                className="w-full flex items-center justify-center overflow-hidden py-4"
+                className={`w-full flex items-center justify-center overflow-hidden py-4 ${
+                  isFullscreen ? 'max-w-[1280px] h-[90vh]' : ''
+                }`}
                 style={{ perspective: '2200px' }}
               >
                 {isCover ? (
                   /* ─── SINGLE FRONT COVER BOOK ─── */
                   <div 
                     onClick={turnNext}
-                    className={`relative w-full max-w-[420px] sm:max-w-[460px] aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                    className={`relative w-full aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                      isFullscreen ? 'max-w-[540px] max-h-[86vh]' : 'max-w-[420px] sm:max-w-[460px]'
+                    } ${
                       isFlipping
                         ? 'rotate-y-[-40deg] scale-[0.98] origin-left brightness-90 shadow-2xl'
                         : 'rotate-y-0 scale-100 origin-center brightness-100 hover:scale-[1.02]'
@@ -394,7 +398,9 @@ export default function AnnualReportDetailPage({
                   /* ─── SINGLE BACK COVER BOOK (Closing Page) ─── */
                   <div 
                     onClick={turnPrev}
-                    className={`relative w-full max-w-[420px] sm:max-w-[460px] aspect-[1/1.38] rounded-l-2xl rounded-r-md shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                    className={`relative w-full aspect-[1/1.38] rounded-l-2xl rounded-r-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                      isFullscreen ? 'max-w-[540px] max-h-[86vh]' : 'max-w-[420px] sm:max-w-[460px]'
+                    } ${
                       isFlipping
                         ? 'rotate-y-[40deg] scale-[0.98] origin-right brightness-90 shadow-2xl'
                         : 'rotate-y-0 scale-100 origin-center brightness-100 hover:scale-[1.02]'
@@ -410,10 +416,10 @@ export default function AnnualReportDetailPage({
                     />
                   </div>
                 ) : (
-                  /* ─── OPEN TWO-PAGE SPREAD ─── */
+                  /* ─── OPEN TWO-PAGE SPREAD MATCHING REFERENCE 2 ─── */
                   <div 
-                    className={`relative w-full flex items-center justify-center rounded-2xl shadow-[0_30px_70px_rgba(0,0,0,0.9)] overflow-hidden border border-black/30 transition-all duration-300 ${
-                      isFullscreen ? 'max-w-6xl max-h-[85vh]' : 'max-w-4xl max-h-[75vh]'
+                    className={`relative w-full flex items-center justify-center rounded-2xl shadow-[0_35px_80px_rgba(0,0,0,0.95)] overflow-hidden border border-black/30 transition-all duration-300 ${
+                      isFullscreen ? 'max-w-[1240px] max-h-[88vh]' : 'max-w-4xl max-h-[75vh]'
                     }`}
                     style={{ transformStyle: 'preserve-3d' }}
                   >
@@ -483,16 +489,16 @@ export default function AnnualReportDetailPage({
                 )}
               </div>
 
-              {/* Right Navigation Arrow */}
+              {/* Right Navigation Arrow - Prominently Visible matching Reference 2 */}
               <button
                 onClick={turnNext}
                 disabled={currentPage >= totalBookPages || isFlipping}
-                className={`absolute right-3 sm:right-6 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-black/60 hover:bg-rlhp-green text-white border border-white/20 transition-all shadow-2xl cursor-pointer ${
-                  currentPage >= totalBookPages ? 'opacity-20 cursor-not-allowed pointer-events-none' : 'hover:scale-110 active:scale-95'
+                className={`absolute right-3 sm:right-8 z-50 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-black/75 hover:bg-black text-white border-2 border-white/40 hover:border-white transition-all shadow-[0_4px_25px_rgba(0,0,0,0.6)] cursor-pointer ${
+                  currentPage >= totalBookPages ? 'opacity-15 cursor-not-allowed pointer-events-none' : 'hover:scale-110 active:scale-95'
                 }`}
                 title="Turn to Next Page"
               >
-                <ChevronRight size={28} />
+                <ChevronRight size={34} />
               </button>
             </div>
           </div>

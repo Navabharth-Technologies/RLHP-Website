@@ -144,19 +144,8 @@ export default function OurIdentity({ setCurrentPage }) {
             </p>
           </div>
 
-          {/* Full Graphic Timeline Banner matching Reference */}
-          <div className="overflow-x-auto pb-4 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0">
-            <div className="min-w-[900px] rounded-2xl bg-gradient-to-r from-[#fef8f0] via-[#fffbf5] to-[#fef8f0] p-6 border border-orange-100/80 shadow-inner">
-              <img 
-                src={`${import.meta.env.BASE_URL}images/about/our_journey_timeline.png`} 
-                alt="Our Journey Timeline Graphic" 
-                className="w-full h-auto object-contain select-none"
-              />
-            </div>
-          </div>
-
           {/* Responsive Milestone Cards Grid with Relevant Orange/Green Badge Symbols matching Reference */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
             {(() => {
               const iconMap = {
                 'home': HomeIcon,
