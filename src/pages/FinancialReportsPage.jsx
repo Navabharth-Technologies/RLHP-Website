@@ -7,8 +7,18 @@ const B = import.meta.env.BASE_URL;
 export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSelectNews }) {
   const [activeFlipbook, setActiveFlipbook] = useState(null);
 
-  // Single PDF for Financials section as requested
+  // Both Foreign Contribution PDFs aligned beside one another
   const financialReportsList = [
+    {
+      id: 'fcra-2025-2026',
+      title: 'Foreign Contributions (2025–2026)',
+      period: 'Year ended 31 March 2026',
+      date: 'September 09, 2026',
+      pdfUrl: `${B}documents/Foreign_Contribution_2025_2026.pdf`,
+      cover: `${B}documents/Foreign_Contribution_2025_2026.pdf`,
+      category: 'Foreign Contribution',
+      year: '2025–2026',
+    },
     {
       id: 'fcra-2024-2025',
       title: 'Foreign Contributions (2024–2025)',
@@ -82,7 +92,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
           2. PDF CARDS GRID (Red PDF Icon Style Matching Reference 2 Image)
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl gap-8">
           {financialReportsList.map((item, idx) => (
             <div
               key={idx}

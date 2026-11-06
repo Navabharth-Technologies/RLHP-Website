@@ -376,14 +376,14 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 3: PROGRAMME PRIORITIES
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 text-white overflow-hidden bg-slate-900">
-        {/* Classroom students studying background image - positioned nicely with object-top and subtle tint for face visibility */}
+      <section className="relative py-20 text-white overflow-hidden bg-slate-900">
+        {/* Classroom students background image - aligned to top to showcase children's faces clearly without cutoff */}
         <div 
-          className="absolute inset-0 bg-cover bg-[center_20%] bg-no-repeat transition-all duration-700"
+          className="absolute inset-0 bg-cover bg-[center_10%] sm:bg-[center_top] bg-no-repeat transition-all duration-700"
           style={{ backgroundImage: `url(${B}images/priorities_bg_students.jpg)` }}
         />
-        {/* Clear transparent overlay allowing students' faces and classroom to be clearly visible while maintaining text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/75" />
+        {/* Soft, harmonious dark gradient overlay with warm tint that matches classroom image and keeps faces visible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#180a08]/75 via-[#1a0f0d]/55 to-[#120705]/85" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
