@@ -772,17 +772,19 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <div className="w-12 h-[3px] bg-rlhp-green mx-auto rounded-full" />
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 items-center justify-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 items-center justify-center">
             {[
               { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
               { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
               { name: 'Azim Premji Foundation', img: `${B}images/partners/azim-premji-logo.png` },
               { name: 'ChildFund International', img: `${B}images/partners/childfund-logo.png` },
               { name: 'Klüber Lubrication', img: `${B}images/partners/kluber-lubrication-logo.png` },
+              { name: 'Federal Ministry for Economic Cooperation and Development', img: `${B}images/partners/federal-ministry-logo.png` },
+              { name: 'terre des hommes', img: `${B}images/partners/terre-des-hommes-logo.png` },
             ].map((p, idx) => (
               <div
                 key={idx}
-                className="h-28 bg-white border border-gray-200 rounded-2xl p-4 flex items-center justify-center shadow-sm hover:shadow-lg hover:border-rlhp-green/40 transition-all duration-300 hover:-translate-y-1 group"
+                className="h-28 bg-white border border-gray-200 rounded-2xl p-3 sm:p-4 flex items-center justify-center shadow-sm hover:shadow-lg hover:border-rlhp-green/40 transition-all duration-300 hover:-translate-y-1 group"
                 title={p.name}
               >
                 <img

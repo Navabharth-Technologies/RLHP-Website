@@ -228,7 +228,7 @@ export const homeFocusAreas = [
   }
 ];
 
-// The 5 Official Partners with Extracted Logos
+// Official Partners with Extracted Logos
 export const officialPartners = [
   {
     name: "Wipro Foundation",
@@ -254,6 +254,16 @@ export const officialPartners = [
     name: "Kluber Lubrications",
     logoImage: "/images/partners/Kluber Lubrications.webp",
     description: "Education support for underprivileged children"
+  },
+  {
+    name: "Federal Ministry for Economic Cooperation and Development",
+    logoImage: "/images/partners/federal-ministry-logo.png",
+    description: "International sustainable cooperation and child protection"
+  },
+  {
+    name: "terre des hommes",
+    logoImage: "/images/partners/terre-des-hommes-logo.png",
+    description: "Help for Children in Need"
   }
 ];
 
