@@ -377,13 +377,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 3: PROGRAMME PRIORITIES
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-24 text-white overflow-hidden bg-slate-900">
-        {/* Child smiling face background image matching reference 3 */}
+        {/* Classroom students studying background image matching user request */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${B}images/child_face_priorities_backdrop.jpg)` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
+          style={{ backgroundImage: `url(${B}images/priorities_bg_students.jpg)` }}
         />
-        {/* Subtle dark gradient overlay allowing the child's smiling face to be clearly visible */}
-        <div className="absolute inset-0 bg-black/40 bg-gradient-to-r from-black/70 via-black/35 to-black/30" />
+        {/* Balanced dark-emerald gradient overlay to keep text ultra-readable while highlighting classroom children */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#09180e]/85 via-[#0e2415]/75 to-[#09180e]/90 backdrop-blur-[1.5px]" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}

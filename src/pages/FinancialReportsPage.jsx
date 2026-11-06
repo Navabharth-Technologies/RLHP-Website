@@ -25,12 +25,12 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
     <div className="font-sans min-h-screen bg-gray-50/40 pb-24">
       
       {/* ═══════════════════════════════════════════════════════════════════
-          1. TOP HERO SECTION (Exact Replica of Reference 2 Image)
+          1. TOP HERO SECTION (Light Green Shade Background matching Logo)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#fbfdfa] via-white to-gray-50/60 overflow-hidden">
+      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#eaf5eb] via-[#f2faf3] to-[#fbfdfa] border-b border-emerald-100/60 overflow-hidden">
         {/* Soft decorative glow */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-green-100/40 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-10 left-10 w-80 h-80 bg-emerald-50/60 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-green-200/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-10 left-10 w-80 h-80 bg-emerald-100/50 rounded-full blur-2xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
@@ -38,17 +38,17 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
             {/* Left Column (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold italic font-serif text-[#E49E23] tracking-wide leading-none mb-4">
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold italic font-serif text-rlhp-green tracking-wide leading-none mb-4">
                   Financials
                 </h1>
-                <div className="w-16 h-1.5 bg-[#E49E23] rounded-full mb-6" />
+                <div className="w-16 h-1.5 bg-rlhp-green rounded-full mb-6" />
                 <p className="text-lg sm:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   Audited financial statements, statutory certifications, and foreign contribution disclosures ensuring institutional transparency.
                 </p>
               </div>
 
               {/* Breadcrumb indicator */}
-              <div className="pt-2 text-xs sm:text-sm font-semibold text-gray-400">
+              <div className="pt-2 text-xs sm:text-sm font-semibold text-gray-500">
                 <span 
                   onClick={() => setCurrentPage?.('home')} 
                   className="hover:text-rlhp-green cursor-pointer transition-colors"
@@ -56,7 +56,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
                   Home
                 </span>
                 {' / '}
-                <span className="text-[#E49E23] font-bold">Financials</span>
+                <span className="text-rlhp-green font-bold">Financials</span>
               </div>
             </div>
 
