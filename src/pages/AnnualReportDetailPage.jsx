@@ -74,10 +74,32 @@ export default function AnnualReportDetailPage({
         container.innerHTML = '';
 
         // High resolution rendering for sharp text and images (devicePixelRatio * 2.2 scale)
-        const dpr = Math.max(window.devicePixelRatio || 1, 2);
         const renderScale = 2.4; 
 
-        // Render each page into a canvas wrapped in a div.page
+        // Helper to create an image page element
+        const createImagePage = (src, altText = "Book Page") => {
+          const pageDiv = document.createElement('div');
+          pageDiv.className = 'page bg-white shadow-md overflow-hidden flex items-center justify-center';
+          pageDiv.style.backgroundColor = '#ffffff';
+
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = altText;
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'cover';
+          img.style.display = 'block';
+
+          pageDiv.appendChild(img);
+          return pageDiv;
+        };
+
+        // 1. FRONT COVER PAGE (page 0 / front of the book)
+        if (report.cover) {
+          container.appendChild(createImagePage(report.cover, `${report.title} Front Cover`));
+        }
+
+        // 2. INNER PDF PAGES
         for (let i = 1; i <= count; i++) {
           if (isCancelled) return;
           const page = await pdf.getPage(i);
@@ -100,6 +122,12 @@ export default function AnnualReportDetailPage({
 
           pageDiv.appendChild(canvas);
           container.appendChild(pageDiv);
+        }
+
+        // 3. BACK COVER PAGE (ensuring NO blank pages at the end)
+        if (report.backCover) {
+          // If total pages added so far is even, adding one gives odd number of pages ending with back cover
+          container.appendChild(createImagePage(report.backCover, `${report.title} Back Cover`));
         }
 
         if (isCancelled) return;
