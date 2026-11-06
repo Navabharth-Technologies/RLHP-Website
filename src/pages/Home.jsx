@@ -401,7 +401,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
             {[
               {
                 img: `${B}images/gallery/child_rights_workshop.jpg`,
-                category: 'Age 0-18 Years',
                 title: 'Child Rights and Protection',
                 desc: "Promoting child rights and protection by preventing child marriage, child labour and abuse, while ensuring children's safety, participation and development.",
                 metric: '80K+ Children Protected',
@@ -410,7 +409,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
               },
               {
                 img: `${B}images/gallery/adolescent_skill_training.jpg`,
-                category: 'Youth & Leadership',
                 title: 'Adolescent and Youth Empowerment',
                 desc: 'Empowering adolescents and youth through life skills, leadership development, gender equality, health awareness and opportunities for personal and social growth.',
                 metric: '15,000+ Youth Empowered',
@@ -419,7 +417,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
               },
               {
                 img: `${B}images/gallery/iep_remedial_class.jpg`,
-                category: 'Education',
                 title: 'Education and Learning',
                 desc: 'Ensuring access to quality education and improved learning opportunities through school enrolment, learning support, remedial education and academic development.',
                 metric: 'Quality Education',
@@ -428,7 +425,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
               },
               {
                 img: `${B}images/gallery/gram_panchayat_interface.jpg`,
-                category: 'Community & Govt',
                 title: 'Community Development through Government Schemes',
                 desc: 'Strengthening communities by creating awareness and facilitating access to government welfare schemes, entitlements and essential services to improve livelihoods and quality of life.',
                 metric: 'Welfare & Entitlements',
@@ -437,7 +433,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
               },
               {
                 img: `${B}images/gallery/shg_leadership_training.jpg`,
-                category: 'Livelihood',
                 title: 'Livelihood Promotion and Economic Empowerment',
                 desc: 'Promoting sustainable livelihoods through skill development, vocational training, self-employment opportunities and income-generating activities to strengthen the economic independence of individuals and families.',
                 metric: 'Economic Independence',
@@ -451,7 +446,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
               >
                 {/* 3D Flip Card Inner Container */}
                 <div className="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180 rounded-2xl shadow-xl">
-                  
+
                   {/* ── FRONT FACE: Full-Length Card Image with Title Badge ── */}
                   <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
                     <img
@@ -461,7 +456,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     />
                     {/* Gradient overlay for contrast */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
-                    
+
                     {/* Top Category Tag */}
                     <span className="absolute top-3.5 left-3.5 bg-rlhp-green/95 backdrop-blur-xs text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md border border-white/20">
                       {card.category}
@@ -490,7 +485,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                         {card.title}
                       </h3>
                       <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3" />
-                      
+
                       {/* Description */}
                       <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
                         {card.desc}
@@ -633,7 +628,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
               OUR <span className="text-rlhp-green">IMPACT</span>
             </h2>
             <p className="text-gray-500 text-base mt-2">
-              Transforming lives across Karnataka and South India through education and empowerment
+              Transforming lives across Karnataka and South India through health and education
             </p>
           </div>
 
@@ -731,14 +726,14 @@ export default function Home({ setCurrentPage, onNavClick }) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 7: OUR PROGRAMMES (Interactive Flipbook Reports matching reference 2)
+          SECTION 7: OUR Activity Reports (Interactive Flipbook Reports matching reference 2)
       ═══════════════════════════════════════════════════════════════════ */}
       <section id="our-programmes" className="relative py-24 bg-white border-t border-gray-100 overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight uppercase mb-3">
-              Our Programmes
+              Our Activity Reports
             </h2>
             <div className="w-16 h-[3px] bg-rlhp-green mx-auto rounded-full mb-3" />
             <p className="text-sm sm:text-base text-gray-500 max-w-xl mx-auto">
@@ -804,7 +799,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 8: OUR PARTNERS
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
               Our Partners
@@ -812,25 +807,25 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <div className="w-12 h-[3px] bg-rlhp-green mx-auto rounded-full" />
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 items-center justify-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-center">
             {[
               { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
               { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
               { name: 'Azim Premji Foundation', img: `${B}images/partners/azim-premji-logo.png` },
               { name: 'ChildFund International', img: `${B}images/partners/childfund-logo.png` },
               { name: 'Klüber Lubrication', img: `${B}images/partners/kluber-lubrication-logo.png` },
-              { name: 'Federal Ministry for Economic Cooperation and Development', img: `${B}images/partners/federal-ministry-logo.png` },
               { name: 'terre des hommes', img: `${B}images/partners/terre-des-hommes-logo.png` },
+              { name: 'Federal Ministry for Economic Cooperation and Development', img: `${B}images/partners/federal-ministry-logo.png` },
             ].map((p, idx) => (
               <div
                 key={idx}
-                className="h-28 bg-white border border-gray-200 rounded-2xl p-3 sm:p-4 flex items-center justify-center shadow-sm hover:shadow-lg hover:border-rlhp-green/40 transition-all duration-300 hover:-translate-y-1 group"
+                className="h-36 sm:h-44 bg-white border-2 border-gray-200 rounded-2xl p-4 sm:p-5 flex items-center justify-center shadow-md hover:shadow-xl hover:border-rlhp-green transition-all duration-300 hover:-translate-y-1.5 group cursor-default"
                 title={p.name}
               >
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full max-h-28 sm:max-h-32 object-contain filter contrast-105 group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
             ))}

@@ -76,7 +76,7 @@ export const orgDetails = {
       title: "Started in 1 Slum in Mysuru",
       subtitle: "Urban Settlement Programme",
       icon: "home",
-      description: "Began child-centred community work in 1 slum focusing on Pourakarmikas and urban poor families."
+      description: "Began child-centred community work in 1 slum focusing on urban poor families."
     },
     {
       year: "1989",
@@ -115,14 +115,14 @@ export const orgDetails = {
     },
     {
       year: "2018",
-      title: "Flood Relief Work, Kerala",
+      title: "Flood Relief, Kerala",
       subtitle: "Emergency Humanitarian Mission",
       icon: "boat",
       description: "Emergency humanitarian aid, medical rescue support, and rehabilitation kits during Kerala floods."
     },
     {
       year: "2020",
-      title: "COVID-19 Relief Work",
+      title: "COVID-19",
       subtitle: "Pandemic Emergency Response",
       icon: "mask",
       description: "Emergency food rations, medical equipment, and community sanitization across vulnerable zones."
@@ -130,9 +130,9 @@ export const orgDetails = {
     {
       year: "2026",
       title: "Expanded to 2 More Coastal Districts",
-      subtitle: "Coastal Karnataka Footprint",
+      subtitle: "Uttara Kannada (Karwar) & Dakshina Kannada (Mangalore)",
       icon: "palm",
-      description: "Strengthening community child protection and educational empowerment across coastal Karnataka."
+      description: "Strengthening community child protection and educational empowerment across Uttara Kannada (Karwar) and Dakshina Kannada (Mangalore)."
     }
   ],
 
@@ -144,10 +144,9 @@ export const orgDetails = {
     { title: "Community Participation", description: "Encouraging active community involvement and collective action." },
     { title: "Empowerment", description: "Strengthening the capacities of children, women and communities." },
     { title: "Transparency and Accountability", description: "Maintaining openness, responsibility and integrity." },
-    { title: "Non-Discrimination", description: "Respecting diversity and ensuring equal treatment." },
     { title: "Sustainability", description: "Promoting long-term and community-led development." },
     { title: "Human Dignity", description: "Respecting the rights, identity and dignity of every individual." },
-    { title: "Collaboration", description: "Building partnerships with government, institutions and communities." }
+    { title: "Government Collaboration", description: "Building partnerships with government, institutions and communities." }
   ],
 
   // 6 Core Values

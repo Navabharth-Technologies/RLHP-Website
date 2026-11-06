@@ -30,7 +30,8 @@ export default function OurIdentity({ setCurrentPage }) {
                 </h1>
                 <div className="w-16 h-1.5 bg-rlhp-green rounded-full mb-6" />
                 <p className="text-lg sm:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl">
-                  Over <strong className="text-gray-900 font-bold">42 years</strong> of transforming lives through holistic, child-centred education and community empowerment across South India.
+                  Over <strong className="text-gray-900 font-bold">42 years</strong> of transforming lives through holistic, child development and community centred education across South India.
+                  Over <strong className="text-gray-900 font-bold">42 years</strong> of transforming lives through holistic, child development and community centred education across South India.
                 </p>
               </div>
 
@@ -263,7 +264,7 @@ export default function OurIdentity({ setCurrentPage }) {
           </div>
         </section>
 
-        {/* 6. OUR PRINCIPLES (10 Principles in 5-card rows) */}
+        {/* 6. OUR PRINCIPLES (9 Principles) */}
         <section id="principles" className="space-y-8">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
@@ -272,8 +273,7 @@ export default function OurIdentity({ setCurrentPage }) {
             <div className="w-14 h-1 bg-rlhp-green rounded-full mt-3" />
           </div>
 
-          {/* 5 Cards per row on desktop (grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {(() => {
               const principleIcons = [
                 Heart,        // Child-Centred Approach
@@ -282,10 +282,9 @@ export default function OurIdentity({ setCurrentPage }) {
                 Handshake,    // Community Participation
                 Sparkles,     // Empowerment
                 Eye,          // Transparency and Accountability
-                ShieldCheck,  // Non-Discrimination
                 Sprout,       // Sustainability
                 UserCheck,    // Human Dignity
-                Globe,        // Collaboration
+                Globe,        // Government Collaboration
               ];
               return orgDetails.principles.map((pr, idx) => {
                 const Icon = principleIcons[idx] || Sparkles;
