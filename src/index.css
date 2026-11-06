@@ -96,5 +96,22 @@
   animation: morphFloat 8.5s ease-in-out 1.5s infinite;
 }
 
+/* 3D Realistic Book Page Flip Transforms */
+.flip-page-right-turning {
+  transform: rotateY(-38deg) scale(0.97) !important;
+  transform-origin: left center !important;
+  box-shadow: -15px 25px 50px rgba(0,0,0,0.5) !important;
+  filter: brightness(0.85);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+}
+
+.flip-page-left-turning {
+  transform: rotateY(38deg) scale(0.97) !important;
+  transform-origin: right center !important;
+  box-shadow: 15px 25px 50px rgba(0,0,0,0.5) !important;
+  filter: brightness(0.85);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+}
+
 
 

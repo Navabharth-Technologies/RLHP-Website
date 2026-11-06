@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  X, ChevronLeft, ChevronRight, Loader2, Download
+  X, ChevronLeft, ChevronRight, Loader2, Download, Maximize2, Minimize2
 } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 
@@ -18,6 +18,7 @@ export default function FlipbookModal({ report, onClose }) {
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState('next');
   const [renderedPages, setRenderedPages] = useState([]);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Audio page turn sound
   const playPageSound = () => {
@@ -128,13 +129,19 @@ export default function FlipbookModal({ report, onClose }) {
   // Keyboard and Esc listeners
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (isFullscreen) {
+          setIsFullscreen(false);
+        } else {
+          onClose();
+        }
+      }
       if (e.key === 'ArrowRight' || e.key === 'PageDown') handleNext();
       if (e.key === 'ArrowLeft' || e.key === 'PageUp') handlePrev();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  });
+  }, [isFullscreen, currentPage, totalPages, isFlipping]);
 
   const isCover = currentPage === 1;
   const leftPageIdx = currentPage % 2 === 0 ? currentPage : currentPage - 1;
@@ -145,24 +152,41 @@ export default function FlipbookModal({ report, onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-8 bg-black/90 backdrop-blur-md select-none animate-fadeIn"
+      className={`fixed inset-0 z-50 flex items-center justify-center select-none animate-fadeIn ${
+        isFullscreen ? 'p-0 bg-[#505254]' : 'p-3 sm:p-8 bg-black/85 backdrop-blur-md'
+      }`}
       onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
+        if (e.target === e.currentTarget && !isFullscreen) onClose();
       }}
     >
       <div 
-        className="relative w-full max-w-6xl h-[92vh] max-h-[880px] bg-[#3a3b3d] rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden border border-white/10"
+        className={`relative w-full flex items-center justify-center overflow-hidden transition-all duration-300 ${
+          isFullscreen 
+            ? 'w-screen h-screen rounded-none bg-[#505254] border-0 max-w-none max-h-none' 
+            : 'max-w-6xl h-[92vh] max-h-[880px] bg-[#3a3b3d] rounded-3xl shadow-2xl border border-white/10'
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Floating Close (X / Wrong) Button Only */}
-        <button
-          onClick={onClose}
-          className="absolute top-5 right-6 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 hover:bg-black/90 text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/20 hover:scale-105"
-          title="Close (Esc)"
-        >
-          <X size={20} />
-          <span>Close (Esc)</span>
-        </button>
+        {/* Top Actions: Fullscreen Toggle and Close */}
+        <div className="absolute top-5 right-6 z-50 flex items-center gap-3">
+          <button
+            onClick={() => setIsFullscreen(!isFullscreen)}
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-black/60 hover:bg-black/90 text-white font-bold text-xs sm:text-sm shadow-xl backdrop-blur-md cursor-pointer transition-all border border-white/20 hover:scale-105"
+            title={isFullscreen ? "Exit Fullscreen" : "Full Screen"}
+          >
+            {isFullscreen ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+            <span className="hidden sm:inline">{isFullscreen ? 'Exit Fullscreen' : 'Full Screen'}</span>
+          </button>
+
+          <button
+            onClick={onClose}
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 hover:bg-black/90 text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/20 hover:scale-105"
+            title="Close (Esc)"
+          >
+            <X size={20} />
+            <span>Close (Esc)</span>
+          </button>
+        </div>
 
         {/* Left Navigation Arrow */}
         <button
@@ -188,17 +212,21 @@ export default function FlipbookModal({ report, onClose }) {
 
         {/* Realistic Book Stage */}
         <div 
-          className="w-full flex items-center justify-center overflow-hidden p-4 sm:p-8"
+          className={`w-full flex items-center justify-center overflow-hidden p-4 sm:p-8 ${
+            isFullscreen ? 'max-w-[1300px] h-[92vh]' : ''
+          }`}
           style={{ perspective: '2200px' }}
         >
           {isCover ? (
             /* Single Front Cover Page 1 */
             <div
               onClick={handleNext}
-              className={`relative w-full max-w-[460px] aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+              className={`relative w-full aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-400 ${
+                isFullscreen ? 'max-w-[540px] max-h-[86vh]' : 'max-w-[460px]'
+              } ${
                 isFlipping
-                  ? 'rotate-y-[-40deg] scale-[0.98] origin-left brightness-90 shadow-2xl'
-                  : 'rotate-y-0 scale-100 origin-center brightness-100 hover:scale-[1.02]'
+                  ? 'flip-page-right-turning'
+                  : 'scale-100 origin-center brightness-100 hover:scale-[1.02]'
               }`}
               style={{ transformStyle: 'preserve-3d' }}
               title="Click to Open Document"
@@ -215,7 +243,9 @@ export default function FlipbookModal({ report, onClose }) {
           ) : (
             /* Open Two-Page Spread */
             <div 
-              className="relative w-full max-w-5xl flex items-center justify-center rounded-2xl shadow-[0_35px_80px_rgba(0,0,0,0.95)] overflow-hidden border border-black/30"
+              className={`relative w-full flex items-center justify-center rounded-2xl shadow-[0_35px_80px_rgba(0,0,0,0.95)] overflow-hidden border border-black/30 ${
+                isFullscreen ? 'max-w-[1240px] max-h-[88vh]' : 'max-w-5xl'
+              }`}
               style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Left Page */}
@@ -223,8 +253,8 @@ export default function FlipbookModal({ report, onClose }) {
                 onClick={handlePrev}
                 className={`relative flex-1 aspect-[1/1.38] bg-white overflow-hidden border-r border-gray-300 origin-right transition-all duration-400 cursor-pointer ${
                   isFlipping && flipDirection === 'prev'
-                    ? 'rotate-y-[40deg] brightness-75 shadow-2xl'
-                    : 'rotate-y-0 brightness-100'
+                    ? 'flip-page-left-turning'
+                    : 'brightness-100'
                 }`}
                 style={{ transformStyle: 'preserve-3d' }}
                 title="Click Left to Flip Back"
@@ -243,8 +273,8 @@ export default function FlipbookModal({ report, onClose }) {
                 onClick={handleNext}
                 className={`relative flex-1 aspect-[1/1.38] bg-white overflow-hidden border-l border-gray-300 origin-left transition-all duration-400 cursor-pointer ${
                   isFlipping && flipDirection === 'next'
-                    ? 'rotate-y-[-40deg] brightness-75 shadow-2xl'
-                    : 'rotate-y-0 brightness-100'
+                    ? 'flip-page-right-turning'
+                    : 'brightness-100'
                 }`}
                 style={{ transformStyle: 'preserve-3d' }}
                 title="Click Right to Flip Next"

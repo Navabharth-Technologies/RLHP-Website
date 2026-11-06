@@ -384,12 +384,12 @@ export default function AnnualReportDetailPage({
                   /* ─── SINGLE FRONT COVER BOOK ─── */
                   <div 
                     onClick={turnNext}
-                    className={`relative w-full aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                    className={`relative w-full aspect-[1/1.38] rounded-r-2xl rounded-l-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-400 ${
                       isFullscreen ? 'max-w-[540px] max-h-[86vh]' : 'max-w-[420px] sm:max-w-[460px]'
                     } ${
                       isFlipping
-                        ? 'rotate-y-[-40deg] scale-[0.98] origin-left brightness-90 shadow-2xl'
-                        : 'rotate-y-0 scale-100 origin-center brightness-100 hover:scale-[1.02]'
+                        ? 'flip-page-right-turning'
+                        : 'scale-100 origin-center brightness-100 hover:scale-[1.02]'
                     }`}
                     style={{ transformStyle: 'preserve-3d' }}
                     title="Click to Open Book"
@@ -412,12 +412,12 @@ export default function AnnualReportDetailPage({
                   /* ─── SINGLE BACK COVER BOOK (Closing Page) ─── */
                   <div 
                     onClick={turnPrev}
-                    className={`relative w-full aspect-[1/1.38] rounded-l-2xl rounded-r-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-500 ${
+                    className={`relative w-full aspect-[1/1.38] rounded-l-2xl rounded-r-md shadow-[0_30px_70px_rgba(0,0,0,0.85)] bg-white overflow-hidden border border-black/20 cursor-pointer transition-all duration-400 ${
                       isFullscreen ? 'max-w-[540px] max-h-[86vh]' : 'max-w-[420px] sm:max-w-[460px]'
                     } ${
                       isFlipping
-                        ? 'rotate-y-[40deg] scale-[0.98] origin-right brightness-90 shadow-2xl'
-                        : 'rotate-y-0 scale-100 origin-center brightness-100 hover:scale-[1.02]'
+                        ? 'flip-page-left-turning'
+                        : 'scale-100 origin-center brightness-100 hover:scale-[1.02]'
                     }`}
                     style={{ transformStyle: 'preserve-3d' }}
                     title="Click to Flip Back"
@@ -442,8 +442,8 @@ export default function AnnualReportDetailPage({
                       onClick={turnPrev}
                       className={`relative flex-1 aspect-[1/1.38] bg-white overflow-hidden border-r border-gray-300 origin-right transition-all duration-400 cursor-pointer ${
                         isFlipping && flipDir === 'prev'
-                          ? 'rotate-y-[40deg] brightness-75 shadow-2xl'
-                          : 'rotate-y-0 brightness-100'
+                          ? 'flip-page-left-turning'
+                          : 'brightness-100'
                       }`}
                       style={{ transformStyle: 'preserve-3d' }}
                       title="Click Left Page to Turn Back"
@@ -473,8 +473,8 @@ export default function AnnualReportDetailPage({
                       onClick={turnNext}
                       className={`relative flex-1 aspect-[1/1.38] bg-white overflow-hidden border-l border-gray-300 origin-left transition-all duration-400 cursor-pointer ${
                         isFlipping && flipDir === 'next'
-                          ? 'rotate-y-[-40deg] brightness-75 shadow-2xl'
-                          : 'rotate-y-0 brightness-100'
+                          ? 'flip-page-right-turning'
+                          : 'brightness-100'
                       }`}
                       style={{ transformStyle: 'preserve-3d' }}
                       title="Click Right Page to Turn Next"
