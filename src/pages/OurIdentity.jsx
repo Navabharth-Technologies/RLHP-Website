@@ -362,7 +362,11 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden`}
+                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden animate-fade-in-up`}
+                    style={{
+                      animationDelay: `${idx * 140}ms`,
+                      animationFillMode: 'both'
+                    }}
                   >
                     {/* Clean Minimalist Icon Badge with Subtle Tint */}
                     <div className={`w-14 h-14 rounded-2xl mb-5 flex items-center justify-center border shadow-xs transition-all duration-300 group-hover:scale-110 ${theme.badgeBg}`}>

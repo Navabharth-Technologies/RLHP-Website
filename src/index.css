@@ -47,12 +47,12 @@
 }
 
 @keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(15px); }
-  100% { opacity: 1; transform: translateY(0px); }
+  0% { opacity: 0; transform: translateY(24px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0px) scale(1); }
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
+  animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Continuous smooth ticker from right to left */

@@ -200,7 +200,11 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               return (
                 <div
                   key={idx}
-                  className={`bg-white rounded-3xl p-7 sm:p-8 shadow-xs border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden`}
+                  className={`bg-white rounded-3xl p-7 sm:p-8 shadow-xs border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden animate-fade-in-up`}
+                  style={{
+                    animationDelay: `${idx * 120}ms`,
+                    animationFillMode: 'both'
+                  }}
                 >
                   {/* Icon Badge with Distinct Aesthetic Color and Animation */}
                   <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center border shadow-xs transition-all duration-300 ${style.anim} ${style.badgeBg}`}>
@@ -249,14 +253,14 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           </div>
 
           {/* Target Groups Bullet List */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20 max-w-4xl mx-auto space-y-3 text-sm text-gray-900">
-            <ul className="space-y-3.5">
+          <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/40 max-w-4xl mx-auto space-y-4 text-gray-900">
+            <ul className="space-y-4 sm:space-y-5">
               {orgDetails.withWhomWeWork.groups.map((group, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#38853E] mt-1.5 flex-shrink-0" />
-                  <div>
-                    <strong className="text-gray-950 font-bold">{group.title}:</strong>{' '}
-                    <span className="text-gray-700">{group.description}</span>
+                <li key={idx} className="flex items-start gap-3.5">
+                  <span className="w-3 h-3 rounded-full bg-[#38853E] mt-1.5 flex-shrink-0 shadow-xs" />
+                  <div className="text-base sm:text-lg leading-relaxed">
+                    <strong className="text-gray-950 font-extrabold text-base sm:text-lg tracking-tight">{group.title}:</strong>{' '}
+                    <span className="text-gray-800 font-medium">{group.description}</span>
                   </div>
                 </li>
               ))}
@@ -265,20 +269,20 @@ export default function Projects({ setCurrentPage, onNavClick }) {
 
           {/* Collaborations Sub-Header & Intro */}
           <div className="max-w-4xl mx-auto text-center pt-2">
-            <p className="text-sm sm:text-base font-bold text-white">
+            <p className="text-base sm:text-lg font-bold text-white">
               To strengthen community development and create sustainable impact, we collaborate with:
             </p>
           </div>
 
           {/* Collaborations Bullet List */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20 max-w-4xl mx-auto space-y-3 text-sm text-gray-900">
-            <ul className="space-y-3.5">
+          <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/40 max-w-4xl mx-auto space-y-4 text-gray-900">
+            <ul className="space-y-4 sm:space-y-5">
               {orgDetails.withWhomWeWork.collaborations.map((collab, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#38853E] mt-1.5 flex-shrink-0" />
-                  <div>
-                    <strong className="text-gray-950 font-bold">{collab.title}</strong> –{' '}
-                    <span className="text-gray-700">{collab.description}</span>
+                <li key={idx} className="flex items-start gap-3.5">
+                  <span className="w-3 h-3 rounded-full bg-[#38853E] mt-1.5 flex-shrink-0 shadow-xs" />
+                  <div className="text-base sm:text-lg leading-relaxed">
+                    <strong className="text-gray-950 font-extrabold text-base sm:text-lg tracking-tight">{collab.title}</strong> –{' '}
+                    <span className="text-gray-800 font-medium">{collab.description}</span>
                   </div>
                 </li>
               ))}

@@ -922,16 +922,7 @@ export const publicationsData = ourReportsList.map((r, i) => ({
   coverImage: "/images/gallery/annual_stakeholder_convention.jpg"
 }));
 
-export const galleryData = [
-  { id: 1, title: "Asha Bhavana Girls Learning & Growth", category: "Education", image: "/images/gallery/ashabhavana_girls_learning.jpg" },
-  { id: 2, title: "Asha Kirana Boys Shelter Activities", category: "Shelter Homes", image: "/images/gallery/ashakirana_activities.jpg" },
-  { id: 3, title: "Child Rights Conference & Participation", category: "Child Rights", image: "/images/gallery/child_rights_conference.jpg" },
-  { id: 4, title: "Youth Vocational Skill Training", category: "Livelihood", image: "/images/gallery/adolescent_skill_training.jpg" },
-  { id: 5, title: "Children Sports & Cultural Meet", category: "Youth", image: "/images/gallery/children_sports_meet.jpg" },
-  { id: 6, title: "Maternal Health & Nutrition Awareness", category: "Health", image: "/images/gallery/maternal_health_awareness.jpg" },
-  { id: 7, title: "Community Leadership & Entitlement Mela", category: "Governance", image: "/images/gallery/community_leadership_felicitation.jpg" },
-  { id: 8, title: "Emergency Disaster & Flood Relief Supply", category: "Humanitarian", image: "/images/gallery/flood_relief_supply.jpg" }
-];
+export const galleryData = [];
 
 
 export const eventsData = [
