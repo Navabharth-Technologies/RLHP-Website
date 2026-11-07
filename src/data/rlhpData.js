@@ -10,7 +10,7 @@ export const orgDetails = {
   registeredYear: 1984,
   yearsOfService: "42+",
   address: "No. 343, 2nd Stage, Gayathripuram, Udayagiri Post, Mysuru, Karnataka, India – 570019.",
-  phones: ["0821 2451216"],
+  phones: ["0821-2454686"],
   emails: ["rlhpintervita@gmail.com", "mysore@rlhp.org"],
   website: "www.rlhpmysore.com",
   social: {

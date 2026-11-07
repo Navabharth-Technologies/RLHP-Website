@@ -123,7 +123,7 @@ export default function TendersPage() {
             <div className="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 text-xs text-gray-700 space-y-2">
               <div className="font-bold text-rlhp-darkgreen">Submission Office:</div>
               <p>Rural Literacy and Health Programme (RLHP), No. 343, 2nd Stage, Gayathripuram, Udayagiri Post, Mysuru – 570019.</p>
-              <p className="font-semibold text-rlhp-orange">Direct Phone: 0821 2451216 | Email: rlhpintervita@gmail.com</p>
+              <p className="font-semibold text-rlhp-orange">Direct Phone: 0821-2454686 | Email: rlhpintervita@gmail.com</p>
             </div>
           </div>
 

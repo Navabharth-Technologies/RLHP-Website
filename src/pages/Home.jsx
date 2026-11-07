@@ -120,55 +120,63 @@ export default function Home({ setCurrentPage, onNavClick }) {
   /* ─── HERO SINGLE BACKGROUND IMAGE ─── */
   const heroImage = `${B}images/hero_main_banner.jpg`;
 
-  /* ─── TESTIMONIALS DATA ─── */
+  /* ─── TESTIMONIALS DATA (Alternating Boy and Girl with authentic real records) ─── */
   const testimonials = [
-    {
-      text: "I spent my childhood on the streets, struggling to meet my basic needs while continuing my education through hardships. RLHP identified me and provided care, education and support at Asha Bhavana Girls’ Home. With these opportunities, I was able to transform my life. Today, I am proud to be an advocate practising at the Magistrate Court in Bengaluru. I am grateful to RLHP for helping me build a life of dignity, confidence and independence.",
-      name: "Nagarathna",
-      designation: "Advocate, Bengaluru",
-      tag: "Advocate practising at Magistrate Court",
-    },
     {
       text: "After losing both my parents at a young age, I found a safe home, care and guidance at Asha Kirana Boys’ Shelter Home. With RLHP’s support, I completed my 10th standard with 437 marks and received vocational training in two-wheeler repair. Today, I work as a mechanic at a reputed TVS showroom in Mysuru, earning ₹14,000 per month and living independently. I am grateful to RLHP and Asha Kirana for helping me become self-reliant and build a better future.",
       name: "Prashanth",
       designation: "Mysuru",
       tag: "Employed & Self-Reliant",
+      gender: "boy"
+    },
+    {
+      text: "I spent my childhood on the streets, struggling to meet my basic needs while continuing my education through hardships. RLHP identified me and provided care, education and support at Asha Bhavana Girls’ Home. With these opportunities, I was able to transform my life. Today, I am proud to be an advocate practising at the Magistrate Court in Bengaluru. I am grateful to RLHP for helping me build a life of dignity, confidence and independence.",
+      name: "Nagarathna",
+      designation: "Advocate, Bengaluru",
+      tag: "Advocate practising at Magistrate Court",
+      gender: "girl"
     },
     {
       text: "After losing my parents at the age of three, I spent my childhood collecting rags and struggling for basic needs. RLHP identified me and brought me to Asha Kirana Boys’ Shelter Home, where I received care, education and a safe environment. With RLHP’s support, I completed my SSLC and received vocational training in carpentry at Seva Sadhana, Bengaluru. Today, I am a skilled carpenter, earning ₹15,000 per month and living independently. My dream is to start my own carpentry business and support children from disadvantaged backgrounds. I am forever grateful to RLHP and Asha Kirana for giving me the opportunity to build a dignified life.",
       name: "Narayana",
       designation: "Bengaluru",
       tag: "Skilled Carpenter",
-    },
-    {
-      text: "My three-year-old son Manoj was underweight, weighing just 10.5 kg, and was not attending the Anganwadi regularly. With the guidance and support of RLHP, he was enrolled in the Anganwadi and began receiving nutritious food and supplements. Gradually, his health improved, and today he weighs 13.1 kg, is active and happy. I am grateful to RLHP and the Anganwadi worker for helping my child move towards a healthier future and educating me about the importance of child nutrition.",
-      name: "Shruti",
-      designation: "Kumbrallimata Village",
-      tag: "Child Health & Nutrition",
+      gender: "boy"
     },
     {
       text: "I came to Asha Bhavana in 2009 at the age of five, having lost my parents’ care and support. At Asha Bhavana, I received a safe home, education, counselling and guidance that helped me grow in confidence. With RLHP’s continued support, I completed my schooling and pursued paramedical studies in Channarayapatna. Today, I am independent and able to support myself. I am deeply grateful to Asha Bhavana and RLHP for helping me build a life of dignity and self-reliance.",
       name: "Sneha",
       designation: "",
       tag: "Paramedical Studies Graduate",
+      gender: "girl"
     },
     {
       text: "My brother and I were brought to Asha Kirana Child Care Centre after RLHP identified our family’s vulnerable situation. At Asha Kirana, I received care, education and encouragement that helped me grow in confidence. I completed my SSLC with 501 marks and later pursued a two-year Electrician and Plumbing course at Seva Sadhana Institute, Bengaluru. Today, I work as an Electrician at St. John’s Hospital, Bengaluru, earning ₹18,000 per month. I am financially independent and dream of supporting my mother and giving back to Asha Kirana by helping other children build a better future. I am deeply grateful to RLHP for shaping my life.",
       name: "Guna",
       designation: "Bengaluru",
       tag: "Hospital Electrician",
-    },
-    {
-      text: "My family faced financial difficulties, and supporting the education of three children was a challenge. Through RLHP’s sponsorship programme in partnership with ChildFund International, I received educational support, guidance and opportunities to develop life skills and confidence. The programme also supported my mother through entrepreneurship training and a seed grant of ₹20,000, enabling her to start a flower business. Today, her business contributes to our family income and helps us continue our education. I am grateful to RLHP and ChildFund International for empowering my family and giving us hope for a better future.",
-      name: "Zoya Sulthana",
-      designation: "",
-      tag: "Education & Family Livelihood",
+      gender: "boy"
     },
     {
       text: "I am grateful to ChildFund and my sponsor for supporting my education through DFC assistance, which helped me successfully complete my M.Com with Distinction. The youth development programme also strengthened my leadership, teamwork and communication skills. With a strong interest in accountancy, I aspire to become a Bank Manager. Their continued encouragement has given me the confidence and motivation to pursue my dreams and build a bright future.",
       name: "Neha Anjum",
       designation: "",
       tag: "M.Com Distinction Graduate",
+      gender: "girl"
+    },
+    {
+      text: "My three-year-old son Manoj was underweight, weighing just 10.5 kg, and was not attending the Anganwadi regularly. With the guidance and support of RLHP, he was enrolled in the Anganwadi and began receiving nutritious food and supplements. Gradually, his health improved, and today he weighs 13.1 kg, is active and happy. I am grateful to RLHP and the Anganwadi worker for helping my child move towards a healthier future and educating me about the importance of child nutrition.",
+      name: "Shruti",
+      designation: "Kumbrallimata Village",
+      tag: "Child Health & Nutrition",
+      gender: "girl"
+    },
+    {
+      text: "My family faced financial difficulties, and supporting the education of three children was a challenge. Through RLHP’s sponsorship programme in partnership with ChildFund International, I received educational support, guidance and opportunities to develop life skills and confidence. The programme also supported my mother through entrepreneurship training and a seed grant of ₹20,000, enabling her to start a flower business. Today, her business contributes to our family income and helps us continue our education. I am grateful to RLHP and ChildFund International for empowering my family and giving us hope for a better future.",
+      name: "Zoya Sulthana",
+      designation: "",
+      tag: "Education & Family Livelihood",
+      gender: "girl"
     },
   ];
 
@@ -390,8 +398,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </p>
           </div>
 
-          {/* Cards Grid: 5 columns in requested order */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 xl:gap-5">
+          {/* Cards Grid: 6 cards arranged in 3 columns per row on desktop (2 rows of 3) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 img: `${B}images/gallery/iep_remedial_class.jpg`,
@@ -418,6 +426,14 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 opt: 'livelihood',
               },
               {
+                img: `${B}images/gallery/youth_computer_training.jpg`,
+                title: 'Adolescent and Youth Empowerment',
+                desc: 'Empowering adolescents and youth through computer education, life skills, leadership development, career guidance and employment-oriented personal growth.',
+                metric: '15,000+ Youth Empowered',
+                page: 'projects',
+                opt: 'livelihood',
+              },
+              {
                 img: `${B}images/gallery/gram_panchayat_interface.jpg`,
                 title: 'Community Development through Government Schemes',
                 desc: 'Strengthening communities by creating awareness and facilitating access to government welfare schemes, entitlements and essential services to improve livelihoods and quality of life.',
@@ -436,7 +452,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             ].map((card, i) => (
               <div
                 key={i}
-                className="flip-card-container relative h-[390px] sm:h-[410px] w-full perspective-1000 select-none cursor-pointer"
+                className="flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
               >
                 {/* 3D Flip Card Inner Container */}
                 <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
@@ -452,7 +468,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
 
                     {/* Bottom Title on Front Card (No arrow or flip instructions) */}
-                    <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
+                    <div className="absolute bottom-0 inset-x-0 p-5">
                       <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
                       <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
                         {card.title}
@@ -650,56 +666,57 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 6: Together, We Make a Difference
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-28 text-white overflow-hidden bg-slate-900">
-        {/* Authentic smiling children with craft work background image */}
+        {/* Authentic smiling children with craft work background image - HD, Clear, No opacity or shading */}
         <div
           className="absolute inset-0 bg-cover bg-[center_25%] bg-no-repeat transition-all duration-700"
           style={{ backgroundImage: `url(${B}images/together_difference_bg.jpg)` }}
         />
-        {/* Soft, harmonious dark gradient overlay to ensure children are clearly seen and cards pop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c192c]/75 via-[#0c192c]/60 to-[#0c192c]/85" />
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
-              Together, <span className="text-rlhp-accentgreen">We Make a Difference</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">
+              Together, <span className="text-[#66BB6A] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">We Make a Difference</span>
             </h2>
           </div>
 
-          {/* 3 Action Cards (Static display with Green Hover Effect) */}
+          {/* 3 Action Cards (Static display with Green Hover Effect & Smooth Entrance Animations) */}
           <div className="grid md:grid-cols-3 gap-8 mb-14">
             {/* Card 1: Donate Today */}
             <div
-              className="bg-[#13233c]/90 backdrop-blur-sm border border-white/15 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
+              className="bg-[#0e1d32]/85 backdrop-blur-md border-2 border-white/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_15px_35px_rgba(0,0,0,0.5)] hover:border-[#4CAF50] hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              style={{ animationDelay: '100ms' }}
             >
-              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
-                <Heart size={56} className="fill-rlhp-accentgreen/20 group-hover:fill-rlhp-green/30" />
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
+                <Heart size={60} className="fill-rlhp-accentgreen/20 group-hover:fill-[#4CAF50]/35 transition-all" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-sm">
                 Donate Today
               </h3>
             </div>
 
             {/* Card 2: Corporate Partnership */}
             <div
-              className="bg-[#13233c]/90 backdrop-blur-sm border border-white/15 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
+              className="bg-[#0e1d32]/85 backdrop-blur-md border-2 border-white/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_15px_35px_rgba(0,0,0,0.5)] hover:border-[#4CAF50] hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              style={{ animationDelay: '250ms' }}
             >
-              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
-                <Handshake size={56} />
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
+                <Handshake size={60} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-sm">
                 Corporate Partnership
               </h3>
             </div>
 
             {/* Card 3: Volunteer Your Skills */}
             <div
-              className="bg-[#13233c]/90 backdrop-blur-sm border border-white/15 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:border-rlhp-green hover:shadow-2xl hover:shadow-rlhp-green/30 hover:scale-105 transition-all duration-300 group select-none"
+              className="bg-[#0e1d32]/85 backdrop-blur-md border-2 border-white/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_15px_35px_rgba(0,0,0,0.5)] hover:border-[#4CAF50] hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              style={{ animationDelay: '400ms' }}
             >
-              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-110 group-hover:text-rlhp-green transition-all">
-                <Users size={56} />
+              <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
+                <Users size={60} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-rlhp-accentgreen transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-sm">
                 Volunteer Your Skills
               </h3>
             </div>
@@ -780,16 +797,19 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 8: OUR PARTNERS
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
-              Our Partners
+      <section className="py-24 bg-white border-t border-gray-100 overflow-hidden">
+        <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight mb-3">
+              Our <span className="text-rlhp-green italic font-serif">Partners</span>
             </h2>
-            <div className="w-12 h-[3px] bg-rlhp-green mx-auto rounded-full" />
+            <div className="w-16 h-1 bg-rlhp-green mx-auto rounded-full" />
+            <p className="text-gray-500 text-sm sm:text-base mt-3 max-w-xl mx-auto">
+              Collaborating with leading global foundations and institutions to empower communities
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 sm:gap-6 items-center justify-center">
             {[
               { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
               { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
@@ -801,13 +821,17 @@ export default function Home({ setCurrentPage, onNavClick }) {
             ].map((p, idx) => (
               <div
                 key={idx}
-                className="h-36 sm:h-44 bg-white border-2 border-gray-200 rounded-2xl p-4 sm:p-5 flex items-center justify-center shadow-md hover:shadow-xl hover:border-rlhp-green transition-all duration-300 hover:-translate-y-1.5 group cursor-default"
+                className="h-44 sm:h-52 bg-white border-2 border-gray-200/90 hover:border-rlhp-green rounded-3xl p-5 sm:p-6 flex items-center justify-center shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer animate-float-subtle relative overflow-hidden"
+                style={{ animationDelay: `${idx * 0.4}s` }}
                 title={p.name}
               >
+                {/* Subtle sheen highlight on hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-green-50/0 via-green-50/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="w-full h-full max-h-28 sm:max-h-32 object-contain filter contrast-105 group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full max-h-32 sm:max-h-36 object-contain filter contrast-110 drop-shadow-xs group-hover:scale-115 group-hover:drop-shadow-md transition-transform duration-500 ease-out"
                 />
               </div>
             ))}

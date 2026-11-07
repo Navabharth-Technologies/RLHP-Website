@@ -89,7 +89,7 @@ export default function Footer({ setCurrentPage, onNavClick }) {
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-rlhp-accentgreen flex-shrink-0" />
                 <a href="tel:08212454686" className="hover:text-white transition-colors">
-                  0821 2451216
+                  0821-2454686
                 </a>
               </li>
               <li className="flex items-start gap-3">
