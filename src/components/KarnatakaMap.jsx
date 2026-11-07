@@ -15,11 +15,11 @@ export default function KarnatakaMap({ onSelectDistrict }) {
   const positionMap = {
     bidar: { top: '16.5%', left: '60.5%' },
     kalaburagi: { top: '25.0%', left: '53.5%' },
-    yadgir: { top: '29.0%', left: '58.0%' },
     raichur: { top: '36.5%', left: '59.0%' },
     davanagere: { top: '49.0%', left: '45.5%' },
     chitradurga: { top: '53.5%', left: '54.0%' },
-    udupi: { top: '61.5%', left: '35.5%' },
+    'uttara-kannada': { top: '52.0%', left: '32.0%' },
+    'dakshina-kannada': { top: '69.0%', left: '38.0%' },
     mandya: { top: '71.5%', left: '49.8%' },
     mysuru: { top: '79.5%', left: '46.0%' },
     chamarajanagar: { top: '84.0%', left: '51.5%' }
@@ -106,10 +106,31 @@ export default function KarnatakaMap({ onSelectDistrict }) {
           
           {/* Selected District Title */}
           <div className="border-b border-gray-200/80 pb-4">
-            <h3 className="text-2xl sm:text-3xl font-black text-rlhp-darkgreen tracking-tight flex items-center space-x-2">
-              <span>{selectedDistrict.name}</span>
-            </h3>
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="text-2xl sm:text-3xl font-black text-rlhp-darkgreen tracking-tight">
+                {selectedDistrict.name}
+              </h3>
+              {selectedDistrict.isHq && (
+                <span className="text-[10px] font-black uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-300 px-2.5 py-0.5 rounded-full">
+                  Headquarters
+                </span>
+              )}
+            </div>
             <p className="text-xs font-semibold text-gray-500 mt-1">Ground Operations &amp; Local Facilities</p>
+
+            {/* Standardized & Classic Animated Sub-District / Taluk Pop-up */}
+            {selectedDistrict.subDistrict && (
+              <div 
+                key={selectedDistrict.id} 
+                className="mt-3.5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-300/80 shadow-xs animate-timer-card"
+              >
+                <div className="w-2 h-2 rounded-full bg-rlhp-green animate-pulse" />
+                <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Operational Hub:</span>
+                <span className="text-xs font-extrabold text-rlhp-darkgreen tracking-tight">
+                  {selectedDistrict.subDistrict}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Districts Grid neatly organized into 2 equal balanced columns filling the container */}
@@ -120,13 +141,20 @@ export default function KarnatakaMap({ onSelectDistrict }) {
                 <button
                   key={d.id}
                   onClick={() => handlePinClick(d)}
-                  className={`py-3 px-3.5 rounded-2xl text-xs sm:text-sm font-bold transition-all text-center flex items-center justify-center cursor-pointer border ${
+                  className={`py-3 px-3.5 rounded-2xl text-xs sm:text-sm font-bold transition-all text-center flex flex-col items-center justify-center cursor-pointer border ${
                     isActive 
                       ? 'bg-amber-500 text-slate-950 font-black shadow-md border-amber-400 scale-[1.02]' 
                       : 'bg-white text-gray-800 hover:bg-emerald-50 hover:text-rlhp-darkgreen hover:border-emerald-300 border-gray-200 shadow-2xs'
                   }`}
                 >
                   <span className="truncate">{d.name.split('/')[0]}</span>
+                  {d.subDistrict && (
+                    <span className={`text-[10px] tracking-tight mt-0.5 font-medium ${
+                      isActive ? 'text-slate-900 font-bold' : 'text-emerald-700'
+                    }`}>
+                      ({d.subDistrict})
+                    </span>
+                  )}
                 </button>
               );
             })}

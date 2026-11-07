@@ -676,6 +676,7 @@ export const districtsData = [
   {
     id: "mysuru",
     name: "Mysuru (HQ)",
+    subDistrict: null,
     coordinates: { x: 46, y: 77 },
     isHq: true,
     projectsCount: 4,
@@ -685,74 +686,83 @@ export const districtsData = [
   {
     id: "chamarajanagar",
     name: "Chamarajanagar",
+    subDistrict: "Gundlupete",
     coordinates: { x: 52, y: 84 },
     projectsCount: 2,
-    description: "South Karnataka: Tribal community empowerment, adolescent girls folk art (Kamsale), maternal nutrition, and health camps.",
-    projects: ["Kiran Bedi Kishori Group Folk Art", "Maternal & Child Health Care"]
+    description: "South Karnataka (Gundlupete): Tribal community empowerment, adolescent girls folk art (Kamsale), maternal nutrition, and health camps.",
+    projects: ["Gundlupete Community Center", "Kiran Bedi Kishori Group Folk Art", "Maternal & Child Health Care"]
   },
   {
     id: "mandya",
     name: "Mandya",
+    subDistrict: "Srirangapatna",
     coordinates: { x: 50, y: 72 },
     projectsCount: 2,
-    description: "South Karnataka: Women SHG sangha federations, maternal nutrition, and rural health drives.",
-    projects: ["Women Sangha Empowerment Initiative", "Rural Health & Sanitation Campaign"]
+    description: "South Karnataka (Srirangapatna): Women SHG sangha federations, maternal nutrition, and rural health drives.",
+    projects: ["Srirangapatna Field Operations", "Women Sangha Empowerment Initiative", "Rural Health & Sanitation Campaign"]
   },
   {
     id: "kalaburagi",
     name: "Kalaburagi / Gulbarga",
+    subDistrict: "Chincholi",
     coordinates: { x: 58, y: 20 },
     projectsCount: 3,
-    description: "North Karnataka: Government schemes facilitation, infrastructure advocacy (CC Road in Kashiram Thanda), and anti-liquor action.",
-    projects: ["North Karnataka Scheme Access Project", "Application Mela & Advocacy", "Community Health Drive"]
+    description: "North Karnataka (Chincholi): Government schemes facilitation, infrastructure advocacy (CC Road in Kashiram Thanda), and anti-liquor action.",
+    projects: ["Chincholi Regional Project", "North Karnataka Scheme Access Project", "Application Mela & Advocacy", "Community Health Drive"]
   },
   {
     id: "bidar",
     name: "Bidar",
+    subDistrict: "Basavakalyana",
     coordinates: { x: 62, y: 11 },
     projectsCount: 2,
-    description: "Northernmost district: Rural literacy programs, SDMC strengthening, and last-mile welfare delivery.",
-    projects: ["Bidar Rural Literacy & IEP Program", "Gram Panchayat Linkage Project"]
+    description: "Northernmost district (Basavakalyana): Rural literacy programs, SDMC strengthening, and last-mile welfare delivery.",
+    projects: ["Basavakalyana Educational Outreach", "Bidar Rural Literacy & IEP Program", "Gram Panchayat Linkage Project"]
   },
   {
     id: "raichur",
     name: "Raichur",
+    subDistrict: "Lingasugur",
     coordinates: { x: 56, y: 31 },
     projectsCount: 2,
-    description: "North Karnataka: Child rights clubs, anti-child labor rehabilitation, and water conservation.",
-    projects: ["Raichur Child Protection Unit", "Sanitation & Water Rights"]
-  },
-  {
-    id: "yadgir",
-    name: "Yadgir",
-    coordinates: { x: 60, y: 25 },
-    projectsCount: 2,
-    description: "North Karnataka: Government welfare scheme facilitation and child rights protection.",
-    projects: ["Yadgir Child Rights Protection Center", "North Karnataka Welfare Scheme Facilitation"]
+    description: "North Karnataka (Lingasugur): Child rights clubs, anti-child labor rehabilitation, and water conservation.",
+    projects: ["Lingasugur Outreach Unit", "Raichur Child Protection Unit", "Sanitation & Water Rights"]
   },
   {
     id: "chitradurga",
     name: "Chitradurga",
+    subDistrict: "Holalkere",
     coordinates: { x: 51, y: 50 },
     projectsCount: 2,
-    description: "Central/North Karnataka: Women self-help group federations and learning disability remediation.",
-    projects: ["BELAKU Women Sangha Project", "IEP Learning Disability Remediation"]
+    description: "Central/North Karnataka (Holalkere): Women self-help group federations and learning disability remediation.",
+    projects: ["Holalkere Sangha Hub", "BELAKU Women Sangha Project", "IEP Learning Disability Remediation"]
   },
   {
     id: "davanagere",
     name: "Davanagere",
+    subDistrict: "Honnali",
     coordinates: { x: 44, y: 46 },
     projectsCount: 1,
-    description: "Central Karnataka: Youth vocational training, life skills, and government scheme awareness.",
-    projects: ["Davanagere Skill & Governance Center"]
+    description: "Central Karnataka (Honnali): Youth vocational training, life skills, and government scheme awareness.",
+    projects: ["Honnali Skill & Governance Center"]
   },
   {
-    id: "bangalore",
-    name: "Bengaluru Urban",
-    coordinates: { x: 62, y: 70 },
+    id: "uttara-kannada",
+    name: "Uttara Kannada",
+    subDistrict: "Karwar",
+    coordinates: { x: 30, y: 45 },
     projectsCount: 2,
-    description: "Vocational linkage partnerships with Seva Sadhana, medical placement at St. John's Hospital, and legal advocacy.",
-    projects: ["Vocational Placement Support", "Youth Career Guidance"]
+    description: "Coastal Region (Karwar): Child protection networks, educational strengthening, and coastal community support.",
+    projects: ["Karwar Coastal Community Project", "Child Protection & Education Drive"]
+  },
+  {
+    id: "dakshina-kannada",
+    name: "Dakshina Kannada",
+    subDistrict: "Mangalore",
+    coordinates: { x: 36, y: 70 },
+    projectsCount: 2,
+    description: "Coastal Region (Mangalore): Educational empowerment, child rights advocacy, and youth development.",
+    projects: ["Mangalore Urban Outreach Center", "Educational Empowerment Initiative"]
   }
 ];
 
