@@ -215,9 +215,9 @@ export default function JourneyArtwork({ id }) {
             <text x="65" y="160" textAnchor="middle" fill="#60a5fa" fontSize="10" fontWeight="bold">ASHA KIRANA</text>
           </g>
 
-          {/* Warm connected hearts */}
-          <circle cx="200" cy="115" r="16" fill="#ec4899" opacity="0.3" className="animate-ping" />
-          <path d="M 200,105 Q 192,95 182,105 Q 182,118 200,132 Q 218,118 218,105 Q 208,95 200,105 Z" fill="#ec4899" />
+          {/* Connecting pathway / bridge of unity between the two homes */}
+          <path d="M 170,140 Q 200,125 230,140" stroke="#fde047" strokeWidth="3" strokeDasharray="4 3" fill="none" />
+          <circle cx="200" cy="132" r="5" fill="#fde047" />
         </svg>
       );
 
