@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { orgDetails } from '../data/rlhpData';
+import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react';
 
 export default function ContactUs() {
@@ -46,7 +47,7 @@ export default function ContactUs() {
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-none mb-4">
                   Contact <span className="text-[#236B28] italic font-serif">Us</span>
                 </h1>
-                <div className="w-16 h-1.5 bg-[#236B28] rounded-full mb-6" />
+                <AnimatedWaveUnderline className="w-56 h-4 mb-6" />
                 <p className="text-lg sm:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   We'd love to hear from you. Send us a message and we'll respond as soon as possible.
                 </p>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, FileText, Download, Eye, X, BookOpen } from 'lucide-react';
 import FlipbookModal from '../components/FlipbookModal';
+import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
 
 const B = import.meta.env.BASE_URL;
 
@@ -51,9 +52,9 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold italic font-serif text-rlhp-green tracking-wide leading-none mb-4">
                   Financials
                 </h1>
-                <div className="w-16 h-1.5 bg-rlhp-green rounded-full mb-6" />
+                <AnimatedWaveUnderline className="w-56 h-4 mb-6" />
                 <p className="text-lg sm:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl">
-                  Audited financial statements, statutory certifications, and foreign contribution disclosures ensuring institutional transparency.
+                  Audited financial reports and statutory certifications.
                 </p>
               </div>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { orgDetails } from '../data/rlhpData';
+import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
 import { 
   Users, Handshake, CheckCircle2, Heart, Scale, BookOpen, 
   Sparkles, Award, ArrowRight, ShieldCheck, Activity, Building2, 
@@ -43,7 +44,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-none mb-4 lowercase">
                   what we <span className="text-rlhp-green italic font-serif">do</span>
                 </h1>
-                <div className="w-16 h-1.5 bg-rlhp-green rounded-full mb-6" />
+                <AnimatedWaveUnderline className="w-56 h-4 mb-6" />
                 <p className="text-lg sm:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   {orgDetails.whatWeDo}
                 </p>
@@ -77,7 +78,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
             Our <span className="text-rlhp-green italic font-serif">Programs</span>
           </h2>
-          <div className="w-14 h-1 bg-rlhp-green rounded-full mt-3" />
+          <AnimatedWaveUnderline className="w-52 h-3.5 mt-3" />
           <p className="text-sm sm:text-base text-gray-600 font-medium mt-3">
             Our key areas of work include:
           </p>
@@ -200,9 +201,9 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               return (
                 <div
                   key={idx}
-                  className={`bg-white rounded-3xl p-7 sm:p-8 shadow-xs border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden animate-fade-in-up`}
+                  className={`bg-white rounded-3xl p-7 sm:p-8 shadow-xs border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden animate-timer-card`}
                   style={{
-                    animationDelay: `${idx * 120}ms`,
+                    animationDelay: `${idx * 160}ms`,
                     animationFillMode: 'both'
                   }}
                 >

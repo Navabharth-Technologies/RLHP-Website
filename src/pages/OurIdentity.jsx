@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import JourneyArtwork from '../components/journeyIllustrations/JourneyArtwork';
+import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
 import {
   Compass, Target, Heart, Award, Shield, CheckCircle2,
   Users, Calendar, MapPin, Handshake, Sparkles, Building2,
@@ -30,23 +31,8 @@ export default function OurIdentity({ setCurrentPage }) {
                   ABOUT <span className="text-rlhp-green italic font-serif">US</span>
                 </h1>
                 
-                {/* Dynamic animated moving curve line covering the width of ABOUT US */}
-                <div className="w-52 h-3.5 mb-6 overflow-visible relative">
-                  <svg
-                    className="w-full h-full overflow-visible"
-                    viewBox="0 0 220 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2 8 C 30 1, 60 15, 90 8 C 120 1, 150 15, 180 8 C 195 4, 210 12, 218 8"
-                      stroke="#236B28"
-                      strokeWidth="5"
-                      strokeLinecap="round"
-                      className="animate-wave-stroke"
-                    />
-                  </svg>
-                </div>
+                {/* Dynamic animated moving continuous curve line */}
+                <AnimatedWaveUnderline className="w-56 h-4 mb-6" />
 
                 <p className="text-lg sm:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   Over <strong className="text-gray-900 font-bold">42 years</strong> of transforming lives through holistic, child development and community centred education across South India.
@@ -136,7 +122,7 @@ export default function OurIdentity({ setCurrentPage }) {
             <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
               Inception Story
             </h2>
-            <div className="w-12 h-1 bg-rlhp-green rounded-full mb-4" />
+            <AnimatedWaveUnderline className="w-44 h-3.5 mb-4" />
             <div className="bg-gradient-to-br from-emerald-50/40 via-white to-gray-50/50 border-l-4 border-rlhp-green p-6 sm:p-8 rounded-r-2xl shadow-2xs space-y-4">
               <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
                 Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
@@ -154,7 +140,7 @@ export default function OurIdentity({ setCurrentPage }) {
             <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
               Our Journey
             </h2>
-            <div className="w-12 h-1 bg-[#D97706] rounded-full" />
+            <AnimatedWaveUnderline className="w-40 h-3.5 mt-1" color="#D97706" />
             <p className="text-xs sm:text-sm text-gray-500 max-w-2xl pt-1">
               Four decades of transformative grassroots empowerment, child protection and community development across South India.
             </p>
@@ -292,7 +278,7 @@ export default function OurIdentity({ setCurrentPage }) {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
               Our <span className="text-rlhp-green italic font-serif">Principles</span>
             </h2>
-            <div className="w-14 h-1 bg-rlhp-green rounded-full mt-3" />
+            <AnimatedWaveUnderline className="w-48 h-3.5 mt-3" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
@@ -379,9 +365,9 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden animate-fade-in-up`}
+                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden animate-timer-card`}
                     style={{
-                      animationDelay: `${idx * 140}ms`,
+                      animationDelay: `${idx * 160}ms`,
                       animationFillMode: 'both'
                     }}
                   >
@@ -415,7 +401,7 @@ export default function OurIdentity({ setCurrentPage }) {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
               Our Core <span className="text-rlhp-green italic font-serif">Values</span>
             </h2>
-            <div className="w-14 h-1 bg-rlhp-green rounded-full mt-3" />
+            <AnimatedWaveUnderline className="w-52 h-3.5 mt-3" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -11,23 +11,21 @@
   }
 }
 
-/* Moving animated wavy/curved underline for section titles */
+/* Moving animated continuous wavy/curved underline for section titles */
 @keyframes waveStroke {
   0% {
-    stroke-dashoffset: 240;
-  }
-  50% {
-    stroke-dashoffset: 0;
+    transform: translateX(0);
   }
   100% {
-    stroke-dashoffset: -240;
+    transform: translateX(-50%);
   }
 }
 
 .animate-wave-stroke {
-  stroke-dasharray: 120 40;
-  animation: waveStroke 3s linear infinite;
+  animation: waveStroke 12s linear infinite;
+  will-change: transform;
 }
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -186,6 +184,32 @@
   transform: rotateY(180deg) !important;
   -webkit-transform: rotateY(180deg) !important;
 }
+
+/* Staggered timer reveal animation for cards (displays one after the other) */
+@keyframes timer-card-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.94);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 0.85;
+    transform: translateY(-4px) scale(1.01);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-timer-card {
+  opacity: 0;
+  animation: timer-card-reveal 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
 
 
 
