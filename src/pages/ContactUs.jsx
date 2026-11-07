@@ -245,7 +245,7 @@ export default function ContactUs() {
                 <div>
                   <h4 className="font-extrabold text-base text-gray-950">Working Hours</h4>
                   <p className="text-xs sm:text-sm text-gray-700 font-medium mt-0.5 leading-relaxed">
-                    Monday – Friday<br />
+                    Monday – Saturday<br />
                     09:30 AM – 05:30 PM
                   </p>
                 </div>

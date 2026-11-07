@@ -53,18 +53,19 @@ export default function Footer({ setCurrentPage, onNavClick }) {
             <ul className="space-y-2.5 text-sm">
               {[
                 { label: 'Home', page: 'home' },
-                { label: 'Our Organization', page: 'about', opt: 'identity' },
-                { label: 'Our Team', page: 'about', opt: 'team' },
-                { label: 'Our Identity', page: 'about', opt: 'identity' },
-                { label: 'Contact Us', page: 'contact' },
-                { label: 'Financials & Audit Reports', page: 'financials' },
+                { label: 'Our Identity', page: 'about' },
+                { label: 'What We Do', page: 'projects' },
+                { label: 'Impact & Resources', page: 'impact' },
                 { label: 'Our Gallery', page: 'gallery' },
                 { label: 'Media Coverage', page: 'media-coverage' },
+                { label: 'Financials', page: 'financials' },
+                { label: 'Contact Us', page: 'contact' },
+                { label: 'AEA NE', page: 'where-we-work' },
               ].map((item, idx) => (
                 <li key={idx}>
                   <button
                     onClick={() => handleNav(item.page, item.opt)}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group text-left"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group text-left cursor-pointer"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-rlhp-green opacity-70 group-hover:opacity-100 group-hover:scale-125 transition-all" />
                     <span>{item.label}</span>
