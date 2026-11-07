@@ -251,62 +251,66 @@ export default function OurIdentity({ setCurrentPage }) {
           </div>
         </section>
 
-        {/* 5. MISSION & VISION (Redesigned with Brand Green Logo Theme) */}
+        {/* 5. MISSION & VISION (Classic, Standardized Distinct Brand Colors - Deep Sapphire & Rich Warm Terracotta Amber) */}
         <section id="mission-vision" className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Mission Card */}
+          {/* Mission Card - Classic Deep Navy / Midnight Sapphire */}
           <div
-            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group border border-emerald-500/30"
+            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-blue-400/30"
             style={{
-              background: 'linear-gradient(145deg, #184c20 0%, #236B28 50%, #0e2d13 100%)',
+              background: 'linear-gradient(135deg, #0f2038 0%, #173256 50%, #0a1628 100%)',
             }}
           >
             {/* Ambient background glow */}
-            <div className="absolute top-0 right-0 w-44 h-44 bg-white/10 rounded-full blur-2xl group-hover:scale-125 transition-transform pointer-events-none" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-sky-400/10 rounded-full blur-3xl group-hover:scale-125 transition-transform pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-600/15 rounded-full blur-2xl pointer-events-none" />
 
             <div className="relative z-10 flex flex-col h-full justify-between space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-md text-emerald-200 border border-white/20 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                  <Target size={28} className="text-white" />
+                <div className="w-14 h-14 rounded-2xl bg-sky-500/20 backdrop-blur-md text-sky-200 border border-sky-400/30 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                  <Target size={28} />
                 </div>
                 <div>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-sky-300 block">Our Purpose</span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
                     Mission
                   </h3>
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/15 shadow-inner">
-                <p className="text-sm sm:text-base text-white/95 leading-relaxed font-medium italic">
+              <div className="bg-white/10 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/15 shadow-inner">
+                <p className="text-sm sm:text-base text-sky-50 leading-relaxed font-medium italic">
                   "{orgDetails.mission}"
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Vision Card */}
+          {/* Vision Card - Classic Warm Terracotta / Rich Bronze Amber */}
           <div
-            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group border border-emerald-500/30"
+            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-amber-400/30"
             style={{
-              background: 'linear-gradient(145deg, #1C5620 0%, #2D8A35 55%, #133D16 100%)',
+              background: 'linear-gradient(135deg, #431407 0%, #78350f 50%, #290d04 100%)',
             }}
           >
             {/* Ambient background glow */}
-            <div className="absolute top-0 right-0 w-44 h-44 bg-white/10 rounded-full blur-2xl group-hover:scale-125 transition-transform pointer-events-none" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl group-hover:scale-125 transition-transform pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-600/15 rounded-full blur-2xl pointer-events-none" />
 
             <div className="relative z-10 flex flex-col h-full justify-between space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-md text-emerald-200 border border-white/20 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                  <Compass size={28} className="text-white" />
+                <div className="w-14 h-14 rounded-2xl bg-amber-500/20 backdrop-blur-md text-amber-200 border border-amber-400/30 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+                  <Compass size={28} />
                 </div>
                 <div>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-amber-300 block">Our Future</span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
                     Vision
                   </h3>
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/15 shadow-inner flex items-center min-h-[140px]">
-                <p className="text-base sm:text-lg text-white/95 leading-relaxed font-medium italic">
+              <div className="bg-white/10 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/15 shadow-inner flex items-center min-h-[140px]">
+                <p className="text-base sm:text-lg text-amber-50 leading-relaxed font-medium italic">
                   "{orgDetails.vision}"
                 </p>
               </div>
@@ -314,7 +318,7 @@ export default function OurIdentity({ setCurrentPage }) {
           </div>
         </section>
 
-        {/* 6. OUR PRINCIPLES (9 Principles) */}
+        {/* 6. OUR PRINCIPLES (9 Principles with Unique Vibrancy, Classic Motion & Individual Theme Colors) */}
         <section id="principles" className="space-y-8">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
@@ -325,36 +329,114 @@ export default function OurIdentity({ setCurrentPage }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {(() => {
-              const principleIcons = [
-                Heart,        // Child-Centred Approach
-                Scale,        // Equality and Inclusion
-                Users,        // Gender Equality
-                Handshake,    // Community Participation
-                Sparkles,     // Empowerment
-                Eye,          // Transparency and Accountability
-                Sprout,       // Sustainability
-                UserCheck,    // Human Dignity
-                Globe,        // Government Collaboration
+              const principleThemes = [
+                {
+                  icon: Heart,
+                  badge: 'from-rose-500 to-red-600',
+                  hoverBorder: 'hover:border-rose-500',
+                  hoverBg: 'group-hover:bg-rose-50/40',
+                  titleColor: 'group-hover:text-rose-600',
+                  glow: 'hover:shadow-rose-500/20',
+                  anim: 'group-hover:scale-110',
+                },
+                {
+                  icon: Scale,
+                  badge: 'from-blue-500 to-indigo-600',
+                  hoverBorder: 'hover:border-blue-500',
+                  hoverBg: 'group-hover:bg-blue-50/40',
+                  titleColor: 'group-hover:text-blue-600',
+                  glow: 'hover:shadow-blue-500/20',
+                  anim: 'group-hover:rotate-6',
+                },
+                {
+                  icon: Users,
+                  badge: 'from-purple-500 to-violet-600',
+                  hoverBorder: 'hover:border-purple-500',
+                  hoverBg: 'group-hover:bg-purple-50/40',
+                  titleColor: 'group-hover:text-purple-600',
+                  glow: 'hover:shadow-purple-500/20',
+                  anim: 'group-hover:-translate-y-1',
+                },
+                {
+                  icon: Handshake,
+                  badge: 'from-amber-500 to-orange-600',
+                  hoverBorder: 'hover:border-amber-500',
+                  hoverBg: 'group-hover:bg-amber-50/40',
+                  titleColor: 'group-hover:text-amber-600',
+                  glow: 'hover:shadow-amber-500/20',
+                  anim: 'group-hover:scale-110',
+                },
+                {
+                  icon: Sparkles,
+                  badge: 'from-yellow-400 to-amber-500',
+                  hoverBorder: 'hover:border-yellow-500',
+                  hoverBg: 'group-hover:bg-yellow-50/40',
+                  titleColor: 'group-hover:text-amber-700',
+                  glow: 'hover:shadow-yellow-500/20',
+                  anim: 'group-hover:rotate-12',
+                },
+                {
+                  icon: Eye,
+                  badge: 'from-teal-500 to-cyan-600',
+                  hoverBorder: 'hover:border-teal-500',
+                  hoverBg: 'group-hover:bg-teal-50/40',
+                  titleColor: 'group-hover:text-teal-600',
+                  glow: 'hover:shadow-teal-500/20',
+                  anim: 'group-hover:scale-110',
+                },
+                {
+                  icon: Sprout,
+                  badge: 'from-emerald-500 to-green-600',
+                  hoverBorder: 'hover:border-emerald-500',
+                  hoverBg: 'group-hover:bg-emerald-50/40',
+                  titleColor: 'group-hover:text-emerald-700',
+                  glow: 'hover:shadow-emerald-500/20',
+                  anim: 'group-hover:-translate-y-1.5',
+                },
+                {
+                  icon: UserCheck,
+                  badge: 'from-sky-500 to-blue-600',
+                  hoverBorder: 'hover:border-sky-500',
+                  hoverBg: 'group-hover:bg-sky-50/40',
+                  titleColor: 'group-hover:text-sky-600',
+                  glow: 'hover:shadow-sky-500/20',
+                  anim: 'group-hover:scale-110',
+                },
+                {
+                  icon: Globe,
+                  badge: 'from-emerald-600 to-teal-700',
+                  hoverBorder: 'hover:border-emerald-600',
+                  hoverBg: 'group-hover:bg-emerald-50/40',
+                  titleColor: 'group-hover:text-emerald-700',
+                  glow: 'hover:shadow-emerald-600/20',
+                  anim: 'group-hover:rotate-6',
+                },
               ];
+
               return orgDetails.principles.map((pr, idx) => {
-                const Icon = principleIcons[idx] || Sparkles;
+                const theme = principleThemes[idx] || principleThemes[0];
+                const Icon = theme.icon;
+
                 return (
                   <div
                     key={idx}
-                    className="bg-white rounded-2xl p-6 shadow-sm border border-gray-150 hover:border-rlhp-green hover:shadow-xl hover:shadow-rlhp-green/10 hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center group cursor-default"
+                    className={`bg-white rounded-3xl p-7 shadow-sm border-2 border-gray-150 ${theme.hoverBorder} ${theme.glow} hover:shadow-2xl hover:-translate-y-2.5 transition-all duration-400 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden`}
                   >
-                    {/* Organic Circular Badge matching logo green tone with relevant icon */}
-                    <div className="w-16 h-16 rounded-full mb-5 flex items-center justify-center shadow-md bg-gradient-to-br from-[#2D8A35] to-[#1C5620] group-hover:scale-110 group-hover:shadow-rlhp-green/30 transition-all duration-300">
-                      <Icon size={26} className="text-white" />
+                    {/* Subtle top indicator bar */}
+                    <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${theme.badge} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+
+                    {/* Circular Badge with distinctive gradient and unique animation */}
+                    <div className={`w-18 h-18 rounded-3xl mb-5 flex items-center justify-center shadow-lg bg-gradient-to-br ${theme.badge} ${theme.anim} transition-all duration-500`}>
+                      <Icon size={30} className="text-white drop-shadow-sm" />
                     </div>
 
                     {/* Title */}
-                    <h4 className="font-extrabold text-base text-gray-900 mb-2 leading-snug group-hover:text-rlhp-green transition-colors">
+                    <h4 className={`font-black text-lg text-gray-900 mb-2 leading-snug ${theme.titleColor} transition-colors duration-300`}>
                       {pr.title}
                     </h4>
 
                     {/* Description */}
-                    <p className="text-xs text-gray-600 leading-relaxed mt-auto pt-1">
+                    <p className="text-xs sm:text-[13px] text-gray-600 group-hover:text-gray-800 leading-relaxed mt-auto pt-2 transition-colors">
                       {pr.description}
                     </p>
                   </div>
