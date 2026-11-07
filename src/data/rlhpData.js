@@ -201,7 +201,8 @@ export const orgDetails = {
   // 13 Programs
   ourPrograms: [
     { title: "Street Children’s Rehabilitation", description: "Providing care, protection, education and rehabilitation support to children living in vulnerable situations." },
-    { title: "Library Programme", description: "Promoting reading habits, improving literacy and encouraging lifelong learning among children through access to books, reading spaces and educational resources." },
+    { title: "Child Rights Clubs", description: "Promoting child rights, protection and participation through Child Rights Clubs." },
+    { title: "Library Programme", description: "Promoting reading habits, improving literacy and encouraging lifelong learning among the government school childrens through access to books, reading spaces and educational resources." },
     { title: "Women’s Empowerment and SHG Promotion", description: "Strengthening women through Self-Help Groups, leadership development and economic empowerment." },
     { title: "Vocational Training Programmes", description: "Providing skill development and vocational training to improve employment and livelihood opportunities." },
     { title: "Malnutrition Prevention", description: "Addressing malnutrition through nutrition awareness, monitoring and community-based interventions." },

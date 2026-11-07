@@ -196,8 +196,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
           />
         </div>
 
-        {/* Curved Green SVG Element pushed to far edge */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-2/5 pointer-events-none overflow-hidden z-[2] opacity-40 hidden md:block">
+        {/* Curved Green SVG Element pushed to far edge - Richer darker & vibrant green */}
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 pointer-events-none overflow-hidden z-[2] opacity-70 hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
@@ -209,11 +209,15 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" />
                 <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" />
               </filter>
+              <linearGradient id="heroGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1E6B27" stopOpacity="0.95" />
+                <stop offset="50%" stopColor="#16501D" stopOpacity="0.98" />
+                <stop offset="100%" stopColor="#0D2E11" stopOpacity="1" />
+              </linearGradient>
             </defs>
             <path
               d="M 200,0 Q 400,200 300,400 Q 200,600 250,800 Q 300,900 200,1000 L 1000,1000 L 1000,0 Z"
-              fill="#236B28"
-              fillOpacity="0.85"
+              fill="url(#heroGreenGrad)"
               filter="url(#roughPaint)"
             />
           </svg>
@@ -222,21 +226,23 @@ export default function Home({ setCurrentPage, onNavClick }) {
         {/* Hero Content Container - Moved completely to the right edge with generous margin */}
         <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 py-20 flex justify-end">
           <div className="w-full max-w-[560px] lg:mr-4 xl:mr-10 bg-black/25 md:bg-transparent backdrop-blur-[2px] md:backdrop-blur-none p-4 md:p-2 rounded-2xl md:rounded-none">
-            {/* Main Headline with Smooth Paint Stroke Underline on Community */}
+            {/* Main Headline with Highlighted Underline and Vibrant Accent */}
             <h1 className="text-6xl sm:text-9xl lg:text-[60px] font-bold text-white leading-[1.2] mb-7 tracking-tight drop-shadow-md">
-              Transforming Lives of Children, Women and{' '}
-              <span className="relative inline-block text-white">
+              <span className="text-[#A7F3D0] font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+                Transforming Lives of Children, Women and{' '}
+              </span>
+              <span className="relative inline-block text-[#34D399] font-black drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
                 Community
                 <svg
                   className="absolute -bottom-2 left-0 w-full overflow-visible"
-                  height="12"
-                  viewBox="0 0 300 12"
+                  height="14"
+                  viewBox="0 0 300 14"
                   preserveAspectRatio="none"
                 >
                   <path
-                    d="M0,6 Q75,0 150,6 T300,6"
-                    stroke="#236B28"
-                    strokeWidth="7"
+                    d="M0,7 Q75,0 150,7 T300,7"
+                    stroke="#10B981"
+                    strokeWidth="8"
                     fill="none"
                     strokeLinecap="round"
                   />
@@ -819,8 +825,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </p>
           </div>
 
-          {/* Stagnant Static Grid: Exactly 5 Logos per row on desktop */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-7 items-center justify-center max-w-[1360px] mx-auto">
+          {/* Stagnant Static Grid: Exactly 4 Logos per row on desktop */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 items-center justify-center max-w-[1240px] mx-auto">
             {[
               { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
               { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },

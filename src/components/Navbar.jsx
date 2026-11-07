@@ -62,36 +62,36 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
           scrolled ? 'shadow-2xl' : ''
         }`}
       >
-        <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] mx-auto px-3 sm:px-5 lg:px-6 xl:px-8">
           <div className="flex items-center justify-between h-[86px] sm:h-[94px]">
 
             {/* ── Logo + Brand ── */}
             <button
               onClick={() => go('home')}
-              className="flex items-center gap-3.5 sm:gap-4 flex-shrink-0 text-left group"
+              className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0 text-left group min-w-0"
             >
               <img
                 src={`${B}rlhp-logo.png`}
                 alt="RLHP Logo"
-                className="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-contain bg-white p-0.5 ring-2 ring-[#236B28]/60 group-hover:ring-[#4CAF50] transition-all duration-200 shadow-lg shrink-0"
+                className="h-12 w-12 sm:h-14 sm:w-14 lg:h-15 lg:w-15 rounded-full object-contain bg-white p-0.5 ring-2 ring-[#236B28]/60 group-hover:ring-[#4CAF50] transition-all duration-200 shadow-lg shrink-0"
               />
-              <div className="leading-tight">
-                <span className="block text-[#4CAF50] font-black text-[20px] sm:text-[23px] lg:text-[25px] tracking-tight group-hover:text-[#66BB6A] transition-colors drop-shadow-sm">
+              <div className="leading-tight truncate">
+                <span className="block text-[#4CAF50] font-black text-[17px] sm:text-[21px] lg:text-[20px] xl:text-[23px] tracking-tight group-hover:text-[#66BB6A] transition-colors drop-shadow-sm truncate">
                   Rural Literacy &amp; Health Programme
                 </span>
-                <span className="block text-white text-[13px] sm:text-[14.5px] lg:text-[15.5px] font-semibold tracking-normal opacity-95 mt-0.5">
+                <span className="block text-white text-[11.5px] sm:text-[13px] lg:text-[12.5px] xl:text-[14px] font-semibold tracking-normal opacity-95 mt-0.5 truncate">
                   Empowering people through health, education and livelihood
                 </span>
               </div>
             </button>
 
-            {/* ── Desktop Navigation Menu (Direct Links, Responsive for all screens) ── */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-2 ml-4 lg:ml-6 xl:ml-8">
+            {/* ── Desktop Navigation Menu (Direct Links, Auto Responsive spacing & font size) ── */}
+            <div className="hidden xl:flex items-center gap-1.5 2xl:gap-2.5 ml-3 flex-shrink-0">
               {NAV.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => go(item.id)}
-                  className={`px-2 xl:px-2.5 py-1.5 text-[12.5px] xl:text-[13.5px] 2xl:text-[14px] font-bold rounded transition-colors duration-150 whitespace-nowrap
+                  className={`px-2 py-1.5 text-[12.5px] 2xl:text-[13.5px] font-bold rounded transition-colors duration-150 whitespace-nowrap
                     ${active(item) ? 'text-[#4CAF50]' : 'text-white hover:text-[#4CAF50]'}`}
                 >
                   {item.label}
@@ -99,7 +99,21 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
               ))}
             </div>
 
-            {/* ── Mobile Hamburger ── */}
+            {/* ── Medium / Compact Desktop Nav (between lg and xl) ── */}
+            <div className="hidden lg:flex xl:hidden items-center gap-0.5 ml-2 flex-shrink-0">
+              {NAV.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => go(item.id)}
+                  className={`px-1.5 py-1 text-[11px] font-bold rounded transition-colors duration-150 whitespace-nowrap
+                    ${active(item) ? 'text-[#4CAF50]' : 'text-white hover:text-[#4CAF50]'}`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+
+            {/* ── Mobile & Tablet Hamburger ── */}
             <div className="lg:hidden flex items-center gap-2">
               <button
                 onClick={() => setMobileOpen((v) => !v)}
