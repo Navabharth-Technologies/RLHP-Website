@@ -81,6 +81,17 @@ export default function ImpactPage() {
       numberColor: "text-teal-700",
     },
     {
+      number: "2004",
+      title: "Tsunami Relief & Rebuilding",
+      subtitle: "Tamil Nadu, Nagapattinam District",
+      icon: LifeBuoy,
+      borderColor: "border-cyan-200 hover:border-cyan-500",
+      bgGradient: "from-cyan-50/50 via-white to-cyan-50/30",
+      iconBg: "bg-cyan-100 text-cyan-700",
+      accentBar: "bg-cyan-500",
+      numberColor: "text-cyan-700",
+    },
+    {
       number: "5,000+",
       title: "COVID Support Families",
       subtitle: "Pandemic Humanitarian Relief",

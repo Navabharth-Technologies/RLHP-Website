@@ -134,6 +134,17 @@ export const orgDetails = {
       description: "Expanded integrated community development operations across 3 southern districts of Karnataka."
     },
     {
+      id: "2004",
+      year: "2004",
+      title: "Tsunami Relief",
+      subtitle: "Tamil Nadu, Nagapattinam District",
+      icon: "boat",
+      accent: "from-cyan-500/10 to-blue-500/20",
+      hoverBorder: "hover:border-cyan-500",
+      badgeColor: "bg-cyan-50 text-cyan-700 border-cyan-200 group-hover:bg-cyan-600",
+      description: "Emergency humanitarian relief, child psycho-social rehabilitation and community rebuilding in tsunami-affected coastal areas of Nagapattinam District, Tamil Nadu."
+    },
+    {
       id: "2014",
       year: "2014",
       title: "Expanded to North Karnataka, 5 Districts",

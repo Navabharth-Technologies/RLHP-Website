@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import JourneyArtwork from '../components/journeyIllustrations/JourneyArtwork';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
@@ -11,6 +11,36 @@ import {
 
 export default function OurIdentity({ setCurrentPage }) {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [principlesVisibleCount, setPrinciplesVisibleCount] = useState(0);
+  const principlesRef = useRef(null);
+  const [principlesStarted, setPrinciplesStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !principlesStarted) {
+          setPrinciplesStarted(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (principlesRef.current) {
+      observer.observe(principlesRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [principlesStarted]);
+
+  useEffect(() => {
+    if (!principlesStarted) return;
+    if (principlesVisibleCount < orgDetails.principles.length) {
+      const timer = setTimeout(() => {
+        setPrinciplesVisibleCount((prev) => prev + 1);
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, [principlesStarted, principlesVisibleCount]);
 
   return (
     <div className="space-y-16 font-sans pb-16 bg-gray-50/50">
@@ -273,7 +303,7 @@ export default function OurIdentity({ setCurrentPage }) {
         </section>
 
         {/* 6. OUR PRINCIPLES (9 Principles with Elegant, Light & Aesthetic Minimalist Colors and Smooth Floating Card Motions) */}
-        <section id="principles" className="space-y-8">
+        <section id="principles" ref={principlesRef} className="space-y-8">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
               Our <span className="text-rlhp-green italic font-serif">Principles</span>
@@ -361,14 +391,18 @@ export default function OurIdentity({ setCurrentPage }) {
               return orgDetails.principles.map((pr, idx) => {
                 const theme = principleThemes[idx] || principleThemes[0];
                 const Icon = theme.icon;
+                const isVisible = principlesStarted && idx < principlesVisibleCount;
 
                 return (
                   <div
                     key={idx}
-                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden animate-timer-card`}
+                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${
+                      isVisible
+                        ? 'opacity-100 translate-y-0 scale-100'
+                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
                     style={{
-                      animationDelay: `${idx * 160}ms`,
-                      animationFillMode: 'both'
+                      willChange: 'transform, opacity',
                     }}
                   >
                     {/* Clean Minimalist Icon Badge with Subtle Tint */}

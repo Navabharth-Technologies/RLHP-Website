@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
 import { 
@@ -8,6 +8,36 @@ import {
 } from 'lucide-react';
 
 export default function Projects({ setCurrentPage, onNavClick }) {
+  const [visibleCount, setVisibleCount] = useState(0);
+  const sectionRef = useRef(null);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+    if (visibleCount < orgDetails.ourPrograms.length) {
+      const timer = setTimeout(() => {
+        setVisibleCount((prev) => prev + 1);
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, [hasStarted, visibleCount]);
   // 14 Programme Icons
   const programIcons = [
     Heart,         // 1. Street Children’s Rehabilitation
@@ -73,7 +103,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
       </section>
 
       {/* ─── 2. OUR PROGRAMS / OUR PROJECTS SECTION (Exact Replica of Reference 4 with Green Logo Colors) ─── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
+      <section ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
         <div className="mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
             Our <span className="text-rlhp-green italic font-serif">Programs</span>
@@ -197,14 +227,18 @@ export default function Projects({ setCurrentPage, onNavClick }) {
             return orgDetails.ourPrograms.map((prog, idx) => {
               const Icon = programIcons[idx] || Sparkles;
               const style = programStyles[idx % programStyles.length];
+              const isVisible = hasStarted && idx < visibleCount;
 
               return (
                 <div
                   key={idx}
-                  className={`bg-white rounded-3xl p-7 sm:p-8 shadow-xs border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden animate-timer-card`}
+                  className={`bg-white rounded-3xl p-7 sm:p-8 shadow-xs border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0 scale-100' 
+                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                  }`}
                   style={{
-                    animationDelay: `${idx * 160}ms`,
-                    animationFillMode: 'both'
+                    willChange: 'transform, opacity',
                   }}
                 >
                   {/* Icon Badge with Distinct Aesthetic Color and Animation */}
