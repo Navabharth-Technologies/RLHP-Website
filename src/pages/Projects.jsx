@@ -3,25 +3,26 @@ import { orgDetails } from '../data/rlhpData';
 import { 
   Users, Handshake, CheckCircle2, Heart, Scale, BookOpen, 
   Sparkles, Award, ArrowRight, ShieldCheck, Activity, Building2, 
-  Leaf, UserCheck, Flame, Baby, HelpCircle
+  Leaf, UserCheck, Flame, Baby, HelpCircle, GraduationCap
 } from 'lucide-react';
 
 export default function Projects({ setCurrentPage, onNavClick }) {
-  // 13 Programme Icons
+  // 14 Programme Icons
   const programIcons = [
-    Heart,        // 1. Street Children’s Rehabilitation
-    ShieldCheck,  // 2. Child Rights and Child Rights Clubs (CRC)
-    BookOpen,     // 3. Library Programme
-    Users,        // 4. Women’s Empowerment and SHG Promotion
-    Award,        // 5. Vocational Training Programmes
-    Activity,     // 6. Malnutrition Prevention
-    Sparkles,     // 7. Youth and Adolescent Development
-    Activity,     // 8. Health Camps and Health Awareness
-    Baby,         // 9. Reproductive and Child Health (RCH)
-    Building2,    // 10. Community Development
-    Handshake,    // 11. Awareness and Government Scheme Linkages
-    Leaf,         // 12. Youth Engagement in Climate Change
-    Scale,        // 13. Adolescent Empowerment and Gender Justice
+    Heart,         // 1. Street Children’s Rehabilitation
+    ShieldCheck,   // 2. Child Rights and Child Rights Clubs (CRC)
+    BookOpen,      // 3. Library Programme
+    GraduationCap, // 4. Eradication of Child Labour and Quality Education
+    Users,         // 5. Women’s Empowerment and SHG Promotion
+    Award,         // 6. Vocational Training Programmes
+    Activity,      // 7. Malnutrition Prevention
+    Sparkles,      // 8. Youth and Adolescent Development
+    Activity,      // 9. Health Camps and Health Awareness
+    Baby,          // 10. Reproductive and Child Health (RCH)
+    Building2,     // 11. Community Development
+    Handshake,     // 12. Awareness and Government Scheme Linkages
+    Leaf,          // 13. Youth Engagement in Climate Change
+    Scale,         // 14. Adolescent Empowerment and Gender Justice
   ];
 
   return (
