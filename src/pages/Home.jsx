@@ -666,57 +666,59 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 6: Together, We Make a Difference
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-28 text-white overflow-hidden bg-slate-900">
-        {/* Authentic smiling children with craft work background image - HD, Clear, No opacity or shading */}
+        {/* Authentic large group grassroots empowerment background image */}
         <div
-          className="absolute inset-0 bg-cover bg-[center_25%] bg-no-repeat transition-all duration-700"
-          style={{ backgroundImage: `url(${B}images/together_difference_bg.jpg)` }}
+          className="absolute inset-0 bg-cover bg-[center_30%] bg-no-repeat transition-all duration-700"
+          style={{ backgroundImage: `url(${B}images/gallery/annual_stakeholder_convention.jpg)` }}
         />
+        {/* Subtle, soft natural balance overlay (very low opacity) to ensure clear text readability without clouding image */}
+        <div className="absolute inset-0 bg-black/35 pointer-events-none" />
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">
-              Together, <span className="text-[#66BB6A] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">We Make a Difference</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)]">
+              Together, <span className="text-[#66BB6A] drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)]">We Make a Difference</span>
             </h2>
           </div>
 
-          {/* 3 Action Cards (Static display with Green Hover Effect & Smooth Entrance Animations) */}
+          {/* 3 Action Cards (Transparent with Low Opacity, Blurred Backdrop & Smooth Animations) */}
           <div className="grid md:grid-cols-3 gap-8 mb-14">
             {/* Card 1: Donate Today */}
             <div
-              className="bg-[#0e1d32]/85 backdrop-blur-md border-2 border-white/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_15px_35px_rgba(0,0,0,0.5)] hover:border-[#4CAF50] hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              className="bg-black/25 hover:bg-black/45 backdrop-blur-md border border-white/30 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
               style={{ animationDelay: '100ms' }}
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
                 <Heart size={60} className="fill-rlhp-accentgreen/20 group-hover:fill-[#4CAF50]/35 transition-all" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-sm">
+              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-md">
                 Donate Today
               </h3>
             </div>
 
             {/* Card 2: Corporate Partnership */}
             <div
-              className="bg-[#0e1d32]/85 backdrop-blur-md border-2 border-white/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_15px_35px_rgba(0,0,0,0.5)] hover:border-[#4CAF50] hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              className="bg-black/25 hover:bg-black/45 backdrop-blur-md border border-white/30 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
               style={{ animationDelay: '250ms' }}
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
                 <Handshake size={60} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-sm">
+              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-md">
                 Corporate Partnership
               </h3>
             </div>
 
             {/* Card 3: Volunteer Your Skills */}
             <div
-              className="bg-[#0e1d32]/85 backdrop-blur-md border-2 border-white/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-[0_15px_35px_rgba(0,0,0,0.5)] hover:border-[#4CAF50] hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              className="bg-black/25 hover:bg-black/45 backdrop-blur-md border border-white/30 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
               style={{ animationDelay: '400ms' }}
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
                 <Users size={60} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-sm">
+              <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-md">
                 Volunteer Your Skills
               </h3>
             </div>
@@ -795,22 +797,35 @@ export default function Home({ setCurrentPage, onNavClick }) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 8: OUR PARTNERS
+          SECTION 8: OUR PARTNERS (Continuous Right-to-Left Motion Ticker with Enlarged Logos)
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="py-24 bg-white border-t border-gray-100 overflow-hidden">
-        <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight mb-3">
-              Our <span className="text-rlhp-green italic font-serif">Partners</span>
-            </h2>
-            <div className="w-16 h-1 bg-rlhp-green mx-auto rounded-full" />
-            <p className="text-gray-500 text-sm sm:text-base mt-3 max-w-xl mx-auto">
-              Collaborating with leading global foundations and institutions to empower communities
-            </p>
-          </div>
+        <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 mb-14 text-center">
+          <h2 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight mb-3">
+            Our <span className="text-rlhp-green italic font-serif">Partners</span>
+          </h2>
+          <div className="w-16 h-1 bg-rlhp-green mx-auto rounded-full" />
+          <p className="text-gray-500 text-sm sm:text-base mt-3 max-w-xl mx-auto">
+            Collaborating with leading global foundations and institutions to empower communities
+          </p>
+        </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 sm:gap-6 items-center justify-center">
+        {/* Infinite Moving Marquee Ticker: Right to Left */}
+        <div className="relative w-full overflow-hidden py-4">
+          {/* Gradient fade edge masks */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+
+          <div className="animate-marquee-left flex items-center gap-8">
+            {/* Double the list for seamless continuous loop */}
             {[
+              { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
+              { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
+              { name: 'Azim Premji Foundation', img: `${B}images/partners/azim-premji-logo.png` },
+              { name: 'ChildFund International', img: `${B}images/partners/childfund-logo.png` },
+              { name: 'Klüber Lubrication', img: `${B}images/partners/kluber-lubrication-logo.png` },
+              { name: 'terre des hommes', img: `${B}images/partners/terre-des-hommes-logo.png` },
+              { name: 'Federal Ministry for Economic Cooperation and Development', img: `${B}images/partners/federal-ministry-logo.png` },
               { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
               { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
               { name: 'Azim Premji Foundation', img: `${B}images/partners/azim-premji-logo.png` },
@@ -821,17 +836,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
             ].map((p, idx) => (
               <div
                 key={idx}
-                className="h-44 sm:h-52 bg-white border-2 border-gray-200/90 hover:border-rlhp-green rounded-3xl p-5 sm:p-6 flex items-center justify-center shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer animate-float-subtle relative overflow-hidden"
-                style={{ animationDelay: `${idx * 0.4}s` }}
+                className="w-72 sm:w-80 h-36 sm:h-40 bg-white border-2 border-gray-200/90 hover:border-rlhp-green rounded-3xl px-8 py-5 flex items-center justify-center shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 group cursor-pointer shrink-0"
                 title={p.name}
               >
-                {/* Subtle sheen highlight on hover */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-green-50/0 via-green-50/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="w-full h-full max-h-32 sm:max-h-36 object-contain filter contrast-110 drop-shadow-xs group-hover:scale-115 group-hover:drop-shadow-md transition-transform duration-500 ease-out"
+                  className="w-full h-full max-h-24 sm:max-h-28 object-contain filter contrast-110 drop-shadow-xs group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
             ))}

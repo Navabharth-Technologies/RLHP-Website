@@ -202,8 +202,8 @@ export default function ContactUs() {
                 <div>
                   <h4 className="font-extrabold text-base text-gray-950">Call Us</h4>
                   <p className="text-xs sm:text-sm text-gray-700 font-medium mt-0.5 leading-relaxed">
-                    (+91) 0821 2454686<br />
-                    (+91) 94480 51216
+                    0821 2454686<br />
+                    (+91) 7022252030
                   </p>
                 </div>
               </div>

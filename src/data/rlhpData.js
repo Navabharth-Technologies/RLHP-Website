@@ -129,10 +129,10 @@ export const orgDetails = {
     },
     {
       year: "2026",
-      title: "Expanded to 2 More Coastal Districts",
+      title: "Expanded to Coastal Districts",
       subtitle: "Uttara Kannada (Karwar) & Dakshina Kannada (Mangalore)",
       icon: "palm",
-      description: "Strengthening community child protection and educational empowerment across Uttara Kannada (Karwar) and Dakshina Kannada (Mangalore)."
+      description: "Strengthening community child protection & educational empowerment across Uttara Kannada (Karwar) & Dakshina Kannada (Mangalore)."
     }
   ],
 
