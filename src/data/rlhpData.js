@@ -66,6 +66,13 @@ export const orgDetails = {
     { name: "Mr. Johnson Joseph", designation: "Board Member", image: "/images/team/johnson_joseph.jpg" }
   ],
 
+  // Executive Director
+  executiveDirector: {
+    name: "Saraswathi K",
+    designation: "Executive Director",
+    image: ""
+  },
+
   // Inception Story
   inceptionStory: "Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management. Its area of operation is the slums and villages of Mysore, Mandya and Chamarajanagar districts of Karnataka, South India.",
 

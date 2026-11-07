@@ -6,7 +6,7 @@ import {
   Compass, Target, Heart, Award, Shield, CheckCircle2,
   Users, Calendar, MapPin, Handshake, Sparkles, Building2,
   ZoomIn, X, ChevronRight, Globe, Scale, Eye, Sprout, UserCheck, ShieldCheck, Star,
-  Home as HomeIcon, Map, ArrowUp, Ship, VenetianMask, Trees
+  Home as HomeIcon, Map, ArrowUp, Ship, VenetianMask, Trees, User
 } from 'lucide-react';
 
 export default function OurIdentity({ setCurrentPage }) {
@@ -578,6 +578,58 @@ export default function OurIdentity({ setCurrentPage }) {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* C. OUR EXECUTIVE DIRECTOR */}
+            <div className="pt-8 border-t border-gray-150 space-y-6">
+              <div className="space-y-1">
+                <span className="text-xs font-bold text-rlhp-green uppercase tracking-wider bg-rlhp-lightgreen px-3 py-1 rounded-full">
+                  Leadership
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-rlhp-darkgreen tracking-tight">
+                  Our Executive Director
+                </h3>
+              </div>
+
+              <div className="max-w-xs">
+                <div
+                  className="bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center group cursor-pointer"
+                  onClick={() => {
+                    if (orgDetails.executiveDirector?.image) {
+                      setSelectedPhoto({
+                        src: orgDetails.executiveDirector.image,
+                        name: orgDetails.executiveDirector.name,
+                        title: orgDetails.executiveDirector.designation
+                      });
+                    }
+                  }}
+                >
+                  <div className="w-32 h-40 sm:w-36 sm:h-44 rounded-xl overflow-hidden bg-emerald-50/60 p-1 border-2 border-dashed border-rlhp-green/40 group-hover:border-rlhp-green shadow-xs shrink-0 group-hover:scale-105 transition-all flex flex-col items-center justify-center text-rlhp-green/60 group-hover:text-rlhp-green">
+                    {orgDetails.executiveDirector?.image ? (
+                      <img
+                        src={`${import.meta.env.BASE_URL}${orgDetails.executiveDirector.image.replace(/^\//, '')}`}
+                        alt={orgDetails.executiveDirector.name}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center space-y-2 p-2">
+                        <User size={38} className="opacity-70 group-hover:scale-110 transition-transform" />
+                        <span className="text-[11px] font-semibold text-gray-400">Photo Pending</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Name and Designation Only */}
+                  <div className="mt-4 space-y-1">
+                    <h4 className="text-base font-black text-gray-900 group-hover:text-rlhp-darkgreen transition-colors">
+                      {orgDetails.executiveDirector?.name || 'Saraswathi K'}
+                    </h4>
+                    <p className="text-xs font-extrabold text-rlhp-green">
+                      {orgDetails.executiveDirector?.designation || 'Executive Director'}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

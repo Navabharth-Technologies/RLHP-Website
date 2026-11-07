@@ -38,3 +38,4 @@ export default function AnimatedWaveUnderline({ className = "w-52 h-4 mb-6", col
     </div>
   );
 }
+
