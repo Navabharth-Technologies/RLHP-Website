@@ -178,17 +178,15 @@ export default function Home({ setCurrentPage, onNavClick }) {
           SECTION 1: HERO SECTION
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative w-full overflow-hidden bg-[#0a1628] text-white min-h-[640px] lg:min-h-[720px] flex items-center">
-        {/* Static Background Image with Face Highlighted on Left */}
+        {/* Crystal Clear High Definition Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
             alt="RLHP Child Education"
             className="w-full h-full object-cover object-[left_20%] sm:object-[15%_20%]"
+            style={{ imageRendering: 'auto' }}
           />
         </div>
-
-        {/* Dynamic Dark Gradient: clearer on left so girl's face is highlighted, darker on right behind text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/40 via-[#0a1628]/75 to-[#0a1628]/95 z-[1]" />
 
         {/* Curved Green SVG Element pushed to far edge */}
         <div className="absolute right-0 top-0 bottom-0 w-full md:w-2/5 pointer-events-none overflow-hidden z-[2] opacity-40 hidden md:block">
@@ -215,7 +213,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
         {/* Hero Content Container - Moved completely to the right edge with generous margin */}
         <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 py-20 flex justify-end">
-          <div className="w-full max-w-[560px] lg:mr-4 xl:mr-10 bg-transparent p-2">
+          <div className="w-full max-w-[560px] lg:mr-4 xl:mr-10 bg-black/25 md:bg-transparent backdrop-blur-[2px] md:backdrop-blur-none p-4 md:p-2 rounded-2xl md:rounded-none">
             {/* Main Headline with Smooth Paint Stroke Underline on Community */}
             <h1 className="text-6xl sm:text-9xl lg:text-[60px] font-bold text-white leading-[1.2] mb-7 tracking-tight drop-shadow-md">
               Transforming Lives of Children, Women and{' '}
@@ -271,17 +269,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Scroll To Explore Link */}
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-white/70 hover:text-white text-xs uppercase tracking-widest transition-colors cursor-pointer"
-          onClick={() => {
-            const el = document.getElementById('who-we-are');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          <span className="mb-1">Scroll to explore</span>
-          <ChevronRight size={18} className="rotate-90 animate-bounce" />
         </div>
       </section>
 

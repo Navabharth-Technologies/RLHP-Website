@@ -11,7 +11,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
   const financialReportsList = [
     {
       id: 'fcra-2025-2026',
-      title: 'Foreign Contributions (2025–2026)',
+      title: 'Financials Reports (2025-2026)',
       period: 'Year ended 31 March 2026',
       date: 'September 09, 2026',
       pdfUrl: `${B}documents/Foreign_Contribution_2025_2026.pdf`,
@@ -21,7 +21,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
     },
     {
       id: 'fcra-2024-2025',
-      title: 'Foreign Contributions (2024–2025)',
+      title: 'Financials Reports (2024–2025)',
       period: 'Year ended 31 March 2025',
       date: 'April 20, 2025',
       pdfUrl: `${B}documents/Foreign_Contribution_2024_2025.pdf`,
@@ -33,7 +33,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
 
   return (
     <div className="font-sans min-h-screen bg-gray-50/40 pb-24">
-      
+
       {/* ═══════════════════════════════════════════════════════════════════
           1. TOP HERO SECTION (Light Green Shade Background matching Logo)
       ═══════════════════════════════════════════════════════════════════ */}
@@ -44,7 +44,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
 
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            
+
             {/* Left Column (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
               <div>
@@ -59,8 +59,8 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
 
               {/* Breadcrumb indicator */}
               <div className="pt-2 text-xs sm:text-sm font-semibold text-gray-500">
-                <span 
-                  onClick={() => setCurrentPage?.('home')} 
+                <span
+                  onClick={() => setCurrentPage?.('home')}
                   className="hover:text-rlhp-green cursor-pointer transition-colors"
                 >
                   Home

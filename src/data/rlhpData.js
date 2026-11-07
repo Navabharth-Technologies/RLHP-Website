@@ -183,21 +183,17 @@ export const orgDetails = {
   withWhomWeWork: {
     intro: "RLHP works with children, families and communities living in vulnerable and marginalised situations across urban, peri-urban and rural areas of South India. Our focus is on reaching those who face social, economic and geographical barriers to education, healthcare, protection and livelihood opportunities.\n\nWe work closely with children, adolescents, youth, women and families who experience different forms of vulnerability and exclusion:",
     groups: [
-      { title: "Children in vulnerable situations", description: "Street-connected children, child labourers, school dropouts, children from disadvantaged families and those at risk of abuse and exploitation." },
+      { title: "Vulnerable situations", description: "Street-connected children, child labourers, school dropouts, children from disadvantaged families and those at risk of abuse and exploitation." },
       { title: "Adolescents", description: "Girls and boys facing challenges related to gender discrimination, child marriage, limited educational opportunities and lack of awareness about their rights and health." },
       { title: "Women", description: "Women from economically and socially disadvantaged communities, including members of Self-Help Groups, who seek greater social and economic empowerment." },
       { title: "Youth", description: "Young people requiring opportunities for education, skill development, employment, leadership and participation in community and environmental initiatives." },
-      { title: "Marginalised communities", description: "Rural and urban families, sanitation workers and other vulnerable groups facing barriers to education, healthcare, livelihoods and access to government entitlements." },
-      { title: "Parents and caregivers", description: "Families who need support and awareness to ensure children's protection, education, health and overall well-being." }
-    ],
+      { title: "Marginalised communities", description: "Rural and urban families, sanitation workers and other vulnerable groups facing barriers to education, healthcare, livelihoods and access to government entitlements." },],
     collaborationsIntro: "To strengthen community development and create sustainable impact, we collaborate with:",
     collaborations: [
       { title: "Government Departments and Local Bodies", description: "Working together to strengthen the implementation of government programmes, policies and welfare schemes." },
       { title: "Educational and Health Institutions", description: "Promoting access to quality education, healthcare, nutrition and essential services." },
       { title: "CSR and Funding Partners", description: "Building partnerships and mobilising resources to support sustainable community development." },
-      { title: "Civil Society Organisations and NGOs", description: "Collaborating to address social issues and strengthen community-level interventions." },
-      { title: "Community-Based Organisations", description: "Engaging with Child Rights Clubs, Self-Help Groups, youth groups and other local institutions to promote community ownership and participation." }
-    ],
+      { title: "Civil Society Organisations and Networks", description: "Collaborating to address social issues and strengthen community-level interventions and engaging with Child Rights Clubs, Self-Help Groups, youth groups and other local institutions to promote community ownership and participation." },],
     conclusion: "Through these partnerships and collective efforts, RLHP works towards building inclusive, empowered and resilient communities where every child, woman and young person has the opportunity to live with dignity and build a better future."
   },
 
@@ -969,7 +965,7 @@ export const auditReport2025 = {
     {
       pageNumber: 1,
       title: "Receipts and Payments Account",
-      subtitle: "Foreign Contribution Account for year ended 31 March 2025",
+      subtitle: "Financials Reports (2025-2026)",
       image: "/images/audit-report/audit_report_2024_2025_page_1.jpg",
       totalAmount: "₹3,46,71,219",
       keyHighlights: [
@@ -989,7 +985,7 @@ export const auditReport2025 = {
     {
       pageNumber: 2,
       title: "Income and Expenditure Statement",
-      subtitle: "Foreign Contribution Account for year ended 31st March 2025",
+      subtitle: "Financials Reports (2024-2025)",
       image: "/images/audit-report/audit_report_2024_2025_page_2.jpg",
       totalAmount: "₹2,45,59,520",
       keyHighlights: [

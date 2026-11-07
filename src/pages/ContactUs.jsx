@@ -30,7 +30,7 @@ export default function ContactUs() {
 
   return (
     <div className="font-sans pb-20 bg-gray-50/50">
-      
+
       {/* ─── 1. TOP HERO SECTION (Exact Replica of Reference) ─── */}
       <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#eaf4eb]/90 via-[#f2f8f3] to-white border-b border-green-100/60 overflow-hidden">
         {/* Soft decorative background glow */}
@@ -39,7 +39,7 @@ export default function ContactUs() {
 
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            
+
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
               <div>
@@ -77,7 +77,7 @@ export default function ContactUs() {
       {/* ─── 2. FORM & CONTACT INFORMATION SECTION (Exact Replica) ─── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Column: Send us a Message Form (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -202,7 +202,7 @@ export default function ContactUs() {
                 <div>
                   <h4 className="font-extrabold text-base text-gray-950">Call Us</h4>
                   <p className="text-xs sm:text-sm text-gray-700 font-medium mt-0.5 leading-relaxed">
-                    (+91) 0821 2451216<br />
+                    (+91) 0821 2454686<br />
                     (+91) 94480 51216
                   </p>
                 </div>
@@ -259,11 +259,11 @@ export default function ContactUs() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm p-3">
           <div className="w-full h-80 sm:h-96 bg-gray-100 rounded-2xl overflow-hidden relative">
-            <iframe 
+            <iframe
               title="RLHP Mysore Location Map"
-              src="https://maps.google.com/maps?q=Rural%20Literacy%20%26%20Health%20Programme%2C%20No.%20343%2C%202nd%20Stage%2C%20Gayathripuram%2C%20Mysuru%2C%20Karnataka%20570019&t=&z=16&ie=UTF8&iwloc=B&output=embed" 
+              src="https://maps.google.com/maps?q=Rural%20Literacy%20%26%20Health%20Programme%2C%20No.%20343%2C%202nd%20Stage%2C%20Gayathripuram%2C%20Mysuru%2C%20Karnataka%20570019&t=&z=16&ie=UTF8&iwloc=B&output=embed"
               className="w-full h-full border-0"
-              allowFullScreen="" 
+              allowFullScreen=""
               loading="lazy"
             />
           </div>

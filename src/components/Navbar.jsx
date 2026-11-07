@@ -62,8 +62,8 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
           scrolled ? 'shadow-2xl' : ''
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[82px] sm:h-[88px]">
+        <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-[86px] sm:h-[94px]">
 
             {/* ── Logo + Brand ── */}
             <button
@@ -76,10 +76,10 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
                 className="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-contain bg-white p-0.5 ring-2 ring-[#236B28]/60 group-hover:ring-[#4CAF50] transition-all duration-200 shadow-lg shrink-0"
               />
               <div className="leading-tight">
-                <span className="block text-[#4CAF50] font-black text-[18px] sm:text-[21px] lg:text-[22px] tracking-tight group-hover:text-[#66BB6A] transition-colors drop-shadow-sm">
+                <span className="block text-[#4CAF50] font-black text-[20px] sm:text-[23px] lg:text-[25px] tracking-tight group-hover:text-[#66BB6A] transition-colors drop-shadow-sm">
                   Rural Literacy &amp; Health Programme
                 </span>
-                <span className="block text-white text-[12px] sm:text-[13.5px] lg:text-[14px] font-semibold tracking-normal opacity-95 mt-0.5">
+                <span className="block text-white text-[13px] sm:text-[14.5px] lg:text-[15.5px] font-semibold tracking-normal opacity-95 mt-0.5">
                   Empowering people through health, education and livelihood
                 </span>
               </div>

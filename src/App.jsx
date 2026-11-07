@@ -142,7 +142,7 @@ export default function App() {
       />
 
       {/* Main Page Area — offsets the fixed navbar */}
-      <main className="flex-1 pt-[82px] sm:pt-[88px]">
+      <main className="flex-1 pt-[86px] sm:pt-[94px]">
         {renderPage()}
       </main>
 
