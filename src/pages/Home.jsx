@@ -663,7 +663,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 6: Together, We Make a Difference
+          SECTION 6: Together, We
+           Make a Difference
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-28 text-white overflow-hidden bg-[#0c1824]">
         {/* Modern Plain Color Grid Background */}

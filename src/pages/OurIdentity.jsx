@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { orgDetails } from '../data/rlhpData';
+import JourneyArtwork from '../components/journeyIllustrations/JourneyArtwork';
 import {
   Compass, Target, Heart, Award, Shield, CheckCircle2,
   Users, Calendar, MapPin, Handshake, Sparkles, Building2,
@@ -142,7 +143,7 @@ export default function OurIdentity({ setCurrentPage }) {
             </p>
           </div>
 
-          {/* Responsive Milestone Cards Grid with Classic Reveal, Photo & Distinct Subtle Hover Palette */}
+          {/* Responsive Milestone Cards Grid with Animated Artworks, 3D Hover Flip & Reveal Timer */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
             {(() => {
               const iconMap = {
@@ -163,60 +164,85 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`relative rounded-3xl overflow-hidden border-2 border-gray-150 ${item.hoverBorder || 'hover:border-rlhp-green'} shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-pointer bg-white`}
+                    className="flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
                   >
-                    {/* Top Accent Gradient Bar */}
-                    <div className={`h-1.5 w-full bg-gradient-to-r ${item.accent || 'from-emerald-500 to-green-600'}`} />
+                    {/* 3D Flip Card Inner */}
+                    <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-3xl shadow-md hover:shadow-2xl">
 
-                    {/* Milestone Image Container with Subtle Zoom on Hover */}
-                    <div className="relative h-44 w-full overflow-hidden bg-gray-100">
-                      <img
-                        src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                      />
-                      {/* Dark overlay for contrast */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+                      {/* ── FRONT FACE: Animated Vector Picture / Artwork ── */}
+                      <div className={`absolute inset-0 w-full h-full rounded-3xl overflow-hidden backface-hidden border-2 border-gray-200 ${item.hoverBorder || 'hover:border-rlhp-green'} bg-white flex flex-col justify-between shadow-md`}>
+                        {/* Top Accent Gradient Line */}
+                        <div className={`h-1.5 w-full bg-gradient-to-r ${item.accent || 'from-emerald-500 to-green-600'}`} />
 
-                      {/* Year pill on image */}
-                      <div className="absolute bottom-3 left-4 flex items-center gap-2">
-                        <span className="text-2xl sm:text-3xl font-black text-white font-serif tracking-tight drop-shadow-md">
-                          {item.year}
-                        </span>
+                        {/* Top Bar with Year and Category Symbol */}
+                        <div className="px-5 pt-4 pb-2 flex items-center justify-between">
+                          <span className="text-3xl sm:text-4xl font-black text-gray-900 font-serif tracking-tight">
+                            {item.year}
+                          </span>
+                          <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-xs border transition-all duration-300 ${item.badgeColor || 'bg-emerald-50 text-emerald-700 border-emerald-200'}`}>
+                            <MIcon size={20} />
+                          </div>
+                        </div>
+
+                        {/* Animated Illustration Area */}
+                        <div className="relative flex-1 w-full overflow-hidden bg-slate-900 mx-auto">
+                          <JourneyArtwork id={item.id} />
+                        </div>
+
+                        {/* Bottom Title Preview & Interactive Hover Cue */}
+                        <div className="p-4 sm:p-5 bg-white border-t border-gray-100">
+                          <h3 className="font-extrabold text-base sm:text-lg text-gray-900 leading-snug truncate">
+                            {item.title}
+                          </h3>
+                          {item.subtitle && (
+                            <p className="text-[11px] font-bold text-rlhp-green uppercase tracking-wide truncate mt-0.5">
+                              {item.subtitle}
+                            </p>
+                          )}
+                        </div>
                       </div>
 
-                      {/* Badge Icon on top right */}
-                      <div className={`absolute top-3 right-3 w-10 h-10 rounded-2xl flex items-center justify-center shadow-md border transition-all duration-300 group-hover:scale-110 group-hover:text-white ${item.badgeColor || 'bg-white text-emerald-700 border-emerald-200'}`}>
-                        <MIcon size={20} />
-                      </div>
-                    </div>
+                      {/* ── BACK FACE: Full Detailed Information Revealed on Hover Flip ── */}
+                      <div className="absolute inset-0 w-full h-full rounded-3xl p-7 bg-gradient-to-br from-[#133817] via-[#1C5620] to-[#0a230e] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
+                        <div>
+                          {/* Year and Icon Top */}
+                          <div className="flex items-center justify-between pb-3 border-b border-white/20 mb-4">
+                            <span className="text-3xl font-black text-emerald-300 font-serif">
+                              {item.year}
+                            </span>
+                            <div className="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-white border border-white/30">
+                              <MIcon size={20} />
+                            </div>
+                          </div>
 
-                    {/* Card Content with Classic Slide-In Reveal */}
-                    <div className="p-6 flex-1 flex flex-col justify-between space-y-3 bg-gradient-to-b from-white via-gray-50/40 to-emerald-50/20">
-                      <div>
-                        {/* Title & Subtitle */}
-                        <h3 className="font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug mb-1">
-                          {item.title}
-                        </h3>
-                        {item.subtitle && (
-                          <p className="text-xs font-bold text-rlhp-green uppercase tracking-wide mb-2.5">
-                            {item.subtitle}
+                          {/* Full Title & Subtitle */}
+                          <h3 className="font-black text-lg sm:text-xl text-white leading-snug mb-1">
+                            {item.title}
+                          </h3>
+                          {item.subtitle && (
+                            <p className="text-xs font-bold text-emerald-300 uppercase tracking-wide mb-3">
+                              {item.subtitle}
+                            </p>
+                          )}
+                          <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-4" />
+
+                          {/* Detailed Narrative */}
+                          <p className="text-emerald-50 text-xs sm:text-sm leading-relaxed">
+                            {item.description}
                           </p>
-                        )}
+                        </div>
 
-                        {/* Description */}
-                        <p className="text-xs text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors">
-                          {item.description}
-                        </p>
+                        {/* Bottom Historical Milestone Indicator */}
+                        <div className="pt-3 border-t border-white/20 flex items-center justify-between">
+                          <span className="text-[11px] font-bold text-emerald-200">
+                            RLHP Milestone
+                          </span>
+                          <span className="text-[11px] text-white/70 italic">
+                            Four Decades of Impact
+                          </span>
+                        </div>
                       </div>
 
-                      {/* Bottom Indicator */}
-                      <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-gray-400 group-hover:text-rlhp-green transition-colors">
-                          Historical Milestone
-                        </span>
-                        <span className="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-rlhp-green group-hover:scale-125 transition-all duration-300" />
-                      </div>
                     </div>
                   </div>
                 );

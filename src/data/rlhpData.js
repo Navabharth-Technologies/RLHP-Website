@@ -69,102 +69,102 @@ export const orgDetails = {
   // Inception Story
   inceptionStory: "Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management. Its area of operation is the slums and villages of Mysore, Mandya and Chamarajanagar districts of Karnataka, South India.",
 
-  // Our Journey - Exact 9 Milestones matching Official Timeline Reference with Authentic Milestone Photos
+  // Our Journey - Exact 9 Milestones matching Official Timeline Reference with Animated Illustrations
   journey: [
     {
+      id: "1984",
       year: "1984",
       title: "Started in 1 Slum in Mysuru",
       subtitle: "Urban Settlement Programme",
       icon: "home",
-      image: "/images/gallery/food_security_distribution.jpg",
       accent: "from-emerald-500/10 to-teal-500/20",
       hoverBorder: "hover:border-emerald-500",
       badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200 group-hover:bg-emerald-600",
       description: "Began child-centred community work in 1 slum focusing on urban poor families."
     },
     {
+      id: "1989",
       year: "1989",
       title: "Expanded to More Slums in Mysuru",
       subtitle: "Citywide Slum Outreach",
       icon: "pin",
-      image: "/images/gallery/sanitation_water_hygiene.jpg",
       accent: "from-blue-500/10 to-cyan-500/20",
       hoverBorder: "hover:border-blue-500",
       badgeColor: "bg-blue-50 text-blue-700 border-blue-200 group-hover:bg-blue-600",
       description: "Rapid scaling across multiple slums of Mysuru city addressing child health, nutrition and literacy."
     },
     {
+      id: "1990a",
       year: "1990",
       title: "Outreach with Street Children",
       subtitle: "Child Protection Drive",
       icon: "users",
-      image: "/images/gallery/child_rights_workshop.jpg",
       accent: "from-amber-500/10 to-yellow-500/20",
       hoverBorder: "hover:border-amber-500",
       badgeColor: "bg-amber-50 text-amber-700 border-amber-200 group-hover:bg-amber-600",
       description: "Direct protection and identification outreach program for street and runaway children."
     },
     {
+      id: "1990b",
       year: "1990",
       title: "Rehabilitation Homes for Boys and Girls",
       subtitle: "Asha Bhavana & Asha Kirana",
       icon: "shelter",
-      image: "/images/gallery/ashabhavana_girls_learning.jpg",
       accent: "from-violet-500/10 to-purple-500/20",
       hoverBorder: "hover:border-purple-500",
       badgeColor: "bg-purple-50 text-purple-700 border-purple-200 group-hover:bg-purple-600",
       description: "Established residential rehabilitation and care shelters for vulnerable girls and boys."
     },
     {
+      id: "1999",
       year: "1999",
       title: "Expanded to 3 Districts",
       subtitle: "Mysuru, Mandya & Chamarajanagar",
       icon: "map",
-      image: "/images/gallery/gram_panchayat_interface.jpg",
       accent: "from-green-500/10 to-lime-500/20",
       hoverBorder: "hover:border-green-600",
       badgeColor: "bg-green-50 text-green-700 border-green-200 group-hover:bg-green-600",
       description: "Expanded integrated community development operations across 3 southern districts of Karnataka."
     },
     {
+      id: "2014",
       year: "2014",
       title: "Expanded to North Karnataka, 5 Districts",
       subtitle: "Regional Expansion",
       icon: "arrow-up",
-      image: "/images/gallery/gram_sabha_awareness.jpg",
       accent: "from-indigo-500/10 to-sky-500/20",
       hoverBorder: "hover:border-indigo-500",
       badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200 group-hover:bg-indigo-600",
       description: "Extended interventions to Bidar, Kalaburagi, Raichur, Davangere, and Chitradurga."
     },
     {
+      id: "2018",
       year: "2018",
       title: "Flood Relief, Kerala",
       subtitle: "Emergency Humanitarian Mission",
       icon: "boat",
-      image: "/images/gallery/flood_relief_supply.jpg",
       accent: "from-sky-500/10 to-blue-500/20",
       hoverBorder: "hover:border-sky-500",
       badgeColor: "bg-sky-50 text-sky-700 border-sky-200 group-hover:bg-sky-600",
       description: "Emergency humanitarian aid, medical rescue support, and rehabilitation kits during Kerala floods."
     },
     {
+      id: "2020",
       year: "2020",
       title: "COVID-19",
       subtitle: "Pandemic Emergency Response",
       icon: "mask",
-      image: "/images/gallery/covid_hygiene_mask_distribution.jpg",
       accent: "from-rose-500/10 to-red-500/20",
       hoverBorder: "hover:border-rose-500",
       badgeColor: "bg-rose-50 text-rose-700 border-rose-200 group-hover:bg-rose-600",
       description: "Emergency food rations, medical equipment, and community sanitization across vulnerable zones."
     },
     {
+      id: "2026",
       year: "2026",
       title: "Expanded to Coastal Districts",
       subtitle: "Uttara Kannada (Karwar) & Dakshina Kannada (Mangalore)",
       icon: "palm",
-      image: "/images/gallery/community_leadership_felicitation.jpg",
       accent: "from-teal-500/10 to-emerald-500/20",
       hoverBorder: "hover:border-teal-500",
       badgeColor: "bg-teal-50 text-teal-700 border-teal-200 group-hover:bg-teal-600",
