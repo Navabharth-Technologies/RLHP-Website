@@ -15,104 +15,114 @@ export default function ImpactPage() {
 
   const highlightCards = [
     {
-      title: "2,100+ Children Sheltered",
+      number: "2,100+",
+      title: "Children Sheltered",
       subtitle: "Residential Child Care & Protection",
-      desc: "Providing safe residential care, emotional counselling, nutritional support and holistic education at Asha Kirana and Asha Bhavana care centres.",
       icon: Home,
       borderColor: "border-emerald-200 hover:border-emerald-500",
       bgGradient: "from-emerald-50/50 via-white to-emerald-50/30",
       iconBg: "bg-emerald-100 text-emerald-700",
       accentBar: "bg-emerald-500",
+      numberColor: "text-emerald-700",
     },
     {
-      title: "12,000+ Children Rescued",
+      number: "12,000+",
+      title: "Children Rescued",
       subtitle: "Emergency Child Protection Drive",
-      desc: "Rescued vulnerable boys and girls from severe child labour, trafficking, hazardous work, and runaway street distress through rapid CHILDLINE action.",
       icon: Shield,
       borderColor: "border-blue-200 hover:border-blue-500",
       bgGradient: "from-blue-50/50 via-white to-blue-50/30",
       iconBg: "bg-blue-100 text-blue-700",
       accentBar: "bg-blue-500",
+      numberColor: "text-blue-700",
     },
     {
-      title: "20,000+ Rights Club Members",
+      number: "20,000+",
+      title: "Rights Club Members",
       subtitle: "Children's Collective Advocacy",
-      desc: "Active boy and girl participants across 78 Child Rights Clubs asserting child safety, fighting child marriage, and leading grassroots campaigns.",
       icon: Heart,
       borderColor: "border-rose-200 hover:border-rose-500",
       bgGradient: "from-rose-50/50 via-white to-rose-50/30",
       iconBg: "bg-rose-100 text-rose-700",
       accentBar: "bg-rose-500",
+      numberColor: "text-rose-700",
     },
     {
-      title: "10,000+ Child Laboured Mainstreamed",
+      number: "10,000+",
+      title: "Child Laboured Mainstreamed",
       subtitle: "Anti-Child Labour & Education Rights",
-      desc: "Successfully rescued from hazardous industries, brick kilns and domestic servitude, and reintegrated into formal mainstream schools.",
       icon: GraduationCap,
       borderColor: "border-purple-200 hover:border-purple-500",
       bgGradient: "from-purple-50/50 via-white to-purple-50/30",
       iconBg: "bg-purple-100 text-purple-700",
       accentBar: "bg-purple-500",
+      numberColor: "text-purple-700",
     },
     {
-      title: "2,400 Children from Migrant Families",
+      number: "2,400",
+      title: "Children from Migrant Families",
       subtitle: "Migrant Labour Welfare & Aid",
-      desc: "Provided critical nutritional food aid, bridge-learning classrooms, healthcare screenings, and legal protection in major transit settlements.",
       icon: Users,
       borderColor: "border-amber-200 hover:border-amber-500",
       bgGradient: "from-amber-50/50 via-white to-amber-50/30",
       iconBg: "bg-amber-100 text-amber-700",
       accentBar: "bg-amber-500",
+      numberColor: "text-amber-700",
     },
     {
-      title: "6,000+ Flood Relief Families",
+      number: "6,000+",
+      title: "Flood Relief Families",
       subtitle: "Disaster Emergency Response",
-      desc: "Direct emergency humanitarian assistance, ration kits, medical rescue, and permanent family rehabilitation during severe Kerala flood disasters.",
       icon: LifeBuoy,
       borderColor: "border-teal-200 hover:border-teal-500",
       bgGradient: "from-teal-50/50 via-white to-teal-50/30",
       iconBg: "bg-teal-100 text-teal-700",
       accentBar: "bg-teal-500",
+      numberColor: "text-teal-700",
     },
     {
-      title: "5,000+ COVID Support Families",
+      number: "5,000+",
+      title: "COVID Support Families",
       subtitle: "Pandemic Humanitarian Relief",
-      desc: "Rapid doorstep food provisions, emergency sanitization kits, oxygen supplies, and sustained financial assistance during nationwide lockdowns.",
       icon: Activity,
       borderColor: "border-red-200 hover:border-red-500",
       bgGradient: "from-red-50/50 via-white to-red-50/30",
       iconBg: "bg-red-100 text-red-700",
       accentBar: "bg-red-500",
+      numberColor: "text-red-700",
     },
     {
-      title: "12,000+ Malnourished Children Became Healthy Through Nutrition",
+      number: "12,000+",
+      title: "Malnourished Children Became Healthy",
       subtitle: "Nutrition & Child Health Drive",
-      desc: "Community health interventions, nutritional food support, growth tracking and healthcare counselling bringing thousands of children out of severe and acute malnutrition.",
       icon: Activity,
       borderColor: "border-emerald-200 hover:border-emerald-500",
       bgGradient: "from-emerald-50/50 via-white to-emerald-50/30",
       iconBg: "bg-emerald-100 text-emerald-700",
       accentBar: "bg-emerald-500",
+      numberColor: "text-emerald-700",
     },
     {
-      title: "1.5 Lakh Families Connected to Govt. Schemes for Health, Education & Livelihood",
+      number: "1.5 Lakh",
+      title: "Families Connected to Govt. Schemes",
       subtitle: "Government Entitlements & Social Security",
-      desc: "Empowering marginalised families by facilitating direct linkage to vital government welfare schemes, social entitlements, educational aid, pensions and health cards.",
       icon: Handshake,
       borderColor: "border-blue-200 hover:border-blue-500",
       bgGradient: "from-blue-50/50 via-white to-blue-50/30",
       iconBg: "bg-blue-100 text-blue-700",
       accentBar: "bg-blue-500",
+      numberColor: "text-blue-700",
     },
     {
-      title: "Reading for Transformation - Travelling Library Reaching 100+ Govt. Schools in 3 Districts",
+      number: "100+",
+      title: "Govt. Schools Reached by Travelling Library",
       subtitle: "Literacy & Mobile Knowledge Network",
-      desc: "Fostering lifelong reading habits, literacy, and creative curiosity among rural and slum students across Mysuru, Mandya and Chamarajanagar through travelling mobile library vans.",
       icon: BookOpen,
       borderColor: "border-amber-200 hover:border-amber-500",
       bgGradient: "from-amber-50/50 via-white to-amber-50/30",
       iconBg: "bg-amber-100 text-amber-700",
       accentBar: "bg-amber-500",
+      numberColor: "text-amber-700",
     },
   ];
 
@@ -177,30 +187,27 @@ export default function ImpactPage() {
                   className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group overflow-hidden`}
                 >
                   <div>
-                    {/* Top Icon Badge */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`w-14 h-14 rounded-2xl ${card.iconBg} flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-300`}>
+                    {/* Top Icon Badge & Highlighted Number beside it */}
+                    <div className="flex items-center gap-3.5 mb-4">
+                      <div className={`w-14 h-14 rounded-2xl ${card.iconBg} flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-300 shrink-0`}>
                         <Icon size={28} />
                       </div>
-                      <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
-                        RLHP Impact
-                      </span>
+                      <div className="leading-none">
+                        <span className={`text-2xl sm:text-3xl font-black ${card.numberColor} tracking-tight font-sans drop-shadow-2xs`}>
+                          {card.number}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Subtitle tag */}
-                    <p className="text-xs font-bold text-rlhp-green uppercase tracking-wide mb-2">
+                    <p className="text-[11px] font-bold text-rlhp-green uppercase tracking-wide mb-1.5">
                       {card.subtitle}
                     </p>
 
                     {/* Title */}
-                    <h3 className="font-extrabold text-lg sm:text-xl text-gray-900 leading-snug tracking-tight mb-3 group-hover:text-rlhp-darkgreen transition-colors">
+                    <h3 className="font-extrabold text-lg sm:text-xl text-gray-900 leading-snug tracking-tight group-hover:text-rlhp-darkgreen transition-colors">
                       {card.title}
                     </h3>
-
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
-                      {card.desc}
-                    </p>
                   </div>
 
                   {/* Bottom Accent Line */}
