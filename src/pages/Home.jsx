@@ -363,14 +363,21 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 3: PROGRAMME PRIORITIES
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-20 text-white overflow-hidden bg-slate-900">
-        {/* Classroom students background image - aligned to top to showcase children's faces clearly without cutoff */}
+      <section className="relative py-20 text-white overflow-hidden bg-[#0d1f14]">
+        {/* Color Grid Background instead of image */}
         <div
-          className="absolute inset-0 bg-cover bg-[center_10%] sm:bg-[center_top] bg-no-repeat transition-all duration-700"
-          style={{ backgroundImage: `url(${B}images/priorities_bg_students.jpg)` }}
+          className="absolute inset-0 opacity-25 pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(76, 175, 80, 0.15) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(76, 175, 80, 0.15) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }}
         />
-        {/* Soft, harmonious dark gradient overlay with warm tint that matches classroom image and keeps faces visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#180a08]/75 via-[#1a0f0d]/55 to-[#120705]/85" />
+        {/* Soft Radial Brand Green Ambient Glows */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#236B28]/25 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#4CAF50]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -378,14 +385,22 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-wide">
               OUR PROGRAMME <span className="text-[#E49E23]">PRIORITIES</span>
             </h2>
-            <p className="text-gray-200 text-sm sm:text-base max-w-[650px] mx-auto font-medium">
+            <p className="text-gray-300 text-sm sm:text-base max-w-[650px] mx-auto font-medium">
               Comprehensive programs breaking the cycle of poverty through education
             </p>
           </div>
 
-          {/* Cards Grid: 5 columns in a single line on desktop without scrolling */}
+          {/* Cards Grid: 5 columns in requested order */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 xl:gap-5">
             {[
+              {
+                img: `${B}images/gallery/iep_remedial_class.jpg`,
+                title: 'Education and Learning',
+                desc: 'Ensuring access to quality education and improved learning opportunities through school enrolment, learning support, remedial education and academic development.',
+                metric: 'Quality Education',
+                page: 'projects',
+                opt: 'education',
+              },
               {
                 img: `${B}images/gallery/child_rights_workshop.jpg`,
                 title: 'Child Rights and Protection',
@@ -395,20 +410,12 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 opt: 'education',
               },
               {
-                img: `${B}images/gallery/adolescent_skill_training.jpg`,
-                title: 'Adolescent and Youth Empowerment',
-                desc: 'Empowering adolescents and youth through life skills, leadership development, gender equality, health awareness and opportunities for personal and social growth.',
-                metric: '15,000+ Youth Empowered',
+                img: `${B}images/gallery/sangha_financial_literacy.jpg`,
+                title: 'Empowerment of women on Socio-Economic',
+                desc: 'Empowering women through self-help groups, financial literacy, collective entrepreneurship, leadership development and sustained socio-economic self-reliance.',
+                metric: 'Women Self-Reliance',
                 page: 'projects',
                 opt: 'livelihood',
-              },
-              {
-                img: `${B}images/gallery/iep_remedial_class.jpg`,
-                title: 'Education and Learning',
-                desc: 'Ensuring access to quality education and improved learning opportunities through school enrolment, learning support, remedial education and academic development.',
-                metric: 'Quality Education',
-                page: 'projects',
-                opt: 'education',
               },
               {
                 img: `${B}images/gallery/gram_panchayat_interface.jpg`,
@@ -429,49 +436,37 @@ export default function Home({ setCurrentPage, onNavClick }) {
             ].map((card, i) => (
               <div
                 key={i}
-                className="group relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
+                className="flip-card-container relative h-[390px] sm:h-[410px] w-full perspective-1000 select-none cursor-pointer"
               >
                 {/* 3D Flip Card Inner Container */}
-                <div className="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180 rounded-2xl shadow-xl">
+                <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
 
-                  {/* ── FRONT FACE: Full-Length Card Image with Title Badge ── */}
+                  {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
                   <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
                     <img
                       src={card.img}
                       alt={card.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700"
                     />
                     {/* Gradient overlay for contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
 
-                    {/* Top Category Tag */}
-                    <span className="absolute top-3.5 left-3.5 bg-rlhp-green/95 backdrop-blur-xs text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md border border-white/20">
-                      {card.category}
-                    </span>
-
-                    {/* Bottom Title on Front Card */}
+                    {/* Bottom Title on Front Card (No arrow or flip instructions) */}
                     <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
-                      <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2" />
+                      <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
                       <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
                         {card.title}
                       </h3>
-                      <p className="text-[11px] text-emerald-300 font-semibold mt-1 flex items-center gap-1">
-                        <span>Flip card for details</span> →
-                      </p>
                     </div>
                   </div>
 
                   {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
-                  <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/50 shadow-2xl flex flex-col justify-between">
+                  <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
                     <div>
-                      {/* Top Header */}
-                      <span className="inline-block bg-white/20 text-emerald-100 text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-3 border border-white/20">
-                        {card.category}
-                      </span>
                       <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
                         {card.title}
                       </h3>
-                      <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3" />
+                      <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
 
                       {/* Description */}
                       <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
