@@ -1,6 +1,6 @@
 import React from 'react';
 import { impactStats } from '../data/rlhpData';
-import { Clock, Users, Heart, MapPin, Shield, BookOpen, Home, LifeBuoy } from 'lucide-react';
+import { Clock, Users, Heart, MapPin, Shield, BookOpen, Home, LifeBuoy, GraduationCap } from 'lucide-react';
 
 export default function ImpactCounters() {
   const iconMap = {
@@ -12,9 +12,10 @@ export default function ImpactCounters() {
 
   const detailedImpact = [
     { number: "2,100+", title: "Children Sheltered", desc: "Residential care & rehabilitation at AshaKirana & AshaBhavana homes", icon: Home },
-    { number: "8,000+", title: "Children Rescued", desc: "Rescued from child labour and street distress through CHILDLINE", icon: Shield },
-    { number: "10,000+", title: "Rights Club Members", desc: "Active children across 78 Child Rights Clubs advocating safety", icon: Heart },
-    { number: "2,400", title: "Migrant Families", desc: "Assisted with emergency relief, food & legal aid in one intervention", icon: Users },
+    { number: "12,000+", title: "Children Rescued", desc: "Rescued from child labour and street distress through CHILDLINE", icon: Shield },
+    { number: "20,000+", title: "Rights Club Members", desc: "Active children across 78 Child Rights Clubs advocating safety", icon: Heart },
+    { number: "10,000+", title: "Child Laboured Mainstreamed", desc: "Withdrawn from hazardous work and reintegrated into formal education", icon: GraduationCap },
+    { number: "2,400", title: "Children from Migrant Families", desc: "Assisted with emergency relief, food & educational support in one intervention", icon: Users },
     { number: "6,000+", title: "Flood Relief Families", desc: "Rehabilitated after catastrophic Kerala floods", icon: LifeBuoy },
     { number: "5,000+", title: "COVID Support Families", desc: "Essential rations, hygiene kits & medical aid during lockdowns", icon: Heart }
   ];
