@@ -30,25 +30,12 @@ export default function KarnatakaMap({ onSelectDistrict }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
         
         {/* Left Side: Interactive Poly-Art Karnataka Map Canvas */}
-        <div className="lg:col-span-7 relative flex flex-col justify-between items-center bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-900 rounded-3xl p-4 sm:p-6 border border-emerald-800/40 min-h-[480px] sm:min-h-[560px] shadow-inner overflow-hidden">
+        <div className="lg:col-span-7 relative flex flex-col justify-center items-center bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-900 rounded-3xl p-4 sm:p-6 border border-emerald-800/40 min-h-[480px] sm:min-h-[560px] shadow-inner overflow-hidden">
           
           {/* Subtle Background Mesh & Glow Effects */}
           <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px] opacity-15 pointer-events-none"></div>
           <div className="absolute -top-24 -left-24 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
-
-          {/* Active Status Badge Header */}
-          <div className="w-full flex items-center justify-between z-20 mb-2">
-            <div className="flex items-center space-x-2 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-emerald-500/30 text-emerald-300 text-xs font-bold shadow-md">
-              <Sparkles size={14} className="text-amber-400" />
-              <span>RLHP Operational Footprint</span>
-            </div>
-
-            <div className="flex items-center space-x-2 bg-amber-500/20 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-amber-400/40 text-amber-300 text-xs font-bold shadow-md">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-              <span>Active: <strong className="text-white">{selectedDistrict.name.split('/')[0]}</strong></span>
-            </div>
-          </div>
 
           {/* Map Image & Precise Node Overlay Container */}
           <div className="relative w-full max-w-lg aspect-[4/5] sm:aspect-[1/1] flex justify-center items-center my-auto p-1 sm:p-2">
@@ -112,66 +99,24 @@ export default function KarnatakaMap({ onSelectDistrict }) {
             })}
           </div>
 
-          {/* Footer Prompt */}
-          <div className="w-full bg-slate-900/80 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-emerald-500/20 text-xs text-gray-300 flex items-center justify-between shadow-lg z-20 mt-2">
-            <div className="flex items-center space-x-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse shrink-0"></span>
-              <span className="font-medium text-white text-xs sm:text-sm">Click any node on the map to switch district</span>
-            </div>
-            <span className="text-[10px] sm:text-xs font-bold text-emerald-400 uppercase tracking-wider hidden sm:inline shrink-0 ml-2">
-              10 Active Hubs
-            </span>
-          </div>
-
         </div>
 
         {/* Right Side: Selected District Dynamic Spotlight Panel */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-6 bg-gradient-to-b from-gray-50 to-white p-5 sm:p-6 rounded-3xl border border-gray-200">
           
           <div className="space-y-4">
-            {/* Header Status & Count Badges */}
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div className={`flex items-center space-x-1.5 text-xs font-extrabold uppercase tracking-wider px-3 py-1.5 rounded-full border ${
-                selectedDistrict.isHq
-                  ? 'bg-amber-100 text-amber-900 border-amber-300'
-                  : 'bg-emerald-100 text-emerald-900 border-emerald-300'
-              }`}>
-                <Navigation size={14} className={selectedDistrict.isHq ? 'text-amber-600 shrink-0' : 'text-emerald-600 shrink-0'} />
-                <span>{selectedDistrict.isHq ? 'State Headquarters' : 'Intervention District'}</span>
-              </div>
-
-              <span className="text-xs font-extrabold bg-rlhp-darkgreen text-white px-3 py-1 rounded-xl shadow-2xs">
-                {selectedDistrict.projectsCount} Active Projects
-              </span>
-            </div>
-
             {/* Selected District Title */}
             <div>
               <h3 className="text-2xl sm:text-3xl font-black text-rlhp-darkgreen tracking-tight flex items-center space-x-2">
                 <span>{selectedDistrict.name}</span>
               </h3>
-              <p className="text-xs font-semibold text-gray-500 mt-1">Ground Operations & Local Facilities</p>
+              <p className="text-xs font-semibold text-gray-500 mt-1">Ground Operations &amp; Local Facilities</p>
             </div>
 
-            {/* Description Box */}
-            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed bg-white p-4 rounded-2xl border border-gray-200 shadow-2xs">
-              {selectedDistrict.description}
-            </p>
-
-            {/* Key Initiatives List */}
-            <div className="space-y-3">
-              <h4 className="text-xs font-extrabold text-gray-900 uppercase tracking-wider border-b border-gray-200 pb-1.5 flex items-center justify-between">
-                <span>Key District Initiatives</span>
-                <ShieldCheck size={16} className="text-rlhp-green shrink-0" />
-              </h4>
-              <div className="space-y-2">
-                {selectedDistrict.projects.map((proj, idx) => (
-                  <div key={idx} className="flex items-center space-x-3 text-xs text-gray-800 bg-white p-3 rounded-xl border border-gray-200 shadow-2xs hover:border-rlhp-green transition-colors">
-                    <CheckCircle2 size={16} className="text-rlhp-green shrink-0" />
-                    <span className="font-bold">{proj}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="p-4 bg-emerald-50/50 rounded-2xl border border-emerald-100">
+              <span className="text-xs font-bold text-rlhp-darkgreen">
+                Select any district below or click its node on the map to explore local operations across Karnataka.
+              </span>
             </div>
           </div>
 
