@@ -185,7 +185,7 @@ export default function AnnualReportDetailPage({
     setTimeout(() => {
       setCurrentPageNum(targetPage);
       setIsFlipping(false);
-    }, 380);
+    }, 550);
   };
 
   // Keyboard navigation & Esc key listener
@@ -330,7 +330,7 @@ export default function AnnualReportDetailPage({
             >
               
               {/* Fullscreen Close Button */}
-              {isFullscreen ? (
+              {isFullscreen && (
                 <button
                   onClick={() => setIsFullscreen(false)}
                   className="absolute top-6 right-8 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-black/70 hover:bg-black text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md cursor-pointer transition-all border border-white/20 hover:scale-105"
@@ -338,16 +338,6 @@ export default function AnnualReportDetailPage({
                 >
                   <X size={18} />
                   <span>Exit Fullscreen (Esc)</span>
-                </button>
-              ) : (
-                /* Fullscreen Enlarge Button */
-                <button
-                  onClick={() => setIsFullscreen(true)}
-                  className="absolute top-4 right-4 z-40 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-black/50 hover:bg-rlhp-green text-white shadow-xl transition-all cursor-pointer backdrop-blur-xs hover:scale-105 text-xs font-bold border border-white/20"
-                  title="Enlarge to Full Screen"
-                >
-                  <Maximize2 size={16} />
-                  <span className="hidden sm:inline">Full Screen</span>
                 </button>
               )}
 

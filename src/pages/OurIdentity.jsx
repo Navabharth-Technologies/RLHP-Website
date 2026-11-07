@@ -29,9 +29,26 @@ export default function OurIdentity({ setCurrentPage }) {
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-none mb-4">
                   ABOUT <span className="text-rlhp-green italic font-serif">US</span>
                 </h1>
-                <div className="w-16 h-1.5 bg-rlhp-green rounded-full mb-6" />
+                
+                {/* Dynamic animated moving curve line covering the width of ABOUT US */}
+                <div className="w-52 h-3.5 mb-6 overflow-visible relative">
+                  <svg
+                    className="w-full h-full overflow-visible"
+                    viewBox="0 0 220 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2 8 C 30 1, 60 15, 90 8 C 120 1, 150 15, 180 8 C 195 4, 210 12, 218 8"
+                      stroke="#236B28"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                      className="animate-wave-stroke"
+                    />
+                  </svg>
+                </div>
+
                 <p className="text-lg sm:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl">
-                  Over <strong className="text-gray-900 font-bold">42 years</strong> of transforming lives through holistic, child development and community centred education across South India.
                   Over <strong className="text-gray-900 font-bold">42 years</strong> of transforming lives through holistic, child development and community centred education across South India.
                 </p>
               </div>

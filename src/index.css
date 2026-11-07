@@ -11,7 +11,23 @@
   }
 }
 
-/* Custom Scrollbar */
+/* Moving animated wavy/curved underline for section titles */
+@keyframes waveStroke {
+  0% {
+    stroke-dashoffset: 240;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -240;
+  }
+}
+
+.animate-wave-stroke {
+  stroke-dasharray: 120 40;
+  animation: waveStroke 3s linear infinite;
+}
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -132,19 +148,19 @@
 
 /* 3D Realistic Book Page Flip Transforms */
 .flip-page-right-turning {
-  transform: rotateY(-38deg) scale(0.97) !important;
+  transform: rotateY(-180deg) scale(0.96) !important;
   transform-origin: left center !important;
-  box-shadow: -15px 25px 50px rgba(0,0,0,0.5) !important;
+  box-shadow: -25px 30px 60px rgba(0,0,0,0.6) !important;
   filter: brightness(0.85);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
 }
 
 .flip-page-left-turning {
-  transform: rotateY(38deg) scale(0.97) !important;
+  transform: rotateY(180deg) scale(0.96) !important;
   transform-origin: right center !important;
-  box-shadow: 15px 25px 50px rgba(0,0,0,0.5) !important;
+  box-shadow: 25px 30px 60px rgba(0,0,0,0.6) !important;
   filter: brightness(0.85);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
 }
 
 /* 3D Flip Card Styles for Programme Priorities */
