@@ -142,7 +142,7 @@ export default function OurIdentity({ setCurrentPage }) {
             </p>
           </div>
 
-          {/* Responsive Milestone Cards Grid with Relevant Orange/Green Badge Symbols matching Reference */}
+          {/* Responsive Milestone Cards Grid with Classic Reveal, Photo & Distinct Subtle Hover Palette */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
             {(() => {
               const iconMap = {
@@ -163,36 +163,60 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className="relative bg-gradient-to-b from-white to-emerald-50/20 rounded-2xl p-6 sm:p-7 border border-emerald-100 shadow-sm hover:shadow-xl hover:border-rlhp-green transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group h-full cursor-default"
+                    className={`relative rounded-3xl overflow-hidden border-2 border-gray-150 ${item.hoverBorder || 'hover:border-rlhp-green'} shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-pointer bg-white`}
                   >
-                    <div>
-                      {/* Top: Year Highlight & Relevant Green Badge Symbol */}
-                      <div className="flex items-center justify-between mb-3 pb-3 border-b border-emerald-100">
-                        <span className="text-3xl sm:text-4xl font-black text-[#1C5620] group-hover:text-rlhp-green transition-colors tracking-tight font-serif">
+                    {/* Top Accent Gradient Bar */}
+                    <div className={`h-1.5 w-full bg-gradient-to-r ${item.accent || 'from-emerald-500 to-green-600'}`} />
+
+                    {/* Milestone Image Container with Subtle Zoom on Hover */}
+                    <div className="relative h-44 w-full overflow-hidden bg-gray-100">
+                      <img
+                        src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      />
+                      {/* Dark overlay for contrast */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+
+                      {/* Year pill on image */}
+                      <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                        <span className="text-2xl sm:text-3xl font-black text-white font-serif tracking-tight drop-shadow-md">
                           {item.year}
                         </span>
-
-                        {/* Relevant symbol badge matching timeline icon with green brand color */}
-                        <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-rlhp-green border border-emerald-200 flex items-center justify-center group-hover:bg-rlhp-green group-hover:text-white transition-all shadow-xs">
-                          <MIcon size={20} />
-                        </div>
                       </div>
 
-                      {/* Green Accent Line */}
-                      <div className="w-8 h-1 bg-emerald-500/40 group-hover:w-16 group-hover:bg-rlhp-green transition-all duration-300 rounded-full mb-3" />
+                      {/* Badge Icon on top right */}
+                      <div className={`absolute top-3 right-3 w-10 h-10 rounded-2xl flex items-center justify-center shadow-md border transition-all duration-300 group-hover:scale-110 group-hover:text-white ${item.badgeColor || 'bg-white text-emerald-700 border-emerald-200'}`}>
+                        <MIcon size={20} />
+                      </div>
+                    </div>
 
-                      {/* Title & Subtitle */}
-                      <h3 className="font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug mb-1">
-                        {item.title}
-                      </h3>
-                      {item.subtitle && (
-                        <p className="text-xs font-bold text-rlhp-green mb-2 uppercase tracking-wide">
-                          {item.subtitle}
+                    {/* Card Content with Classic Slide-In Reveal */}
+                    <div className="p-6 flex-1 flex flex-col justify-between space-y-3 bg-gradient-to-b from-white via-gray-50/40 to-emerald-50/20">
+                      <div>
+                        {/* Title & Subtitle */}
+                        <h3 className="font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug mb-1">
+                          {item.title}
+                        </h3>
+                        {item.subtitle && (
+                          <p className="text-xs font-bold text-rlhp-green uppercase tracking-wide mb-2.5">
+                            {item.subtitle}
+                          </p>
+                        )}
+
+                        {/* Description */}
+                        <p className="text-xs text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors">
+                          {item.description}
                         </p>
-                      )}
-                      <p className="text-xs text-gray-600 leading-relaxed">
-                        {item.description}
-                      </p>
+                      </div>
+
+                      {/* Bottom Indicator */}
+                      <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-gray-400 group-hover:text-rlhp-green transition-colors">
+                          Historical Milestone
+                        </span>
+                        <span className="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-rlhp-green group-hover:scale-125 transition-all duration-300" />
+                      </div>
                     </div>
                   </div>
                 );

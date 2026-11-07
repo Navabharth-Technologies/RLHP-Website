@@ -665,20 +665,27 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 6: Together, We Make a Difference
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-28 text-white overflow-hidden bg-slate-900">
-        {/* Authentic large group grassroots empowerment background image */}
+      <section className="relative py-28 text-white overflow-hidden bg-[#0c1824]">
+        {/* Modern Plain Color Grid Background */}
         <div
-          className="absolute inset-0 bg-cover bg-[center_30%] bg-no-repeat transition-all duration-700"
-          style={{ backgroundImage: `url(${B}images/gallery/annual_stakeholder_convention.jpg)` }}
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(76, 175, 80, 0.2) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(76, 175, 80, 0.2) 1px, transparent 1px)
+            `,
+            backgroundSize: '44px 44px'
+          }}
         />
-        {/* Subtle, soft natural balance overlay (very low opacity) to ensure clear text readability without clouding image */}
-        <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+        {/* Soft Ambient Brand Glows */}
+        <div className="absolute top-0 right-1/4 w-[450px] h-[450px] bg-[#236B28]/25 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-[450px] h-[450px] bg-[#4CAF50]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)]">
-              Together, <span className="text-[#66BB6A] drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)]">We Make a Difference</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-md">
+              Together, <span className="text-[#66BB6A]">We Make a Difference</span>
             </h2>
           </div>
 
@@ -686,7 +693,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
           <div className="grid md:grid-cols-3 gap-8 mb-14">
             {/* Card 1: Donate Today */}
             <div
-              className="bg-black/25 hover:bg-black/45 backdrop-blur-md border border-white/30 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
               style={{ animationDelay: '100ms' }}
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
@@ -699,7 +706,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
             {/* Card 2: Corporate Partnership */}
             <div
-              className="bg-black/25 hover:bg-black/45 backdrop-blur-md border border-white/30 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
               style={{ animationDelay: '250ms' }}
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
@@ -712,7 +719,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
             {/* Card 3: Volunteer Your Skills */}
             <div
-              className="bg-black/25 hover:bg-black/45 backdrop-blur-md border border-white/30 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-2xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.45)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
               style={{ animationDelay: '400ms' }}
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
