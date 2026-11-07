@@ -805,27 +805,22 @@ export default function Home({ setCurrentPage, onNavClick }) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 8: OUR PARTNERS (Continuous Right-to-Left Motion Ticker with Enlarged Logos)
+          SECTION 8: OUR PARTNERS (Static 5 Logos per row grid)
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="py-24 bg-white border-t border-gray-100 overflow-hidden">
-        <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 mb-14 text-center">
-          <h2 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight mb-3">
-            Our <span className="text-rlhp-green italic font-serif">Partners</span>
-          </h2>
-          <div className="w-16 h-1 bg-rlhp-green mx-auto rounded-full" />
-          <p className="text-gray-500 text-sm sm:text-base mt-3 max-w-xl mx-auto">
-            Collaborating with leading global foundations and institutions to empower communities
-          </p>
-        </div>
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-14 text-center">
+            <h2 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight mb-3">
+              Our <span className="text-rlhp-green italic font-serif">Partners</span>
+            </h2>
+            <div className="w-16 h-1 bg-rlhp-green mx-auto rounded-full" />
+            <p className="text-gray-500 text-sm sm:text-base mt-3 max-w-xl mx-auto">
+              Collaborating with leading global foundations and institutions to empower communities
+            </p>
+          </div>
 
-        {/* Infinite Moving Marquee Ticker: Right to Left */}
-        <div className="relative w-full overflow-hidden py-4">
-          {/* Gradient fade edge masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
-
-          <div className="animate-marquee-left flex items-center gap-8">
-            {/* Double the list for seamless continuous loop */}
+          {/* Stagnant Static Grid: Exactly 5 Logos per row on desktop */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-7 items-center justify-center max-w-[1360px] mx-auto">
             {[
               { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
               { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
@@ -834,23 +829,20 @@ export default function Home({ setCurrentPage, onNavClick }) {
               { name: 'Klüber Lubrication', img: `${B}images/partners/kluber-lubrication-logo.png` },
               { name: 'terre des hommes', img: `${B}images/partners/terre-des-hommes-logo.png` },
               { name: 'Federal Ministry for Economic Cooperation and Development', img: `${B}images/partners/federal-ministry-logo.png` },
-              { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
-              { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
-              { name: 'Azim Premji Foundation', img: `${B}images/partners/azim-premji-logo.png` },
-              { name: 'ChildFund International', img: `${B}images/partners/childfund-logo.png` },
-              { name: 'Klüber Lubrication', img: `${B}images/partners/kluber-lubrication-logo.png` },
-              { name: 'terre des hommes', img: `${B}images/partners/terre-des-hommes-logo.png` },
-              { name: 'Federal Ministry for Economic Cooperation and Development', img: `${B}images/partners/federal-ministry-logo.png` },
+              { name: 'CESVI', img: `${B}images/partners/cesvi-logo.jpg` },
+              { name: 'Project Funded By the European Union', img: `${B}images/partners/european-union-logo.jpg` },
+              { name: 'WeWorld Intervita', img: `${B}images/partners/weworld-intervita-logo.png` },
+              { name: 'Charities Advisory Trust Good Gifts', img: `${B}images/partners/charities-advisory-trust-logo.png` },
             ].map((p, idx) => (
               <div
                 key={idx}
-                className="w-72 sm:w-80 h-36 sm:h-40 bg-white border-2 border-gray-200/90 hover:border-rlhp-green rounded-3xl px-8 py-5 flex items-center justify-center shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 group cursor-pointer shrink-0"
+                className="h-36 sm:h-40 bg-white border-2 border-gray-200/90 hover:border-rlhp-green rounded-3xl p-5 sm:p-6 flex items-center justify-center shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group cursor-default"
                 title={p.name}
               >
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="w-full h-full max-h-24 sm:max-h-28 object-contain filter contrast-110 drop-shadow-xs group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full max-h-24 sm:max-h-28 object-contain filter contrast-105 group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
             ))}

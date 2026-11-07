@@ -82,40 +82,146 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           </p>
         </div>
 
-        {/* 3 Columns Grid of Vertical Gradient Cards (as in Reference 4) */}
+        {/* 3 Columns Grid of Aesthetic, Simple Cards with Distinct Harmonious Colors and Unique Animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-          {orgDetails.ourPrograms.map((prog, idx) => {
-            const Icon = programIcons[idx] || Sparkles;
-            return (
-              <div
-                key={idx}
-                className="relative rounded-2xl p-7 sm:p-9 text-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group overflow-hidden cursor-default"
-                style={{
-                  background: 'linear-gradient(180deg, #2D8A35 0%, #1C5620 65%, #133D16 100%)',
-                }}
-              >
-                {/* Decorative background glow on hover */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform pointer-events-none" />
+          {(() => {
+            const programStyles = [
+              {
+                iconColor: 'text-rose-500',
+                badgeBg: 'bg-rose-50 border-rose-200 group-hover:bg-rose-500 group-hover:text-white',
+                hoverBorder: 'hover:border-rose-400',
+                hoverShadow: 'hover:shadow-rose-100',
+                accentLine: 'bg-rose-400',
+                anim: 'group-hover:scale-110',
+              },
+              {
+                iconColor: 'text-blue-500',
+                badgeBg: 'bg-blue-50 border-blue-200 group-hover:bg-blue-500 group-hover:text-white',
+                hoverBorder: 'hover:border-blue-400',
+                hoverShadow: 'hover:shadow-blue-100',
+                accentLine: 'bg-blue-400',
+                anim: 'group-hover:rotate-6',
+              },
+              {
+                iconColor: 'text-amber-500',
+                badgeBg: 'bg-amber-50 border-amber-200 group-hover:bg-amber-500 group-hover:text-white',
+                hoverBorder: 'hover:border-amber-400',
+                hoverShadow: 'hover:shadow-amber-100',
+                accentLine: 'bg-amber-400',
+                anim: 'group-hover:-translate-y-1',
+              },
+              {
+                iconColor: 'text-purple-500',
+                badgeBg: 'bg-purple-50 border-purple-200 group-hover:bg-purple-500 group-hover:text-white',
+                hoverBorder: 'hover:border-purple-400',
+                hoverShadow: 'hover:shadow-purple-100',
+                accentLine: 'bg-purple-400',
+                anim: 'group-hover:scale-110',
+              },
+              {
+                iconColor: 'text-emerald-500',
+                badgeBg: 'bg-emerald-50 border-emerald-200 group-hover:bg-emerald-500 group-hover:text-white',
+                hoverBorder: 'hover:border-emerald-400',
+                hoverShadow: 'hover:shadow-emerald-100',
+                accentLine: 'bg-emerald-400',
+                anim: 'group-hover:-translate-y-1.5',
+              },
+              {
+                iconColor: 'text-teal-500',
+                badgeBg: 'bg-teal-50 border-teal-200 group-hover:bg-teal-500 group-hover:text-white',
+                hoverBorder: 'hover:border-teal-400',
+                hoverShadow: 'hover:shadow-teal-100',
+                accentLine: 'bg-teal-400',
+                anim: 'group-hover:scale-110',
+              },
+              {
+                iconColor: 'text-yellow-500',
+                badgeBg: 'bg-yellow-50 border-yellow-200 group-hover:bg-yellow-500 group-hover:text-white',
+                hoverBorder: 'hover:border-yellow-400',
+                hoverShadow: 'hover:shadow-yellow-100',
+                accentLine: 'bg-yellow-400',
+                anim: 'group-hover:rotate-12',
+              },
+              {
+                iconColor: 'text-sky-500',
+                badgeBg: 'bg-sky-50 border-sky-200 group-hover:bg-sky-500 group-hover:text-white',
+                hoverBorder: 'hover:border-sky-400',
+                hoverShadow: 'hover:shadow-sky-100',
+                accentLine: 'bg-sky-400',
+                anim: 'group-hover:scale-110',
+              },
+              {
+                iconColor: 'text-pink-500',
+                badgeBg: 'bg-pink-50 border-pink-200 group-hover:bg-pink-500 group-hover:text-white',
+                hoverBorder: 'hover:border-pink-400',
+                hoverShadow: 'hover:shadow-pink-100',
+                accentLine: 'bg-pink-400',
+                anim: 'group-hover:rotate-6',
+              },
+              {
+                iconColor: 'text-green-600',
+                badgeBg: 'bg-green-50 border-green-200 group-hover:bg-green-600 group-hover:text-white',
+                hoverBorder: 'hover:border-green-400',
+                hoverShadow: 'hover:shadow-green-100',
+                accentLine: 'bg-green-500',
+                anim: 'group-hover:-translate-y-1',
+              },
+              {
+                iconColor: 'text-indigo-500',
+                badgeBg: 'bg-indigo-50 border-indigo-200 group-hover:bg-indigo-500 group-hover:text-white',
+                hoverBorder: 'hover:border-indigo-400',
+                hoverShadow: 'hover:shadow-indigo-100',
+                accentLine: 'bg-indigo-400',
+                anim: 'group-hover:scale-110',
+              },
+              {
+                iconColor: 'text-cyan-500',
+                badgeBg: 'bg-cyan-50 border-cyan-200 group-hover:bg-cyan-500 group-hover:text-white',
+                hoverBorder: 'hover:border-cyan-400',
+                hoverShadow: 'hover:shadow-cyan-100',
+                accentLine: 'bg-cyan-400',
+                anim: 'group-hover:rotate-12',
+              },
+              {
+                iconColor: 'text-violet-500',
+                badgeBg: 'bg-violet-50 border-violet-200 group-hover:bg-violet-500 group-hover:text-white',
+                hoverBorder: 'hover:border-violet-400',
+                hoverShadow: 'hover:shadow-violet-100',
+                accentLine: 'bg-violet-400',
+                anim: 'group-hover:-translate-y-1.5',
+              },
+            ];
 
-                {/* Top White Circular Badge with Icon Illustration */}
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-white to-green-50 shadow-xl mx-auto flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 border border-white/60">
-                  <div className="w-14 h-14 rounded-full bg-emerald-50/80 flex items-center justify-center">
-                    <Icon size={30} className="text-[#1C5620] stroke-[2.2]" />
+            return orgDetails.ourPrograms.map((prog, idx) => {
+              const Icon = programIcons[idx] || Sparkles;
+              const style = programStyles[idx % programStyles.length];
+
+              return (
+                <div
+                  key={idx}
+                  className={`bg-white rounded-3xl p-7 sm:p-8 shadow-xs border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden`}
+                >
+                  {/* Icon Badge with Distinct Aesthetic Color and Animation */}
+                  <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center border shadow-xs transition-all duration-300 ${style.anim} ${style.badgeBg}`}>
+                    <Icon size={28} className={`${style.iconColor} group-hover:text-white transition-colors duration-300`} />
                   </div>
+
+                  {/* Program Title */}
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2.5 leading-snug tracking-tight group-hover:text-gray-950 transition-colors">
+                    {prog.title}
+                  </h3>
+
+                  {/* Program Description */}
+                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal mt-auto pt-1">
+                    {prog.description}
+                  </p>
+
+                  {/* Bottom Accent Bar expanding on hover */}
+                  <div className={`mt-6 w-8 h-1 rounded-full ${style.accentLine} group-hover:w-16 transition-all duration-300`} />
                 </div>
-
-                {/* Program Title */}
-                <h3 className="text-xl font-black text-white mb-3 leading-snug tracking-tight">
-                  {prog.title}
-                </h3>
-
-                {/* Program Description */}
-                <p className="text-xs sm:text-sm text-green-50/95 leading-relaxed font-normal">
-                  {prog.description}
-                </p>
-              </div>
-            );
-          })}
+              );
+            });
+          })()}
         </div>
       </section>
 
