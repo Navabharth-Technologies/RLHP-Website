@@ -1,8 +1,8 @@
 import React from 'react';
 import { impactStats } from '../data/rlhpData';
-import { 
-  Award, ShieldCheck, Heart, Users, CheckCircle2, Activity, Handshake, BookOpen, 
-  Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin 
+import {
+  Award, ShieldCheck, Heart, Users, CheckCircle2, Activity, Handshake, BookOpen,
+  Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin
 } from 'lucide-react';
 
 export default function ImpactPage() {
@@ -70,6 +70,17 @@ export default function ImpactPage() {
       numberColor: "text-amber-700",
     },
     {
+      number: "10,000+",
+      title: "Tsunami Relief & Rebuilding",
+      subtitle: "Tamil Nadu, Nagapattinam District",
+      icon: LifeBuoy,
+      borderColor: "border-cyan-200 hover:border-cyan-500",
+      bgGradient: "from-cyan-50/50 via-white to-cyan-50/30",
+      iconBg: "bg-cyan-100 text-cyan-700",
+      accentBar: "bg-cyan-500",
+      numberColor: "text-cyan-700",
+    },
+    {
       number: "6,000+",
       title: "Flood Relief Families",
       subtitle: "Disaster Emergency Response",
@@ -79,17 +90,6 @@ export default function ImpactPage() {
       iconBg: "bg-teal-100 text-teal-700",
       accentBar: "bg-teal-500",
       numberColor: "text-teal-700",
-    },
-    {
-      number: "2004",
-      title: "Tsunami Relief & Rebuilding",
-      subtitle: "Tamil Nadu, Nagapattinam District",
-      icon: LifeBuoy,
-      borderColor: "border-cyan-200 hover:border-cyan-500",
-      bgGradient: "from-cyan-50/50 via-white to-cyan-50/30",
-      iconBg: "bg-cyan-100 text-cyan-700",
-      accentBar: "bg-cyan-500",
-      numberColor: "text-cyan-700",
     },
     {
       number: "5,000+",

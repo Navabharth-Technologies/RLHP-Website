@@ -404,112 +404,183 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </p>
           </div>
 
-          {/* Cards Grid: 6 cards arranged in 3 columns per row on desktop (2 rows of 3) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                img: `${B}images/gallery/iep_remedial_class.jpg`,
-                title: 'Education and Learning',
-                desc: 'Ensuring access to quality education and improved learning opportunities through school enrolment, learning support, remedial education and academic development.',
-                metric: 'Quality Education',
-                page: 'projects',
-                opt: 'education',
-              },
-              {
-                img: `${B}images/gallery/child_rights_workshop.jpg`,
-                title: 'Child Rights and Protection',
-                desc: "Promoting child rights and protection by preventing child marriage, child labour and abuse, while ensuring children's safety, participation and development.",
-                metric: '80K+ Children Protected',
-                page: 'projects',
-                opt: 'education',
-              },
-              {
-                img: `${B}images/gallery/sangha_financial_literacy.jpg`,
-                title: 'Empowerment of women on Socio-Economic',
-                desc: 'Empowering women through self-help groups, financial literacy, collective entrepreneurship, leadership development and sustained socio-economic self-reliance.',
-                metric: 'Women Self-Reliance',
-                page: 'projects',
-                opt: 'livelihood',
-              },
-              {
-                img: `${B}images/gallery/youth_computer_training.jpg`,
-                title: 'Adolescent and Youth Empowerment',
-                desc: 'Empowering adolescents and youth through computer education, life skills, leadership development, career guidance and employment-oriented personal growth.',
-                metric: '15,000+ Youth Empowered',
-                page: 'projects',
-                opt: 'livelihood',
-              },
-              {
-                img: `${B}images/gallery/gram_panchayat_interface.jpg`,
-                title: 'Community Development through Government Schemes',
-                desc: 'Strengthening communities by creating awareness and facilitating access to government welfare schemes, entitlements and essential services to improve livelihoods and quality of life.',
-                metric: 'Welfare & Entitlements',
-                page: 'projects',
-                opt: 'community',
-              },
-              {
-                img: `${B}images/gallery/shg_leadership_training.jpg`,
-                title: 'Livelihood Promotion and Economic Empowerment',
-                desc: 'Promoting sustainable livelihoods through skill development, vocational training, self-employment opportunities and income-generating activities to strengthen the economic independence of individuals and families.',
-                metric: 'Economic Independence',
-                page: 'projects',
-                opt: 'livelihood',
-              },
-            ].map((card, i) => (
-              <div
-                key={i}
-                className="flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
-              >
-                {/* 3D Flip Card Inner Container */}
-                <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
+          {/* Cards Grid: 1st row has 4 cards, next row has 3 cards on desktop */}
+          <div className="space-y-6">
+            {/* Row 1: 4 Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  img: `${B}images/gallery/iep_remedial_class.jpg`,
+                  title: 'Education and Learning',
+                  desc: 'Ensuring access to quality education and improved learning opportunities through school enrolment, learning support, remedial education and academic development.',
+                  metric: 'Quality Education',
+                  page: 'projects',
+                  opt: 'education',
+                },
+                {
+                  img: `${B}images/gallery/child_rights_workshop.jpg`,
+                  title: 'Child Rights and Protection',
+                  desc: "Promoting child rights and protection by preventing child marriage, child labour and abuse, while ensuring children's safety, participation and development.",
+                  metric: '80K+ Children Protected',
+                  page: 'projects',
+                  opt: 'education',
+                },
+                {
+                  img: `${B}images/gallery/sangha_financial_literacy.jpg`,
+                  title: 'Empowerment of women on Socio-Economic',
+                  desc: 'Empowering women through self-help groups, financial literacy, collective entrepreneurship, leadership development and sustained socio-economic self-reliance.',
+                  metric: 'Women Self-Reliance',
+                  page: 'projects',
+                  opt: 'livelihood',
+                },
+                {
+                  img: `${B}images/gallery/sanitation_water_hygiene.jpg`,
+                  title: 'Community Based Health & Sanitation',
+                  desc: 'Improving community well-being through health camps, hygiene and sanitation awareness, clean drinking water initiatives, and preventive healthcare access for vulnerable families.',
+                  metric: 'Health & Sanitation',
+                  page: 'projects',
+                  opt: 'health',
+                },
+              ].map((card, i) => (
+                <div
+                  key={i}
+                  className="flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
+                >
+                  {/* 3D Flip Card Inner Container */}
+                  <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
 
-                  {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
-                  <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
-                    <img
-                      src={card.img}
-                      alt={card.title}
-                      className="w-full h-full object-cover transition-transform duration-700"
-                    />
-                    {/* Gradient overlay for contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
+                    {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
+                    <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
+                      <img
+                        src={card.img}
+                        alt={card.title}
+                        className="w-full h-full object-cover transition-transform duration-700"
+                      />
+                      {/* Gradient overlay for contrast */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
 
-                    {/* Bottom Title on Front Card (No arrow or flip instructions) */}
-                    <div className="absolute bottom-0 inset-x-0 p-5">
-                      <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
-                      <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
-                        {card.title}
-                      </h3>
+                      {/* Bottom Title on Front Card (No arrow or flip instructions) */}
+                      <div className="absolute bottom-0 inset-x-0 p-5">
+                        <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
+                        <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
+                          {card.title}
+                        </h3>
+                      </div>
                     </div>
+
+                    {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
+                    <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
+                          {card.title}
+                        </h3>
+                        <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
+
+                        {/* Description */}
+                        <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
+                          {card.desc}
+                        </p>
+                      </div>
+
+                      {/* Bottom Metric Badge */}
+                      <div className="pt-3 border-t border-white/20 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-emerald-200">
+                          {card.metric}
+                        </span>
+                        <span className="text-[10px] text-white/70 italic">
+                          RLHP Priority
+                        </span>
+                      </div>
+                    </div>
+
                   </div>
-
-                  {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
-                  <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
-                        {card.title}
-                      </h3>
-                      <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
-
-                      {/* Description */}
-                      <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
-                        {card.desc}
-                      </p>
-                    </div>
-
-                    {/* Bottom Metric Badge */}
-                    <div className="pt-3 border-t border-white/20 flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-emerald-200">
-                        {card.metric}
-                      </span>
-                      <span className="text-[10px] text-white/70 italic">
-                        RLHP Priority
-                      </span>
-                    </div>
-                  </div>
-
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Row 2: 3 Cards Centered */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {[
+                {
+                  img: `${B}images/gallery/youth_computer_training.jpg`,
+                  title: 'Adolescent and Youth Empowerment',
+                  desc: 'Empowering adolescents and youth through computer education, life skills, leadership development, career guidance and employment-oriented personal growth.',
+                  metric: '15,000+ Youth Empowered',
+                  page: 'projects',
+                  opt: 'livelihood',
+                },
+                {
+                  img: `${B}images/gallery/gram_panchayat_interface.jpg`,
+                  title: 'Community Development through Government Schemes',
+                  desc: 'Strengthening communities by creating awareness and facilitating access to government welfare schemes, entitlements and essential services to improve livelihoods and quality of life.',
+                  metric: 'Welfare & Entitlements',
+                  page: 'projects',
+                  opt: 'community',
+                },
+                {
+                  img: `${B}images/gallery/shg_leadership_training.jpg`,
+                  title: 'Livelihood Promotion and Economic Empowerment',
+                  desc: 'Promoting sustainable livelihoods through skill development, vocational training, self-employment opportunities and income-generating activities to strengthen the economic independence of individuals and families.',
+                  metric: 'Economic Independence',
+                  page: 'projects',
+                  opt: 'livelihood',
+                },
+              ].map((card, i) => (
+                <div
+                  key={i}
+                  className="flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
+                >
+                  {/* 3D Flip Card Inner Container */}
+                  <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
+
+                    {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
+                    <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
+                      <img
+                        src={card.img}
+                        alt={card.title}
+                        className="w-full h-full object-cover transition-transform duration-700"
+                      />
+                      {/* Gradient overlay for contrast */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
+
+                      {/* Bottom Title on Front Card (No arrow or flip instructions) */}
+                      <div className="absolute bottom-0 inset-x-0 p-5">
+                        <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
+                        <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
+                          {card.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
+                    <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
+                          {card.title}
+                        </h3>
+                        <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
+
+                        {/* Description */}
+                        <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
+                          {card.desc}
+                        </p>
+                      </div>
+
+                      {/* Bottom Metric Badge */}
+                      <div className="pt-3 border-t border-white/20 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-emerald-200">
+                          {card.metric}
+                        </span>
+                        <span className="text-[10px] text-white/70 italic">
+                          RLHP Priority
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
