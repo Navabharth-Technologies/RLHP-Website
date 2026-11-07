@@ -136,13 +136,12 @@ export default function Footer({ setCurrentPage, onNavClick }) {
               <p>FCRA Compliant for international donations.</p>
             </div>
 
-            <button
-              onClick={() => handleNav('bank-details')}
-              className="w-full inline-flex items-center justify-center gap-2 bg-rlhp-green hover:bg-rlhp-darkgreen text-white font-semibold text-sm py-2.5 px-4 rounded-lg shadow transition-colors"
+            <div
+              className="w-full inline-flex items-center justify-center gap-2 bg-rlhp-green text-white font-semibold text-sm py-2.5 px-4 rounded-lg shadow cursor-default select-none"
             >
               <Heart size={15} className="fill-white" />
-              Donate to RLHP
-            </button>
+              <span>Donate to RLHP</span>
+            </div>
           </div>
 
         </div>
