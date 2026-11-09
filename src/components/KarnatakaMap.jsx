@@ -81,17 +81,39 @@ export default function KarnatakaMap({ onSelectDistrict }) {
                     <MapPin className={`${isSelected || isHovered ? 'w-4 h-4 sm:w-4.5 sm:h-4.5' : 'w-3 h-3 sm:w-3.5 sm:h-3.5'}`} />
                   </div>
 
-                  {/* Interactive Floating Hover / Active Tooltip Badge */}
+                  {/* Interactive Floating Hover / Active Standardized Pop-up Card directly on Map */}
                   {(isSelected || isHovered) && (
-                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-slate-950/95 text-white px-2.5 py-1 rounded-lg text-xs font-bold tracking-tight shadow-xl border border-amber-400/50 z-50 pointer-events-none animate-fadeIn">
-                      <div className="flex items-center space-x-1">
-                        <span className={isSelected ? 'text-amber-400 font-black' : 'text-emerald-300'}>
-                          {district.name}
-                        </span>
-                        {isHq && <span className="bg-amber-400 text-slate-950 text-[9px] px-1 rounded font-black">HQ</span>}
+                    <div 
+                      className={`absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 ${
+                        isSelected ? 'scale-100 opacity-100 animate-timer-card' : 'scale-95 opacity-90'
+                      }`}
+                    >
+                      <div className="bg-slate-950/95 backdrop-blur-md text-white px-3.5 py-2.5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.6)] border border-amber-400/60 min-w-[130px] sm:min-w-[150px] text-center space-y-1">
+                        {/* District Name with Badge */}
+                        <div className="flex items-center justify-center gap-1.5 leading-tight">
+                          <span className={`text-xs sm:text-sm font-black tracking-tight ${isSelected ? 'text-amber-400' : 'text-emerald-300'}`}>
+                            {district.name}
+                          </span>
+                          {isHq && (
+                            <span className="bg-amber-400 text-slate-950 text-[9px] px-1 py-0.2 rounded font-black tracking-wider uppercase">
+                              HQ
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Specific Sub-District / Operational Place Pop-up */}
+                        {district.subDistrict && (
+                          <div className="flex items-center justify-center gap-1.5 pt-1 border-t border-white/10">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0" />
+                            <span className="text-[11px] sm:text-xs font-extrabold text-emerald-300 tracking-wide">
+                              {district.subDistrict}
+                            </span>
+                          </div>
+                        )}
                       </div>
-                      {/* Tooltip Arrow */}
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-950"></div>
+
+                      {/* Tooltip Arrow pointing down to the pin */}
+                      <div className="w-0 h-0 border-x-6 border-x-transparent border-t-6 border-t-slate-950/95 mx-auto"></div>
                     </div>
                   )}
                 </div>

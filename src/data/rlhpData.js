@@ -1020,7 +1020,7 @@ export const auditReport2025 = {
     {
       pageNumber: 1,
       title: "Receipts and Payments Account",
-      subtitle: "Financials Reports (2025-2026)",
+      subtitle: "Financial Reports (2025-2026)",
       image: "/images/audit-report/audit_report_2024_2025_page_1.jpg",
       totalAmount: "₹3,46,71,219",
       keyHighlights: [
@@ -1040,7 +1040,7 @@ export const auditReport2025 = {
     {
       pageNumber: 2,
       title: "Income and Expenditure Statement",
-      subtitle: "Financials Reports (2024-2025)",
+      subtitle: "Financial Reports (2024-2025)",
       image: "/images/audit-report/audit_report_2024_2025_page_2.jpg",
       totalAmount: "₹2,45,59,520",
       keyHighlights: [
