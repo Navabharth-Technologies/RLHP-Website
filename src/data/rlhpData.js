@@ -1118,19 +1118,9 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_39.jpg"
   },
   {
-    "id": "gallery-40",
-    "image": "/images/gallery/gallery_40.jpg",
-    "remoteImage": "/images/gallery/gallery_40.jpg"
-  },
-  {
     "id": "gallery-41",
     "image": "/images/gallery/gallery_41.jpg",
     "remoteImage": "/images/gallery/gallery_41.jpg"
-  },
-  {
-    "id": "gallery-42",
-    "image": "/images/gallery/gallery_42.jpg",
-    "remoteImage": "/images/gallery/gallery_42.jpg"
   },
   {
     "id": "gallery-43",
