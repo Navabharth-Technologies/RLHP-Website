@@ -11,18 +11,18 @@ export default function KarnatakaMap({ onSelectDistrict }) {
     if (onSelectDistrict) onSelectDistrict(district);
   };
 
-  // Precise coordinates matching pins on karnataka-state-map.png artwork
+  // Precise relative coordinates on the isolated pure Karnataka polygon
   const positionMap = {
-    bidar: { top: '16.5%', left: '60.5%' },
-    kalaburagi: { top: '25.0%', left: '53.5%' },
-    raichur: { top: '36.5%', left: '59.0%' },
-    davanagere: { top: '49.0%', left: '45.5%' },
-    chitradurga: { top: '53.5%', left: '54.0%' },
-    'uttara-kannada': { top: '52.0%', left: '32.0%' },
-    'dakshina-kannada': { top: '69.0%', left: '38.0%' },
-    mandya: { top: '71.5%', left: '49.8%' },
-    mysuru: { top: '79.5%', left: '46.0%' },
-    chamarajanagar: { top: '84.0%', left: '51.5%' }
+    bidar: { top: '11.2%', left: '60.0%' },
+    kalaburagi: { top: '20.6%', left: '48.9%' },
+    raichur: { top: '33.3%', left: '57.7%' },
+    davanagere: { top: '47.1%', left: '36.4%' },
+    chitradurga: { top: '52.1%', left: '49.8%' },
+    'uttara-kannada': { top: '50.5%', left: '15.2%' },
+    'dakshina-kannada': { top: '69.3%', left: '24.6%' },
+    mandya: { top: '72.1%', left: '43.1%' },
+    mysuru: { top: '81.0%', left: '37.2%' },
+    chamarajanagar: { top: '85.9%', left: '45.8%' }
   };
 
   return (
@@ -38,13 +38,13 @@ export default function KarnatakaMap({ onSelectDistrict }) {
           <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
           {/* Map Image & Precise Node Overlay Container */}
-          <div className="relative w-full max-w-lg aspect-[4/5] sm:aspect-[1/1] flex justify-center items-center my-auto p-1 sm:p-2">
+          <div className="relative w-full max-w-md aspect-[605/925] flex justify-center items-center my-auto p-2 sm:p-4">
             
-            {/* Clean Karnataka Poly-Art Artwork Base */}
+            {/* Pure Isolated Karnataka Poly-Art Map with NO baked-in cards or text */}
             <img 
-              src={`${import.meta.env.BASE_URL}karnataka-state-map.png`} 
-              alt="Karnataka District Overview Map" 
-              className="w-full h-full object-contain filter drop-shadow-[0_12px_30px_rgba(0,0,0,0.6)] select-none pointer-events-none"
+              src={`${import.meta.env.BASE_URL}karnataka-poly-isolated.png`} 
+              alt="Karnataka Poly-Art Map" 
+              className="w-full h-full object-contain filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] select-none pointer-events-none"
             />
 
             {/* Precise Interactive District Hotspot Nodes */}
