@@ -76,11 +76,11 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
               <div className="relative group max-w-md w-full transform sm:rotate-2 hover:rotate-0 transition-all duration-500">
                 <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white">
                   <img
-                    src={`${B}images/financials_hero_children.jpg`}
-                    alt="Children in Community"
+                    src={`${B}images/financials_hero_hq.jpg`}
+                    alt="Children Summer Camp - RLHP"
                     className="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
             </div>
