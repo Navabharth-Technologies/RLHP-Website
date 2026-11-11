@@ -119,108 +119,82 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           {(() => {
             const programStyles = [
               {
-                iconColor: 'text-rose-500',
-                badgeBg: 'bg-rose-50 border-rose-200 group-hover:bg-rose-500 group-hover:text-white',
                 hoverBorder: 'hover:border-rose-400',
-                hoverShadow: 'hover:shadow-rose-100',
-                accentLine: 'bg-rose-400',
-                anim: 'group-hover:scale-110',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(244,63,94,0.3)]',
+                accentLine: 'bg-rose-500',
+                glowColor: 'from-rose-500/10 via-rose-500/5 to-transparent',
               },
               {
-                iconColor: 'text-blue-500',
-                badgeBg: 'bg-blue-50 border-blue-200 group-hover:bg-blue-500 group-hover:text-white',
                 hoverBorder: 'hover:border-blue-400',
-                hoverShadow: 'hover:shadow-blue-100',
-                accentLine: 'bg-blue-400',
-                anim: 'group-hover:rotate-6',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)]',
+                accentLine: 'bg-blue-500',
+                glowColor: 'from-blue-500/10 via-blue-500/5 to-transparent',
               },
               {
-                iconColor: 'text-amber-500',
-                badgeBg: 'bg-amber-50 border-amber-200 group-hover:bg-amber-500 group-hover:text-white',
                 hoverBorder: 'hover:border-amber-400',
-                hoverShadow: 'hover:shadow-amber-100',
-                accentLine: 'bg-amber-400',
-                anim: 'group-hover:-translate-y-1',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)]',
+                accentLine: 'bg-amber-500',
+                glowColor: 'from-amber-500/10 via-amber-500/5 to-transparent',
               },
               {
-                iconColor: 'text-purple-500',
-                badgeBg: 'bg-purple-50 border-purple-200 group-hover:bg-purple-500 group-hover:text-white',
                 hoverBorder: 'hover:border-purple-400',
-                hoverShadow: 'hover:shadow-purple-100',
-                accentLine: 'bg-purple-400',
-                anim: 'group-hover:scale-110',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(168,85,247,0.3)]',
+                accentLine: 'bg-purple-500',
+                glowColor: 'from-purple-500/10 via-purple-500/5 to-transparent',
               },
               {
-                iconColor: 'text-emerald-500',
-                badgeBg: 'bg-emerald-50 border-emerald-200 group-hover:bg-emerald-500 group-hover:text-white',
                 hoverBorder: 'hover:border-emerald-400',
-                hoverShadow: 'hover:shadow-emerald-100',
-                accentLine: 'bg-emerald-400',
-                anim: 'group-hover:-translate-y-1.5',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.3)]',
+                accentLine: 'bg-emerald-500',
+                glowColor: 'from-emerald-500/10 via-emerald-500/5 to-transparent',
               },
               {
-                iconColor: 'text-teal-500',
-                badgeBg: 'bg-teal-50 border-teal-200 group-hover:bg-teal-500 group-hover:text-white',
                 hoverBorder: 'hover:border-teal-400',
-                hoverShadow: 'hover:shadow-teal-100',
-                accentLine: 'bg-teal-400',
-                anim: 'group-hover:scale-110',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(20,184,166,0.3)]',
+                accentLine: 'bg-teal-500',
+                glowColor: 'from-teal-500/10 via-teal-500/5 to-transparent',
               },
               {
-                iconColor: 'text-yellow-500',
-                badgeBg: 'bg-yellow-50 border-yellow-200 group-hover:bg-yellow-500 group-hover:text-white',
                 hoverBorder: 'hover:border-yellow-400',
-                hoverShadow: 'hover:shadow-yellow-100',
-                accentLine: 'bg-yellow-400',
-                anim: 'group-hover:rotate-12',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(234,179,8,0.3)]',
+                accentLine: 'bg-yellow-500',
+                glowColor: 'from-yellow-500/10 via-yellow-500/5 to-transparent',
               },
               {
-                iconColor: 'text-sky-500',
-                badgeBg: 'bg-sky-50 border-sky-200 group-hover:bg-sky-500 group-hover:text-white',
                 hoverBorder: 'hover:border-sky-400',
-                hoverShadow: 'hover:shadow-sky-100',
-                accentLine: 'bg-sky-400',
-                anim: 'group-hover:scale-110',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(14,165,233,0.3)]',
+                accentLine: 'bg-sky-500',
+                glowColor: 'from-sky-500/10 via-sky-500/5 to-transparent',
               },
               {
-                iconColor: 'text-pink-500',
-                badgeBg: 'bg-pink-50 border-pink-200 group-hover:bg-pink-500 group-hover:text-white',
                 hoverBorder: 'hover:border-pink-400',
-                hoverShadow: 'hover:shadow-pink-100',
-                accentLine: 'bg-pink-400',
-                anim: 'group-hover:rotate-6',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(236,72,153,0.3)]',
+                accentLine: 'bg-pink-500',
+                glowColor: 'from-pink-500/10 via-pink-500/5 to-transparent',
               },
               {
-                iconColor: 'text-green-600',
-                badgeBg: 'bg-green-50 border-green-200 group-hover:bg-green-600 group-hover:text-white',
-                hoverBorder: 'hover:border-green-400',
-                hoverShadow: 'hover:shadow-green-100',
-                accentLine: 'bg-green-500',
-                anim: 'group-hover:-translate-y-1',
+                hoverBorder: 'hover:border-green-500',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(34,197,94,0.3)]',
+                accentLine: 'bg-green-600',
+                glowColor: 'from-green-500/10 via-green-500/5 to-transparent',
               },
               {
-                iconColor: 'text-indigo-500',
-                badgeBg: 'bg-indigo-50 border-indigo-200 group-hover:bg-indigo-500 group-hover:text-white',
                 hoverBorder: 'hover:border-indigo-400',
-                hoverShadow: 'hover:shadow-indigo-100',
-                accentLine: 'bg-indigo-400',
-                anim: 'group-hover:scale-110',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(99,102,241,0.3)]',
+                accentLine: 'bg-indigo-500',
+                glowColor: 'from-indigo-500/10 via-indigo-500/5 to-transparent',
               },
               {
-                iconColor: 'text-cyan-500',
-                badgeBg: 'bg-cyan-50 border-cyan-200 group-hover:bg-cyan-500 group-hover:text-white',
                 hoverBorder: 'hover:border-cyan-400',
-                hoverShadow: 'hover:shadow-cyan-100',
-                accentLine: 'bg-cyan-400',
-                anim: 'group-hover:rotate-12',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(6,182,212,0.3)]',
+                accentLine: 'bg-cyan-500',
+                glowColor: 'from-cyan-500/10 via-cyan-500/5 to-transparent',
               },
               {
-                iconColor: 'text-violet-500',
-                badgeBg: 'bg-violet-50 border-violet-200 group-hover:bg-violet-500 group-hover:text-white',
                 hoverBorder: 'hover:border-violet-400',
-                hoverShadow: 'hover:shadow-violet-100',
-                accentLine: 'bg-violet-400',
-                anim: 'group-hover:-translate-y-1.5',
+                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(139,92,246,0.3)]',
+                accentLine: 'bg-violet-500',
+                glowColor: 'from-violet-500/10 via-violet-500/5 to-transparent',
               },
             ];
 
@@ -232,7 +206,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               return (
                 <div
                   key={idx}
-                  className={`bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${
+                  className={`bg-white rounded-3xl p-6 sm:p-8 shadow-md border-2 border-gray-150 ${style.hoverBorder} ${style.hoverGlow} hover:-translate-y-2.5 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${
                     isVisible 
                       ? 'opacity-100 translate-y-0 scale-100' 
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
@@ -241,32 +215,34 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                     willChange: 'transform, opacity',
                   }}
                 >
-                  {/* Circular Image Container In Place of Symbols with Glow Ring & Hover Zoom */}
-                  <div className="relative mb-5 flex items-center justify-center">
-                    {/* Decorative Ambient Outer Ring */}
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-emerald-500 via-teal-400 to-amber-400 shadow-md group-hover:scale-108 group-hover:rotate-3 transition-all duration-500">
+                  {/* Subtle ambient gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-b ${style.glowColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+
+                  {/* Circular Image Container with Multi-Stop Glowing Ring & Zoom */}
+                  <div className="relative mb-5 flex items-center justify-center z-10">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-emerald-500 via-teal-400 to-amber-400 shadow-lg group-hover:shadow-xl group-hover:scale-110 group-hover:rotate-2 transition-all duration-300">
                       <div className="w-full h-full rounded-full overflow-hidden bg-white p-0.5 shadow-inner">
                         <img
                           src={imageSrc}
                           alt={prog.title}
-                          className="w-full h-full object-cover rounded-full group-hover:scale-115 transition-transform duration-700"
+                          className="w-full h-full object-cover rounded-full group-hover:scale-115 transition-transform duration-500"
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Program Title */}
-                  <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-2.5 leading-snug tracking-tight group-hover:text-rlhp-darkgreen transition-colors">
+                  <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-2.5 leading-snug tracking-tight group-hover:text-rlhp-darkgreen transition-colors z-10">
                     {prog.title}
                   </h3>
 
                   {/* Program Description */}
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium mt-auto pt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-800 leading-relaxed font-medium mt-auto pt-1 transition-colors z-10">
                     {prog.description}
                   </p>
 
                   {/* Bottom Accent Bar expanding on hover */}
-                  <div className={`mt-6 w-10 h-1 rounded-full ${style.accentLine} group-hover:w-20 transition-all duration-300`} />
+                  <div className={`mt-6 w-12 h-1.5 rounded-full ${style.accentLine} group-hover:w-24 shadow-xs transition-all duration-300 z-10`} />
                 </div>
               );
             });

@@ -417,72 +417,81 @@ export default function OurIdentity({ setCurrentPage }) {
                   iconColor: 'text-rose-500',
                   badgeBg: 'bg-rose-50 border-rose-200 group-hover:bg-rose-500 group-hover:text-white',
                   hoverBorder: 'hover:border-rose-400',
-                  hoverShadow: 'hover:shadow-rose-100',
-                  accentDot: 'bg-rose-400',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(244,63,94,0.3)]',
+                  accentDot: 'bg-rose-500',
+                  glowColor: 'from-rose-500/10 via-rose-500/5 to-transparent',
                 },
                 {
                   icon: Scale,
                   iconColor: 'text-blue-500',
                   badgeBg: 'bg-blue-50 border-blue-200 group-hover:bg-blue-500 group-hover:text-white',
                   hoverBorder: 'hover:border-blue-400',
-                  hoverShadow: 'hover:shadow-blue-100',
-                  accentDot: 'bg-blue-400',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)]',
+                  accentDot: 'bg-blue-500',
+                  glowColor: 'from-blue-500/10 via-blue-500/5 to-transparent',
                 },
                 {
                   icon: Users,
                   iconColor: 'text-purple-500',
                   badgeBg: 'bg-purple-50 border-purple-200 group-hover:bg-purple-500 group-hover:text-white',
                   hoverBorder: 'hover:border-purple-400',
-                  hoverShadow: 'hover:shadow-purple-100',
-                  accentDot: 'bg-purple-400',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(168,85,247,0.3)]',
+                  accentDot: 'bg-purple-500',
+                  glowColor: 'from-purple-500/10 via-purple-500/5 to-transparent',
                 },
                 {
                   icon: Handshake,
                   iconColor: 'text-amber-500',
                   badgeBg: 'bg-amber-50 border-amber-200 group-hover:bg-amber-500 group-hover:text-white',
                   hoverBorder: 'hover:border-amber-400',
-                  hoverShadow: 'hover:shadow-amber-100',
-                  accentDot: 'bg-amber-400',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)]',
+                  accentDot: 'bg-amber-500',
+                  glowColor: 'from-amber-500/10 via-amber-500/5 to-transparent',
                 },
                 {
                   icon: Sparkles,
                   iconColor: 'text-emerald-500',
                   badgeBg: 'bg-emerald-50 border-emerald-200 group-hover:bg-emerald-500 group-hover:text-white',
                   hoverBorder: 'hover:border-emerald-400',
-                  hoverShadow: 'hover:shadow-emerald-100',
-                  accentDot: 'bg-emerald-400',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.3)]',
+                  accentDot: 'bg-emerald-500',
+                  glowColor: 'from-emerald-500/10 via-emerald-500/5 to-transparent',
                 },
                 {
                   icon: Eye,
                   iconColor: 'text-teal-500',
                   badgeBg: 'bg-teal-50 border-teal-200 group-hover:bg-teal-500 group-hover:text-white',
                   hoverBorder: 'hover:border-teal-400',
-                  hoverShadow: 'hover:shadow-teal-100',
-                  accentDot: 'bg-teal-400',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(20,184,166,0.3)]',
+                  accentDot: 'bg-teal-500',
+                  glowColor: 'from-teal-500/10 via-teal-500/5 to-transparent',
                 },
                 {
                   icon: Sprout,
                   iconColor: 'text-green-600',
                   badgeBg: 'bg-green-50 border-green-200 group-hover:bg-green-600 group-hover:text-white',
                   hoverBorder: 'hover:border-green-400',
-                  hoverShadow: 'hover:shadow-green-100',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(34,197,94,0.3)]',
                   accentDot: 'bg-green-500',
+                  glowColor: 'from-green-500/10 via-green-500/5 to-transparent',
                 },
                 {
                   icon: UserCheck,
                   iconColor: 'text-sky-500',
                   badgeBg: 'bg-sky-50 border-sky-200 group-hover:bg-sky-500 group-hover:text-white',
                   hoverBorder: 'hover:border-sky-400',
-                  hoverShadow: 'hover:shadow-sky-100',
-                  accentDot: 'bg-sky-400',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(14,165,233,0.3)]',
+                  accentDot: 'bg-sky-500',
+                  glowColor: 'from-sky-500/10 via-sky-500/5 to-transparent',
                 },
                 {
                   icon: Globe,
                   iconColor: 'text-indigo-500',
                   badgeBg: 'bg-indigo-50 border-indigo-200 group-hover:bg-indigo-500 group-hover:text-white',
                   hoverBorder: 'hover:border-indigo-400',
-                  hoverShadow: 'hover:shadow-indigo-100',
-                  accentDot: 'bg-indigo-400',
+                  hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(99,102,241,0.3)]',
+                  accentDot: 'bg-indigo-500',
+                  glowColor: 'from-indigo-500/10 via-indigo-500/5 to-transparent',
                 },
               ];
 
@@ -494,7 +503,7 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${isVisible
+                    className={`bg-white rounded-3xl p-7 shadow-md border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${isVisible
                         ? 'opacity-100 translate-y-0 scale-100'
                         : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                       }`}
@@ -502,23 +511,26 @@ export default function OurIdentity({ setCurrentPage }) {
                       willChange: 'transform, opacity',
                     }}
                   >
+                    {/* Hover ambient color glow backdrop */}
+                    <div className={`absolute inset-0 bg-gradient-to-b ${theme.glowColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+
                     {/* Clean Minimalist Icon Badge with Subtle Tint */}
-                    <div className={`w-14 h-14 rounded-2xl mb-5 flex items-center justify-center border shadow-xs transition-all duration-300 group-hover:scale-110 ${theme.badgeBg}`}>
+                    <div className={`w-14 h-14 rounded-2xl mb-5 flex items-center justify-center border-2 shadow-sm transition-all duration-300 group-hover:scale-115 group-hover:rotate-3 ${theme.badgeBg} z-10`}>
                       <Icon size={26} className={`${theme.iconColor} group-hover:text-white transition-colors duration-300`} />
                     </div>
 
                     {/* Title */}
-                    <h4 className="font-extrabold text-base sm:text-lg text-gray-900 mb-2 leading-snug group-hover:text-gray-950 transition-colors">
+                    <h4 className="font-extrabold text-base sm:text-lg text-gray-900 mb-2 leading-snug group-hover:text-gray-950 transition-colors z-10">
                       {pr.title}
                     </h4>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mt-auto pt-2">
+                    <p className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-800 leading-relaxed mt-auto pt-2 transition-colors z-10">
                       {pr.description}
                     </p>
 
-                    {/* Subtle bottom accent line */}
-                    <div className="mt-5 w-8 h-1 rounded-full bg-gray-150 group-hover:w-16 group-hover:bg-gray-400 transition-all duration-300" />
+                    {/* Bottom accent indicator */}
+                    <div className={`mt-5 w-10 h-1.5 rounded-full ${theme.accentDot} group-hover:w-20 transition-all duration-300 z-10`} />
                   </div>
                 );
               });
