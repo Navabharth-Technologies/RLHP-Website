@@ -109,31 +109,19 @@ export default function OurIdentity({ setCurrentPage }) {
               </div>
             </div>
 
-            {/* Right Images (5 Cols) - Overlapping Playful Cards as in Reference */}
+            {/* Right Image (5 Cols) - Single Clean Card as requested */}
             <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
-              <div className="relative w-full max-w-[420px] h-[340px] sm:h-[400px]">
-                {/* Back / Left tilted card */}
-                <div className="absolute left-2 sm:left-4 top-4 w-[56%] h-[82%] rounded-2xl overflow-hidden shadow-xl border-4 border-white -rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-10 bg-gray-100">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/gallery/ashabhavana_girls_learning.jpg`}
-                    alt="Asha Bhavana Learning"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="relative w-full max-w-[480px] aspect-[4/3.1] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group hover:shadow-emerald-950/20 transition-all duration-500">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/about_us_children.jpg`}
+                  alt="RLHP Children - About Us"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-4 right-4 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl text-xs font-bold text-gray-800 shadow-sm border border-emerald-100 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-rlhp-green animate-pulse" />
+                  <span>Nurturing Potential &amp; Building Confident Futures</span>
                 </div>
-
-                {/* Front / Right card */}
-                <div className="absolute right-2 sm:right-4 bottom-4 w-[60%] h-[84%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-20 bg-gray-100">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/gallery/iep_remedial_class.jpg`}
-                    alt="IEP Remedial Class"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-
-                {/* Subtle soft backdrop shape */}
-                <div className="absolute inset-8 bg-green-50/80 rounded-3xl -z-10 blur-xl" />
               </div>
             </div>
 
@@ -143,21 +131,46 @@ export default function OurIdentity({ setCurrentPage }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
-        {/* 3. INCEPTION STORY */}
-        <section id="inception-story" className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200/80 shadow-sm space-y-6">
-          <div className="max-w-4xl space-y-4">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-rlhp-darkgreen uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full">
-              <Sparkles size={13} className="text-rlhp-green" /> Origins &amp; Founding
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
-              Inception Story
-            </h2>
-            <AnimatedWaveUnderline className="w-44 h-3.5 mb-4" />
-            <div className="bg-gradient-to-br from-emerald-50/40 via-white to-gray-50/50 border-l-4 border-rlhp-green p-6 sm:p-8 rounded-r-2xl shadow-2xs space-y-4">
-              <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
-                Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
-              </p>
+        {/* 3. INCEPTION STORY (Two-Column Layout with Story Card & Enhanced HD Historical Photo Card) */}
+        <section id="inception-story" className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200/80 shadow-sm overflow-hidden">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Content (7 Cols) */}
+            <div className="lg:col-span-7 space-y-4">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-rlhp-darkgreen uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full">
+                <Sparkles size={13} className="text-rlhp-green" /> Origins &amp; Founding
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
+                Inception Story
+              </h2>
+              <AnimatedWaveUnderline className="w-44 h-3.5 mb-4" />
+              <div className="bg-gradient-to-br from-emerald-50/40 via-white to-gray-50/50 border-l-4 border-rlhp-green p-6 sm:p-8 rounded-r-2xl shadow-2xs space-y-4">
+                <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
+                  Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
+                </p>
+              </div>
             </div>
+
+            {/* Right Card (5 Cols) - HD Enhanced Inception Gathering Photo with Smooth Animation */}
+            <div className="lg:col-span-5 flex justify-center items-center">
+              <div className="relative w-full max-w-[460px] aspect-square rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-500 hover:-translate-y-1.5 cursor-pointer">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/inception_story_meeting.jpg`}
+                  alt="Inception Story - Community Foundation Meeting"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-md p-3.5 rounded-2xl border border-white/20 text-white pointer-events-none">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
+                    <p className="text-xs sm:text-sm font-bold tracking-wide">
+                      Early Community Roots &amp; Grassroots Gathering (1984)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
