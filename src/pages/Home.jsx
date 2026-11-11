@@ -985,9 +985,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </p>
           </div>
 
-          {/* Stagnant Static Grid: Exactly 4 Logos per row on desktop */}
+          {/* Stagnant Static Grid: 4 Logos per row on desktop */}
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 items-center justify-center max-w-[1240px] mx-auto">
             {[
+              { name: 'Childline 1098', img: `${B}images/partners/childline-1098-logo.png` },
               { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
               { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
               { name: 'Azim Premji Foundation', img: `${B}images/partners/azim-premji-logo.png` },

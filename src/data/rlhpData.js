@@ -366,6 +366,11 @@ export const officialPartners = [
     description: "International sustainable cooperation and child protection"
   },
   {
+    name: "Childline 1098",
+    logoImage: "/images/partners/childline-1098-logo.png",
+    description: "Emergency 24/7 child rescue & protection helpline"
+  },
+  {
     name: "terre des hommes",
     logoImage: "/images/partners/terre-des-hommes-logo.png",
     description: "Help for Children in Need"
