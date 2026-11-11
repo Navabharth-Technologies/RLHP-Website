@@ -20,6 +20,7 @@ export default function ImpactPage() {
       subtitle: "Residential Child Care & Protection",
       icon: Home,
       borderColor: "border-emerald-200 hover:border-emerald-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)]",
       bgGradient: "from-emerald-50/50 via-white to-emerald-50/30",
       iconBg: "bg-emerald-100 text-emerald-700",
       accentBar: "bg-emerald-500",
@@ -31,6 +32,7 @@ export default function ImpactPage() {
       subtitle: "Emergency Child Protection Drive",
       icon: Shield,
       borderColor: "border-blue-200 hover:border-blue-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(59,130,246,0.4)]",
       bgGradient: "from-blue-50/50 via-white to-blue-50/30",
       iconBg: "bg-blue-100 text-blue-700",
       accentBar: "bg-blue-500",
@@ -42,6 +44,7 @@ export default function ImpactPage() {
       subtitle: "Children's Collective Advocacy",
       icon: Heart,
       borderColor: "border-rose-200 hover:border-rose-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(244,63,94,0.4)]",
       bgGradient: "from-rose-50/50 via-white to-rose-50/30",
       iconBg: "bg-rose-100 text-rose-700",
       accentBar: "bg-rose-500",
@@ -53,6 +56,7 @@ export default function ImpactPage() {
       subtitle: "Anti-Child Labour & Education Rights",
       icon: GraduationCap,
       borderColor: "border-purple-200 hover:border-purple-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(168,85,247,0.4)]",
       bgGradient: "from-purple-50/50 via-white to-purple-50/30",
       iconBg: "bg-purple-100 text-purple-700",
       accentBar: "bg-purple-500",
@@ -64,6 +68,7 @@ export default function ImpactPage() {
       subtitle: "Migrant Labour Welfare & Aid",
       icon: Users,
       borderColor: "border-amber-200 hover:border-amber-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(245,158,11,0.4)]",
       bgGradient: "from-amber-50/50 via-white to-amber-50/30",
       iconBg: "bg-amber-100 text-amber-700",
       accentBar: "bg-amber-500",
@@ -75,6 +80,7 @@ export default function ImpactPage() {
       subtitle: "Tamil Nadu, Nagapattinam District",
       icon: LifeBuoy,
       borderColor: "border-cyan-200 hover:border-cyan-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(6,182,212,0.4)]",
       bgGradient: "from-cyan-50/50 via-white to-cyan-50/30",
       iconBg: "bg-cyan-100 text-cyan-700",
       accentBar: "bg-cyan-500",
@@ -86,6 +92,7 @@ export default function ImpactPage() {
       subtitle: "Disaster Emergency Response",
       icon: LifeBuoy,
       borderColor: "border-teal-200 hover:border-teal-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(20,184,166,0.4)]",
       bgGradient: "from-teal-50/50 via-white to-teal-50/30",
       iconBg: "bg-teal-100 text-teal-700",
       accentBar: "bg-teal-500",
@@ -97,6 +104,7 @@ export default function ImpactPage() {
       subtitle: "Pandemic Humanitarian Relief",
       icon: Activity,
       borderColor: "border-red-200 hover:border-red-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(239,68,68,0.4)]",
       bgGradient: "from-red-50/50 via-white to-red-50/30",
       iconBg: "bg-red-100 text-red-700",
       accentBar: "bg-red-500",
@@ -108,6 +116,7 @@ export default function ImpactPage() {
       subtitle: "Nutrition & Child Health Drive",
       icon: Activity,
       borderColor: "border-emerald-200 hover:border-emerald-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)]",
       bgGradient: "from-emerald-50/50 via-white to-emerald-50/30",
       iconBg: "bg-emerald-100 text-emerald-700",
       accentBar: "bg-emerald-500",
@@ -119,6 +128,7 @@ export default function ImpactPage() {
       subtitle: "Government Entitlements & Social Security",
       icon: Handshake,
       borderColor: "border-blue-200 hover:border-blue-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(59,130,246,0.4)]",
       bgGradient: "from-blue-50/50 via-white to-blue-50/30",
       iconBg: "bg-blue-100 text-blue-700",
       accentBar: "bg-blue-500",
@@ -130,6 +140,7 @@ export default function ImpactPage() {
       subtitle: "Literacy & Mobile Knowledge Network",
       icon: BookOpen,
       borderColor: "border-amber-200 hover:border-amber-500",
+      hoverGlow: "hover:shadow-[0_20px_45px_-10px_rgba(245,158,11,0.4)]",
       bgGradient: "from-amber-50/50 via-white to-amber-50/30",
       iconBg: "bg-amber-100 text-amber-700",
       accentBar: "bg-amber-500",
@@ -195,7 +206,7 @@ export default function ImpactPage() {
               return (
                 <div
                   key={idx}
-                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group overflow-hidden`}
+                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group overflow-hidden`}
                 >
                   <div>
                     {/* Top Icon Badge & Highlighted Number beside it */}

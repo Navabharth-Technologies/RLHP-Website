@@ -196,7 +196,7 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className="relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border border-emerald-100 shadow-sm hover:shadow-xl hover:border-rlhp-green transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group h-full cursor-default"
+                    className="relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default"
                   >
                     <div>
                       {/* Top: Year Highlight & Relevant Green Badge Symbol */}
@@ -317,49 +317,61 @@ export default function OurIdentity({ setCurrentPage }) {
                   icon: Users,
                   iconColor: 'text-rose-500',
                   badgeBg: 'bg-rose-50 border-rose-200 group-hover:bg-rose-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-rose-400',
-                  hoverShadow: 'hover:shadow-rose-100',
-                  tagColor: 'text-rose-400',
+                  hoverBorder: 'hover:border-rose-500',
+                  hoverGlow: 'hover:shadow-[0_22px_45px_-10px_rgba(244,63,94,0.4)]',
+                  tagColor: 'text-rose-500',
+                  accentDot: 'bg-rose-500',
+                  glowBackdrop: 'from-rose-500/10 via-rose-500/5 to-transparent',
                 },
                 {
                   icon: ShieldCheck,
                   iconColor: 'text-blue-500',
                   badgeBg: 'bg-blue-50 border-blue-200 group-hover:bg-blue-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-blue-400',
-                  hoverShadow: 'hover:shadow-blue-100',
-                  tagColor: 'text-blue-400',
+                  hoverBorder: 'hover:border-blue-500',
+                  hoverGlow: 'hover:shadow-[0_22px_45px_-10px_rgba(59,130,246,0.4)]',
+                  tagColor: 'text-blue-500',
+                  accentDot: 'bg-blue-500',
+                  glowBackdrop: 'from-blue-500/10 via-blue-500/5 to-transparent',
                 },
                 {
                   icon: Users,
                   iconColor: 'text-purple-500',
                   badgeBg: 'bg-purple-50 border-purple-200 group-hover:bg-purple-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-purple-400',
-                  hoverShadow: 'hover:shadow-purple-100',
-                  tagColor: 'text-purple-400',
+                  hoverBorder: 'hover:border-purple-500',
+                  hoverGlow: 'hover:shadow-[0_22px_45px_-10px_rgba(168,85,247,0.4)]',
+                  tagColor: 'text-purple-500',
+                  accentDot: 'bg-purple-500',
+                  glowBackdrop: 'from-purple-500/10 via-purple-500/5 to-transparent',
                 },
                 {
                   icon: Sprout,
                   iconColor: 'text-emerald-500',
                   badgeBg: 'bg-emerald-50 border-emerald-200 group-hover:bg-emerald-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-emerald-400',
-                  hoverShadow: 'hover:shadow-emerald-100',
-                  tagColor: 'text-emerald-400',
+                  hoverBorder: 'hover:border-emerald-500',
+                  hoverGlow: 'hover:shadow-[0_22px_45px_-10px_rgba(16,185,129,0.4)]',
+                  tagColor: 'text-emerald-500',
+                  accentDot: 'bg-emerald-500',
+                  glowBackdrop: 'from-emerald-500/10 via-emerald-500/5 to-transparent',
                 },
                 {
                   icon: Award,
                   iconColor: 'text-amber-500',
                   badgeBg: 'bg-amber-50 border-amber-200 group-hover:bg-amber-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-amber-400',
-                  hoverShadow: 'hover:shadow-amber-100',
-                  tagColor: 'text-amber-400',
+                  hoverBorder: 'hover:border-amber-500',
+                  hoverGlow: 'hover:shadow-[0_22px_45px_-10px_rgba(245,158,11,0.4)]',
+                  tagColor: 'text-amber-500',
+                  accentDot: 'bg-amber-500',
+                  glowBackdrop: 'from-amber-500/10 via-amber-500/5 to-transparent',
                 },
                 {
                   icon: Scale,
                   iconColor: 'text-teal-500',
                   badgeBg: 'bg-teal-50 border-teal-200 group-hover:bg-teal-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-teal-400',
-                  hoverShadow: 'hover:shadow-teal-100',
-                  tagColor: 'text-teal-400',
+                  hoverBorder: 'hover:border-teal-500',
+                  hoverGlow: 'hover:shadow-[0_22px_45px_-10px_rgba(20,184,166,0.4)]',
+                  tagColor: 'text-teal-500',
+                  accentDot: 'bg-teal-500',
+                  glowBackdrop: 'from-teal-500/10 via-teal-500/5 to-transparent',
                 },
               ];
 
@@ -370,28 +382,31 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`p-7 rounded-3xl bg-white border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group space-y-4 flex flex-col justify-between cursor-pointer`}
+                    className={`relative p-7 rounded-3xl bg-white border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-300 group flex flex-col justify-between cursor-pointer overflow-hidden`}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className={`w-13 h-13 rounded-2xl border flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-xs ${theme.badgeBg}`}>
+                    {/* Ambient top color glow on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-b ${theme.glowBackdrop} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+
+                    <div className="flex items-center justify-between relative z-10">
+                      <div className={`w-13 h-13 rounded-2xl border-2 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-2 shadow-xs ${theme.badgeBg}`}>
                         <Icon size={24} className={`${theme.iconColor} group-hover:text-white transition-colors duration-300`} />
                       </div>
-                      <span className={`text-sm font-black transition-colors ${theme.tagColor} group-hover:font-extrabold`}>
+                      <span className={`text-sm font-black transition-colors ${theme.tagColor}`}>
                         0{idx + 1}
                       </span>
                     </div>
 
-                    <div>
+                    <div className="relative z-10 py-3">
                       <h4 className="font-black text-lg text-gray-900 group-hover:text-gray-950 transition-colors">
                         {val.title}
                       </h4>
-                      <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal mt-2">
+                      <p className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-800 leading-relaxed font-normal mt-2 transition-colors">
                         {val.description}
                       </p>
                     </div>
 
-                    <div className="pt-2">
-                      <div className="w-8 h-1 rounded-full bg-gray-150 group-hover:w-16 group-hover:bg-gray-400 transition-all duration-300" />
+                    <div className="pt-2 relative z-10">
+                      <div className={`w-10 h-1.5 rounded-full ${theme.accentDot} group-hover:w-20 shadow-xs transition-all duration-300`} />
                     </div>
                   </div>
                 );

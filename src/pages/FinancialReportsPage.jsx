@@ -98,7 +98,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
             <div
               key={idx}
               onClick={() => setActiveFlipbook(item)}
-              className="group bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:border-red-400/60 transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1.5"
+              className="group bg-white rounded-2xl p-6 sm:p-7 border-2 border-gray-200 hover:border-red-500 shadow-sm hover:shadow-[0_22px_45px_-10px_rgba(239,68,68,0.4)] transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-2 relative overflow-hidden"
             >
               <div>
                 {/* Red Flat Stylized PDF Icon matching Reference 2 */}
