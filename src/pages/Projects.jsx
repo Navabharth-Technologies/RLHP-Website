@@ -225,14 +225,14 @@ export default function Projects({ setCurrentPage, onNavClick }) {
             ];
 
             return orgDetails.ourPrograms.map((prog, idx) => {
-              const Icon = programIcons[idx] || Sparkles;
+              const imageSrc = `${import.meta.env.BASE_URL}images/programs/program_card_${idx + 1}.jpg`;
               const style = programStyles[idx % programStyles.length];
               const isVisible = hasStarted && idx < visibleCount;
 
               return (
                 <div
                   key={idx}
-                  className={`bg-white rounded-3xl p-7 sm:p-8 shadow-xs border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${
+                  className={`bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-gray-200/90 ${style.hoverBorder} ${style.hoverShadow} hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${
                     isVisible 
                       ? 'opacity-100 translate-y-0 scale-100' 
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
@@ -241,23 +241,32 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                     willChange: 'transform, opacity',
                   }}
                 >
-                  {/* Icon Badge with Distinct Aesthetic Color and Animation */}
-                  <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center border shadow-xs transition-all duration-300 ${style.anim} ${style.badgeBg}`}>
-                    <Icon size={28} className={`${style.iconColor} group-hover:text-white transition-colors duration-300`} />
+                  {/* Circular Image Container In Place of Symbols with Glow Ring & Hover Zoom */}
+                  <div className="relative mb-5 flex items-center justify-center">
+                    {/* Decorative Ambient Outer Ring */}
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-emerald-500 via-teal-400 to-amber-400 shadow-md group-hover:scale-108 group-hover:rotate-3 transition-all duration-500">
+                      <div className="w-full h-full rounded-full overflow-hidden bg-white p-0.5 shadow-inner">
+                        <img
+                          src={imageSrc}
+                          alt={prog.title}
+                          className="w-full h-full object-cover rounded-full group-hover:scale-115 transition-transform duration-700"
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Program Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2.5 leading-snug tracking-tight group-hover:text-gray-950 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-2.5 leading-snug tracking-tight group-hover:text-rlhp-darkgreen transition-colors">
                     {prog.title}
                   </h3>
 
                   {/* Program Description */}
-                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal mt-auto pt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium mt-auto pt-1">
                     {prog.description}
                   </p>
 
                   {/* Bottom Accent Bar expanding on hover */}
-                  <div className={`mt-6 w-8 h-1 rounded-full ${style.accentLine} group-hover:w-16 transition-all duration-300`} />
+                  <div className={`mt-6 w-10 h-1 rounded-full ${style.accentLine} group-hover:w-20 transition-all duration-300`} />
                 </div>
               );
             });
