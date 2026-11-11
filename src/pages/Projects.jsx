@@ -86,15 +86,31 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               </div>
             </div>
 
-            {/* Right Card Image (5 Cols) - Exact layout like Reference Image 3 */}
+            {/* Right Images (5 Cols) - Overlapping Playful Cards as in Previous Layout */}
             <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
-              <div className="relative w-full max-w-[460px] h-[300px] sm:h-[340px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white transition-transform duration-500 hover:scale-[1.02]">
-                <img
-                  src={`${import.meta.env.BASE_URL}images/gallery/ashabhavana_girls_learning.jpg`}
-                  alt="What We Do - Rural Literacy and Health Programme"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="relative w-full max-w-[440px] h-[340px] sm:h-[390px]">
+                {/* Back / Left tilted card */}
+                <div className="absolute left-2 sm:left-4 top-4 w-[58%] h-[82%] rounded-3xl overflow-hidden shadow-xl border-4 border-white -rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-10 bg-gray-100">
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/what_we_do_1.jpg`}
+                    alt="What We Do - RLHP Community Program"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+
+                {/* Front / Right card */}
+                <div className="absolute right-2 sm:right-4 bottom-4 w-[60%] h-[84%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-20 bg-gray-100">
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/what_we_do_2.jpg`}
+                    alt="What We Do - RLHP Learning & Activity"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+
+                {/* Subtle soft backdrop shape */}
+                <div className="absolute inset-8 bg-green-100/60 rounded-3xl -z-10 blur-xl" />
               </div>
             </div>
 
