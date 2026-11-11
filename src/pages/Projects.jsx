@@ -86,27 +86,27 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               </div>
             </div>
 
-            {/* Right Images (5 Cols) - Overlapping Playful Cards as in Previous Layout */}
+            {/* Right Images (5 Cols) - Overlapping Playful Cards: Interchanged with clear face visibility */}
             <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
               <div className="relative w-full max-w-[440px] h-[340px] sm:h-[390px]">
-                {/* Back / Left tilted card */}
-                <div className="absolute left-2 sm:left-4 top-4 w-[58%] h-[82%] rounded-3xl overflow-hidden shadow-xl border-4 border-white -rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-10 bg-gray-100">
+                {/* Back / Left tilted card - Now showing What We Do 2 (Street gathering) */}
+                <div className="absolute left-2 sm:left-4 top-4 w-[60%] h-[82%] rounded-3xl overflow-hidden shadow-xl border-4 border-white -rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-10 bg-gray-100">
                   <img
-                    src={`${import.meta.env.BASE_URL}images/what_we_do_1.jpg`}
-                    alt="What We Do - RLHP Community Program"
+                    src={`${import.meta.env.BASE_URL}images/what_we_do_2.jpg`}
+                    alt="What We Do - RLHP Community Outreach"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
 
-                {/* Front / Right card */}
-                <div className="absolute right-2 sm:right-4 bottom-4 w-[60%] h-[84%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-20 bg-gray-100">
+                {/* Front / Right card - Now showing What We Do 1 with clear girl & faces */}
+                <div className="absolute right-2 sm:right-4 bottom-4 w-[60%] h-[86%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-20 bg-gray-100">
                   <img
-                    src={`${import.meta.env.BASE_URL}images/what_we_do_2.jpg`}
-                    alt="What We Do - RLHP Learning & Activity"
-                    className="w-full h-full object-cover"
+                    src={`${import.meta.env.BASE_URL}images/what_we_do_faces.jpg`}
+                    alt="What We Do - RLHP Children & Girl in Learning Circle"
+                    className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
 
                 {/* Subtle soft backdrop shape */}
@@ -232,30 +232,30 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent" />
 
                       {/* Bottom Title on Front Card */}
-                      <div className="absolute bottom-0 inset-x-0 p-6 z-10">
+                      <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 z-10">
                         <div
-                          className="w-10 h-1.5 rounded-full mb-3"
+                          className="w-8 h-1 rounded-full mb-2.5"
                           style={{ backgroundColor: style.accentColor }}
                         />
-                        <h3 className="text-xl sm:text-2xl font-black text-white leading-snug drop-shadow-md">
+                        <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug drop-shadow-md">
                           {prog.title}
                         </h3>
                       </div>
                     </div>
 
                     {/* ── BACK FACE: Clean Detailed Information Revealed on Hover Flip ── */}
-                    <div className={`absolute inset-0 w-full h-full rounded-3xl p-7 bg-gradient-to-br ${style.backGradient} text-white rotate-y-180 backface-hidden border-2 border-white/30 shadow-2xl flex flex-col justify-center`}>
-                      <h3 className="text-lg sm:text-xl font-black text-white leading-snug mb-3">
+                    <div className={`absolute inset-0 w-full h-full rounded-3xl p-6 sm:p-7 bg-gradient-to-br ${style.backGradient} text-white rotate-y-180 backface-hidden border-2 border-white/30 shadow-2xl flex flex-col justify-center`}>
+                      <h3 className="text-base sm:text-lg font-black text-white leading-snug mb-2.5">
                         {prog.title}
                       </h3>
 
                       <div
-                        className="w-12 h-1.5 rounded-full mb-4"
+                        className="w-10 h-1 rounded-full mb-3"
                         style={{ backgroundColor: style.accentColor }}
                       />
 
-                      {/* Full Detailed Description */}
-                      <p className="text-white/95 text-sm sm:text-base leading-relaxed font-medium">
+                      {/* Full Detailed Description with slightly decreased font size for ideal readability */}
+                      <p className="text-white/95 text-xs sm:text-[13px] leading-relaxed font-normal">
                         {prog.description}
                       </p>
                     </div>

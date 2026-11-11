@@ -191,13 +191,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
           <img
             src={heroImage}
             alt="RLHP Child Education"
-            className="w-full h-full object-cover object-[left_20%] sm:object-[15%_20%]"
+            className="w-full h-full object-cover object-[0%_20%] sm:object-[2%_20%]"
             style={{ imageRendering: 'auto' }}
           />
         </div>
 
         {/* Curved Green SVG Element pushed to far edge - Clean smooth edge */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 pointer-events-none overflow-hidden z-[2] opacity-75 hidden md:block">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[46%] pointer-events-none overflow-hidden z-[2] opacity-80 hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
@@ -833,12 +833,12 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:border-rlhp-green/50 transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
               >
                 {/* Book Cover Container */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 flex items-center justify-center p-3">
-                  <div className="relative w-full h-full rounded-lg overflow-hidden shadow-md group-hover:shadow-lg transition-shadow">
+                <div className="relative aspect-[3/4.2] w-full overflow-hidden bg-gray-100 flex items-center justify-center p-3">
+                  <div className="relative w-full h-full rounded-lg overflow-hidden shadow-md group-hover:shadow-lg transition-shadow bg-white flex items-center justify-center">
                     <img
                       src={item.cover}
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
                     {/* Book spine overlay */}
                     <div className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-black/30 to-transparent pointer-events-none" />
