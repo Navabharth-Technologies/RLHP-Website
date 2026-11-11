@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, Quote,
   FileText, GraduationCap, Handshake, ShieldCheck, Download,
@@ -22,6 +22,63 @@ export default function Home({ setCurrentPage, onNavClick }) {
   const [showAllTestimonials, setShowAllTestimonials] = useState(false);
   const [downloadingReport, setDownloadingReport] = useState(null);
   const [selectedReportDetail, setSelectedReportDetail] = useState(null);
+
+  // Staggered cascade timers for sections
+  // 1. Who We Are 4 highlight stat cards
+  const [whoWeAreVisibleCount, setWhoWeAreVisibleCount] = useState(0);
+  const whoWeAreRef = useRef(null);
+  const [whoWeAreStarted, setWhoWeAreStarted] = useState(false);
+
+  // 2. Our Programme Priorities 7 cards
+  const [prioritiesVisibleCount, setPrioritiesVisibleCount] = useState(0);
+  const prioritiesRef = useRef(null);
+  const [prioritiesStarted, setPrioritiesStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !whoWeAreStarted) {
+          setWhoWeAreStarted(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (whoWeAreRef.current) observer.observe(whoWeAreRef.current);
+    return () => observer.disconnect();
+  }, [whoWeAreStarted]);
+
+  useEffect(() => {
+    if (!whoWeAreStarted) return;
+    if (whoWeAreVisibleCount < 4) {
+      const timer = setTimeout(() => {
+        setWhoWeAreVisibleCount((prev) => prev + 1);
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, [whoWeAreStarted, whoWeAreVisibleCount]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !prioritiesStarted) {
+          setPrioritiesStarted(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (prioritiesRef.current) observer.observe(prioritiesRef.current);
+    return () => observer.disconnect();
+  }, [prioritiesStarted]);
+
+  useEffect(() => {
+    if (!prioritiesStarted) return;
+    if (prioritiesVisibleCount < 7) {
+      const timer = setTimeout(() => {
+        setPrioritiesVisibleCount((prev) => prev + 1);
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, [prioritiesStarted, prioritiesVisibleCount]);
 
   // List of all 4 annual reports for cards, detail view and related posts
   const annualReportsList = [
@@ -348,22 +405,33 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </div>
           </div>
 
-          {/* 4 Stat Highlight Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12">
+          {/* 4 Stat Highlight Cards with Cascade Timer Animation */}
+          <div ref={whoWeAreRef} className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12">
             {[
               { num: '1984', label: 'Registered Non-Profit', icon: Building2 },
               { num: '4', label: 'States in South India', icon: MapPin },
               { num: '2M+', label: 'Lives Reached', icon: Users },
               { num: 'Mysuru', label: 'Headquarters', icon: MapPin },
-            ].map((stat, i) => (
-              <div key={i} className="bg-gradient-to-br from-rlhp-green to-rlhp-darkgreen rounded-xl p-5 text-center text-white shadow-md hover:shadow-lg transition-shadow hover:-translate-y-1 duration-300">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3">
-                  <stat.icon size={20} />
+            ].map((stat, i) => {
+              const isVisible = whoWeAreStarted && i < whoWeAreVisibleCount;
+              return (
+                <div
+                  key={i}
+                  className={`bg-gradient-to-br from-rlhp-green to-rlhp-darkgreen rounded-2xl p-5 text-center text-white shadow-md hover:shadow-[0_20px_40px_-10px_rgba(34,197,94,0.4)] transition-all duration-500 hover:-translate-y-2 border border-white/20 ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0 scale-100' 
+                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                  }`}
+                  style={{ willChange: 'transform, opacity' }}
+                >
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3 shadow-inner">
+                    <stat.icon size={22} />
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-extrabold leading-none mb-1">{stat.num}</div>
+                  <div className="text-xs text-green-100 uppercase tracking-wider font-medium">{stat.label}</div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold leading-none mb-1">{stat.num}</div>
-                <div className="text-xs text-green-100 uppercase tracking-wider font-medium">{stat.label}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -399,7 +467,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
           </div>
 
           {/* Cards Grid: 1st row has 4 cards, next row has 3 cards on desktop */}
-          <div className="space-y-6">
+          <div ref={prioritiesRef} className="space-y-6">
             {/* Row 1: 4 Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
@@ -435,61 +503,69 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   page: 'projects',
                   opt: 'health',
                 },
-              ].map((card, i) => (
-                <div
-                  key={i}
-                  className="flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
-                >
-                  {/* 3D Flip Card Inner Container */}
-                  <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
+              ].map((card, i) => {
+                const isVisible = prioritiesStarted && i < prioritiesVisibleCount;
+                return (
+                  <div
+                    key={i}
+                    className={`flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer transition-all duration-500 hover:shadow-[0_20px_45px_-10px_rgba(76,175,80,0.5)] ${
+                      isVisible 
+                        ? 'opacity-100 translate-y-0 scale-100' 
+                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
+                    style={{ willChange: 'transform, opacity' }}
+                  >
+                    {/* 3D Flip Card Inner Container */}
+                    <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
 
-                    {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
-                    <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
-                      <img
-                        src={card.img}
-                        alt={card.title}
-                        className="w-full h-full object-cover transition-transform duration-700"
-                      />
-                      {/* Gradient overlay for contrast */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
+                      {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
+                      <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
+                        <img
+                          src={card.img}
+                          alt={card.title}
+                          className="w-full h-full object-cover transition-transform duration-700"
+                        />
+                        {/* Gradient overlay for contrast */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
 
-                      {/* Bottom Title on Front Card (No arrow or flip instructions) */}
-                      <div className="absolute bottom-0 inset-x-0 p-5">
-                        <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
-                        <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
-                          {card.title}
-                        </h3>
+                        {/* Bottom Title on Front Card (No arrow or flip instructions) */}
+                        <div className="absolute bottom-0 inset-x-0 p-5">
+                          <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
+                          <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
+                            {card.title}
+                          </h3>
+                        </div>
                       </div>
+
+                      {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
+                      <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
+                            {card.title}
+                          </h3>
+                          <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
+
+                          {/* Description */}
+                          <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
+                            {card.desc}
+                          </p>
+                        </div>
+
+                        {/* Bottom Metric Badge */}
+                        <div className="pt-3 border-t border-white/20 flex items-center justify-between">
+                          <span className="text-[11px] font-bold text-emerald-200">
+                            {card.metric}
+                          </span>
+                          <span className="text-[10px] text-white/70 italic">
+                            RLHP Priority
+                          </span>
+                        </div>
+                      </div>
+
                     </div>
-
-                    {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
-                    <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
-                          {card.title}
-                        </h3>
-                        <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
-
-                        {/* Description */}
-                        <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
-                          {card.desc}
-                        </p>
-                      </div>
-
-                      {/* Bottom Metric Badge */}
-                      <div className="pt-3 border-t border-white/20 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-emerald-200">
-                          {card.metric}
-                        </span>
-                        <span className="text-[10px] text-white/70 italic">
-                          RLHP Priority
-                        </span>
-                      </div>
-                    </div>
-
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Row 2: 3 Cards Centered */}
@@ -519,61 +595,70 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   page: 'projects',
                   opt: 'livelihood',
                 },
-              ].map((card, i) => (
-                <div
-                  key={i}
-                  className="flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer"
-                >
-                  {/* 3D Flip Card Inner Container */}
-                  <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
+              ].map((card, idx) => {
+                const i = idx + 4;
+                const isVisible = prioritiesStarted && i < prioritiesVisibleCount;
+                return (
+                  <div
+                    key={idx}
+                    className={`flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer transition-all duration-500 hover:shadow-[0_20px_45px_-10px_rgba(76,175,80,0.5)] ${
+                      isVisible 
+                        ? 'opacity-100 translate-y-0 scale-100' 
+                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
+                    style={{ willChange: 'transform, opacity' }}
+                  >
+                    {/* 3D Flip Card Inner Container */}
+                    <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
 
-                    {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
-                    <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
-                      <img
-                        src={card.img}
-                        alt={card.title}
-                        className="w-full h-full object-cover transition-transform duration-700"
-                      />
-                      {/* Gradient overlay for contrast */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
+                      {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
+                      <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
+                        <img
+                          src={card.img}
+                          alt={card.title}
+                          className="w-full h-full object-cover transition-transform duration-700"
+                        />
+                        {/* Gradient overlay for contrast */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
 
-                      {/* Bottom Title on Front Card (No arrow or flip instructions) */}
-                      <div className="absolute bottom-0 inset-x-0 p-5">
-                        <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
-                        <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
-                          {card.title}
-                        </h3>
+                        {/* Bottom Title on Front Card (No arrow or flip instructions) */}
+                        <div className="absolute bottom-0 inset-x-0 p-5">
+                          <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
+                          <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
+                            {card.title}
+                          </h3>
+                        </div>
                       </div>
+
+                      {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
+                      <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
+                            {card.title}
+                          </h3>
+                          <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
+
+                          {/* Description */}
+                          <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
+                            {card.desc}
+                          </p>
+                        </div>
+
+                        {/* Bottom Metric Badge */}
+                        <div className="pt-3 border-t border-white/20 flex items-center justify-between">
+                          <span className="text-[11px] font-bold text-emerald-200">
+                            {card.metric}
+                          </span>
+                          <span className="text-[10px] text-white/70 italic">
+                            RLHP Priority
+                          </span>
+                        </div>
+                      </div>
+
                     </div>
-
-                    {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
-                    <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
-                          {card.title}
-                        </h3>
-                        <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
-
-                        {/* Description */}
-                        <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
-                          {card.desc}
-                        </p>
-                      </div>
-
-                      {/* Bottom Metric Badge */}
-                      <div className="pt-3 border-t border-white/20 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-emerald-200">
-                          {card.metric}
-                        </span>
-                        <span className="text-[10px] text-white/70 italic">
-                          RLHP Priority
-                        </span>
-                      </div>
-                    </div>
-
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

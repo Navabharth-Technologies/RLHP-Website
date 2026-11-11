@@ -15,6 +15,11 @@ export default function OurIdentity({ setCurrentPage }) {
   const principlesRef = useRef(null);
   const [principlesStarted, setPrinciplesStarted] = useState(false);
 
+  // Core Values cascade timer state
+  const [valuesVisibleCount, setValuesVisibleCount] = useState(0);
+  const valuesRef = useRef(null);
+  const [valuesStarted, setValuesStarted] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -41,6 +46,34 @@ export default function OurIdentity({ setCurrentPage }) {
       return () => clearTimeout(timer);
     }
   }, [principlesStarted, principlesVisibleCount]);
+
+  // Core values observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !valuesStarted) {
+          setValuesStarted(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (valuesRef.current) {
+      observer.observe(valuesRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [valuesStarted]);
+
+  useEffect(() => {
+    if (!valuesStarted) return;
+    if (valuesVisibleCount < orgDetails.coreValues.length) {
+      const timer = setTimeout(() => {
+        setValuesVisibleCount((prev) => prev + 1);
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, [valuesStarted, valuesVisibleCount]);
 
   return (
     <div className="space-y-16 font-sans pb-16 bg-gray-50/50">
@@ -302,7 +335,7 @@ export default function OurIdentity({ setCurrentPage }) {
         </section>
 
         {/* 6. OUR CORE VALUES (6 Core Values with Simple Aesthetic Colors, Smooth Hover Elevation & Motion) */}
-        <section id="core-values" className="space-y-8">
+        <section id="core-values" ref={valuesRef} className="space-y-8">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
               Our Core <span className="text-rlhp-green italic font-serif">Values</span>
@@ -378,11 +411,19 @@ export default function OurIdentity({ setCurrentPage }) {
               return orgDetails.coreValues.map((val, idx) => {
                 const theme = valueThemes[idx] || valueThemes[0];
                 const Icon = theme.icon;
+                const isVisible = valuesStarted && idx < valuesVisibleCount;
 
                 return (
                   <div
                     key={idx}
-                    className={`relative p-7 rounded-3xl bg-white border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-300 group flex flex-col justify-between cursor-pointer overflow-hidden`}
+                    className={`relative p-7 rounded-3xl bg-white border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-500 group flex flex-col justify-between cursor-pointer overflow-hidden ${
+                      isVisible 
+                        ? 'opacity-100 translate-y-0 scale-100' 
+                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
+                    style={{
+                      willChange: 'transform, opacity',
+                    }}
                   >
                     {/* Ambient top color glow on hover */}
                     <div className={`absolute inset-0 bg-gradient-to-b ${theme.glowBackdrop} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
@@ -391,9 +432,6 @@ export default function OurIdentity({ setCurrentPage }) {
                       <div className={`w-13 h-13 rounded-2xl border-2 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-2 shadow-xs ${theme.badgeBg}`}>
                         <Icon size={24} className={`${theme.iconColor} group-hover:text-white transition-colors duration-300`} />
                       </div>
-                      <span className={`text-sm font-black transition-colors ${theme.tagColor}`}>
-                        0{idx + 1}
-                      </span>
                     </div>
 
                     <div className="relative z-10 py-3">

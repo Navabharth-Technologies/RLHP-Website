@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { impactStats } from '../data/rlhpData';
 import {
   Award, ShieldCheck, Heart, Users, CheckCircle2, Activity, Handshake, BookOpen,
@@ -6,6 +6,10 @@ import {
 } from 'lucide-react';
 
 export default function ImpactPage() {
+  const [footprintVisibleCount, setFootprintVisibleCount] = useState(0);
+  const footprintRef = useRef(null);
+  const [footprintStarted, setFootprintStarted] = useState(false);
+
   const iconMap = {
     Clock: Clock,
     Users: Users,
@@ -148,6 +152,29 @@ export default function ImpactPage() {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !footprintStarted) {
+          setFootprintStarted(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (footprintRef.current) observer.observe(footprintRef.current);
+    return () => observer.disconnect();
+  }, [footprintStarted]);
+
+  useEffect(() => {
+    if (!footprintStarted) return;
+    if (footprintVisibleCount < highlightCards.length) {
+      const timer = setTimeout(() => {
+        setFootprintVisibleCount((prev) => prev + 1);
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, [footprintStarted, footprintVisibleCount, highlightCards.length]);
+
   return (
     <div className="space-y-12 font-sans pb-16">
       {/* ── Page Banner ── */}
@@ -161,22 +188,25 @@ export default function ImpactPage() {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Top 4 Main Stat Counter Bar */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        {/* Top 4 Main Stat Counter Bar - with enhanced luminous green hover highlight */}
+        <div className="bg-white rounded-3xl shadow-sm border-2 border-gray-100 p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           {impactStats.map((stat) => {
             const IconComponent = iconMap[stat.icon] || Users;
             return (
-              <div key={stat.id} className="flex flex-col items-center p-3 rounded-xl hover:bg-rlhp-lightgreen/40 transition-colors group">
-                <div className="w-12 h-12 rounded-full bg-rlhp-lightgreen text-rlhp-green flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <IconComponent size={24} />
+              <div
+                key={stat.id}
+                className="flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-gray-50/60 hover:bg-emerald-50/80 border-2 border-transparent hover:border-emerald-500 hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.4)] transition-all duration-300 hover:-translate-y-1.5 group cursor-pointer"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-rlhp-green border border-emerald-200 flex items-center justify-center mb-3 group-hover:scale-115 group-hover:bg-rlhp-green group-hover:text-white transition-all shadow-xs">
+                  <IconComponent size={26} />
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-rlhp-darkgreen tracking-tight">
+                <div className="text-2xl sm:text-4xl font-black text-rlhp-darkgreen tracking-tight group-hover:text-emerald-900 transition-colors">
                   {stat.count}
                 </div>
-                <div className="text-xs font-bold text-gray-800 uppercase tracking-wide mt-1">
+                <div className="text-xs font-bold text-gray-800 uppercase tracking-wide mt-1.5 group-hover:text-gray-950 transition-colors">
                   {stat.label}
                 </div>
-                <div className="text-[11px] text-gray-500 mt-1 max-w-[180px]">
+                <div className="text-[11px] text-gray-500 group-hover:text-gray-700 mt-1 max-w-[190px] transition-colors leading-relaxed">
                   {stat.description}
                 </div>
               </div>
@@ -199,14 +229,20 @@ export default function ImpactPage() {
             </p>
           </div>
 
-          {/* All Transformative Cards in the rich card style with icon badges & bottom accent bars */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* All Transformative Cards with cascade timer animation matching Our Principles */}
+          <div ref={footprintRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {highlightCards.map((card, idx) => {
               const Icon = card.icon;
+              const isVisible = footprintStarted && idx < footprintVisibleCount;
               return (
                 <div
                   key={idx}
-                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group overflow-hidden`}
+                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group overflow-hidden ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0 scale-100' 
+                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                  }`}
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   <div>
                     {/* Top Icon Badge & Highlighted Number beside it */}
