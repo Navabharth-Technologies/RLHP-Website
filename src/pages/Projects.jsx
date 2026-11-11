@@ -119,82 +119,82 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           {(() => {
             const programStyles = [
               {
-                hoverBorder: 'hover:border-rose-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(244,63,94,0.3)]',
-                accentLine: 'bg-rose-500',
-                glowColor: 'from-rose-500/10 via-rose-500/5 to-transparent',
+                accentColor: '#F43F5E',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(244,63,94,0.4)]',
+                backGradient: 'from-[#881337] via-[#9F1239] to-[#4C0519]',
+                tag: 'Street Children Care',
               },
               {
-                hoverBorder: 'hover:border-blue-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)]',
-                accentLine: 'bg-blue-500',
-                glowColor: 'from-blue-500/10 via-blue-500/5 to-transparent',
+                accentColor: '#3B82F6',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(59,130,246,0.4)]',
+                backGradient: 'from-[#1E3A8A] via-[#1D4ED8] to-[#172554]',
+                tag: 'Child Rights & Voice',
               },
               {
-                hoverBorder: 'hover:border-amber-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)]',
-                accentLine: 'bg-amber-500',
-                glowColor: 'from-amber-500/10 via-amber-500/5 to-transparent',
+                accentColor: '#F59E0B',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(245,158,11,0.4)]',
+                backGradient: 'from-[#78350F] via-[#92400E] to-[#451A03]',
+                tag: 'Reading & Literacy',
               },
               {
-                hoverBorder: 'hover:border-purple-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(168,85,247,0.3)]',
-                accentLine: 'bg-purple-500',
-                glowColor: 'from-purple-500/10 via-purple-500/5 to-transparent',
+                accentColor: '#A855F7',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(168,85,247,0.4)]',
+                backGradient: 'from-[#581C87] via-[#6B21A8] to-[#3B0764]',
+                tag: 'Child Labour Elimination',
               },
               {
-                hoverBorder: 'hover:border-emerald-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.3)]',
-                accentLine: 'bg-emerald-500',
-                glowColor: 'from-emerald-500/10 via-emerald-500/5 to-transparent',
+                accentColor: '#10B981',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)]',
+                backGradient: 'from-[#064E3B] via-[#047857] to-[#022C22]',
+                tag: 'SHGs & Empowerment',
               },
               {
-                hoverBorder: 'hover:border-teal-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(20,184,166,0.3)]',
-                accentLine: 'bg-teal-500',
-                glowColor: 'from-teal-500/10 via-teal-500/5 to-transparent',
+                accentColor: '#14B8A6',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(20,184,166,0.4)]',
+                backGradient: 'from-[#134E4A] via-[#0F766E] to-[#042F2E]',
+                tag: 'Skills & Vocation',
               },
               {
-                hoverBorder: 'hover:border-yellow-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(234,179,8,0.3)]',
-                accentLine: 'bg-yellow-500',
-                glowColor: 'from-yellow-500/10 via-yellow-500/5 to-transparent',
+                accentColor: '#EAB308',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(234,179,8,0.4)]',
+                backGradient: 'from-[#713F12] via-[#854D0E] to-[#422006]',
+                tag: 'Govt Entitlements',
               },
               {
-                hoverBorder: 'hover:border-sky-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(14,165,233,0.3)]',
-                accentLine: 'bg-sky-500',
-                glowColor: 'from-sky-500/10 via-sky-500/5 to-transparent',
+                accentColor: '#0EA5E9',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(14,165,233,0.4)]',
+                backGradient: 'from-[#0C4A6E] via-[#0369A1] to-[#082F49]',
+                tag: 'Healthcare & Hygiene',
               },
               {
-                hoverBorder: 'hover:border-pink-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(236,72,153,0.3)]',
-                accentLine: 'bg-pink-500',
-                glowColor: 'from-pink-500/10 via-pink-500/5 to-transparent',
+                accentColor: '#EC4899',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(236,72,153,0.4)]',
+                backGradient: 'from-[#831843] via-[#9D174D] to-[#500724]',
+                tag: 'Higher Education Aid',
               },
               {
-                hoverBorder: 'hover:border-green-500',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(34,197,94,0.3)]',
-                accentLine: 'bg-green-600',
-                glowColor: 'from-green-500/10 via-green-500/5 to-transparent',
+                accentColor: '#22C55E',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(34,197,94,0.4)]',
+                backGradient: 'from-[#14532D] via-[#15803D] to-[#052E16]',
+                tag: 'Youth Leadership',
               },
               {
-                hoverBorder: 'hover:border-indigo-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(99,102,241,0.3)]',
-                accentLine: 'bg-indigo-500',
-                glowColor: 'from-indigo-500/10 via-indigo-500/5 to-transparent',
+                accentColor: '#6366F1',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(99,102,241,0.4)]',
+                backGradient: 'from-[#312E81] via-[#3730A3] to-[#1E1B4B]',
+                tag: 'Social Harmony & Peace',
               },
               {
-                hoverBorder: 'hover:border-cyan-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(6,182,212,0.3)]',
-                accentLine: 'bg-cyan-500',
-                glowColor: 'from-cyan-500/10 via-cyan-500/5 to-transparent',
+                accentColor: '#06B6D4',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(6,182,212,0.4)]',
+                backGradient: 'from-[#164E63] via-[#0E7490] to-[#083344]',
+                tag: 'Slum Improvement',
               },
               {
-                hoverBorder: 'hover:border-violet-400',
-                hoverGlow: 'hover:shadow-[0_20px_40px_-10px_rgba(139,92,246,0.3)]',
-                accentLine: 'bg-violet-500',
-                glowColor: 'from-violet-500/10 via-violet-500/5 to-transparent',
+                accentColor: '#8B5CF6',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(139,92,246,0.4)]',
+                backGradient: 'from-[#4C1D95] via-[#5B21B6] to-[#2E1065]',
+                tag: 'Crisis & Disaster Relief',
               },
             ];
 
@@ -206,7 +206,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               return (
                 <div
                   key={idx}
-                  className={`bg-white rounded-3xl p-6 sm:p-8 shadow-md border-2 border-gray-150 ${style.hoverBorder} ${style.hoverGlow} hover:-translate-y-2.5 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${
+                  className={`flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer ${style.hoverGlow} transition-all duration-500 ${
                     isVisible 
                       ? 'opacity-100 translate-y-0 scale-100' 
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
@@ -215,34 +215,81 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                     willChange: 'transform, opacity',
                   }}
                 >
-                  {/* Subtle ambient gradient overlay on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-b ${style.glowColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+                  {/* 3D Flip Card Inner Container */}
+                  <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-3xl shadow-xl">
 
-                  {/* Circular Image Container with Multi-Stop Glowing Ring & Zoom */}
-                  <div className="relative mb-5 flex items-center justify-center z-10">
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-emerald-500 via-teal-400 to-amber-400 shadow-lg group-hover:shadow-xl group-hover:scale-110 group-hover:rotate-2 transition-all duration-300">
-                      <div className="w-full h-full rounded-full overflow-hidden bg-white p-0.5 shadow-inner">
-                        <img
-                          src={imageSrc}
-                          alt={prog.title}
-                          className="w-full h-full object-cover rounded-full group-hover:scale-115 transition-transform duration-500"
+                    {/* ── FRONT FACE: Full-Size Image Covering Entire Card + High-Clarity Overlay + Title ── */}
+                    <div className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden backface-hidden border-2 border-white/40 shadow-xl bg-gray-900 group">
+                      <img
+                        src={imageSrc}
+                        alt={prog.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                      />
+                      {/* Deep contrast gradient overlay for maximum readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10" />
+
+                      {/* Top Tag */}
+                      <div className="absolute top-4 left-4 z-10">
+                        <span className="inline-flex items-center text-[11px] font-extrabold uppercase tracking-wider text-white bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                          {style.tag}
+                        </span>
+                      </div>
+
+                      {/* Bottom Title on Front Card */}
+                      <div className="absolute bottom-0 inset-x-0 p-6 z-10">
+                        <div
+                          className="w-10 h-1.5 rounded-full mb-3"
+                          style={{ backgroundColor: style.accentColor }}
                         />
+                        <h3 className="text-xl sm:text-2xl font-black text-white leading-snug drop-shadow-lg">
+                          {prog.title}
+                        </h3>
+                        <p className="text-xs text-white/70 font-medium mt-1.5 flex items-center gap-1.5">
+                          <span>Hover to explore program details</span>
+                          <span>→</span>
+                        </p>
                       </div>
                     </div>
+
+                    {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
+                    <div className={`absolute inset-0 w-full h-full rounded-3xl p-7 bg-gradient-to-br ${style.backGradient} text-white rotate-y-180 backface-hidden border-2 border-white/30 shadow-2xl flex flex-col justify-between`}>
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="text-[11px] font-extrabold uppercase tracking-wider text-white/80 bg-white/10 px-3 py-1 rounded-full border border-white/15">
+                            {style.tag}
+                          </span>
+                          <span className="text-[11px] text-white/60 font-semibold">
+                            RLHP Program #{idx + 1}
+                          </span>
+                        </div>
+
+                        <h3 className="text-lg sm:text-xl font-black text-white leading-snug mb-3">
+                          {prog.title}
+                        </h3>
+
+                        <div
+                          className="w-12 h-1.5 rounded-full mb-4"
+                          style={{ backgroundColor: style.accentColor }}
+                        />
+
+                        {/* Full Detailed Description */}
+                        <p className="text-white/90 text-sm sm:text-base leading-relaxed font-medium">
+                          {prog.description}
+                        </p>
+                      </div>
+
+                      {/* Bottom Indicator */}
+                      <div className="pt-4 border-t border-white/20 flex items-center justify-between">
+                        <span className="text-xs font-bold text-white/90">
+                          Grassroots Action
+                        </span>
+                        <span className="text-[11px] text-white/70 italic">
+                          42+ Years of Impact
+                        </span>
+                      </div>
+                    </div>
+
                   </div>
-
-                  {/* Program Title */}
-                  <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-2.5 leading-snug tracking-tight group-hover:text-rlhp-darkgreen transition-colors z-10">
-                    {prog.title}
-                  </h3>
-
-                  {/* Program Description */}
-                  <p className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-800 leading-relaxed font-medium mt-auto pt-1 transition-colors z-10">
-                    {prog.description}
-                  </p>
-
-                  {/* Bottom Accent Bar expanding on hover */}
-                  <div className={`mt-6 w-12 h-1.5 rounded-full ${style.accentLine} group-hover:w-24 shadow-xs transition-all duration-300 z-10`} />
                 </div>
               );
             });
