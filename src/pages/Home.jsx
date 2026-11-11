@@ -404,7 +404,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  img: `${B}images/gallery/iep_remedial_class.jpg`,
+                  img: `${B}images/priorities/priority_card_1.jpg`,
                   title: 'Education and Learning',
                   desc: 'Ensuring access to quality education and improved learning opportunities through school enrolment, learning support, remedial education and academic development.',
                   metric: 'Quality Education',
@@ -412,7 +412,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   opt: 'education',
                 },
                 {
-                  img: `${B}images/gallery/child_rights_workshop.jpg`,
+                  img: `${B}images/priorities/priority_card_2.jpg`,
                   title: 'Child Rights and Protection',
                   desc: "Promoting child rights and protection by preventing child marriage, child labour and abuse, while ensuring children's safety, participation and development.",
                   metric: '80K+ Children Protected',
@@ -420,7 +420,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   opt: 'education',
                 },
                 {
-                  img: `${B}images/gallery/sangha_financial_literacy.jpg`,
+                  img: `${B}images/priorities/priority_card_3.jpg`,
                   title: 'Women on Socio-Economic Empowerment',
                   desc: 'Empowering women through self-help groups, financial literacy, collective entrepreneurship, leadership development and sustained socio-economic self-reliance.',
                   metric: 'Women Self-Reliance',
@@ -428,7 +428,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   opt: 'livelihood',
                 },
                 {
-                  img: `${B}images/gallery/sanitation_water_hygiene.jpg`,
+                  img: `${B}images/priorities/priority_card_4.jpg`,
                   title: 'Community Based Health & Sanitation',
                   desc: 'Improving community well-being through health camps, hygiene and sanitation awareness, clean drinking water initiatives, and preventive healthcare access for vulnerable families.',
                   metric: 'Health & Sanitation',
@@ -504,7 +504,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   opt: 'livelihood',
                 },
                 {
-                  img: `${B}images/gallery/gram_panchayat_interface.jpg`,
+                  img: `${B}images/priorities/priority_card_6.jpg`,
                   title: 'Community Development through Government Schemes',
                   desc: 'Strengthening communities by creating awareness and facilitating access to government welfare schemes, entitlements and essential services to improve livelihoods and quality of life.',
                   metric: 'Welfare & Entitlements',
@@ -512,7 +512,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   opt: 'community',
                 },
                 {
-                  img: `${B}images/gallery/shg_leadership_training.jpg`,
+                  img: `${B}images/priorities/priority_card_7.jpg`,
                   title: 'Livelihood Promotion and Economic Empowerment',
                   desc: 'Promoting sustainable livelihoods through skill development, vocational training, self-employment opportunities and income-generating activities to strengthen the economic independence of individuals and families.',
                   metric: 'Economic Independence',

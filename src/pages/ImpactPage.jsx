@@ -49,7 +49,7 @@ export default function ImpactPage() {
     },
     {
       number: "10,000+",
-      title: "Child laborers Mainstreamed",
+      title: "Child laborers  Mainstreamed",
       subtitle: "Anti-Child Labour & Education Rights",
       icon: GraduationCap,
       borderColor: "border-purple-200 hover:border-purple-500",
