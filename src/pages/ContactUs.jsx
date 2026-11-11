@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Facebook, Instagram, Youtube } from 'lucide-react';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -248,6 +248,43 @@ export default function ContactUs() {
                     Monday – Saturday<br />
                     09:30 AM – 05:30 PM
                   </p>
+                </div>
+              </div>
+
+              {/* Card 5: Connect on Social Media */}
+              <div className="p-6 rounded-2xl border-2 border-[#236B28] bg-gradient-to-r from-emerald-50/60 to-white flex items-center justify-between shadow-xs">
+                <div>
+                  <h4 className="font-extrabold text-base text-gray-950">Follow Our Updates</h4>
+                  <p className="text-xs text-gray-600 font-medium mt-0.5">Stay connected on our social channels</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <a
+                    href={orgDetails.social.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="w-11 h-11 rounded-full bg-[#236B28] text-white hover:bg-emerald-800 flex items-center justify-center transition-transform hover:scale-110 shadow-md"
+                  >
+                    <Facebook size={20} />
+                  </a>
+                  <a
+                    href={orgDetails.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white hover:opacity-90 flex items-center justify-center transition-transform hover:scale-110 shadow-md"
+                  >
+                    <Instagram size={20} />
+                  </a>
+                  <a
+                    href={orgDetails.social.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    className="w-11 h-11 rounded-full bg-red-600 text-white hover:bg-red-700 flex items-center justify-center transition-transform hover:scale-110 shadow-md"
+                  >
+                    <Youtube size={20} />
+                  </a>
                 </div>
               </div>
             </div>

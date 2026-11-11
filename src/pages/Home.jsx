@@ -250,19 +250,22 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 1: HERO SECTION
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden bg-[#0a1628] text-white min-h-[640px] lg:min-h-[720px] flex items-center">
-        {/* Crystal Clear High Definition Background Image */}
+      <section className="relative w-full overflow-hidden bg-[#0a1628] text-white min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-center">
+        {/* Crystal Clear High Definition Background Image - Perfectly Responsive across Mobile, Tablet & Desktop */}
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
             alt="RLHP Child Education"
-            className="w-full h-full object-cover object-[0%_20%] sm:object-[2%_20%]"
+            className="w-full h-full object-cover object-[15%_center] sm:object-[8%_center] lg:object-[2%_20%]"
             style={{ imageRendering: 'auto' }}
           />
+          {/* Subtle gradient overlay on mobile & tablet to guarantee text readability without covering the smiling child */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/95 via-[#0a1628]/60 to-transparent md:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0a1628]/80 hidden md:block lg:hidden" />
         </div>
 
-        {/* Curved Green SVG Element pushed to far edge - Clean smooth edge */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[46%] pointer-events-none overflow-hidden z-[2] opacity-80 hidden md:block">
+        {/* Curved Green SVG Element on Desktop */}
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[48%] lg:w-[46%] pointer-events-none overflow-hidden z-[2] opacity-85 hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
@@ -283,11 +286,11 @@ export default function Home({ setCurrentPage, onNavClick }) {
           </svg>
         </div>
 
-        {/* Hero Content Container - Moved completely to the right edge with generous margin */}
-        <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 py-20 flex justify-end">
-          <div className="w-full max-w-[560px] lg:mr-4 xl:mr-10 bg-black/25 md:bg-transparent backdrop-blur-[2px] md:backdrop-blur-none p-4 md:p-2 rounded-2xl md:rounded-none">
+        {/* Hero Content Container - Fully Responsive & Optimized for Mobile, Tablet and Desktop */}
+        <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 pt-36 pb-12 sm:py-20 flex justify-end">
+          <div className="w-full max-w-[560px] lg:mr-4 xl:mr-10 bg-slate-950/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 sm:p-7 md:p-0 rounded-3xl md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
             {/* Main Headline with Highlighted Underline and Vibrant Accent */}
-            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold text-white leading-[1.2] mb-7 tracking-tight drop-shadow-md">
+            <h1 className="text-2xl sm:text-4xl lg:text-[52px] font-bold text-white leading-[1.25] sm:leading-[1.2] mb-6 sm:mb-7 tracking-tight drop-shadow-md">
               <span className="text-[#A7F3D0] font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
                 Transforming Lives of Children, Women and{' '}
               </span>
@@ -311,35 +314,35 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </h1>
 
             {/* Hero CTA Actions */}
-            <div className="flex flex-wrap items-center gap-4 mb-9">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-7 sm:mb-9">
               <button
                 onClick={() => nav('bank-details')}
-                className="inline-flex items-center gap-2.5 bg-rlhp-green hover:bg-rlhp-darkgreen text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2.5 bg-rlhp-green hover:bg-rlhp-darkgreen text-white font-semibold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
               >
                 <Heart size={18} className="fill-white" />
                 Donate
               </button>
               <button
                 onClick={() => nav('about', 'identity')}
-                className="inline-flex items-center gap-2 border-2 border-white/80 text-white hover:bg-white hover:text-gray-900 font-semibold text-sm sm:text-base px-7 py-3.5 rounded-lg transition-all duration-200 backdrop-blur-sm"
+                className="inline-flex items-center gap-2 border-2 border-white/80 text-white hover:bg-white hover:text-gray-900 font-semibold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl transition-all duration-200 backdrop-blur-sm"
               >
                 Learn Our Story
               </button>
             </div>
 
             {/* Hero Metrics Strip */}
-            <div className="pt-6 border-t border-white/20 grid grid-cols-3 gap-6 max-w-[480px]">
+            <div className="pt-5 sm:pt-6 border-t border-white/20 grid grid-cols-3 gap-3 sm:gap-6 max-w-[480px]">
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">2M+</div>
-                <div className="text-xs sm:text-sm text-gray-200 font-medium uppercase tracking-wider mt-0.5">Lives Reached</div>
+                <div className="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">2M+</div>
+                <div className="text-[10px] sm:text-sm text-gray-200 font-medium uppercase tracking-wider mt-0.5">Lives Reached</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">80K</div>
-                <div className="text-xs sm:text-sm text-gray-200 font-medium uppercase tracking-wider mt-0.5">Children Helped</div>
+                <div className="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">80K</div>
+                <div className="text-[10px] sm:text-sm text-gray-200 font-medium uppercase tracking-wider mt-0.5">Children Helped</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">42+</div>
-                <div className="text-xs sm:text-sm text-gray-200 font-medium uppercase tracking-wider mt-0.5">Years Impact</div>
+                <div className="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">42+</div>
+                <div className="text-[10px] sm:text-sm text-gray-200 font-medium uppercase tracking-wider mt-0.5">Years Impact</div>
               </div>
             </div>
           </div>

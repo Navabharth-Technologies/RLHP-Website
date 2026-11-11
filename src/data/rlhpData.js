@@ -14,9 +14,9 @@ export const orgDetails = {
   emails: ["rlhpintervita@gmail.com", "mysore@rlhp.org"],
   website: "www.rlhpmysore.com",
   social: {
-    facebook: "https://www.facebook.com/rlhpmysore.rlhp/",
+    facebook: "https://www.facebook.com/share/1DWzFNxCvD/",
     twitter: "https://twitter.com/rlhpmysore",
-    instagram: "https://instagram.com/rlhpmysore",
+    instagram: "https://www.instagram.com/rlhp_mysore?utm_source=qr&obrf=MWpycGVqMDg2MHZkMg==",
     youtube: "https://www.youtube.com/channel/UCwlQCuupud6ldOTS57PaYaA"
   },
   statutory: {

@@ -86,31 +86,31 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               </div>
             </div>
 
-            {/* Right Images (5 Cols) - Overlapping Playful Cards: Interchanged with clear face visibility */}
-            <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
-              <div className="relative w-full max-w-[440px] h-[340px] sm:h-[390px]">
-                {/* Back / Left tilted card - Now showing What We Do 2 (Street gathering) */}
-                <div className="absolute left-2 sm:left-4 top-4 w-[60%] h-[82%] rounded-3xl overflow-hidden shadow-xl border-4 border-white -rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-10 bg-gray-100">
+            {/* Right Images (5 Cols) - Side-by-Side Dual Overlapping Cards with Full Visibility */}
+            <div className="lg:col-span-5 relative flex items-center justify-center pt-6 lg:pt-0">
+              <div className="relative w-full max-w-[480px] h-[340px] sm:h-[380px] flex items-center">
+                {/* Left Card: Girl with Books & Learning Materials - Positioned clearly on the left so face is never covered */}
+                <div className="absolute left-0 sm:left-2 top-2 sm:top-4 w-[54%] h-[88%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-500 z-10 bg-gray-100 group">
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/what_we_do_girl_face.jpg`}
+                    alt="What We Do - RLHP Girl with Books"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+                </div>
+
+                {/* Right Card: Mother, Child & Community Healthcare Worker - Placed to the right without occluding the girl */}
+                <div className="absolute right-0 sm:right-2 bottom-2 sm:bottom-4 w-[56%] h-[88%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-500 z-20 bg-gray-100 group">
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_2.jpg`}
-                    alt="What We Do - RLHP Community Outreach"
-                    className="w-full h-full object-cover"
+                    alt="What We Do - RLHP Community Healthcare"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
 
-                {/* Front / Right card - Now showing What We Do 1 with clear girl & faces */}
-                <div className="absolute right-2 sm:right-4 bottom-4 w-[60%] h-[86%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105 z-20 bg-gray-100">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/what_we_do_faces.jpg`}
-                    alt="What We Do - RLHP Children & Girl in Learning Circle"
-                    className="w-full h-full object-cover object-top"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-
-                {/* Subtle soft backdrop shape */}
-                <div className="absolute inset-8 bg-green-100/60 rounded-3xl -z-10 blur-xl" />
+                {/* Ambient glow backdrop */}
+                <div className="absolute inset-4 bg-emerald-100/50 rounded-3xl -z-10 blur-xl" />
               </div>
             </div>
 

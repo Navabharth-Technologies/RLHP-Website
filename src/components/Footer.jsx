@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Instagram, Youtube, Phone, Mail, MapPin, Heart, ShieldCheck } from 'lucide-react';
+import { orgDetails } from '../data/rlhpData';
 
 export default function Footer({ setCurrentPage, onNavClick }) {
   const B = import.meta.env.BASE_URL;
@@ -104,9 +105,9 @@ export default function Footer({ setCurrentPage, onNavClick }) {
             </h4>
             <div className="flex gap-2.5">
               {[
-                { icon: Facebook, href: 'https://www.facebook.com/rlhpmysore.rlhp/', label: 'Facebook' },
-                { icon: Instagram, href: 'https://instagram.com/rlhpmysore', label: 'Instagram' },
-                { icon: Youtube, href: 'https://www.youtube.com/channel/UCwlQCuupud6ldOTS57PaYaA', label: 'YouTube' },
+                { icon: Facebook, href: orgDetails.social.facebook, label: 'Facebook' },
+                { icon: Instagram, href: orgDetails.social.instagram, label: 'Instagram' },
+                { icon: Youtube, href: orgDetails.social.youtube, label: 'YouTube' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
