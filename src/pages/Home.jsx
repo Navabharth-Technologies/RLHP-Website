@@ -36,46 +36,54 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !whoWeAreStarted) {
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
           setWhoWeAreStarted(true);
+        } else if (entry.boundingClientRect.top > window.innerHeight) {
+          setWhoWeAreStarted(false);
+          setWhoWeAreVisibleCount(0);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     if (whoWeAreRef.current) observer.observe(whoWeAreRef.current);
     return () => observer.disconnect();
-  }, [whoWeAreStarted]);
+  }, []);
 
   useEffect(() => {
     if (!whoWeAreStarted) return;
     if (whoWeAreVisibleCount < 4) {
       const timer = setTimeout(() => {
         setWhoWeAreVisibleCount((prev) => prev + 1);
-      }, 180);
+      }, 150);
       return () => clearTimeout(timer);
     }
   }, [whoWeAreStarted, whoWeAreVisibleCount]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !prioritiesStarted) {
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
           setPrioritiesStarted(true);
+        } else if (entry.boundingClientRect.top > window.innerHeight) {
+          setPrioritiesStarted(false);
+          setPrioritiesVisibleCount(0);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     if (prioritiesRef.current) observer.observe(prioritiesRef.current);
     return () => observer.disconnect();
-  }, [prioritiesStarted]);
+  }, []);
 
   useEffect(() => {
     if (!prioritiesStarted) return;
     if (prioritiesVisibleCount < 7) {
       const timer = setTimeout(() => {
         setPrioritiesVisibleCount((prev) => prev + 1);
-      }, 180);
+      }, 150);
       return () => clearTimeout(timer);
     }
   }, [prioritiesStarted, prioritiesVisibleCount]);

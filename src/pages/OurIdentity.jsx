@@ -11,6 +11,7 @@ import {
 
 export default function OurIdentity({ setCurrentPage }) {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  // Principles cascade timer state
   const [principlesVisibleCount, setPrinciplesVisibleCount] = useState(0);
   const principlesRef = useRef(null);
   const [principlesStarted, setPrinciplesStarted] = useState(false);
@@ -20,14 +21,24 @@ export default function OurIdentity({ setCurrentPage }) {
   const valuesRef = useRef(null);
   const [valuesStarted, setValuesStarted] = useState(false);
 
+  // Our Journey milestone cards cascade timer state
+  const [journeyVisibleCount, setJourneyVisibleCount] = useState(0);
+  const journeyRef = useRef(null);
+  const [journeyStarted, setJourneyStarted] = useState(false);
+
+  // Principles observer - triggers only when scrolled into view
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !principlesStarted) {
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
           setPrinciplesStarted(true);
+        } else if (entry.boundingClientRect.top > window.innerHeight) {
+          setPrinciplesStarted(false);
+          setPrinciplesVisibleCount(0);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     if (principlesRef.current) {
@@ -35,27 +46,31 @@ export default function OurIdentity({ setCurrentPage }) {
     }
 
     return () => observer.disconnect();
-  }, [principlesStarted]);
+  }, []);
 
   useEffect(() => {
     if (!principlesStarted) return;
     if (principlesVisibleCount < orgDetails.principles.length) {
       const timer = setTimeout(() => {
         setPrinciplesVisibleCount((prev) => prev + 1);
-      }, 180);
+      }, 150);
       return () => clearTimeout(timer);
     }
   }, [principlesStarted, principlesVisibleCount]);
 
-  // Core values observer
+  // Core values observer - triggers only when scrolled into view
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !valuesStarted) {
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
           setValuesStarted(true);
+        } else if (entry.boundingClientRect.top > window.innerHeight) {
+          setValuesStarted(false);
+          setValuesVisibleCount(0);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     if (valuesRef.current) {
@@ -63,17 +78,49 @@ export default function OurIdentity({ setCurrentPage }) {
     }
 
     return () => observer.disconnect();
-  }, [valuesStarted]);
+  }, []);
 
   useEffect(() => {
     if (!valuesStarted) return;
     if (valuesVisibleCount < orgDetails.coreValues.length) {
       const timer = setTimeout(() => {
         setValuesVisibleCount((prev) => prev + 1);
-      }, 180);
+      }, 150);
       return () => clearTimeout(timer);
     }
   }, [valuesStarted, valuesVisibleCount]);
+
+  // Our Journey observer - triggers only when scrolled into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setJourneyStarted(true);
+        } else if (entry.boundingClientRect.top > window.innerHeight) {
+          setJourneyStarted(false);
+          setJourneyVisibleCount(0);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (journeyRef.current) {
+      observer.observe(journeyRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!journeyStarted) return;
+    if (journeyVisibleCount < orgDetails.journey.length) {
+      const timer = setTimeout(() => {
+        setJourneyVisibleCount((prev) => prev + 1);
+      }, 120);
+      return () => clearTimeout(timer);
+    }
+  }, [journeyStarted, journeyVisibleCount]);
 
   return (
     <div className="space-y-16 font-sans pb-16 bg-gray-50/50">
@@ -209,7 +256,7 @@ export default function OurIdentity({ setCurrentPage }) {
           </div>
 
           {/* Plain Milestone Cards Grid with Text and Iconic Badges as Existing Before */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+          <div ref={journeyRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
             {(() => {
               const iconMap = {
                 'home': HomeIcon,
@@ -225,11 +272,17 @@ export default function OurIdentity({ setCurrentPage }) {
 
               return orgDetails.journey.map((item, idx) => {
                 const MIcon = iconMap[item.icon] || Sparkles;
+                const isVisible = journeyStarted && idx < journeyVisibleCount;
 
                 return (
                   <div
                     key={idx}
-                    className="relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default"
+                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${
+                      isVisible 
+                        ? 'opacity-100 translate-y-0 scale-100' 
+                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
+                    style={{ willChange: 'transform, opacity' }}
                   >
                     <div>
                       {/* Top: Year Highlight & Relevant Green Badge Symbol */}

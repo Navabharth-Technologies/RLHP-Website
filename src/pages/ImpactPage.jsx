@@ -152,25 +152,61 @@ export default function ImpactPage() {
     },
   ];
 
+  // Top 4 stats observer
+  const [statsVisibleCount, setStatsVisibleCount] = useState(0);
+  const statsRef = useRef(null);
+  const [statsStarted, setStatsStarted] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !footprintStarted) {
-          setFootprintStarted(true);
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setStatsStarted(true);
+        } else if (entry.boundingClientRect.top > window.innerHeight) {
+          setStatsStarted(false);
+          setStatsVisibleCount(0);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
+    );
+    if (statsRef.current) observer.observe(statsRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!statsStarted) return;
+    if (statsVisibleCount < impactStats.length) {
+      const timer = setTimeout(() => {
+        setStatsVisibleCount((prev) => prev + 1);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [statsStarted, statsVisibleCount]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setFootprintStarted(true);
+        } else if (entry.boundingClientRect.top > window.innerHeight) {
+          setFootprintStarted(false);
+          setFootprintVisibleCount(0);
+        }
+      },
+      { threshold: 0.1 }
     );
     if (footprintRef.current) observer.observe(footprintRef.current);
     return () => observer.disconnect();
-  }, [footprintStarted]);
+  }, []);
 
   useEffect(() => {
     if (!footprintStarted) return;
     if (footprintVisibleCount < highlightCards.length) {
       const timer = setTimeout(() => {
         setFootprintVisibleCount((prev) => prev + 1);
-      }, 180);
+      }, 130);
       return () => clearTimeout(timer);
     }
   }, [footprintStarted, footprintVisibleCount, highlightCards.length]);
@@ -189,13 +225,19 @@ export default function ImpactPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Top 4 Main Stat Counter Bar - with enhanced luminous green hover highlight */}
-        <div className="bg-white rounded-3xl shadow-sm border-2 border-gray-100 p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          {impactStats.map((stat) => {
+        <div ref={statsRef} className="bg-white rounded-3xl shadow-sm border-2 border-gray-100 p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          {impactStats.map((stat, idx) => {
             const IconComponent = iconMap[stat.icon] || Users;
+            const isVisible = statsStarted && idx < statsVisibleCount;
             return (
               <div
                 key={stat.id}
-                className="flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-gray-50/60 hover:bg-emerald-50/80 border-2 border-transparent hover:border-emerald-500 hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.4)] transition-all duration-300 hover:-translate-y-1.5 group cursor-pointer"
+                className={`flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-gray-50/60 hover:bg-emerald-50/80 border-2 border-transparent hover:border-emerald-500 hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer transform ${
+                  isVisible
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                }`}
+                style={{ willChange: 'transform, opacity' }}
               >
                 <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-rlhp-green border border-emerald-200 flex items-center justify-center mb-3 group-hover:scale-115 group-hover:bg-rlhp-green group-hover:text-white transition-all shadow-xs">
                   <IconComponent size={26} />
