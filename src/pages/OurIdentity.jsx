@@ -33,19 +33,20 @@ export default function OurIdentity({ setCurrentPage }) {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setPrinciplesStarted(true);
-        } else if (entry.boundingClientRect.top > window.innerHeight) {
-          setPrinciplesStarted(false);
-          setPrinciplesVisibleCount(0);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.02, rootMargin: '100px' }
     );
 
     if (principlesRef.current) {
       observer.observe(principlesRef.current);
     }
+    const fb = setTimeout(() => setPrinciplesStarted(true), 1200);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
   }, []);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (principlesVisibleCount < orgDetails.principles.length) {
       const timer = setTimeout(() => {
         setPrinciplesVisibleCount((prev) => prev + 1);
-      }, 150);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [principlesStarted, principlesVisibleCount]);
@@ -65,19 +66,20 @@ export default function OurIdentity({ setCurrentPage }) {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setValuesStarted(true);
-        } else if (entry.boundingClientRect.top > window.innerHeight) {
-          setValuesStarted(false);
-          setValuesVisibleCount(0);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.02, rootMargin: '100px' }
     );
 
     if (valuesRef.current) {
       observer.observe(valuesRef.current);
     }
+    const fb = setTimeout(() => setValuesStarted(true), 1200);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
   }, []);
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (valuesVisibleCount < orgDetails.coreValues.length) {
       const timer = setTimeout(() => {
         setValuesVisibleCount((prev) => prev + 1);
-      }, 150);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [valuesStarted, valuesVisibleCount]);
@@ -97,19 +99,20 @@ export default function OurIdentity({ setCurrentPage }) {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setJourneyStarted(true);
-        } else if (entry.boundingClientRect.top > window.innerHeight) {
-          setJourneyStarted(false);
-          setJourneyVisibleCount(0);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.02, rootMargin: '100px' }
     );
 
     if (journeyRef.current) {
       observer.observe(journeyRef.current);
     }
+    const fb = setTimeout(() => setJourneyStarted(true), 1200);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
   }, []);
 
   useEffect(() => {
@@ -117,7 +120,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (journeyVisibleCount < orgDetails.journey.length) {
       const timer = setTimeout(() => {
         setJourneyVisibleCount((prev) => prev + 1);
-      }, 120);
+      }, 90);
       return () => clearTimeout(timer);
     }
   }, [journeyStarted, journeyVisibleCount]);

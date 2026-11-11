@@ -13,28 +13,42 @@ export default function Projects({ setCurrentPage, onNavClick }) {
   const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-        }
-      },
-      { threshold: 0.15 }
-    );
+    // If IntersectionObserver is supported, use it with a very lenient threshold or fallback to immediate visibility on mobile
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0];
+          if (entry.isIntersecting) {
+            setHasStarted(true);
+          }
+        },
+        { threshold: 0.01, rootMargin: '150px' }
+      );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current);
+      }
+
+      // Safety fallback: if user is on mobile or observer didn't fire in 1.2s, auto-start
+      const fallbackTimer = setTimeout(() => {
+        setHasStarted(true);
+      }, 1200);
+
+      return () => {
+        observer.disconnect();
+        clearTimeout(fallbackTimer);
+      };
+    } else {
+      setHasStarted(true);
     }
-
-    return () => observer.disconnect();
-  }, [hasStarted]);
+  }, []);
 
   useEffect(() => {
     if (!hasStarted) return;
     if (visibleCount < orgDetails.ourPrograms.length) {
       const timer = setTimeout(() => {
         setVisibleCount((prev) => prev + 1);
-      }, 180);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [hasStarted, visibleCount]);

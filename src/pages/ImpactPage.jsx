@@ -163,15 +163,16 @@ export default function ImpactPage() {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setStatsStarted(true);
-        } else if (entry.boundingClientRect.top > window.innerHeight) {
-          setStatsStarted(false);
-          setStatsVisibleCount(0);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.02, rootMargin: '100px' }
     );
     if (statsRef.current) observer.observe(statsRef.current);
-    return () => observer.disconnect();
+    const fb = setTimeout(() => setStatsStarted(true), 1200);
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
   }, []);
 
   useEffect(() => {
@@ -179,7 +180,7 @@ export default function ImpactPage() {
     if (statsVisibleCount < impactStats.length) {
       const timer = setTimeout(() => {
         setStatsVisibleCount((prev) => prev + 1);
-      }, 150);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [statsStarted, statsVisibleCount]);
@@ -190,15 +191,16 @@ export default function ImpactPage() {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setFootprintStarted(true);
-        } else if (entry.boundingClientRect.top > window.innerHeight) {
-          setFootprintStarted(false);
-          setFootprintVisibleCount(0);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.02, rootMargin: '100px' }
     );
     if (footprintRef.current) observer.observe(footprintRef.current);
-    return () => observer.disconnect();
+    const fb = setTimeout(() => setFootprintStarted(true), 1200);
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
   }, []);
 
   useEffect(() => {
@@ -206,7 +208,7 @@ export default function ImpactPage() {
     if (footprintVisibleCount < highlightCards.length) {
       const timer = setTimeout(() => {
         setFootprintVisibleCount((prev) => prev + 1);
-      }, 130);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [footprintStarted, footprintVisibleCount, highlightCards.length]);

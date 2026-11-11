@@ -40,15 +40,16 @@ export default function Home({ setCurrentPage, onNavClick }) {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setWhoWeAreStarted(true);
-        } else if (entry.boundingClientRect.top > window.innerHeight) {
-          setWhoWeAreStarted(false);
-          setWhoWeAreVisibleCount(0);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.02, rootMargin: '100px' }
     );
     if (whoWeAreRef.current) observer.observe(whoWeAreRef.current);
-    return () => observer.disconnect();
+    const fb = setTimeout(() => setWhoWeAreStarted(true), 1200);
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
   }, []);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
     if (whoWeAreVisibleCount < 4) {
       const timer = setTimeout(() => {
         setWhoWeAreVisibleCount((prev) => prev + 1);
-      }, 150);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [whoWeAreStarted, whoWeAreVisibleCount]);
@@ -67,15 +68,16 @@ export default function Home({ setCurrentPage, onNavClick }) {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setPrioritiesStarted(true);
-        } else if (entry.boundingClientRect.top > window.innerHeight) {
-          setPrioritiesStarted(false);
-          setPrioritiesVisibleCount(0);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.02, rootMargin: '100px' }
     );
     if (prioritiesRef.current) observer.observe(prioritiesRef.current);
-    return () => observer.disconnect();
+    const fb = setTimeout(() => setPrioritiesStarted(true), 1200);
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
   }, []);
 
   useEffect(() => {
@@ -83,7 +85,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
     if (prioritiesVisibleCount < 7) {
       const timer = setTimeout(() => {
         setPrioritiesVisibleCount((prev) => prev + 1);
-      }, 150);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [prioritiesStarted, prioritiesVisibleCount]);
