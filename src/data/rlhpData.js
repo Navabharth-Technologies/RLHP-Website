@@ -103,7 +103,7 @@ export const orgDetails = {
     {
       id: "1990a",
       year: "1990",
-      title: "Outreach with Street Children",
+      title: "Outreach to Street Children",
       subtitle: "Child Protection Drive",
       icon: "users",
       accent: "from-amber-500/10 to-yellow-500/20",
@@ -190,6 +190,16 @@ export const orgDetails = {
     }
   ],
 
+  // 6 Core Values
+  coreValues: [
+    { title: "Compassion", description: "Understanding the needs of vulnerable communities and responding with care and empathy." },
+    { title: "Integrity", description: "Upholding honesty, transparency and accountability in all our actions." },
+    { title: "Inclusiveness", description: "Ensuring equal opportunities, dignity and participation for everyone." },
+    { title: "Sustainability", description: "Promoting lasting positive change through community-led development." },
+    { title: "Excellence", description: "Striving for quality, continuous learning and effectiveness in all our work." },
+    { title: "Equality", description: "Promoting equal rights, justice and opportunities for all." }
+  ],
+
   // 10 Principles
   principles: [
     { title: "Child-Centred Approach", description: "Placing children's rights, needs and well-being at the centre of our work." },
@@ -201,16 +211,6 @@ export const orgDetails = {
     { title: "Sustainability", description: "Promoting long-term and community-led development." },
     { title: "Human Dignity", description: "Respecting the rights, identity and dignity of every individual." },
     { title: "Government Collaboration", description: "Building partnerships with government, institutions and communities." }
-  ],
-
-  // 6 Core Values
-  coreValues: [
-    { title: "Compassion", description: "Understanding the needs of vulnerable communities and responding with care and empathy." },
-    { title: "Integrity", description: "Upholding honesty, transparency and accountability in all our actions." },
-    { title: "Inclusiveness", description: "Ensuring equal opportunities, dignity and participation for everyone." },
-    { title: "Sustainability", description: "Promoting lasting positive change through community-led development." },
-    { title: "Excellence", description: "Striving for quality, continuous learning and effectiveness in all our work." },
-    { title: "Equality", description: "Promoting equal rights, justice and opportunities for all." }
   ],
 
   // What We Do
@@ -1020,7 +1020,7 @@ export const auditReport2025 = {
     {
       pageNumber: 1,
       title: "Receipts and Payments Account",
-      subtitle: "Financial Reports (2025-2026)",
+      subtitle: "Financial Report (2025-2026)",
       image: "/images/audit-report/audit_report_2024_2025_page_1.jpg",
       totalAmount: "₹3,46,71,219",
       keyHighlights: [
@@ -1040,7 +1040,7 @@ export const auditReport2025 = {
     {
       pageNumber: 2,
       title: "Income and Expenditure Statement",
-      subtitle: "Financial Reports (2024-2025)",
+      subtitle: "Financial Report (2024-2025)",
       image: "/images/audit-report/audit_report_2024_2025_page_2.jpg",
       totalAmount: "₹2,45,59,520",
       keyHighlights: [

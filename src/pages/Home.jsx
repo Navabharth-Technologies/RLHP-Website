@@ -196,19 +196,15 @@ export default function Home({ setCurrentPage, onNavClick }) {
           />
         </div>
 
-        {/* Curved Green SVG Element pushed to far edge - Richer darker & vibrant green */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 pointer-events-none overflow-hidden z-[2] opacity-70 hidden md:block">
+        {/* Curved Green SVG Element pushed to far edge - Clean smooth edge */}
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 pointer-events-none overflow-hidden z-[2] opacity-75 hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
-            preserveAspectRatio="xMaxYMid slice"
+            preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              <filter id="roughPaint">
-                <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" />
-              </filter>
               <linearGradient id="heroGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#1E6B27" stopOpacity="0.95" />
                 <stop offset="50%" stopColor="#16501D" stopOpacity="0.98" />
@@ -218,7 +214,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <path
               d="M 200,0 Q 400,200 300,400 Q 200,600 250,800 Q 300,900 200,1000 L 1000,1000 L 1000,0 Z"
               fill="url(#heroGreenGrad)"
-              filter="url(#roughPaint)"
             />
           </svg>
         </div>
@@ -227,12 +222,12 @@ export default function Home({ setCurrentPage, onNavClick }) {
         <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 py-20 flex justify-end">
           <div className="w-full max-w-[560px] lg:mr-4 xl:mr-10 bg-black/25 md:bg-transparent backdrop-blur-[2px] md:backdrop-blur-none p-4 md:p-2 rounded-2xl md:rounded-none">
             {/* Main Headline with Highlighted Underline and Vibrant Accent */}
-            <h1 className="text-6xl sm:text-9xl lg:text-[60px] font-bold text-white leading-[1.2] mb-7 tracking-tight drop-shadow-md">
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold text-white leading-[1.2] mb-7 tracking-tight drop-shadow-md">
               <span className="text-[#A7F3D0] font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
                 Transforming Lives of Children, Women and{' '}
               </span>
               <span className="relative inline-block text-[#34D399] font-black drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-                Community
+                Community at Large
                 <svg
                   className="absolute -bottom-2 left-0 w-full overflow-visible"
                   height="14"
@@ -341,15 +336,21 @@ export default function Home({ setCurrentPage, onNavClick }) {
               </ul>
             </div>
 
-            {/* Right Column: Commitment Card (5 cols) */}
+            {/* Right Column: Commitment Image Card (5 cols) */}
             <div className="lg:col-span-5 flex">
-              <div className="relative w-full bg-[#1C5620] text-white rounded-2xl p-8 sm:p-10 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-6 shadow-inner">
-                  <Heart size={28} className="text-white fill-white/20" />
+              <div className="relative w-full h-full min-h-[380px] sm:min-h-[440px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
+                <img
+                  src={`${B}images/child_drinking_water.jpg`}
+                  alt="Child Drinking Clean Water - RLHP Community Impact"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 bg-black/40 backdrop-blur-md p-3.5 rounded-xl border border-white/20 text-white pointer-events-none">
+                  <p className="text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Empowering Every Child with Health, Education &amp; Dignity
+                  </p>
                 </div>
-                <p className="text-white text-lg sm:text-xl leading-relaxed font-medium italic">
-                  “Our commitment is to ensure that every child has access to quality education, every individual has opportunities to grow, and every community is empowered to build a better future. We believe that empowering children, strengthening families and fostering inclusive communities can create lasting positive change across generations.”
-                </p>
               </div>
             </div>
           </div>
@@ -427,7 +428,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 },
                 {
                   img: `${B}images/gallery/sangha_financial_literacy.jpg`,
-                  title: 'Empowerment of women on Socio-Economic',
+                  title: 'Women on Socio-Economic Empowerment',
                   desc: 'Empowering women through self-help groups, financial literacy, collective entrepreneurship, leadership development and sustained socio-economic self-reliance.',
                   metric: 'Women Self-Reliance',
                   page: 'projects',
@@ -690,7 +691,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 5: OUR IMPACT (Updated Stats)
+          SECTION 5: IMPACT (Updated Stats)
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative py-20 bg-white overflow-hidden">
         {/* Subtle blur circles */}
@@ -700,7 +701,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
-              OUR <span className="text-rlhp-green">IMPACT</span>
+              <span className="text-rlhp-green">IMPACT</span>
             </h2>
             <p className="text-gray-500 text-base mt-2">
               Transforming lives across Karnataka and South India through health and education
