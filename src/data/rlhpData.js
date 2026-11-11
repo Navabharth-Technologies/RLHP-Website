@@ -1107,7 +1107,18 @@ export const galleryData = [
     "image": "/images/gallery/gallery_39.jpg",
     "remoteImage": "/images/gallery/gallery_39.jpg"
   },
-
+  {
+    "id": "gallery-40",
+    "image": "/images/gallery/gallery_40.jpg",
+    "remoteImage": "/images/gallery/gallery_40.jpg",
+    "objectPosition": "center 20%"
+  },
+  {
+    "id": "gallery-42",
+    "image": "/images/gallery/gallery_42.jpg",
+    "remoteImage": "/images/gallery/gallery_42.jpg",
+    "objectPosition": "center 20%"
+  },
   {
     "id": "gallery-43",
     "image": "/images/gallery/gallery_43.jpg",
