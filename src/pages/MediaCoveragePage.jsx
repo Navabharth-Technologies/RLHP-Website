@@ -3,8 +3,12 @@ import { ArrowRight, X, ZoomIn, Newspaper } from 'lucide-react';
 
 const B = import.meta.env.BASE_URL;
 
-// Placeholder empty array ready for new photos/clippings to be uploaded
-const allArticles = [];
+// All 46 newspaper clippings from Desktop/RLHP Clippings
+const allArticles = Array.from({ length: 46 }, (_, i) => ({
+  id: i + 1,
+  img: `${B}images/newspaper/clipping_${String(i + 1).padStart(2, '0')}.jpg`,
+  headline: `Media Coverage Clipping #${i + 1}`,
+}));
 
 export default function MediaCoveragePage({ setCurrentPage, onNavClick }) {
   const [selectedImage, setSelectedImage] = useState(null);
