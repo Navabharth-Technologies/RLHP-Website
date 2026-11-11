@@ -1043,19 +1043,9 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_24.jpg"
   },
   {
-    "id": "gallery-25",
-    "image": "/images/gallery/gallery_25.jpg",
-    "remoteImage": "/images/gallery/gallery_25.jpg"
-  },
-  {
     "id": "gallery-26",
     "image": "/images/gallery/gallery_26.jpg",
     "remoteImage": "/images/gallery/gallery_26.jpg"
-  },
-  {
-    "id": "gallery-27",
-    "image": "/images/gallery/gallery_27.jpg",
-    "remoteImage": "/images/gallery/gallery_27.jpg"
   },
   {
     "id": "gallery-28",
@@ -1117,11 +1107,7 @@ export const galleryData = [
     "image": "/images/gallery/gallery_39.jpg",
     "remoteImage": "/images/gallery/gallery_39.jpg"
   },
-  {
-    "id": "gallery-41",
-    "image": "/images/gallery/gallery_41.jpg",
-    "remoteImage": "/images/gallery/gallery_41.jpg"
-  },
+
   {
     "id": "gallery-43",
     "image": "/images/gallery/gallery_43.jpg",
