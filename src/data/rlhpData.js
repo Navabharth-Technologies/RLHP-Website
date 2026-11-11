@@ -953,435 +953,303 @@ export const publicationsData = ourReportsList.map((r, i) => ({
 export const galleryData = [
   {
     "id": "gallery-1",
-    "title": "Community Celebration & Awareness",
-    "category": "Community Activities",
     "image": "/images/gallery/gallery_01.jpg",
-    "remoteImage": "/images/gallery/gallery_01.jpg",
-    "description": "Grassroots community gathering and awareness initiative organized by RLHP."
+    "remoteImage": "/images/gallery/gallery_01.jpg"
   },
   {
     "id": "gallery-2",
-    "title": "Children Empowerment Gathering",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_02.jpg",
-    "remoteImage": "/images/gallery/gallery_02.jpg",
-    "description": "Children from RLHP learning and childcare centers participating in interactive programs."
+    "remoteImage": "/images/gallery/gallery_02.jpg"
   },
   {
     "id": "gallery-3",
-    "title": "Green Team Environmental Drive",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_03.jpg",
-    "remoteImage": "/images/gallery/gallery_03.jpg",
-    "description": "Community and children's eco-club driving plantation and clean environment awareness."
+    "remoteImage": "/images/gallery/gallery_03.jpg"
   },
   {
     "id": "gallery-4",
-    "title": "Adolescent Girls Life Skills Training",
-    "category": "Youth Programmes",
     "image": "/images/gallery/gallery_04.jpg",
-    "remoteImage": "/images/gallery/gallery_04.jpg",
-    "description": "Interactive life skill training, health awareness, and rights orientation for adolescent girls."
+    "remoteImage": "/images/gallery/gallery_04.jpg"
   },
   {
     "id": "gallery-5",
-    "title": "Youth Leadership & Engagement Workshop",
-    "category": "Youth Programmes",
     "image": "/images/gallery/gallery_05.jpg",
-    "remoteImage": "/images/gallery/gallery_05.jpg",
-    "description": "Equipping community youth with career guidance, civil responsibility, and active leadership skills."
+    "remoteImage": "/images/gallery/gallery_05.jpg"
   },
   {
     "id": "gallery-6",
-    "title": "Community Participation Meeting",
-    "category": "Community Activities",
     "image": "/images/gallery/gallery_06.jpg",
-    "remoteImage": "/images/gallery/gallery_06.jpg",
-    "description": "Local women and youth discussing grassroots priorities and collaborative community action."
+    "remoteImage": "/images/gallery/gallery_06.jpg"
   },
   {
     "id": "gallery-7",
-    "title": "Street Play on Child Rights & Social Issues",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_07.jpg",
-    "remoteImage": "/images/gallery/gallery_07.jpg",
-    "description": "Live street theatre and kalajatha performance spreading awareness on child protection and education."
+    "remoteImage": "/images/gallery/gallery_07.jpg"
   },
   {
     "id": "gallery-8",
-    "title": "Cultural Awareness Kalajatha",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_08.jpg",
-    "remoteImage": "/images/gallery/gallery_08.jpg",
-    "description": "Grassroots street theatre and cultural awareness campaign reaching remote habitations."
+    "remoteImage": "/images/gallery/gallery_08.jpg"
   },
   {
     "id": "gallery-9",
-    "title": "Mother & Child Protection (MCP) Camp",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_09.jpg",
-    "remoteImage": "/images/gallery/gallery_09.jpg",
-    "description": "Maternal and child healthcare clinic, health cards distribution, and immunization drive."
+    "remoteImage": "/images/gallery/gallery_09.jpg"
   },
   {
     "id": "gallery-10",
-    "title": "Community Health Awareness Session",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_10.jpg",
-    "remoteImage": "/images/gallery/gallery_10.jpg",
-    "description": "Health education and preventive healthcare counseling for village families."
+    "remoteImage": "/images/gallery/gallery_10.jpg"
   },
   {
     "id": "gallery-11",
-    "title": "MGNREGA Awareness & Entitlement Camp",
-    "category": "Community Activities",
     "image": "/images/gallery/gallery_11.jpg",
-    "remoteImage": "/images/gallery/gallery_11.jpg",
-    "description": "Informing rural families on employment guarantee rights, job cards, and fair daily wages."
+    "remoteImage": "/images/gallery/gallery_11.jpg"
   },
   {
     "id": "gallery-12",
-    "title": "Village Development Consultation",
-    "category": "Community Activities",
     "image": "/images/gallery/gallery_12.jpg",
-    "remoteImage": "/images/gallery/gallery_12.jpg",
-    "description": "Gram panchayat level interaction on civic infrastructure, water, and sanitation."
+    "remoteImage": "/images/gallery/gallery_12.jpg"
   },
   {
     "id": "gallery-13",
-    "title": "Child Rights Forum Consultation",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_13.jpg",
-    "remoteImage": "/images/gallery/gallery_13.jpg",
-    "description": "Children voicing their thoughts, concerns, and community solutions at a district forum."
+    "remoteImage": "/images/gallery/gallery_13.jpg"
   },
   {
     "id": "gallery-14",
-    "title": "Field Team Community Visit",
-    "category": "Community Activities",
     "image": "/images/gallery/gallery_14.jpg",
-    "remoteImage": "/images/gallery/gallery_14.jpg",
-    "description": "RLHP field animators and community leaders reviewing local development programs."
+    "remoteImage": "/images/gallery/gallery_14.jpg"
   },
   {
     "id": "gallery-15",
-    "title": "Asha Kirana Shelter Home Children",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_15.jpg",
-    "remoteImage": "/images/gallery/gallery_15.jpg",
-    "description": "Children at RLHP's Asha Kirana home receiving nurturing care, education, and shelter."
+    "remoteImage": "/images/gallery/gallery_15.jpg"
   },
   {
     "id": "gallery-16",
-    "title": "Childline 1098 Intervention & Rescue",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_16.jpg",
-    "remoteImage": "/images/gallery/gallery_16.jpg",
-    "description": "Active child protection team reaching out to safeguard vulnerable children."
+    "remoteImage": "/images/gallery/gallery_16.jpg"
   },
   {
     "id": "gallery-17",
-    "title": "Grassroots Outreach & Mentoring",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_17.jpg",
-    "remoteImage": "/images/gallery/gallery_17.jpg",
-    "description": "Field educators interacting with rural schoolchildren and supporting academic progress."
+    "remoteImage": "/images/gallery/gallery_17.jpg"
   },
   {
     "id": "gallery-18",
-    "title": "Annual Summer Camp for Children",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_18.jpg",
-    "remoteImage": "/images/gallery/gallery_18.jpg",
-    "description": "Creative learning, games, arts, drama, and joyful summer camp activities for children."
+    "remoteImage": "/images/gallery/gallery_18.jpg"
   },
   {
     "id": "gallery-19",
-    "title": "Child Rights & Child Participation Forum",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_19.jpg",
-    "remoteImage": "/images/gallery/gallery_19.jpg",
-    "description": "Empowering children to exercise their right to express opinions and lead clubs."
+    "remoteImage": "/images/gallery/gallery_19.jpg"
   },
   {
     "id": "gallery-20",
-    "title": "Makkala Sangha (Child Rights Club)",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_20.jpg",
-    "remoteImage": "/images/gallery/gallery_20.jpg",
-    "description": "Weekly children's parliament meeting fostering leadership and mutual support."
+    "remoteImage": "/images/gallery/gallery_20.jpg"
   },
   {
     "id": "gallery-21",
-    "title": "Community Nutrition & Health Camp",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_21.jpg",
-    "remoteImage": "/images/gallery/gallery_21.jpg",
-    "description": "Growth monitoring, nutritional guidance, and supplementary health checkups."
+    "remoteImage": "/images/gallery/gallery_21.jpg"
   },
   {
     "id": "gallery-22",
-    "title": "Youth Sports & Team Building",
-    "category": "Youth Programmes",
     "image": "/images/gallery/gallery_22.jpg",
-    "remoteImage": "/images/gallery/gallery_22.jpg",
-    "description": "Sports day and outdoor games encouraging camaraderie, discipline, and healthy living."
+    "remoteImage": "/images/gallery/gallery_22.jpg"
   },
   {
     "id": "gallery-23",
-    "title": "District Level Capacity Building - Child Rights Forum",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_23.jpg",
-    "remoteImage": "/images/gallery/gallery_23.jpg",
-    "description": "District-level training for child rights forum delegates, staff, and village mentors."
+    "remoteImage": "/images/gallery/gallery_23.jpg"
   },
   {
     "id": "gallery-24",
-    "title": "Field Review & Community Interaction",
-    "category": "Community Activities",
     "image": "/images/gallery/gallery_24.jpg",
-    "remoteImage": "/images/gallery/gallery_24.jpg",
-    "description": "Hands-on grassroots field visit engaging with marginalized families."
+    "remoteImage": "/images/gallery/gallery_24.jpg"
   },
   {
     "id": "gallery-25",
-    "title": "Special Children Rehabilitation Support",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_25.jpg",
-    "remoteImage": "/images/gallery/gallery_25.jpg",
-    "description": "Inclusive care, specialized attention, and rehabilitation support for children with special needs."
+    "remoteImage": "/images/gallery/gallery_25.jpg"
   },
   {
     "id": "gallery-26",
-    "title": "Child Education & Evening Tuition Center",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_26.jpg",
-    "remoteImage": "/images/gallery/gallery_26.jpg",
-    "description": "After-school remedial coaching empowering children to excel in academic studies."
+    "remoteImage": "/images/gallery/gallery_26.jpg"
   },
   {
     "id": "gallery-27",
-    "title": "Community Library & Learning Resources",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_27.jpg",
-    "remoteImage": "/images/gallery/gallery_27.jpg",
-    "description": "Children exploring storybooks and reference materials in our community library corners."
+    "remoteImage": "/images/gallery/gallery_27.jpg"
   },
   {
     "id": "gallery-28",
-    "title": "Vocational Tailoring Center (VTC)",
-    "category": "Women Empowerment",
     "image": "/images/gallery/gallery_28.jpg",
-    "remoteImage": "/images/gallery/gallery_28.jpg",
-    "description": "Skill training in stitching and tailoring empowering rural women toward financial self-reliance."
+    "remoteImage": "/images/gallery/gallery_28.jpg"
   },
   {
     "id": "gallery-29",
-    "title": "Women Federation Leadership Conference",
-    "category": "Women Empowerment",
     "image": "/images/gallery/gallery_29.jpg",
-    "remoteImage": "/images/gallery/gallery_29.jpg",
-    "description": "Stree Shakti leaders discussing cooperative savings, loan schemes, and enterprise development."
+    "remoteImage": "/images/gallery/gallery_29.jpg"
   },
   {
     "id": "gallery-30",
-    "title": "Women SHG Micro-Enterprise Training",
-    "category": "Women Empowerment",
     "image": "/images/gallery/gallery_30.jpg",
-    "remoteImage": "/images/gallery/gallery_30.jpg",
-    "description": "Hands-on training session on micro-enterprise establishment for self-help group members."
+    "remoteImage": "/images/gallery/gallery_30.jpg"
   },
   {
     "id": "gallery-31",
-    "title": "Educational Kit & Book Distribution",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_31.jpg",
-    "remoteImage": "/images/gallery/gallery_31.jpg",
-    "description": "Distributing learning materials, bags, and stationery sets to underprivileged students."
+    "remoteImage": "/images/gallery/gallery_31.jpg"
   },
   {
     "id": "gallery-32",
-    "title": "Community Gathering on Child Rights",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_32.jpg",
-    "remoteImage": "/images/gallery/gallery_32.jpg",
-    "description": "Villagers, parents, and teachers assembling to pledge support for 100% child school enrollment."
+    "remoteImage": "/images/gallery/gallery_32.jpg"
   },
   {
     "id": "gallery-33",
-    "title": "Adolescent Health & Hygiene Camp",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_33.jpg",
-    "remoteImage": "/images/gallery/gallery_33.jpg",
-    "description": "Doctor-led awareness on adolescent nutrition, menstrual hygiene, and general wellbeing."
+    "remoteImage": "/images/gallery/gallery_33.jpg"
   },
   {
     "id": "gallery-34",
-    "title": "Gramasabha Representation & Advocacy",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_34.jpg",
-    "remoteImage": "/images/gallery/gallery_34.jpg",
-    "description": "Submitting community petitions and women's charter of demands during official Gramasabha."
+    "remoteImage": "/images/gallery/gallery_34.jpg"
   },
   {
     "id": "gallery-35",
-    "title": "Child Protection Committee (CPC) Meeting",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_35.jpg",
-    "remoteImage": "/images/gallery/gallery_35.jpg",
-    "description": "Village-level committee meeting to prevent child marriage and monitor dropouts."
+    "remoteImage": "/images/gallery/gallery_35.jpg"
   },
   {
     "id": "gallery-36",
-    "title": "Science & Art Exhibition by Students",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_36.jpg",
-    "remoteImage": "/images/gallery/gallery_36.jpg",
-    "description": "Young innovators displaying creative science experiments and handmade craft projects."
+    "remoteImage": "/images/gallery/gallery_36.jpg"
   },
   {
     "id": "gallery-37",
-    "title": "Youth Computer & Digital Literacy Class",
-    "category": "Youth Programmes",
     "image": "/images/gallery/gallery_37.jpg",
-    "remoteImage": "/images/gallery/gallery_37.jpg",
-    "description": "Practical basic computer education and internet literacy classes for underprivileged youth."
+    "remoteImage": "/images/gallery/gallery_37.jpg"
   },
   {
     "id": "gallery-38",
-    "title": "Mothers' Group Nutrition Workshop",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_38.jpg",
-    "remoteImage": "/images/gallery/gallery_38.jpg",
-    "description": "Demonstrating low-cost wholesome recipes using locally grown millets and fresh produce."
+    "remoteImage": "/images/gallery/gallery_38.jpg"
   },
   {
     "id": "gallery-39",
-    "title": "Community Sanitation & Water Campaign",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_39.jpg",
-    "remoteImage": "/images/gallery/gallery_39.jpg",
-    "description": "Spreading awareness on safe potable water, soak pits, and household sanitation."
+    "remoteImage": "/images/gallery/gallery_39.jpg"
   },
   {
     "id": "gallery-40",
-    "title": "International Women's Day Celebration",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_40.jpg",
-    "remoteImage": "/images/gallery/gallery_40.jpg",
-    "description": "Felicitation of exemplary women grassroots leaders on International Women's Day."
+    "remoteImage": "/images/gallery/gallery_40.jpg"
   },
   {
     "id": "gallery-41",
-    "title": "Skill Training in Handicrafts & Arts",
-    "category": "Women Empowerment",
     "image": "/images/gallery/gallery_41.jpg",
-    "remoteImage": "/images/gallery/gallery_41.jpg",
-    "description": "Handicrafts, embroidery, and artisan product training creating sustainable home livelihoods."
+    "remoteImage": "/images/gallery/gallery_41.jpg"
   },
   {
     "id": "gallery-42",
-    "title": "Anganwadi Support & Early Childhood Care",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_42.jpg",
-    "remoteImage": "/images/gallery/gallery_42.jpg",
-    "description": "Strengthening preschool centers with joyful learning toys, charts, and clean surroundings."
+    "remoteImage": "/images/gallery/gallery_42.jpg"
   },
   {
     "id": "gallery-43",
-    "title": "Sensitization Session on Government Schemes",
-    "category": "Community Activities",
     "image": "/images/gallery/gallery_43.jpg",
-    "remoteImage": "/images/gallery/gallery_43.jpg",
-    "description": "Connecting eligible rural households with pensions, housing, and social security cards."
+    "remoteImage": "/images/gallery/gallery_43.jpg"
   },
   {
     "id": "gallery-44",
-    "title": "Legal Literacy & Human Rights Workshop",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_44.jpg",
-    "remoteImage": "/images/gallery/gallery_44.jpg",
-    "description": "Orientation on legal entitlements, labor laws, and anti-domestic violence protection."
+    "remoteImage": "/images/gallery/gallery_44.jpg"
   },
   {
     "id": "gallery-45",
-    "title": "Children Cultural Performance",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_45.jpg",
-    "remoteImage": "/images/gallery/gallery_45.jpg",
-    "description": "Children expressing regional folk culture, patriotic dance, and musical talents on stage."
+    "remoteImage": "/images/gallery/gallery_45.jpg"
   },
   {
     "id": "gallery-46",
-    "title": "Youth Career Counseling & Mentorship",
-    "category": "Youth Programmes",
     "image": "/images/gallery/gallery_46.jpg",
-    "remoteImage": "/images/gallery/gallery_46.jpg",
-    "description": "One-on-one counseling guiding young school leavers toward technical diplomas and careers."
+    "remoteImage": "/images/gallery/gallery_46.jpg"
   },
   {
     "id": "gallery-47",
-    "title": "Free Eye & Health Checkup Camp",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_47.jpg",
-    "remoteImage": "/images/gallery/gallery_47.jpg",
-    "description": "Medical screening providing free eye evaluations, medicine distribution, and referrals."
+    "remoteImage": "/images/gallery/gallery_47.jpg"
   },
   {
     "id": "gallery-48",
-    "title": "Tree Plantation & Biodiversity Drive",
-    "category": "Health & Community",
     "image": "/images/gallery/gallery_48.jpg",
-    "remoteImage": "/images/gallery/gallery_48.jpg",
-    "description": "Youth and children planting indigenous saplings to build green, resilient villages."
+    "remoteImage": "/images/gallery/gallery_48.jpg"
   },
   {
     "id": "gallery-49",
-    "title": "Community Dialogue on Rights & Governance",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_49.jpg",
-    "remoteImage": "/images/gallery/gallery_49.jpg",
-    "description": "Interactive dialogue between community delegates and local administration officials."
+    "remoteImage": "/images/gallery/gallery_49.jpg"
   },
   {
     "id": "gallery-50",
-    "title": "Capacity Building Training for Women Leaders",
-    "category": "Women Empowerment",
     "image": "/images/gallery/gallery_50.jpg",
-    "remoteImage": "/images/gallery/gallery_50.jpg",
-    "description": "Intensive multi-day training cultivating confidence, bookkeeping, and public speaking skills."
+    "remoteImage": "/images/gallery/gallery_50.jpg"
   },
   {
     "id": "gallery-51",
-    "title": "Civic Awareness & Children Assembly",
-    "category": "Child Development",
     "image": "/images/gallery/gallery_51.jpg",
-    "remoteImage": "/images/gallery/gallery_51.jpg",
-    "description": "Children learning democratic processes, rights awareness, and civic participation."
+    "remoteImage": "/images/gallery/gallery_51.jpg"
   },
   {
     "id": "gallery-52",
-    "title": "Youth Leadership Academy & Training",
-    "category": "Youth Programmes",
     "image": "/images/gallery/gallery_52.jpg",
-    "remoteImage": "/images/gallery/gallery_52.jpg",
-    "description": "Nurturing young champions to spearhead anti-drug campaigns and neighborhood upliftment."
+    "remoteImage": "/images/gallery/gallery_52.jpg"
   },
   {
     "id": "gallery-53",
-    "title": "School Enrolment Jatha (Rally)",
-    "category": "Advocacy & Events",
     "image": "/images/gallery/gallery_53.jpg",
-    "remoteImage": "/images/gallery/gallery_53.jpg",
-    "description": "Energetic community rally advocating 100% child retention and zero child labor in schools."
+    "remoteImage": "/images/gallery/gallery_53.jpg"
   },
   {
     "id": "gallery-54",
-    "title": "Small Farmers Training on Sustainable Agriculture",
-    "category": "Community Activities",
     "image": "/images/gallery/gallery_54.jpg",
-    "remoteImage": "/images/gallery/gallery_54.jpg",
-    "description": "Organic farming, water conservation, composting, and sustainable farming methods for marginal farmers."
+    "remoteImage": "/images/gallery/gallery_54.jpg"
+  },
+  {
+    "id": "gallery-55",
+    "image": "/images/gallery/gallery_55.jpg",
+    "remoteImage": "/images/gallery/gallery_55.jpg"
+  },
+  {
+    "id": "gallery-56",
+    "image": "/images/gallery/gallery_56.jpg",
+    "remoteImage": "/images/gallery/gallery_56.jpg"
+  },
+  {
+    "id": "gallery-57",
+    "image": "/images/gallery/gallery_57.jpg",
+    "remoteImage": "/images/gallery/gallery_57.jpg"
+  },
+  {
+    "id": "gallery-58",
+    "image": "/images/gallery/gallery_58.jpg",
+    "remoteImage": "/images/gallery/gallery_58.jpg"
+  },
+  {
+    "id": "gallery-59",
+    "image": "/images/gallery/gallery_59.jpg",
+    "remoteImage": "/images/gallery/gallery_59.jpg"
+  },
+  {
+    "id": "gallery-60",
+    "image": "/images/gallery/gallery_60.jpg",
+    "remoteImage": "/images/gallery/gallery_60.jpg"
   }
 ];
 
