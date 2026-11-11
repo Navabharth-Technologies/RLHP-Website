@@ -21,11 +21,11 @@ export default function Footer({ setCurrentPage, onNavClick }) {
           {/* Column 1: Organization Branding & Address */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-14 h-14 rounded-full bg-white p-1 border-2 border-rlhp-green flex-shrink-0">
+              <div className="w-14 h-14 rounded-full overflow-hidden bg-white p-0.5 border-2 border-rlhp-green flex-shrink-0 shadow-md">
                 <img
                   src={`${B}rlhp-logo.png`}
                   alt="RLHP Logo"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
               <div>
@@ -60,7 +60,7 @@ export default function Footer({ setCurrentPage, onNavClick }) {
                 { label: 'Media Coverage', page: 'media-coverage' },
                 { label: 'Financials', page: 'financials' },
                 { label: 'Contact Us', page: 'contact' },
-                { label: 'AEA NE', page: 'where-we-work' },
+                { label: 'Where We Work', page: 'where-we-work' },
               ].map((item, idx) => (
                 <li key={idx}>
                   <button

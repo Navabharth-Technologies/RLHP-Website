@@ -12,7 +12,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
   const financialReportsList = [
     {
       id: 'fcra-2025-2026',
-      title: 'Financial Reports (2025-2026)',
+      title: 'Financial Report (2025-2026)',
       period: 'Year ended 31 March 2026',
       date: 'September 09, 2026',
       pdfUrl: `${B}documents/Foreign_Contribution_2025_2026.pdf`,
@@ -22,7 +22,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
     },
     {
       id: 'fcra-2024-2025',
-      title: 'Financial Reports (2024–2025)',
+      title: 'Financial Report (2024–2025)',
       period: 'Year ended 31 March 2025',
       date: 'April 20, 2025',
       pdfUrl: `${B}documents/Foreign_Contribution_2024_2025.pdf`,

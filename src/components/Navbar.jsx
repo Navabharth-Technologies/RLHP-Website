@@ -13,7 +13,7 @@ const NAV = [
   { label: 'Media Coverage', id: 'media-coverage' },
   { label: 'Financials', id: 'financials' },
   { label: 'Contact Us', id: 'contact' },
-  { label: 'AEA NE', id: 'where-we-work' },
+  { label: 'Where We Work', id: 'where-we-work' },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════ */

@@ -16,7 +16,7 @@ export default function ImpactPage() {
   const highlightCards = [
     {
       number: "2,100+",
-      title: "Children Sheltered",
+      title: "Children Rehabilitated",
       subtitle: "Residential Child Care & Protection",
       icon: Home,
       borderColor: "border-emerald-200 hover:border-emerald-500",
@@ -27,7 +27,7 @@ export default function ImpactPage() {
     },
     {
       number: "12,000+",
-      title: "Children Rescued",
+      title: "Children Rescued & Rehabilitated",
       subtitle: "Emergency Child Protection Drive",
       icon: Shield,
       borderColor: "border-blue-200 hover:border-blue-500",
@@ -49,7 +49,7 @@ export default function ImpactPage() {
     },
     {
       number: "10,000+",
-      title: "Child Laboured Mainstreamed",
+      title: "Child laborers Mainstreamed",
       subtitle: "Anti-Child Labour & Education Rights",
       icon: GraduationCap,
       borderColor: "border-purple-200 hover:border-purple-500",

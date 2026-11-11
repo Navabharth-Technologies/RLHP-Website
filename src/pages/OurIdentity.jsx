@@ -60,7 +60,7 @@ export default function OurIdentity({ setCurrentPage }) {
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-none mb-4">
                   ABOUT <span className="text-rlhp-green italic font-serif">US</span>
                 </h1>
-                
+
                 {/* Dynamic animated moving continuous curve line */}
                 <AnimatedWaveUnderline className="w-56 h-4 mb-6" />
 
@@ -302,134 +302,7 @@ export default function OurIdentity({ setCurrentPage }) {
           </div>
         </section>
 
-        {/* 6. OUR PRINCIPLES (9 Principles with Elegant, Light & Aesthetic Minimalist Colors and Smooth Floating Card Motions) */}
-        <section id="principles" ref={principlesRef} className="space-y-8">
-          <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
-              Our <span className="text-rlhp-green italic font-serif">Principles</span>
-            </h2>
-            <AnimatedWaveUnderline className="w-48 h-3.5 mt-3" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-            {(() => {
-              const principleThemes = [
-                {
-                  icon: Users,
-                  iconColor: 'text-rose-500',
-                  badgeBg: 'bg-rose-50 border-rose-200 group-hover:bg-rose-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-rose-400',
-                  hoverShadow: 'hover:shadow-rose-100',
-                  accentDot: 'bg-rose-400',
-                },
-                {
-                  icon: Scale,
-                  iconColor: 'text-blue-500',
-                  badgeBg: 'bg-blue-50 border-blue-200 group-hover:bg-blue-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-blue-400',
-                  hoverShadow: 'hover:shadow-blue-100',
-                  accentDot: 'bg-blue-400',
-                },
-                {
-                  icon: Users,
-                  iconColor: 'text-purple-500',
-                  badgeBg: 'bg-purple-50 border-purple-200 group-hover:bg-purple-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-purple-400',
-                  hoverShadow: 'hover:shadow-purple-100',
-                  accentDot: 'bg-purple-400',
-                },
-                {
-                  icon: Handshake,
-                  iconColor: 'text-amber-500',
-                  badgeBg: 'bg-amber-50 border-amber-200 group-hover:bg-amber-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-amber-400',
-                  hoverShadow: 'hover:shadow-amber-100',
-                  accentDot: 'bg-amber-400',
-                },
-                {
-                  icon: Sparkles,
-                  iconColor: 'text-emerald-500',
-                  badgeBg: 'bg-emerald-50 border-emerald-200 group-hover:bg-emerald-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-emerald-400',
-                  hoverShadow: 'hover:shadow-emerald-100',
-                  accentDot: 'bg-emerald-400',
-                },
-                {
-                  icon: Eye,
-                  iconColor: 'text-teal-500',
-                  badgeBg: 'bg-teal-50 border-teal-200 group-hover:bg-teal-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-teal-400',
-                  hoverShadow: 'hover:shadow-teal-100',
-                  accentDot: 'bg-teal-400',
-                },
-                {
-                  icon: Sprout,
-                  iconColor: 'text-green-600',
-                  badgeBg: 'bg-green-50 border-green-200 group-hover:bg-green-600 group-hover:text-white',
-                  hoverBorder: 'hover:border-green-400',
-                  hoverShadow: 'hover:shadow-green-100',
-                  accentDot: 'bg-green-500',
-                },
-                {
-                  icon: UserCheck,
-                  iconColor: 'text-sky-500',
-                  badgeBg: 'bg-sky-50 border-sky-200 group-hover:bg-sky-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-sky-400',
-                  hoverShadow: 'hover:shadow-sky-100',
-                  accentDot: 'bg-sky-400',
-                },
-                {
-                  icon: Globe,
-                  iconColor: 'text-indigo-500',
-                  badgeBg: 'bg-indigo-50 border-indigo-200 group-hover:bg-indigo-500 group-hover:text-white',
-                  hoverBorder: 'hover:border-indigo-400',
-                  hoverShadow: 'hover:shadow-indigo-100',
-                  accentDot: 'bg-indigo-400',
-                },
-              ];
-
-              return orgDetails.principles.map((pr, idx) => {
-                const theme = principleThemes[idx] || principleThemes[0];
-                const Icon = theme.icon;
-                const isVisible = principlesStarted && idx < principlesVisibleCount;
-
-                return (
-                  <div
-                    key={idx}
-                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${
-                      isVisible
-                        ? 'opacity-100 translate-y-0 scale-100'
-                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                    }`}
-                    style={{
-                      willChange: 'transform, opacity',
-                    }}
-                  >
-                    {/* Clean Minimalist Icon Badge with Subtle Tint */}
-                    <div className={`w-14 h-14 rounded-2xl mb-5 flex items-center justify-center border shadow-xs transition-all duration-300 group-hover:scale-110 ${theme.badgeBg}`}>
-                      <Icon size={26} className={`${theme.iconColor} group-hover:text-white transition-colors duration-300`} />
-                    </div>
-
-                    {/* Title */}
-                    <h4 className="font-extrabold text-base sm:text-lg text-gray-900 mb-2 leading-snug group-hover:text-gray-950 transition-colors">
-                      {pr.title}
-                    </h4>
-
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mt-auto pt-2">
-                      {pr.description}
-                    </p>
-
-                    {/* Subtle bottom accent line */}
-                    <div className="mt-5 w-8 h-1 rounded-full bg-gray-150 group-hover:w-16 group-hover:bg-gray-400 transition-all duration-300" />
-                  </div>
-                );
-              });
-            })()}
-          </div>
-        </section>
-
-        {/* 7. OUR CORE VALUES (6 Core Values with Simple Aesthetic Colors, Smooth Hover Elevation & Motion) */}
+        {/* 6. OUR CORE VALUES (6 Core Values with Simple Aesthetic Colors, Smooth Hover Elevation & Motion) */}
         <section id="core-values" className="space-y-8">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
@@ -527,6 +400,133 @@ export default function OurIdentity({ setCurrentPage }) {
             })()}
           </div>
         </section>
+
+        {/* 7. OUR PRINCIPLES (9 Principles with Elegant, Light & Aesthetic Minimalist Colors and Smooth Floating Card Motions) */}
+        <section id="principles" ref={principlesRef} className="space-y-8">
+          <div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
+              Our <span className="text-rlhp-green italic font-serif">Principles</span>
+            </h2>
+            <AnimatedWaveUnderline className="w-48 h-3.5 mt-3" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            {(() => {
+              const principleThemes = [
+                {
+                  icon: Users,
+                  iconColor: 'text-rose-500',
+                  badgeBg: 'bg-rose-50 border-rose-200 group-hover:bg-rose-500 group-hover:text-white',
+                  hoverBorder: 'hover:border-rose-400',
+                  hoverShadow: 'hover:shadow-rose-100',
+                  accentDot: 'bg-rose-400',
+                },
+                {
+                  icon: Scale,
+                  iconColor: 'text-blue-500',
+                  badgeBg: 'bg-blue-50 border-blue-200 group-hover:bg-blue-500 group-hover:text-white',
+                  hoverBorder: 'hover:border-blue-400',
+                  hoverShadow: 'hover:shadow-blue-100',
+                  accentDot: 'bg-blue-400',
+                },
+                {
+                  icon: Users,
+                  iconColor: 'text-purple-500',
+                  badgeBg: 'bg-purple-50 border-purple-200 group-hover:bg-purple-500 group-hover:text-white',
+                  hoverBorder: 'hover:border-purple-400',
+                  hoverShadow: 'hover:shadow-purple-100',
+                  accentDot: 'bg-purple-400',
+                },
+                {
+                  icon: Handshake,
+                  iconColor: 'text-amber-500',
+                  badgeBg: 'bg-amber-50 border-amber-200 group-hover:bg-amber-500 group-hover:text-white',
+                  hoverBorder: 'hover:border-amber-400',
+                  hoverShadow: 'hover:shadow-amber-100',
+                  accentDot: 'bg-amber-400',
+                },
+                {
+                  icon: Sparkles,
+                  iconColor: 'text-emerald-500',
+                  badgeBg: 'bg-emerald-50 border-emerald-200 group-hover:bg-emerald-500 group-hover:text-white',
+                  hoverBorder: 'hover:border-emerald-400',
+                  hoverShadow: 'hover:shadow-emerald-100',
+                  accentDot: 'bg-emerald-400',
+                },
+                {
+                  icon: Eye,
+                  iconColor: 'text-teal-500',
+                  badgeBg: 'bg-teal-50 border-teal-200 group-hover:bg-teal-500 group-hover:text-white',
+                  hoverBorder: 'hover:border-teal-400',
+                  hoverShadow: 'hover:shadow-teal-100',
+                  accentDot: 'bg-teal-400',
+                },
+                {
+                  icon: Sprout,
+                  iconColor: 'text-green-600',
+                  badgeBg: 'bg-green-50 border-green-200 group-hover:bg-green-600 group-hover:text-white',
+                  hoverBorder: 'hover:border-green-400',
+                  hoverShadow: 'hover:shadow-green-100',
+                  accentDot: 'bg-green-500',
+                },
+                {
+                  icon: UserCheck,
+                  iconColor: 'text-sky-500',
+                  badgeBg: 'bg-sky-50 border-sky-200 group-hover:bg-sky-500 group-hover:text-white',
+                  hoverBorder: 'hover:border-sky-400',
+                  hoverShadow: 'hover:shadow-sky-100',
+                  accentDot: 'bg-sky-400',
+                },
+                {
+                  icon: Globe,
+                  iconColor: 'text-indigo-500',
+                  badgeBg: 'bg-indigo-50 border-indigo-200 group-hover:bg-indigo-500 group-hover:text-white',
+                  hoverBorder: 'hover:border-indigo-400',
+                  hoverShadow: 'hover:shadow-indigo-100',
+                  accentDot: 'bg-indigo-400',
+                },
+              ];
+
+              return orgDetails.principles.map((pr, idx) => {
+                const theme = principleThemes[idx] || principleThemes[0];
+                const Icon = theme.icon;
+                const isVisible = principlesStarted && idx < principlesVisibleCount;
+
+                return (
+                  <div
+                    key={idx}
+                    className={`bg-white rounded-3xl p-7 shadow-xs border border-gray-200/90 ${theme.hoverBorder} ${theme.hoverShadow} hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${isVisible
+                        ? 'opacity-100 translate-y-0 scale-100'
+                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                      }`}
+                    style={{
+                      willChange: 'transform, opacity',
+                    }}
+                  >
+                    {/* Clean Minimalist Icon Badge with Subtle Tint */}
+                    <div className={`w-14 h-14 rounded-2xl mb-5 flex items-center justify-center border shadow-xs transition-all duration-300 group-hover:scale-110 ${theme.badgeBg}`}>
+                      <Icon size={26} className={`${theme.iconColor} group-hover:text-white transition-colors duration-300`} />
+                    </div>
+
+                    {/* Title */}
+                    <h4 className="font-extrabold text-base sm:text-lg text-gray-900 mb-2 leading-snug group-hover:text-gray-950 transition-colors">
+                      {pr.title}
+                    </h4>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mt-auto pt-2">
+                      {pr.description}
+                    </p>
+
+                    {/* Subtle bottom accent line */}
+                    <div className="mt-5 w-8 h-1 rounded-full bg-gray-150 group-hover:w-16 group-hover:bg-gray-400 transition-all duration-300" />
+                  </div>
+                );
+              });
+            })()}
+          </div>
+        </section>
+
 
         {/* 8. FOUNDERS AND BOARD MEMBERS - SEPARATE */}
         <section id="governance" className="space-y-12">

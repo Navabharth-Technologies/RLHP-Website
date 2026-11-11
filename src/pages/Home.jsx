@@ -301,15 +301,15 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <div className="w-12 h-[3px] bg-rlhp-green mx-auto rounded-full" />
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-stretch">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Story & Bullets (7 cols) */}
-            <div className="lg:col-span-7 space-y-6 flex flex-col justify-between">
-              <div className="space-y-6">
+            <div className="lg:col-span-7 space-y-6 flex flex-col justify-center">
+              <div className="space-y-4">
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-snug">
                   42+ Years Working for Children's Rights
                 </h3>
 
-                <div className="text-gray-600 text-base leading-relaxed space-y-4">
+                <div className="text-gray-600 text-base leading-relaxed space-y-3.5">
                   <p>
                     Since 1984, <strong className="text-gray-900">Rural Literacy and Health Programme (RLHP)</strong> has been working towards holistic, child-centred development. What began with a focus on the health and education of urban poor and their children has grown into a wider community development approach, reaching over <strong className="text-gray-900">2 million lives</strong> across 10 districts in Karnataka and four states in South India.
                   </p>
@@ -320,7 +320,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
               </div>
 
               {/* Bullet checkmarks */}
-              <ul className="space-y-3 pt-2">
+              <ul className="space-y-2.5 pt-1">
                 {[
                   'Registered Under Society Act Under 1960',
                   'Operation across 10 districts in Karnataka and four states in South India',
@@ -336,21 +336,14 @@ export default function Home({ setCurrentPage, onNavClick }) {
               </ul>
             </div>
 
-            {/* Right Column: Commitment Image Card (5 cols) */}
-            <div className="lg:col-span-5 flex">
-              <div className="relative w-full h-full min-h-[380px] sm:min-h-[440px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
+            {/* Right Column: Commitment Image Card (5 cols) - cropped & fitted proportionally */}
+            <div className="lg:col-span-5 flex justify-center items-center">
+              <div className="relative w-full max-w-[460px] aspect-[4/4.2] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
                 <img
                   src={`${B}images/child_drinking_water.jpg`}
-                  alt="Child Drinking Clean Water - RLHP Community Impact"
+                  alt="Child - RLHP Community Impact"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 bg-black/40 backdrop-blur-md p-3.5 rounded-xl border border-white/20 text-white pointer-events-none">
-                  <p className="text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Empowering Every Child with Health, Education &amp; Dignity
-                  </p>
-                </div>
               </div>
             </div>
           </div>
