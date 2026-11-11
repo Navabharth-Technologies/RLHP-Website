@@ -117,11 +117,6 @@ export default function OurIdentity({ setCurrentPage }) {
                   alt="RLHP Children - About Us"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-4 right-4 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl text-xs font-bold text-gray-800 shadow-sm border border-emerald-100 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-rlhp-green animate-pulse" />
-                  <span>Nurturing Potential &amp; Building Confident Futures</span>
-                </div>
               </div>
             </div>
 
@@ -159,15 +154,6 @@ export default function OurIdentity({ setCurrentPage }) {
                   alt="Inception Story - Community Foundation Meeting"
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-md p-3.5 rounded-2xl border border-white/20 text-white pointer-events-none">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
-                    <p className="text-xs sm:text-sm font-bold tracking-wide">
-                      Early Community Roots &amp; Grassroots Gathering (1984)
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
