@@ -185,64 +185,56 @@ export default function Home({ setCurrentPage, onNavClick }) {
   /* ─── HERO SINGLE BACKGROUND IMAGE ─── */
   const heroImage = `${B}images/hero_main_banner.jpg`;
 
-  /* ─── TESTIMONIALS DATA (Alternating Boy and Girl with authentic real records) ─── */
+  /* ─── TESTIMONIALS DATA (Names Changed to Protect Privacy as Requested) ─── */
   const testimonials = [
     {
       text: "After losing both my parents at a young age, I found a safe home, care and guidance at Asha Kirana Boys’ Shelter Home. With RLHP’s support, I completed my 10th standard with 437 marks and received vocational training in two-wheeler repair. Today, I work as a mechanic at a reputed TVS showroom in Mysuru, earning ₹14,000 per month and living independently. I am grateful to RLHP and Asha Kirana for helping me become self-reliant and build a better future.",
-      name: "Prashanth",
+      name: "Prasanna",
+      note: "Name changed to protect privacy",
       designation: "Mysuru",
       tag: "Employed & Self-Reliant",
       gender: "boy"
     },
     {
       text: "I spent my childhood on the streets, struggling to meet my basic needs while continuing my education through hardships. RLHP identified me and provided care, education and support at Asha Bhavana Girls’ Home. With these opportunities, I was able to transform my life. Today, I am proud to be an advocate practising at the Magistrate Court in Bengaluru. I am grateful to RLHP for helping me build a life of dignity, confidence and independence.",
-      name: "Nagarathna",
+      name: "Nagaveni",
+      note: "Name changed to protect privacy",
       designation: "Advocate, Bengaluru",
       tag: "Advocate practising at Magistrate Court",
       gender: "girl"
     },
     {
       text: "After losing my parents at the age of three, I spent my childhood collecting rags and struggling for basic needs. RLHP identified me and brought me to Asha Kirana Boys’ Shelter Home, where I received care, education and a safe environment. With RLHP’s support, I completed my SSLC and received vocational training in carpentry at Seva Sadhana, Bengaluru. Today, I am a skilled carpenter, earning ₹15,000 per month and living independently. My dream is to start my own carpentry business and support children from disadvantaged backgrounds. I am forever grateful to RLHP and Asha Kirana for giving me the opportunity to build a dignified life.",
-      name: "Narayana",
+      name: "Narasimha",
+      note: "Name changed to protect privacy",
       designation: "Bengaluru",
       tag: "Skilled Carpenter",
       gender: "boy"
     },
     {
       text: "I came to Asha Bhavana in 2009 at the age of five, having lost my parents’ care and support. At Asha Bhavana, I received a safe home, education, counselling and guidance that helped me grow in confidence. With RLHP’s continued support, I completed my schooling and pursued paramedical studies in Channarayapatna. Today, I am independent and able to support myself. I am deeply grateful to Asha Bhavana and RLHP for helping me build a life of dignity and self-reliance.",
-      name: "Sneha",
-      designation: "",
+      name: "Sahana",
+      note: "Name changed to protect privacy",
+      designation: "Paramedical Professional",
       tag: "Paramedical Studies Graduate",
       gender: "girl"
     },
     {
       text: "My brother and I were brought to Asha Kirana Child Care Centre after RLHP identified our family’s vulnerable situation. At Asha Kirana, I received care, education and encouragement that helped me grow in confidence. I completed my SSLC with 501 marks and later pursued a two-year Electrician and Plumbing course at Seva Sadhana Institute, Bengaluru. Today, I work as an Electrician at St. John’s Hospital, Bengaluru, earning ₹18,000 per month. I am financially independent and dream of supporting my mother and giving back to Asha Kirana by helping other children build a better future. I am deeply grateful to RLHP for shaping my life.",
-      name: "Guna",
+      name: "Giri",
+      note: "Name changed to protect privacy",
       designation: "Bengaluru",
       tag: "Hospital Electrician",
       gender: "boy"
     },
     {
-      text: "I am grateful to ChildFund and my sponsor for supporting my education through DFC assistance, which helped me successfully complete my M.Com with Distinction. The youth development programme also strengthened my leadership, teamwork and communication skills. With a strong interest in accountancy, I aspire to become a Bank Manager. Their continued encouragement has given me the confidence and motivation to pursue my dreams and build a bright future.",
-      name: "Neha Anjum",
-      designation: "",
-      tag: "M.Com Distinction Graduate",
-      gender: "girl"
-    },
-    {
       text: "My three-year-old son Manoj was underweight, weighing just 10.5 kg, and was not attending the Anganwadi regularly. With the guidance and support of RLHP, he was enrolled in the Anganwadi and began receiving nutritious food and supplements. Gradually, his health improved, and today he weighs 13.1 kg, is active and happy. I am grateful to RLHP and the Anganwadi worker for helping my child move towards a healthier future and educating me about the importance of child nutrition.",
-      name: "Shruti",
+      name: "Shwetha",
+      note: "Name changed to protect privacy",
       designation: "Kumbrallimata Village",
       tag: "Child Health & Nutrition",
       gender: "girl"
-    },
-    {
-      text: "My family faced financial difficulties, and supporting the education of three children was a challenge. Through RLHP’s sponsorship programme in partnership with ChildFund International, I received educational support, guidance and opportunities to develop life skills and confidence. The programme also supported my mother through entrepreneurship training and a seed grant of ₹20,000, enabling her to start a flower business. Today, her business contributes to our family income and helps us continue our education. I am grateful to RLHP and ChildFund International for empowering my family and giving us hope for a better future.",
-      name: "Zoya Sulthana",
-      designation: "",
-      tag: "Education & Family Livelihood",
-      gender: "girl"
-    },
+    }
   ];
 
   return (
@@ -749,11 +741,16 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     {/* Footer Information */}
                     <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
                       <div>
-                        <h4 className="font-bold text-gray-900 text-base group-hover:text-rlhp-green transition-colors">
-                          {t.name}
-                        </h4>
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-bold text-gray-900 text-base group-hover:text-rlhp-green transition-colors">
+                            {t.name}
+                          </h4>
+                          <span className="text-[10px] text-gray-400 italic font-normal">
+                            (Name changed)
+                          </span>
+                        </div>
                         {t.designation && (
-                          <p className="text-xs text-gray-500 font-medium">
+                          <p className="text-xs text-gray-500 font-medium mt-0.5">
                             {t.designation}
                           </p>
                         )}

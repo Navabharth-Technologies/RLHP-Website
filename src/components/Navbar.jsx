@@ -165,7 +165,7 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
       {/* Mobile overlay backdrop */}
       {mobileOpen && (
         <div
-          className="xl:hidden fixed inset-0 bg-black/60 -z-10"
+          className="lg:hidden fixed inset-0 bg-black/60 -z-10"
           onClick={() => setMobileOpen(false)}
         />
       )}

@@ -372,13 +372,14 @@ export const officialPartners = [
   }
 ];
 
-// Home Page Testimonials & Case Studies (all 8 with verified text and authentic photos)
+// Home Page Testimonials & Case Studies (Names changed to protect privacy as requested)
 export const testimonialsData = [
   {
-    id: "nagarathna",
-    name: "Nagarathna",
+    id: "nagaveni",
+    name: "Nagaveni",
     role: "Advocate, Bengaluru",
     designation: "Advocate, Magistrate Court Bengaluru",
+    nameChanged: true,
     image: "/images/testimonials/nagarathna.jpg",
     tag: "Street to High Court Advocate",
     programme: "Asha Bhavana Girls’ Home",
@@ -390,10 +391,11 @@ RLHP identified me and brought me to Asha Bhavana Girls’ Home, where I receive
 Today, I am an advocate practising at the Magistrate Court in Bengaluru. The support I received from RLHP transformed my life and enabled me to live with dignity and independence. I am deeply grateful to RLHP for believing in me and giving me the opportunity to build a meaningful future. Today, I am proud to serve and support people in need.”`
   },
   {
-    id: "prashanth",
-    name: "Prashanth",
+    id: "prasanna",
+    name: "Prasanna",
     role: "Mysuru",
     designation: "TVS Showroom Mechanic, Mysuru",
+    nameChanged: true,
     image: "/images/testimonials/prashanth.jpg",
     tag: "Orphaned Child to TVS Mechanic",
     programme: "Asha Kirana Boys’ Shelter Home",
@@ -409,10 +411,11 @@ Today, I work as a mechanic at a reputed TVS showroom in Mysuru and earn ₹14,0
 I am deeply grateful to RLHP and Asha Kirana for the care, education and guidance they provided throughout my journey. Their support helped me build a safe, stable and dignified life. I hope my journey inspires other children at Asha Kirana to work hard, believe in themselves and never give up on their dreams.”`
   },
   {
-    id: "narayana",
-    name: "Narayana",
+    id: "narasimha",
+    name: "Narasimha",
     role: "Bengaluru",
     designation: "Skilled Carpenter, Bengaluru",
+    nameChanged: true,
     image: "/images/gallery/migrant_worker_rehabilitation.jpg",
     tag: "From Rag Picker to Skilled Carpenter",
     programme: "Asha Kirana & Seva Sadhana",
@@ -432,15 +435,16 @@ Today, I am a skilled carpenter and earn around ₹15,000 per month. I am self-r
 My dream is to start my own carpentry business and create opportunities for children who come from difficult backgrounds like mine. I want to support other children and contribute to society, especially those from deprived communities. I will always be grateful to RLHP and Asha Kirana for giving me a safe home, education, skills and, most importantly, a dignified life.”`
   },
   {
-    id: "shruti",
-    name: "Shruti",
+    id: "shwetha",
+    name: "Shwetha",
     role: "Kumbrallimata Village",
     designation: "Mother of Manoj (recovered from malnutrition)",
+    nameChanged: true,
     image: "/images/gallery/maternal_health_awareness.jpg",
     tag: "Child Malnutrition Recovery",
     programme: "Maternal & Child Nutrition",
     quote: "“My three-year-old son Manoj was underweight, weighing just 10.5 kg, and was not attending the Anganwadi regularly. With the guidance and support of RLHP, he was enrolled in the Anganwadi and began receiving nutritious food and supplements. Gradually, his health improved, and today he weighs 13.1 kg, is active and happy. I am grateful to RLHP and the Anganwadi worker for helping my child move towards a healthier future and educating me about the importance of child nutrition.”",
-    fullStory: `“My name is Shruti, and I am the mother of my three-year-old son, Manoj. There was a time when I felt deeply worried and helpless seeing my child so weak. At an age when he should have been active and healthy, he weighed only 10.5 kg. As a mother, it was painful to see him that way, but I did not know what to do or how to help him.
+    fullStory: `“My name is Shwetha, and I am the mother of my three-year-old son, Manoj. There was a time when I felt deeply worried and helpless seeing my child so weak. At an age when he should have been active and healthy, he weighed only 10.5 kg. As a mother, it was painful to see him that way, but I did not know what to do or how to help him.
 
 Manoj was not attending the Anganwadi and spent most of his time playing outside. He was not receiving proper food at regular intervals, and I was not aware of how important good nutrition is for a child’s growth and development.
 
@@ -453,10 +457,11 @@ Today, Manoj weighs 13.1 kg. He is healthy, happy and enjoys playing with other 
 I am deeply thankful to RLHP and the Anganwadi worker for their care and support. RLHP not only helped my child move towards a healthier life but also helped me understand the importance of nutrition and better childcare. Their support has truly made a meaningful difference in our lives.”`
   },
   {
-    id: "sneha",
-    name: "Sneha",
+    id: "sahana",
+    name: "Sahana",
     role: "Channarayapatna",
     designation: "Paramedical Professional",
+    nameChanged: true,
     image: "/images/testimonials/sneha.jpg",
     tag: "Asha Bhavana to Paramedic",
     programme: "Asha Bhavana Girls’ Home",
@@ -470,15 +475,16 @@ With continued guidance, I completed my schooling and later pursued paramedical 
 I am grateful for the care, education and guidance I received at Asha Bhavana. The support I received during my childhood helped me become confident, independent and self-reliant. Asha Bhavana gave me the opportunity to build a better future and live my life with dignity.”`
   },
   {
-    id: "guna",
-    name: "Guna",
+    id: "giri",
+    name: "Giri",
     role: "Bengaluru",
     designation: "Electrician, St. John’s Hospital, Bengaluru",
+    nameChanged: true,
     image: "/images/gallery/youth_computer_training.jpg",
     tag: "From Vulnerability to Independence",
     programme: "Asha Kirana & Seva Sadhana",
     quote: "“My brother and I were brought to Asha Kirana Child Care Centre after RLHP identified our family’s vulnerable situation. At Asha Kirana, I received care, education and encouragement that helped me grow in confidence. I completed my SSLC with 501 marks and later pursued a two-year Electrician and Plumbing course at Seva Sadhana Institute, Bengaluru. Today, I work as an Electrician at St. John’s Hospital, Bengaluru, earning ₹18,000 per month. I am financially independent and dream of supporting my mother and giving back to Asha Kirana by helping other children build a better future. I am deeply grateful to RLHP for shaping my life.”",
-    fullStory: `“I am Guna, a resident of Mysuru. My parents worked as sanitation workers. My father struggled with alcohol addiction and later passed away due to health complications. After his death, my mother, Bannamma, took complete responsibility for raising my elder brother Subramanya and me. Despite facing many difficulties, she worked hard to give us a better life.
+    fullStory: `“I am Giri, a resident of Mysuru. My parents worked as sanitation workers. My father struggled with alcohol addiction and later passed away due to health complications. After his death, my mother, Bannamma, took complete responsibility for raising my elder brother Subramanya and me. Despite facing many difficulties, she worked hard to give us a better life.
 
 About 12 years ago, RLHP staff identified our vulnerable situation and admitted both my brother and me to the Asha Kirana Child Care Centre. Coming to Asha Kirana brought a major change in my life. I received regular health care, nutritious food, proper hygiene and grooming, a safe environment and, most importantly, love and guidance.
 
@@ -495,46 +501,6 @@ My skills and dedication helped me secure a job as an Electrician at St. John’
 I now have several dreams for my future. I want to build a house in Mysuru, support my mother, help arrange my brother’s marriage and, most importantly, support the children of Asha Kirana in the future.
 
 I am grateful to Asha Kirana for giving me care, education, skills and the confidence to build my own life. The support I received has transformed my life and helped me become independent. I hope that one day I can give back by helping other children who are going through difficulties, just as I was helped.”`
-  },
-  {
-    id: "zoya",
-    name: "Zoya Sulthana",
-    role: "Mysuru",
-    designation: "Student & Entrepreneur Family",
-    image: "/images/gallery/nutrition_kit_distribution.jpg",
-    tag: "Education & Mother’s Flower Business",
-    programme: "RLHP & ChildFund Sponsorship",
-    quote: "“My family faced financial difficulties, and supporting the education of three children was a challenge. Through RLHP’s sponsorship programme in partnership with ChildFund International, I received educational support, guidance and opportunities to develop life skills and confidence. The programme also supported my mother through entrepreneurship training and a seed grant of ₹20,000, enabling her to start a flower business. Today, her business contributes to our family income and helps us continue our education. I am grateful to RLHP and ChildFund International for empowering my family and giving us hope for a better future.”",
-    fullStory: `“My name is Zoya Sulthana. I live with my parents, Syed Vaseem and Farhana, and my two sisters, Zaiba and Asiya. My family faced financial difficulties for many years. My father worked as a daily wage labourer, and his income was irregular. My mother took care of our home, and supporting the education of three children was often a challenge for my family.
-
-I became part of the sponsorship programme supported by Rural Literacy and Health Programme (RLHP) in partnership with ChildFund International eight years ago. The support and guidance we received brought hope to our family during difficult times. Through the programme, we received guidance on child protection, health, hygiene and the importance of education. The letters and greetings I received from my sponsor were especially encouraging and made me feel supported and motivated.
-
-As I grew older, I participated in youth development sessions conducted through the programme. These sessions helped me develop good hygiene practices, life skills and greater confidence in my education.
-
-The support also helped my mother build a livelihood. She participated in an Entrepreneurship Development Programme (EDP) conducted with support from RLHP. Through the training, she learned about business skills, financial management and government schemes. She later received a seed grant of ₹20,000, which helped her start a small flower business.
-
-Today, my mother’s business provides an additional source of income for our family. It helps us meet household expenses and has made it easier for my sisters and me to continue our education.
-
-I am deeply grateful to RLHP and ChildFund International for supporting me and my family. Their guidance has given us confidence, opportunities and hope. Inspired by my mother’s hard work and the support we have received, I want to complete my education, build a bright future, support my family and become a positive role model for other children facing similar challenges.
-
-This support has taught me that with the right opportunities, guidance and encouragement, families can overcome difficulties and children can move towards a better future.”`
-  },
-  {
-    id: "neha",
-    name: "Neha Anjum",
-    role: "Mysuru",
-    designation: "M.Com Graduate with Distinction, Aspiring Bank Manager",
-    image: "/images/testimonials/neha-anjum.jpg",
-    tag: "M.Com Distinction & Leadership",
-    programme: "ChildFund & DFC Assistance",
-    quote: "“I am grateful to ChildFund and my sponsor for supporting my education through DFC assistance, which helped me successfully complete my M.Com with Distinction. The youth development programme also strengthened my leadership, teamwork and communication skills. With a strong interest in accountancy, I aspire to become a Bank Manager. Their continued encouragement has given me the confidence and motivation to pursue my dreams and build a bright future.”",
-    fullStory: `“I am very grateful to ChildFund and my sponsor for the support and encouragement they have given me throughout my education. With their continued support, including DFC assistance, I was able to meet my educational needs and successfully complete my M. Com with Distinction.
-
-Accountancy has always been my favourite subject, and my dream is to become a Bank Manager. During my college studies, I completed a project and received a good grade, which gave me greater confidence in my abilities.
-
-One of my most memorable experiences with the ChildFund programme was participating in a youth meeting. Meeting young people from different communities, sharing ideas and experiences, and taking part in group discussions, games and activities helped me develop my leadership, teamwork, confidence and communication skills.
-
-I sincerely thank my sponsor and ChildFund for believing in me and supporting my educational journey. Their encouragement has motivated me to work towards my goals. I look forward to building a bright future and achieving my dream of becoming a Bank Manager.”`
   }
 ];
 
