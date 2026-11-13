@@ -21,14 +21,7 @@ export default function BankDetailsPage() {
     <div className="space-y-12 font-sans pb-16">
       <section className="bg-rlhp-darkgreen text-white py-16 px-4 sm:px-8 text-center relative overflow-hidden">
         <div className="max-w-7xl mx-auto space-y-3">
-          <div className="inline-flex items-center space-x-2 bg-rlhp-green/30 border border-rlhp-lightgreen/30 px-3 py-1 rounded-full text-rlhp-lightgreen text-xs font-semibold">
-            <ShieldCheck size={14} />
-            <span>FCRA Approved & 80G Tax Certified NGO</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold">Bank Transfer & Donation Channels</h1>
-          <p className="text-xs sm:text-sm text-rlhp-lightgreen max-w-xl mx-auto font-medium">
-            Official Indian Bank details for Domestic (INR) & Foreign (FCRA) contributions
-          </p>
         </div>
       </section>
 

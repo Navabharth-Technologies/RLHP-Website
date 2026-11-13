@@ -33,6 +33,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
   const [prioritiesVisibleCount, setPrioritiesVisibleCount] = useState(0);
   const prioritiesRef = useRef(null);
   const [prioritiesStarted, setPrioritiesStarted] = useState(false);
+  const [selectedPriorityIndex, setSelectedPriorityIndex] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -357,10 +358,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           {/* Section Title */}
           <div className="text-center mb-12">
-            <h2 className="text-sm font-extrabold tracking-[0.2em] text-rlhp-green uppercase mb-2">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-[0.2em] text-rlhp-green uppercase mb-3">
               WHO WE ARE
             </h2>
-            <div className="w-12 h-[3px] bg-rlhp-green mx-auto rounded-full" />
+            <div className="w-16 h-1 bg-rlhp-green mx-auto rounded-full" />
           </div>
 
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -382,9 +383,11 @@ export default function Home({ setCurrentPage, onNavClick }) {
               </div>
 
               {/* Bullet checkmarks */}
-              <ul className="space-y-2.5 pt-1">
+              <ul className="space-y-3.5 pt-1">
                 {[
                   'Registered Under Society Act Under 1960',
+                  'Registered on NGO Darpan with 12A, 80G, and FCRA certifications, making RLHP eligible for tax-exempt donations, CSR funding, and foreign grants.',
+                  'Guided by strict internal policies covering finance, procurement, child protection, and the prevention of sexual harassment.',
                   'Operation across 10 districts in Karnataka and four states in South India',
                   '7 Offices with Mysuru as Regional Headquarters',
                 ].map((item, idx) => (
@@ -392,7 +395,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     <span className="w-5 h-5 rounded-full bg-rlhp-green/10 text-rlhp-green flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check size={13} strokeWidth={3} />
                     </span>
-                    <span className="text-gray-700 text-sm font-medium">{item}</span>
+                    <span className="text-gray-700 text-sm font-medium text-justify">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -422,11 +425,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
               return (
                 <div
                   key={i}
-                  className={`bg-gradient-to-br from-rlhp-green to-rlhp-darkgreen rounded-2xl p-5 text-center text-white shadow-md hover:shadow-[0_20px_40px_-10px_rgba(34,197,94,0.4)] transition-all duration-500 hover:-translate-y-2 border border-white/20 ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0 scale-100' 
-                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                  }`}
+                  className={`bg-gradient-to-br from-rlhp-green to-rlhp-darkgreen rounded-2xl p-5 text-center text-white shadow-md hover:shadow-[0_20px_40px_-10px_rgba(34,197,94,0.4)] transition-all duration-500 hover:-translate-y-2 border border-white/20 ${isVisible
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
                   style={{ willChange: 'transform, opacity' }}
                 >
                   <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3 shadow-inner">
@@ -466,9 +468,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-wide">
               OUR PROGRAMME <span className="text-[#E49E23]">PRIORITIES</span>
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base max-w-[650px] mx-auto font-medium">
-              Comprehensive programs breaking the cycle of poverty through education
-            </p>
           </div>
 
           {/* Cards Grid: 1st row has 4 cards, next row has 3 cards on desktop */}
@@ -510,63 +509,86 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 },
               ].map((card, i) => {
                 const isVisible = prioritiesStarted && i < prioritiesVisibleCount;
+                const isSelected = selectedPriorityIndex === i;
                 return (
                   <div
                     key={i}
-                    className={`flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer transition-all duration-500 hover:shadow-[0_20px_45px_-10px_rgba(76,175,80,0.5)] ${
-                      isVisible 
-                        ? 'opacity-100 translate-y-0 scale-100' 
+                    onClick={() => setSelectedPriorityIndex(isSelected ? null : i)}
+                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${
+                      isSelected 
+                        ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(76,175,80,0.6)] scale-[1.02]' 
+                        : 'border-white/20 shadow-xl hover:border-rlhp-green/70 hover:shadow-[0_20px_40px_-10px_rgba(76,175,80,0.4)] hover:-translate-y-1.5'
+                    } ${
+                      isVisible
+                        ? 'opacity-100 translate-y-0 scale-100'
                         : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}
                     style={{ willChange: 'transform, opacity' }}
                   >
-                    {/* 3D Flip Card Inner Container */}
-                    <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
+                    {/* Background Image */}
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${
+                        isSelected ? 'scale-110 filter blur-[2px]' : 'hover:scale-105'
+                      }`}
+                    />
 
-                      {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
-                      <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
-                        <img
-                          src={card.img}
-                          alt={card.title}
-                          className="w-full h-full object-cover transition-transform duration-700"
-                        />
-                        {/* Gradient overlay for contrast */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
+                    {/* Default Overlay & Title (when not selected) */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20 p-5 flex flex-col justify-end transition-opacity duration-300 ${
+                        isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                      }`}
+                    >
+                      <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
+                      <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
+                        {card.title}
+                      </h3>
+                      <div className="mt-3 flex items-center justify-between pt-2 border-t border-white/15">
+                        <span className="text-[11px] font-semibold text-emerald-300">
+                          {card.metric}
+                        </span>
+                        <span className="text-[10px] text-white/60 bg-white/10 px-2 py-0.5 rounded-full">
+                          Click to read
+                        </span>
+                      </div>
+                    </div>
 
-                        {/* Bottom Title on Front Card (No arrow or flip instructions) */}
-                        <div className="absolute bottom-0 inset-x-0 p-5">
-                          <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
-                          <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
-                            {card.title}
-                          </h3>
+                    {/* Selected Content Card (appears on selection/click) */}
+                    <div
+                      className={`absolute inset-0 p-6 bg-gradient-to-br from-[#123615]/95 via-[#1b431e]/95 to-[#236B28]/95 backdrop-blur-sm text-white flex flex-col justify-between transition-all duration-300 ${
+                        isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+                      }`}
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#E49E23] bg-black/30 px-2.5 py-0.5 rounded-full border border-[#E49E23]/30">
+                            Programme Priority
+                          </span>
+                          <span className="text-[10px] text-white/70 bg-white/10 px-2 py-0.5 rounded-full">
+                            Click to close
+                          </span>
                         </div>
+                        <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-2">
+                          {card.title}
+                        </h3>
+                        <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3" />
+
+                        {/* Description */}
+                        <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed text-justify">
+                          {card.desc}
+                        </p>
                       </div>
 
-                      {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
-                      <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
-                        <div>
-                          <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
-                            {card.title}
-                          </h3>
-                          <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
-
-                          {/* Description */}
-                          <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
-                            {card.desc}
-                          </p>
-                        </div>
-
-                        {/* Bottom Metric Badge */}
-                        <div className="pt-3 border-t border-white/20 flex items-center justify-between">
-                          <span className="text-[11px] font-bold text-emerald-200">
-                            {card.metric}
-                          </span>
-                          <span className="text-[10px] text-white/70 italic">
-                            RLHP Priority
-                          </span>
-                        </div>
+                      {/* Bottom Metric Badge */}
+                      <div className="pt-3 border-t border-white/20 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-emerald-200">
+                          {card.metric}
+                        </span>
+                        <span className="text-[10px] text-white/70 italic">
+                          RLHP Initiative
+                        </span>
                       </div>
-
                     </div>
                   </div>
                 );
@@ -603,63 +625,86 @@ export default function Home({ setCurrentPage, onNavClick }) {
               ].map((card, idx) => {
                 const i = idx + 4;
                 const isVisible = prioritiesStarted && i < prioritiesVisibleCount;
+                const isSelected = selectedPriorityIndex === i;
                 return (
                   <div
                     key={idx}
-                    className={`flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer transition-all duration-500 hover:shadow-[0_20px_45px_-10px_rgba(76,175,80,0.5)] ${
-                      isVisible 
-                        ? 'opacity-100 translate-y-0 scale-100' 
+                    onClick={() => setSelectedPriorityIndex(isSelected ? null : i)}
+                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${
+                      isSelected 
+                        ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(76,175,80,0.6)] scale-[1.02]' 
+                        : 'border-white/20 shadow-xl hover:border-rlhp-green/70 hover:shadow-[0_20px_40px_-10px_rgba(76,175,80,0.4)] hover:-translate-y-1.5'
+                    } ${
+                      isVisible
+                        ? 'opacity-100 translate-y-0 scale-100'
                         : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}
                     style={{ willChange: 'transform, opacity' }}
                   >
-                    {/* 3D Flip Card Inner Container */}
-                    <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl shadow-xl">
+                    {/* Background Image */}
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${
+                        isSelected ? 'scale-110 filter blur-[2px]' : 'hover:scale-105'
+                      }`}
+                    />
 
-                      {/* ── FRONT FACE: Full-Length Card Image with Title ── */}
-                      <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden backface-hidden border-2 border-white/20 shadow-xl bg-gray-900">
-                        <img
-                          src={card.img}
-                          alt={card.title}
-                          className="w-full h-full object-cover transition-transform duration-700"
-                        />
-                        {/* Gradient overlay for contrast */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15" />
+                    {/* Default Overlay & Title (when not selected) */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20 p-5 flex flex-col justify-end transition-opacity duration-300 ${
+                        isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                      }`}
+                    >
+                      <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
+                      <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
+                        {card.title}
+                      </h3>
+                      <div className="mt-3 flex items-center justify-between pt-2 border-t border-white/15">
+                        <span className="text-[11px] font-semibold text-emerald-300">
+                          {card.metric}
+                        </span>
+                        <span className="text-[10px] text-white/60 bg-white/10 px-2 py-0.5 rounded-full">
+                          Click to read
+                        </span>
+                      </div>
+                    </div>
 
-                        {/* Bottom Title on Front Card (No arrow or flip instructions) */}
-                        <div className="absolute bottom-0 inset-x-0 p-5">
-                          <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
-                          <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
-                            {card.title}
-                          </h3>
+                    {/* Selected Content Card (appears on selection/click) */}
+                    <div
+                      className={`absolute inset-0 p-6 bg-gradient-to-br from-[#123615]/95 via-[#1b431e]/95 to-[#236B28]/95 backdrop-blur-sm text-white flex flex-col justify-between transition-all duration-300 ${
+                        isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+                      }`}
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#E49E23] bg-black/30 px-2.5 py-0.5 rounded-full border border-[#E49E23]/30">
+                            Programme Priority
+                          </span>
+                          <span className="text-[10px] text-white/70 bg-white/10 px-2 py-0.5 rounded-full">
+                            Click to close
+                          </span>
                         </div>
+                        <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-2">
+                          {card.title}
+                        </h3>
+                        <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3" />
+
+                        {/* Description */}
+                        <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed text-justify">
+                          {card.desc}
+                        </p>
                       </div>
 
-                      {/* ── BACK FACE: Rich Detailed Information Revealed on Hover Flip ── */}
-                      <div className="absolute inset-0 w-full h-full rounded-2xl p-6 bg-gradient-to-br from-[#1b431e] via-[#236B28] to-[#123615] text-white rotate-y-180 backface-hidden border-2 border-emerald-400/60 shadow-2xl flex flex-col justify-between">
-                        <div>
-                          <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-3">
-                            {card.title}
-                          </h3>
-                          <div className="w-10 h-1 bg-[#E49E23] rounded-full mb-3.5" />
-
-                          {/* Description */}
-                          <p className="text-emerald-50 text-xs sm:text-[13px] leading-relaxed">
-                            {card.desc}
-                          </p>
-                        </div>
-
-                        {/* Bottom Metric Badge */}
-                        <div className="pt-3 border-t border-white/20 flex items-center justify-between">
-                          <span className="text-[11px] font-bold text-emerald-200">
-                            {card.metric}
-                          </span>
-                          <span className="text-[10px] text-white/70 italic">
-                            RLHP Priority
-                          </span>
-                        </div>
+                      {/* Bottom Metric Badge */}
+                      <div className="pt-3 border-t border-white/20 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-emerald-200">
+                          {card.metric}
+                        </span>
+                        <span className="text-[10px] text-white/70 italic">
+                          RLHP Initiative
+                        </span>
                       </div>
-
                     </div>
                   </div>
                 );
@@ -695,75 +740,47 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </p>
           </div>
 
-          {/* Testimonials List — Zigzag Organic Blob & Card Layout */}
-          <div className="flex flex-col space-y-12 max-w-[1000px] mx-auto">
+          {/* Testimonials List */}
+          <div className="flex flex-col space-y-8 max-w-[1000px] mx-auto">
             {testimonials.map((t, i) => {
-              const isEven = i % 2 === 0;
               return (
                 <div
                   key={i}
-                  className={`flex flex-col sm:flex-row items-center gap-6 sm:gap-10 ${isEven ? 'sm:flex-row' : 'sm:flex-row-reverse'
-                    }`}
+                  className="w-full relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:border-rlhp-green hover:shadow-xl hover:shadow-rlhp-green/10 transition-all duration-300 group"
                 >
-                  {/* Organic Green Shape for Image Placeholder with smooth motion animation */}
-                  <div className="flex-shrink-0 relative">
-                    <div
-                      className={`w-28 h-28 sm:w-36 sm:h-36 shadow-lg transition-transform duration-300 hover:scale-110 ${isEven ? 'animate-morph-float' : 'animate-morph-float-delayed'
-                        }`}
-                      style={{
-                        background: 'linear-gradient(135deg, #2D8A35 0%, #1C5620 60%, #123C15 100%)',
-                        borderRadius: isEven
-                          ? '42% 58% 70% 30% / 45% 45% 55% 55%'
-                          : '58% 42% 35% 65% / 55% 60% 40% 45%',
-                      }}
-                    />
+                  {/* Top Quote Icon Badge */}
+                  <div className="absolute -top-4 left-6 sm:left-8 w-8 h-8 rounded-full bg-green-50 border border-green-200 group-hover:bg-rlhp-green group-hover:border-rlhp-green transition-colors flex items-center justify-center shadow-sm">
+                    <Quote size={16} className="text-rlhp-green group-hover:text-white transition-colors" />
                   </div>
 
-                  {/* Testimonial Quote Card with Unique Font and Styling */}
-                  <div className="flex-1 w-full relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:border-rlhp-green hover:shadow-xl hover:shadow-rlhp-green/10 transition-all duration-300 group">
-                    {/* Top Quote Icon Badge */}
-                    <div className="absolute -top-4 left-6 sm:left-8 w-8 h-8 rounded-full bg-green-50 border border-green-200 group-hover:bg-rlhp-green group-hover:border-rlhp-green transition-colors flex items-center justify-center shadow-sm">
-                      <Quote size={16} className="text-rlhp-green group-hover:text-white transition-colors" />
-                    </div>
+                  {/* Testimonial Quote Text with Same Font Style for Every Card */}
+                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-2 mb-6 group-hover:text-gray-900 transition-colors font-serif italic font-normal tracking-wide text-justify">
+                    “{t.text}”
+                  </p>
 
-                    {/* Testimonial Quote Text with Unique Font for Each Card */}
-                    <p
-                      className={`text-gray-700 text-sm sm:text-base leading-relaxed mt-2 mb-6 group-hover:text-gray-900 transition-colors ${i % 4 === 0
-                        ? 'font-serif italic font-normal tracking-wide'
-                        : i % 4 === 1
-                          ? 'font-sans font-medium tracking-normal text-gray-800'
-                          : i % 4 === 2
-                            ? 'font-mono text-[13px] sm:text-sm font-normal text-gray-800'
-                            : 'font-serif font-light text-[15px] sm:text-[17px] leading-loose text-gray-800'
-                        }`}
-                    >
-                      “{t.text}”
-                    </p>
-
-                    {/* Footer Information */}
-                    <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h4 className="font-bold text-gray-900 text-base group-hover:text-rlhp-green transition-colors">
-                            {t.name}
-                          </h4>
-                          <span className="text-[10px] text-gray-400 italic font-normal">
-                            (Name changed)
-                          </span>
-                        </div>
-                        {t.designation && (
-                          <p className="text-xs text-gray-500 font-medium mt-0.5">
-                            {t.designation}
-                          </p>
-                        )}
-                      </div>
-
-                      {t.tag && (
-                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-rlhp-green border border-green-200/60 group-hover:bg-rlhp-green group-hover:text-white transition-all">
-                          {t.tag}
+                  {/* Footer Information */}
+                  <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-bold text-gray-900 text-base group-hover:text-rlhp-green transition-colors">
+                          {t.name}
+                        </h4>
+                        <span className="text-[10px] text-gray-400 italic font-normal">
+                          (Name changed)
                         </span>
+                      </div>
+                      {t.designation && (
+                        <p className="text-xs text-gray-500 font-medium mt-0.5">
+                          {t.designation}
+                        </p>
                       )}
                     </div>
+
+                    {t.tag && (
+                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-rlhp-green border border-green-200/60 group-hover:bg-rlhp-green group-hover:text-white transition-all">
+                        {t.tag}
+                      </span>
+                    )}
                   </div>
                 </div>
               );
@@ -791,9 +808,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
               <span className="text-rlhp-green">IMPACT</span>
             </h2>
-            <p className="text-gray-500 text-base mt-2">
-              Transforming lives across Karnataka and South India through health and education
-            </p>
           </div>
 
           {/* 3 Impact Stat Cards — Highlighted with Logo Color Matching Green Shade on Hover */}
@@ -911,9 +925,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
               Our Activity Reports
             </h2>
             <div className="w-16 h-[3px] bg-rlhp-green mx-auto rounded-full mb-3" />
-            <p className="text-sm sm:text-base text-gray-500 max-w-xl mx-auto">
-              Stay updated with our latest reports, programmes, newsletters and impact stories
-            </p>
           </div>
 
           {/* 4 Cards Grid - Replicating Reference 2 Design with uploaded cover images 2, 3, 4, 5 */}
@@ -980,9 +991,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
               Our <span className="text-rlhp-green italic font-serif">Partners</span>
             </h2>
             <div className="w-16 h-1 bg-rlhp-green mx-auto rounded-full" />
-            <p className="text-gray-500 text-sm sm:text-base mt-3 max-w-xl mx-auto">
-              Collaborating with leading global foundations and institutions to empower communities
-            </p>
           </div>
 
           {/* Stagnant Static Grid: 4 Logos per row on desktop */}

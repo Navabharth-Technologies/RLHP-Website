@@ -3,7 +3,7 @@
 export const orgDetails = {
   name: "Rural Literacy and Health Programme",
   acronym: "RLHP",
-  tagline: "Empowering people through health, education and livelihood",
+  tagline: "Empowering People Through Health, Education & Livelihood",
   bulletLine: "Transforming lives of children, women and community",
   location: "Mysuru, Karnataka, India",
   foundedYear: 1984,

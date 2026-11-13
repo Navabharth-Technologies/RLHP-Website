@@ -77,10 +77,10 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
               />
               <div className="leading-tight truncate">
                 <span className="block text-[#4CAF50] font-black text-[17px] sm:text-[21px] lg:text-[20px] xl:text-[23px] tracking-tight group-hover:text-[#66BB6A] transition-colors drop-shadow-sm truncate">
-                  Rural Literacy &amp; Health Programme
+                  Rural Literacy &amp; Health Programme (RLHP)
                 </span>
                 <span className="block text-white text-[11.5px] sm:text-[13px] lg:text-[12.5px] xl:text-[14px] font-semibold tracking-normal opacity-95 mt-0.5 truncate">
-                  Empowering people through health, education and livelihood
+                  Empowering People Through Health, Education &amp; Livelihood
                 </span>
               </div>
             </button>
