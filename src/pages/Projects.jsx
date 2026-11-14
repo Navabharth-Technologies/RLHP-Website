@@ -11,6 +11,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
   const [visibleCount, setVisibleCount] = useState(0);
   const sectionRef = useRef(null);
   const [hasStarted, setHasStarted] = useState(false);
+  const [selectedProgramIndex, setSelectedProgramIndex] = useState(null);
 
   useEffect(() => {
     // If IntersectionObserver is supported, use it with a very lenient threshold or fallback to immediate visibility on mobile
@@ -132,16 +133,13 @@ export default function Projects({ setCurrentPage, onNavClick }) {
         </div>
       </section>
 
-      {/* ─── 2. OUR PROGRAMS / OUR PROJECTS SECTION (Exact Replica of Reference 4 with Green Logo Colors) ─── */}
+      {/* ─── 2. OUR PROGRAMS / OUR PROJECTS SECTION (Clickable Cards with Smooth Content Reveal) ─── */}
       <section ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
         <div className="mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
             Our <span className="text-rlhp-green italic font-serif">Programs</span>
           </h2>
           <AnimatedWaveUnderline className="w-52 h-3.5 mt-3" />
-          <p className="text-sm sm:text-base text-gray-600 font-medium mt-3">
-            Our key areas of work include:
-          </p>
         </div>
 
         {/* Cards Grid: Rows of 4 cards on desktop, then 3 cards */}
@@ -199,6 +197,11 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                 backGradient: 'from-[#14532D] via-[#15803D] to-[#052E16]',
               },
               {
+                accentColor: '#8B5CF6',
+                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(139,92,246,0.4)]',
+                backGradient: 'from-[#4C1D95] via-[#5B21B6] to-[#2E1065]',
+              },
+              {
                 accentColor: '#6366F1',
                 hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(99,102,241,0.4)]',
                 backGradient: 'from-[#312E81] via-[#3730A3] to-[#1E1B4B]',
@@ -208,22 +211,23 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                 hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(6,182,212,0.4)]',
                 backGradient: 'from-[#164E63] via-[#0E7490] to-[#083344]',
               },
-              {
-                accentColor: '#8B5CF6',
-                hoverGlow: 'hover:shadow-[0_20px_45px_-10px_rgba(139,92,246,0.4)]',
-                backGradient: 'from-[#4C1D95] via-[#5B21B6] to-[#2E1065]',
-              },
             ];
 
             return orgDetails.ourPrograms.map((prog, idx) => {
-              const imageSrc = `${import.meta.env.BASE_URL}images/programs/program_card_${idx + 1}.jpg`;
+              const imageSrc = `${import.meta.env.BASE_URL}images/programs/${prog.image || `program_card_${idx + 1}.jpg`}`;
               const style = programStyles[idx % programStyles.length];
               const isVisible = hasStarted && idx < visibleCount;
+              const isSelected = selectedProgramIndex === idx;
 
               return (
                 <div
                   key={idx}
-                  className={`flip-card-container relative h-[380px] sm:h-[400px] w-full perspective-1000 select-none cursor-pointer ${style.hoverGlow} transition-all duration-500 ${
+                  onClick={() => setSelectedProgramIndex(isSelected ? null : idx)}
+                  className={`relative h-[380px] sm:h-[400px] w-full rounded-3xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${
+                    isSelected 
+                      ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(16,185,129,0.6)] scale-[1.02]' 
+                      : `border-white/30 shadow-xl ${style.hoverGlow} hover:-translate-y-1.5`
+                  } ${
                     isVisible 
                       ? 'opacity-100 translate-y-0 scale-100' 
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
@@ -232,48 +236,49 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                     willChange: 'transform, opacity',
                   }}
                 >
-                  {/* 3D Flip Card Inner Container */}
-                  <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d rounded-3xl shadow-xl">
+                  {/* Full Background Image */}
+                  <img
+                    src={imageSrc}
+                    alt={prog.title}
+                    className={`w-full h-full object-cover transition-transform duration-700 ${
+                      isSelected ? 'scale-110 filter blur-[2px]' : 'hover:scale-108'
+                    }`}
+                  />
 
-                    {/* ── FRONT FACE: Full-Size Image Covering Entire Card + Title with High Clarity ── */}
-                    <div className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden backface-hidden border-2 border-white/30 shadow-xl bg-gray-900 group">
-                      <img
-                        src={imageSrc}
-                        alt={prog.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
-                      />
-                      {/* Deep contrast gradient overlay for maximum readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent" />
+                  {/* ── FRONT OVERLAY (Visible by default) ── */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent p-5 sm:p-6 flex flex-col justify-end transition-opacity duration-300 ${
+                      isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    }`}
+                  >
+                    <div
+                      className="w-8 h-1 rounded-full mb-2.5"
+                      style={{ backgroundColor: style.accentColor }}
+                    />
+                    <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug drop-shadow-md">
+                      {prog.title}
+                    </h3>
+                  </div>
 
-                      {/* Bottom Title on Front Card */}
-                      <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 z-10">
-                        <div
-                          className="w-8 h-1 rounded-full mb-2.5"
-                          style={{ backgroundColor: style.accentColor }}
-                        />
-                        <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug drop-shadow-md">
-                          {prog.title}
-                        </h3>
-                      </div>
-                    </div>
+                  {/* ── SELECTED CONTENT OVERLAY (Appears on click without flipping) ── */}
+                  <div
+                    className={`absolute inset-0 p-6 sm:p-7 bg-gradient-to-br ${style.backGradient} backdrop-blur-sm text-white flex flex-col justify-center transition-all duration-300 ${
+                      isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+                    }`}
+                  >
+                    <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug mb-2.5">
+                      {prog.title}
+                    </h3>
 
-                    {/* ── BACK FACE: Clean Detailed Information Revealed on Hover Flip ── */}
-                    <div className={`absolute inset-0 w-full h-full rounded-3xl p-6 sm:p-7 bg-gradient-to-br ${style.backGradient} text-white rotate-y-180 backface-hidden border-2 border-white/30 shadow-2xl flex flex-col justify-center`}>
-                      <h3 className="text-base sm:text-lg font-black text-white leading-snug mb-2.5">
-                        {prog.title}
-                      </h3>
+                    <div
+                      className="w-10 h-1 rounded-full mb-3"
+                      style={{ backgroundColor: style.accentColor }}
+                    />
 
-                      <div
-                        className="w-10 h-1 rounded-full mb-3"
-                        style={{ backgroundColor: style.accentColor }}
-                      />
-
-                      {/* Full Detailed Description with slightly decreased font size for ideal readability */}
-                      <p className="text-white/95 text-xs sm:text-[13px] leading-relaxed font-normal">
-                        {prog.description}
-                      </p>
-                    </div>
-
+                    {/* Description */}
+                    <p className="text-white/95 text-xs sm:text-[13px] leading-relaxed font-normal text-justify">
+                      {prog.description}
+                    </p>
                   </div>
                 </div>
               );
