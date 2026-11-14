@@ -212,12 +212,9 @@ export default function OurIdentity({ setCurrentPage }) {
         {/* 3. INCEPTION STORY (Two-Column Layout with Story Card & Enhanced HD Historical Photo Card) */}
         <section id="inception-story" className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200/80 shadow-sm overflow-hidden">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-4">
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-rlhp-darkgreen uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full">
-                <Sparkles size={13} className="text-rlhp-green" /> Origins &amp; Founding
-              </span>
               <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
                 Inception Story
               </h2>
@@ -246,16 +243,10 @@ export default function OurIdentity({ setCurrentPage }) {
         {/* 4. OUR JOURNEY (Matching Official Timeline Reference) */}
         <section id="our-journey" className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200/80 shadow-sm space-y-8 overflow-hidden">
           <div className="space-y-2">
-            <span className="text-xs font-bold text-rlhp-darkgreen uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full inline-block">
-              Historical Milestones
-            </span>
             <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
               Our Journey
             </h2>
             <AnimatedWaveUnderline className="w-40 h-3.5 mt-1" color="#D97706" />
-            <p className="text-xs sm:text-sm text-gray-500 max-w-2xl pt-1">
-              Four decades of transformative grassroots empowerment, child protection and community development across South India.
-            </p>
           </div>
 
           {/* Plain Milestone Cards Grid with Text and Iconic Badges as Existing Before */}
@@ -280,11 +271,10 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${
-                      isVisible 
-                        ? 'opacity-100 translate-y-0 scale-100' 
-                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                    }`}
+                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${isVisible
+                      ? 'opacity-100 translate-y-0 scale-100'
+                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                      }`}
                     style={{ willChange: 'transform, opacity' }}
                   >
                     <div>
@@ -342,7 +332,6 @@ export default function OurIdentity({ setCurrentPage }) {
                   <Target size={28} />
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-sky-300 block">Our Purpose</span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
                     Mission
                   </h3>
@@ -374,7 +363,6 @@ export default function OurIdentity({ setCurrentPage }) {
                   <Compass size={28} />
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-amber-300 block">Our Future</span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
                     Vision
                   </h3>
@@ -472,11 +460,10 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`relative p-7 rounded-3xl bg-white border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-500 group flex flex-col justify-between cursor-pointer overflow-hidden ${
-                      isVisible 
-                        ? 'opacity-100 translate-y-0 scale-100' 
-                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                    }`}
+                    className={`relative p-7 rounded-3xl bg-white border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-500 group flex flex-col justify-between cursor-pointer overflow-hidden ${isVisible
+                      ? 'opacity-100 translate-y-0 scale-100'
+                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                      }`}
                     style={{
                       willChange: 'transform, opacity',
                     }}
@@ -613,8 +600,8 @@ export default function OurIdentity({ setCurrentPage }) {
                   <div
                     key={idx}
                     className={`bg-white rounded-3xl p-7 shadow-md border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden ${isVisible
-                        ? 'opacity-100 translate-y-0 scale-100'
-                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                      ? 'opacity-100 translate-y-0 scale-100'
+                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                       }`}
                     style={{
                       willChange: 'transform, opacity',

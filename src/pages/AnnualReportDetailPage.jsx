@@ -276,14 +276,6 @@ export default function AnnualReportDetailPage({
 
               {/* Metadata Badges */}
               <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-gray-500 pt-1">
-                <div className="flex items-center gap-1.5">
-                  <Calendar size={14} className="text-rlhp-green" />
-                  <span>{report.date || 'March 31, 2025'}</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Folder size={14} className="text-[#E49E23]" />
-                  <span>Reports</span>
-                </div>
                 {totalBookPages > 0 && (
                   <div className="flex items-center gap-1.5 bg-emerald-50 text-rlhp-darkgreen px-2.5 py-0.5 rounded-full font-bold">
                     <BookOpen size={13} />
@@ -302,7 +294,7 @@ export default function AnnualReportDetailPage({
                   <img
                     src={report.cover}
                     alt={report.title}
-                    className="w-full h-full object-cover select-none"
+                    className="w-full h-full object-contain select-none bg-white"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20 pointer-events-none" />
                 </div>
@@ -391,7 +383,7 @@ export default function AnnualReportDetailPage({
                     <img 
                       src={report.cover} 
                       alt="Front Cover" 
-                      className="w-full h-full object-cover select-none block" 
+                      className="w-full h-full object-contain select-none block bg-white" 
                     />
 
                     {/* Paper Light Reflection */}
@@ -416,7 +408,7 @@ export default function AnnualReportDetailPage({
                     <img 
                       src={report.backCover} 
                       alt="Back Cover" 
-                      className="w-full h-full object-cover select-none block" 
+                      className="w-full h-full object-contain select-none block bg-white" 
                     />
                   </div>
                 ) : (
@@ -538,10 +530,6 @@ export default function AnnualReportDetailPage({
                         <h4 className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug line-clamp-2">
                           Activity Report {relYear || other.title}
                         </h4>
-                        <div className="flex items-center gap-1.5 text-[11px] text-gray-500 font-medium">
-                          <Calendar size={12} className="text-gray-400" />
-                          <span>{other.date || 'March 31, 2025'}</span>
-                        </div>
                       </div>
                     </div>
                   );

@@ -548,9 +548,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
                         <span className="text-[11px] font-semibold text-emerald-300">
                           {card.metric}
                         </span>
-                        <span className="text-[10px] text-white/60 bg-white/10 px-2 py-0.5 rounded-full">
-                          Click to read
-                        </span>
                       </div>
                     </div>
 
@@ -561,14 +558,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
                       }`}
                     >
                       <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#E49E23] bg-black/30 px-2.5 py-0.5 rounded-full border border-[#E49E23]/30">
-                            Programme Priority
-                          </span>
-                          <span className="text-[10px] text-white/70 bg-white/10 px-2 py-0.5 rounded-full">
-                            Click to close
-                          </span>
-                        </div>
                         <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-2">
                           {card.title}
                         </h3>
@@ -584,9 +573,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
                       <div className="pt-3 border-t border-white/20 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-emerald-200">
                           {card.metric}
-                        </span>
-                        <span className="text-[10px] text-white/70 italic">
-                          RLHP Initiative
                         </span>
                       </div>
                     </div>
@@ -664,9 +650,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
                         <span className="text-[11px] font-semibold text-emerald-300">
                           {card.metric}
                         </span>
-                        <span className="text-[10px] text-white/60 bg-white/10 px-2 py-0.5 rounded-full">
-                          Click to read
-                        </span>
                       </div>
                     </div>
 
@@ -677,14 +660,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
                       }`}
                     >
                       <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#E49E23] bg-black/30 px-2.5 py-0.5 rounded-full border border-[#E49E23]/30">
-                            Programme Priority
-                          </span>
-                          <span className="text-[10px] text-white/70 bg-white/10 px-2 py-0.5 rounded-full">
-                            Click to close
-                          </span>
-                        </div>
                         <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-2">
                           {card.title}
                         </h3>
@@ -700,9 +675,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
                       <div className="pt-3 border-t border-white/20 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-emerald-200">
                           {card.metric}
-                        </span>
-                        <span className="text-[10px] text-white/70 italic">
-                          RLHP Initiative
                         </span>
                       </div>
                     </div>
@@ -740,47 +712,54 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </p>
           </div>
 
-          {/* Testimonials List */}
+          {/* Testimonials List — Staggered Alternating Left/Right Layout */}
           <div className="flex flex-col space-y-8 max-w-[1000px] mx-auto">
             {testimonials.map((t, i) => {
+              const isEven = i % 2 === 0;
               return (
                 <div
                   key={i}
-                  className="w-full relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:border-rlhp-green hover:shadow-xl hover:shadow-rlhp-green/10 transition-all duration-300 group"
+                  className={`flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}
                 >
-                  {/* Top Quote Icon Badge */}
-                  <div className="absolute -top-4 left-6 sm:left-8 w-8 h-8 rounded-full bg-green-50 border border-green-200 group-hover:bg-rlhp-green group-hover:border-rlhp-green transition-colors flex items-center justify-center shadow-sm">
-                    <Quote size={16} className="text-rlhp-green group-hover:text-white transition-colors" />
-                  </div>
-
-                  {/* Testimonial Quote Text with Same Font Style for Every Card */}
-                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-2 mb-6 group-hover:text-gray-900 transition-colors font-serif italic font-normal tracking-wide text-justify">
-                    “{t.text}”
-                  </p>
-
-                  {/* Footer Information */}
-                  <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h4 className="font-bold text-gray-900 text-base group-hover:text-rlhp-green transition-colors">
-                          {t.name}
-                        </h4>
-                        <span className="text-[10px] text-gray-400 italic font-normal">
-                          (Name changed)
-                        </span>
-                      </div>
-                      {t.designation && (
-                        <p className="text-xs text-gray-500 font-medium mt-0.5">
-                          {t.designation}
-                        </p>
-                      )}
+                  <div
+                    className={`w-full lg:w-[88%] relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:border-rlhp-green hover:shadow-xl hover:shadow-rlhp-green/10 transition-all duration-300 group ${
+                      isEven ? 'lg:mr-auto' : 'lg:ml-auto'
+                    }`}
+                  >
+                    {/* Top Quote Icon Badge */}
+                    <div className={`absolute -top-4 ${isEven ? 'left-6 sm:left-8' : 'right-6 sm:right-8'} w-8 h-8 rounded-full bg-green-50 border border-green-200 group-hover:bg-rlhp-green group-hover:border-rlhp-green transition-colors flex items-center justify-center shadow-sm`}>
+                      <Quote size={16} className="text-rlhp-green group-hover:text-white transition-colors" />
                     </div>
 
-                    {t.tag && (
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-rlhp-green border border-green-200/60 group-hover:bg-rlhp-green group-hover:text-white transition-all">
-                        {t.tag}
-                      </span>
-                    )}
+                    {/* Testimonial Quote Text with Same Font Style for Every Card */}
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-2 mb-6 group-hover:text-gray-900 transition-colors font-serif italic font-normal tracking-wide text-justify">
+                      “{t.text}”
+                    </p>
+
+                    {/* Footer Information */}
+                    <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-bold text-gray-900 text-base group-hover:text-rlhp-green transition-colors">
+                            {t.name}
+                          </h4>
+                          <span className="text-[10px] text-gray-400 italic font-normal">
+                            (Name changed)
+                          </span>
+                        </div>
+                        {t.designation && (
+                          <p className="text-xs text-gray-500 font-medium mt-0.5">
+                            {t.designation}
+                          </p>
+                        )}
+                      </div>
+
+                      {t.tag && (
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-rlhp-green border border-green-200/60 group-hover:bg-rlhp-green group-hover:text-white transition-all">
+                          {t.tag}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
@@ -960,9 +939,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
                 {/* Card Body */}
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-[11px] font-semibold text-gray-400 block mb-1">
-                      {item.date}
-                    </span>
                     <h3 className="text-base font-bold text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug line-clamp-2">
                       {item.title}
                     </h3>
