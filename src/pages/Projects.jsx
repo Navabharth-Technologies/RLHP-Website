@@ -298,8 +298,8 @@ export default function Projects({ setCurrentPage, onNavClick }) {
         </div>
       </section>
 
-      {/* ─── 3. WITH WHOM WE WORK (In Color #38853E Container) ─── */}
-      <section className="w-full bg-[#38853E] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 shadow-inner">
+      {/* ─── 3. WITH WHOM WE WORK (In Elegant Midnight Emerald Container) ─── */}
+      <section className="w-full bg-[#132A1C] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 shadow-inner">
         <div className="max-w-6xl mx-auto space-y-8">
           
           {/* Header */}
@@ -307,11 +307,11 @@ export default function Projects({ setCurrentPage, onNavClick }) {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
               With Whom We Work
             </h2>
-            <div className="w-16 h-1.5 bg-white/80 mx-auto rounded-full mt-3" />
+            <div className="w-16 h-1.5 bg-rlhp-green mx-auto rounded-full mt-3" />
           </div>
 
           {/* Intro text */}
-          <div className="text-sm sm:text-base text-green-50 leading-relaxed max-w-4xl mx-auto text-center font-medium space-y-3">
+          <div className="text-sm sm:text-base text-emerald-100 leading-relaxed max-w-4xl mx-auto text-center font-medium space-y-3">
             <p>
               RLHP works with children, families and communities living in vulnerable and marginalised situations across urban, peri-urban and rural areas of South India. Our focus is on reaching those who face social, economic and geographical barriers to education, healthcare, protection and livelihood opportunities.
             </p>
@@ -321,11 +321,11 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           </div>
 
           {/* Target Groups Bullet List */}
-          <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/40 max-w-4xl mx-auto space-y-4 text-gray-900">
+          <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/20 max-w-4xl mx-auto space-y-4 text-gray-900">
             <ul className="space-y-4 sm:space-y-5">
               {orgDetails.withWhomWeWork.groups.map((group, idx) => (
                 <li key={idx} className="flex items-start gap-3.5">
-                  <span className="w-3 h-3 rounded-full bg-[#38853E] mt-1.5 flex-shrink-0 shadow-xs" />
+                  <span className="w-3 h-3 rounded-full bg-rlhp-green mt-1.5 flex-shrink-0 shadow-xs" />
                   <div className="text-base sm:text-lg leading-relaxed">
                     <strong className="text-gray-950 font-extrabold text-base sm:text-lg tracking-tight">{group.title}:</strong>{' '}
                     <span className="text-gray-800 font-medium">{group.description}</span>
@@ -343,11 +343,11 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           </div>
 
           {/* Collaborations Bullet List */}
-          <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/40 max-w-4xl mx-auto space-y-4 text-gray-900">
+          <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/20 max-w-4xl mx-auto space-y-4 text-gray-900">
             <ul className="space-y-4 sm:space-y-5">
               {orgDetails.withWhomWeWork.collaborations.map((collab, idx) => (
                 <li key={idx} className="flex items-start gap-3.5">
-                  <span className="w-3 h-3 rounded-full bg-[#38853E] mt-1.5 flex-shrink-0 shadow-xs" />
+                  <span className="w-3 h-3 rounded-full bg-rlhp-green mt-1.5 flex-shrink-0 shadow-xs" />
                   <div className="text-base sm:text-lg leading-relaxed">
                     <strong className="text-gray-950 font-extrabold text-base sm:text-lg tracking-tight">{collab.title}</strong> –{' '}
                     <span className="text-gray-800 font-medium">{collab.description}</span>
@@ -355,13 +355,6 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Concluding Box */}
-          <div className="max-w-4xl mx-auto text-center pt-2 pb-6">
-            <p className="text-sm sm:text-base text-green-50 font-medium italic leading-relaxed">
-              Through these partnerships and collective efforts, RLHP works towards building inclusive, empowered and resilient communities where every child, woman and young person has the opportunity to live with dignity and build a better future.
-            </p>
           </div>
 
         </div>

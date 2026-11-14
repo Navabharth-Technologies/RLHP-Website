@@ -7,9 +7,6 @@ export default function WhereWeWork() {
       <section className="bg-rlhp-darkgreen text-white py-16 px-4 sm:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-3">
           <h1 className="text-3xl sm:text-5xl font-extrabold">Where We Work</h1>
-          <p className="text-xs sm:text-sm text-rlhp-lightgreen max-w-xl mx-auto font-medium">
-            Active presence across 10 key districts in Karnataka covering South and North Karnataka
-          </p>
         </div>
       </section>
 

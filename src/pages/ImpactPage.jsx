@@ -220,7 +220,7 @@ export default function ImpactPage() {
         <div className="max-w-7xl mx-auto space-y-3">
           <h1 className="text-3xl sm:text-5xl font-extrabold">Our Impact</h1>
           <p className="text-xs sm:text-sm text-rlhp-lightgreen max-w-xl mx-auto font-medium">
-            42+ years of measurable, lasting transformation in children &amp; communities
+            42+ years of measurable, lasting transformation in children &amp; communities.
           </p>
         </div>
       </section>
@@ -261,16 +261,10 @@ export default function ImpactPage() {
         {/* ─── Transformative Community Footprint Section ─── */}
         <section className="space-y-8 pt-2">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-bold text-rlhp-green uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full inline-block">
-              Milestone Transformations
-            </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
               Transformative Community Footprint
             </h2>
             <div className="w-12 h-1 bg-rlhp-green mx-auto rounded-full" />
-            <p className="text-xs sm:text-sm text-gray-500 pt-1">
-              Documented milestones of child rescue, rehabilitation, education, and family empowerment across South India
-            </p>
           </div>
 
           {/* All Transformative Cards with cascade timer animation matching Our Principles */}
