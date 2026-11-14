@@ -273,16 +273,6 @@ export default function AnnualReportDetailPage({
                   Activity Report {displayYear}
                 </span>
               </div>
-
-              {/* Metadata Badges */}
-              <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-gray-500 pt-1">
-                {totalBookPages > 0 && (
-                  <div className="flex items-center gap-1.5 bg-emerald-50 text-rlhp-darkgreen px-2.5 py-0.5 rounded-full font-bold">
-                    <BookOpen size={13} />
-                    <span>{totalBookPages} Pages</span>
-                  </div>
-                )}
-              </div>
             </div>
 
             {/* Right Slanted Cover Preview with Elevation Shadow */}

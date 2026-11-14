@@ -210,25 +210,25 @@ export default function OurIdentity({ setCurrentPage }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* 3. INCEPTION STORY (Two-Column Layout with Story Card & Enhanced HD Historical Photo Card) */}
-        <section id="inception-story" className="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200/80 shadow-sm overflow-hidden">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <section id="inception-story" className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200/80 shadow-sm overflow-hidden">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-4">
               <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
                 Inception Story
               </h2>
-              <AnimatedWaveUnderline className="w-44 h-3.5 mb-4" />
+              <AnimatedWaveUnderline className="w-44 h-3.5 mb-3" />
               <div className="bg-gradient-to-br from-emerald-50/40 via-white to-gray-50/50 border-l-4 border-rlhp-green p-6 sm:p-8 rounded-r-2xl shadow-2xs space-y-4">
-                <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium text-justify">
                   Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
                 </p>
               </div>
             </div>
 
             {/* Right Card (5 Cols) - HD Enhanced Inception Gathering Photo with Smooth Animation */}
-            <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative w-full max-w-[460px] aspect-square rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-500 hover:-translate-y-1.5 cursor-pointer">
+            <div className="lg:col-span-5 flex justify-center items-start">
+              <div className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-500 hover:-translate-y-1.5 cursor-pointer">
                 <img
                   src={`${import.meta.env.BASE_URL}images/inception_story_meeting.jpg`}
                   alt="Inception Story - Community Foundation Meeting"
@@ -268,10 +268,19 @@ export default function OurIdentity({ setCurrentPage }) {
                 const MIcon = iconMap[item.icon] || Sparkles;
                 const isVisible = journeyStarted && idx < journeyVisibleCount;
 
+                // When in a 3-column grid, indices are:
+                // Row 1: 0 (1984), 1 (1989), 2 (1990)
+                // Row 2: 3 (1990), 4 (1999), 5 (2004)
+                // Row 3: 6 (2014), 7 (2018), 8 (2020)
+                // Row 4: 9 (2026) -> placing it at column 2 (under 2018 at col 2)
+                const is2026 = item.year === '2026';
+
                 return (
                   <div
                     key={idx}
-                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${isVisible
+                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${
+                      is2026 ? 'lg:col-start-2' : ''
+                    } ${isVisible
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                       }`}
@@ -357,7 +366,7 @@ export default function OurIdentity({ setCurrentPage }) {
             <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl group-hover:scale-125 transition-transform pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-600/15 rounded-full blur-2xl pointer-events-none" />
 
-            <div className="relative z-10 flex flex-col h-full justify-between space-y-6">
+            <div className="relative z-10 flex flex-col h-full justify-center space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-2xl bg-amber-500/20 backdrop-blur-md text-amber-200 border border-amber-400/30 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
                   <Compass size={28} />
