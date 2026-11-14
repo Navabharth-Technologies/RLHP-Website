@@ -218,19 +218,19 @@ export const orgDetails = {
 
   // 14 Programs
   ourPrograms: [
-    { id: 1, image: "program_card_1.jpg", title: "Street Children’s Rehabilitation", description: "Providing care, protection, education and rehabilitation support to children living in vulnerable situations." },
-    { id: 2, image: "program_card_2.jpg", title: "Child Rights Clubs", description: "Promoting child rights, protection and participation through Child Rights Clubs." },
-    { id: 3, image: "program_card_3.jpg", title: "Library Programme", description: "Promoting reading habits, improving literacy and encouraging lifelong learning among the government school childrens through access to books, reading spaces and educational resources." },
-    { id: 4, image: "program_card_4.jpg", title: "Eradication of Child Labour and Quality Education", description: "Rescuing and rehabilitating children from hazardous labour to reintegrate them into mainstream schooling, ensuring access to inclusive, safe, and quality education for lifelong self-reliance." },
-    { id: 5, image: "program_card_5.jpg", title: "Women’s Empowerment and SHG Promotion", description: "Strengthening women through Self-Help Groups, leadership development and economic empowerment." },
-    { id: 6, image: "program_card_6.jpg", title: "Vocational Training Programmes", description: "Providing skill development and vocational training to improve employment and livelihood opportunities." },
-    { id: 7, image: "program_card_7.jpg", title: "Malnutrition Prevention", description: "Addressing malnutrition through nutrition awareness, monitoring and community-based interventions." },
-    { id: 8, image: "program_card_8.jpg", title: "Health Camps and Health Awareness", description: "Organising health camps and promoting access to essential healthcare services." },
-    { id: 9, image: "program_card_9.jpg", title: "Reproductive and Child Health (RCH)", description: "Promoting maternal, reproductive and child health awareness and services." },
-    { id: 10, image: "program_card_10.jpg", title: "Community Development", description: "Strengthening community participation and improving access to essential services." },
-    { id: 13, image: "program_card_13.jpg", title: "Adolescent Empowerment and Gender Justice", description: "Promoting gender equality, rights, leadership and equal opportunities for adolescents." },
-    { id: 11, image: "program_card_11.jpg", title: "Awareness and Government Scheme Linkages", description: "Creating awareness and facilitating access to government schemes and welfare programmes." },
-    { id: 12, image: "program_card_12.jpg", title: "Youth Engagement in Climate Change", description: "Encouraging young people to participate in environmental protection and climate action." }
+    { title: "Street Children’s Rehabilitation", description: "Providing care, protection, education and rehabilitation support to children living in vulnerable situations." },
+    { title: "Child Rights Clubs", description: "Promoting child rights, protection and participation through Child Rights Clubs." },
+    { title: "Library Programme", description: "Promoting reading habits, improving literacy and encouraging lifelong learning among the government school childrens through access to books, reading spaces and educational resources." },
+    { title: "Eradication of Child Labour and Quality Education", description: "Rescuing and rehabilitating children from hazardous labour to reintegrate them into mainstream schooling, ensuring access to inclusive, safe, and quality education for lifelong self-reliance." },
+    { title: "Women’s Empowerment and SHG Promotion", description: "Strengthening women through Self-Help Groups, leadership development and economic empowerment." },
+    { title: "Vocational Training Programmes", description: "Providing skill development and vocational training to improve employment and livelihood opportunities." },
+    { title: "Malnutrition Prevention", description: "Addressing malnutrition through nutrition awareness, monitoring and community-based interventions." },
+    { title: "Health Camps and Health Awareness", description: "Organising health camps and promoting access to essential healthcare services." },
+    { title: "Reproductive and Child Health (RCH)", description: "Promoting maternal, reproductive and child health awareness and services." },
+    { title: "Community Development", description: "Strengthening community participation and improving access to essential services." },
+    { title: "Awareness and Government Scheme Linkages", description: "Creating awareness and facilitating access to government schemes and welfare programmes." },
+    { title: "Youth Engagement in Climate Change", description: "Encouraging young people to participate in environmental protection and climate action." },
+    { title: "Adolescent Empowerment and Gender Justice", description: "Promoting gender equality, rights, leadership and equal opportunities for adolescents." }
   ],
 
   // With Whom We Work

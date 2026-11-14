@@ -44,9 +44,6 @@ export default function GalleryPage({ onSelectMedia }) {
         <div className="absolute inset-0 bg-gradient-to-r from-rlhp-darkgreen via-emerald-900 to-rlhp-darkgreen opacity-90" />
         <div className="relative max-w-7xl mx-auto space-y-4">
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">Photo Gallery</h1>
-          <p className="text-xs sm:text-sm text-rlhp-lightgreen max-w-2xl mx-auto font-medium leading-relaxed">
-            Real ground-level photographs capturing 42+ years of community development, child protection, women federations, and health drives across Mysuru & Karnataka.
-          </p>
         </div>
       </section>
 
@@ -57,22 +54,21 @@ export default function GalleryPage({ onSelectMedia }) {
             {galleryData.map((item, index) => {
               const isVisible = index < visibleCount;
               return (
-                <div 
+                <div
                   key={item.id}
                   onClick={() => onSelectMedia && onSelectMedia(item)}
-                  className={`bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:border-rlhp-green/60 transition-all duration-500 cursor-pointer group relative flex flex-col transform ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0 scale-100' 
-                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                  }`}
+                  className={`bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:border-rlhp-green/60 transition-all duration-500 cursor-pointer group relative flex flex-col transform ${isVisible
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
                   style={{
                     transitionDelay: `${(index % 3) * 40}ms`
                   }}
                 >
                   <div className="h-64 sm:h-72 overflow-hidden relative bg-gray-100">
-                    <img 
-                      src={getImageUrl(item.image)} 
-                      alt="RLHP Field Gallery" 
+                    <img
+                      src={getImageUrl(item.image)}
+                      alt="RLHP Field Gallery"
                       onError={(e) => {
                         if (item.remoteImage && e.target.src !== getImageUrl(item.remoteImage)) {
                           e.target.src = getImageUrl(item.remoteImage);
@@ -81,10 +77,10 @@ export default function GalleryPage({ onSelectMedia }) {
                       style={{
                         objectPosition: item.objectPosition || 'center'
                       }}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       loading="lazy"
                     />
-                    
+
                     {/* Minimal hover overlay with zoom icon only */}
                     <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="w-11 h-11 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white transform scale-75 group-hover:scale-100 transition-transform duration-300 shadow-lg border border-white/20">

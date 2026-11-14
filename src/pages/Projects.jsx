@@ -214,16 +214,25 @@ export default function Projects({ setCurrentPage, onNavClick }) {
             ];
 
             return orgDetails.ourPrograms.map((prog, idx) => {
-              const imageSrc = `${import.meta.env.BASE_URL}images/programs/${prog.image || `program_card_${idx + 1}.jpg`}`;
+              const imageSrc = `${import.meta.env.BASE_URL}images/programs/program_card_${idx + 1}.jpg`;
               const style = programStyles[idx % programStyles.length];
               const isVisible = hasStarted && idx < visibleCount;
               const isSelected = selectedProgramIndex === idx;
+
+              // Row 1 (cards 0, 1, 2, 3)
+              // Row 2 (cards 4, 5, 6, 7)
+              // Row 3 (cards 8, 9, 10, 11) -> 8: RCH (col 1), 9: Community Development (col 2), 10: Awareness & Govt Scheme Linkages (col 3), 11: Youth Climate (col 4)
+              // Row 4 (card 12) -> Adolescent Empowerment and Gender Justice
+              // Place directly below and in between Community Development (col 2) and Awareness & Govt Scheme Linkages (col 3):
+              const isAdolescent = idx === 12;
 
               return (
                 <div
                   key={idx}
                   onClick={() => setSelectedProgramIndex(isSelected ? null : idx)}
-                  className={`relative h-[380px] sm:h-[400px] w-full rounded-3xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${
+                  className={`relative h-[380px] sm:h-[400px] w-full rounded-3xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 bg-gray-900 ${
+                    isAdolescent ? 'lg:col-start-2 lg:translate-x-1/2' : ''
+                  } ${
                     isSelected 
                       ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(16,185,129,0.6)] scale-[1.02]' 
                       : `border-white/30 shadow-xl ${style.hoverGlow} hover:-translate-y-1.5`
@@ -236,14 +245,16 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                     willChange: 'transform, opacity',
                   }}
                 >
-                  {/* Full Background Image */}
-                  <img
-                    src={imageSrc}
-                    alt={prog.title}
-                    className={`w-full h-full object-cover transition-transform duration-700 ${
-                      isSelected ? 'scale-110 filter blur-[2px]' : 'hover:scale-108'
-                    }`}
-                  />
+                  {/* Full Image Displayed Without Chopping or Cropping */}
+                  <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gray-950 overflow-hidden">
+                    <img
+                      src={imageSrc}
+                      alt={prog.title}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${
+                        isSelected ? 'scale-105 filter blur-[2px]' : 'hover:scale-105'
+                      }`}
+                    />
+                  </div>
 
                   {/* ── FRONT OVERLAY (Visible by default) ── */}
                   <div
