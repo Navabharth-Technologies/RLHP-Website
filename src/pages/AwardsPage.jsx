@@ -10,9 +10,6 @@ export default function AwardsPage({ setCurrentPage, onNavClick, onSelectNews })
       <section className="bg-rlhp-darkgreen text-white py-16 px-4 sm:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-3">
           <h1 className="text-3xl sm:text-5xl font-extrabold">Awards & Achievements</h1>
-          <p className="text-xs sm:text-sm text-rlhp-lightgreen max-w-xl mx-auto font-medium">
-            State and national recognitions for excellence in community service
-          </p>
         </div>
       </section>
 

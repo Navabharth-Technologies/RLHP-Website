@@ -890,43 +890,39 @@ export const newsArticlesData = [
 export const awardsData = [
   {
     id: "award-panchayat-2026",
-    title: "Recognition on National Panchayat Raj Day",
-    organization: "National Panchayat Raj Ministry / Karnataka",
+    title: "Recognition on National Panchayat Raj Day – 2026",
     year: "2026",
-    category: "Panchayat Raj & Rural Governance",
-    description: "Honoured for exemplary contribution towards grassroots democratic empowerment, Gram Panchayat linkages, and community governance."
+    image: "/images/awards/award_panchayat_2026.jpg"
   },
   {
     id: "award-wadiyar-2025",
-    title: "Rajarshi Shri Nalwadi Krishnaraja Wadiyar Award",
-    organization: "Mysuru District Administration & Royal Legacy Foundation",
+    title: "Rajarshi Shri Nalwadi Krishnaraja Wadiyar Award 2025",
     year: "2025",
-    category: "Social Leadership & Community Welfare",
-    description: "Conferred in recognition of transformative social impact, women self-help federations, and dedicated child rescue services."
+    image: "/images/awards/award_wadiyar_2025.jpg"
+  },
+  {
+    id: "award-wadiyar-2025-1",
+    title: "Rajarshi Shri Nalwadi Krishnaraja Wadiyar Award 2025 (Felicitation)",
+    year: "2025",
+    image: "/images/awards/award_wadiyar_2025_1.jpg"
   },
   {
     id: "award-chaitanya-2024",
-    title: "Chaitanya Shri Award",
-    organization: "Social Welfare Federation of Karnataka",
+    title: "Chaitanya Shri Award 2024",
     year: "2024",
-    category: "Community Mobilization & Child Rights",
-    description: "Awarded for exceptional leadership in protecting vulnerable children, eliminating child labour, and strengthening community-based health."
+    image: "/images/awards/award_chaitanya_2024.jpg"
   },
   {
     id: "award-selfservice-2023",
-    title: "Best Self-Service Organization Award",
-    organization: "State NGO Coordination Council",
+    title: "Best Self-Service Organization Award 2023",
     year: "2023",
-    category: "Voluntary Sector Excellence",
-    description: "Recognized as an outstanding grassroots non-profit organisation demonstrating selfless devotion, financial transparency, and ethical community leadership."
+    image: "/images/awards/award_selfservice_2023.jpg"
   },
   {
     id: "award-environment-2013",
-    title: "Environment Protection and Neglected Communities Empowerment Award",
-    organization: "Environmental & Social Action Coalition",
+    title: "Environment Protection and Neglected Communities Empowerment Award 2013",
     year: "2013",
-    category: "Eco-Development & Marginalized Welfare",
-    description: "Conferred for sustainable eco-restoration, organic farming promotion, clean drinking water access, and empowering neglected rural populations."
+    image: "/images/awards/award_environment_2013.jpg"
   }
 ];
 

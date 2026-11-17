@@ -266,11 +266,10 @@ export default function ImpactPage() {
             return (
               <div
                 key={stat.id}
-                className={`flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-gray-50/60 hover:bg-emerald-50/80 border-2 border-transparent hover:border-emerald-500 hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer transform ${
-                  isVisible
-                    ? 'opacity-100 translate-y-0 scale-100'
-                    : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                }`}
+                className={`flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-gray-50/60 hover:bg-emerald-50/80 border-2 border-transparent hover:border-emerald-500 hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer transform ${isVisible
+                  ? 'opacity-100 translate-y-0 scale-100'
+                  : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                  }`}
                 style={{ willChange: 'transform, opacity' }}
               >
                 <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-rlhp-green border border-emerald-200 flex items-center justify-center mb-3 group-hover:scale-115 group-hover:bg-rlhp-green group-hover:text-white transition-all shadow-xs">
@@ -307,11 +306,10 @@ export default function ImpactPage() {
               return (
                 <div
                   key={idx}
-                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group overflow-hidden ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0 scale-100' 
-                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                  }`}
+                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group overflow-hidden ${isVisible
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
                   style={{ willChange: 'transform, opacity' }}
                 >
                   <div>
@@ -349,17 +347,10 @@ export default function ImpactPage() {
         {/* ─── Awards & Recognition Section (Below Transformative Community Footprint) ─── */}
         <section className="space-y-8 pt-8 border-t border-gray-150">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-50 border border-amber-200 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
-              <Medal size={14} className="text-amber-600" />
-              Honours &amp; Recognitions
-            </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
               Awards &amp; Recognition
             </h2>
             <div className="w-12 h-1 bg-amber-500 mx-auto rounded-full" />
-            <p className="text-xs sm:text-sm text-gray-500 pt-1">
-              State, governmental, and institutional recognitions honouring RLHP's dedicated grassroots service.
-            </p>
           </div>
 
           <div ref={awardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -368,48 +359,22 @@ export default function ImpactPage() {
               return (
                 <div
                   key={award.id}
-                  className={`relative rounded-3xl p-7 bg-gradient-to-br from-amber-50/40 via-white to-amber-50/20 border-2 border-amber-200/80 hover:border-amber-500 shadow-xs hover:shadow-[0_20px_45px_-10px_rgba(245,158,11,0.35)] hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group overflow-hidden ${
+                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 group flex flex-col transform ${
                     isVisible
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                   }`}
                   style={{ willChange: 'transform, opacity' }}
                 >
-                  <div>
-                    {/* Top Year Badge & Trophy Icon */}
-                    <div className="flex items-center justify-between gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 border border-amber-200 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
-                        <Award size={26} />
-                      </div>
-                      <span className="text-xs font-black text-amber-800 bg-amber-100/90 border border-amber-300 px-3 py-1 rounded-full tracking-wide font-sans shadow-2xs">
-                        {award.year}
-                      </span>
-                    </div>
-
-                    {/* Category */}
-                    <p className="text-[11px] font-bold text-amber-700 uppercase tracking-wide mb-1.5">
-                      {award.category}
-                    </p>
-
-                    {/* Award Title */}
-                    <h3 className="font-extrabold text-lg sm:text-xl text-gray-900 leading-snug tracking-tight group-hover:text-amber-900 transition-colors mb-2">
-                      {award.title}
-                    </h3>
-
-                    {/* Organization */}
-                    <div className="text-xs font-semibold text-gray-600 mb-2 flex items-center gap-1.5">
-                      <Sparkles size={13} className="text-amber-500 shrink-0" />
-                      <span>{award.organization}</span>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-xs text-gray-500 leading-relaxed text-justify">
-                      {award.description}
-                    </p>
+                  {/* Photo with zoom and motion animation */}
+                  <div className="h-64 sm:h-72 w-full overflow-hidden relative bg-gray-100">
+                    <img
+                      src={`${import.meta.env.BASE_URL}${award.image.replace(/^\//, '')}`}
+                      alt={award.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-300" />
                   </div>
-
-                  {/* Bottom Amber Accent Line */}
-                  <div className="mt-6 w-10 h-1 rounded-full bg-amber-500 group-hover:w-20 transition-all duration-300" />
                 </div>
               );
             })}
