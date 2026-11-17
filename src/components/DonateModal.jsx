@@ -177,22 +177,35 @@ export default function DonateModal({ isOpen, onClose }) {
                       <span>FCRA Account (Foreign Contributions)</span>
                       <span className="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-semibold">FCRA Validated</span>
                     </h5>
-                    <div className="text-xs space-y-1 text-gray-700">
+                    <div className="text-xs space-y-1.5 text-gray-700">
                       <div><strong className="text-gray-900">Account Name:</strong> {orgDetails.bankDetails.fcraAccount.accountName}</div>
-                      <div><strong className="text-gray-900">Bank:</strong> {orgDetails.bankDetails.fcraAccount.bankName} (FCRA Cell)</div>
-                      <div><strong className="text-gray-900">Account No:</strong> <code className="bg-white px-1.5 py-0.5 rounded border border-gray-200">{orgDetails.bankDetails.fcraAccount.accountNo}</code></div>
+                      <div><strong className="text-gray-900">Bank:</strong> {orgDetails.bankDetails.fcraAccount.bankName}</div>
+                      <div><strong className="text-gray-900">Branch:</strong> {orgDetails.bankDetails.fcraAccount.branch} (Branch Code: {orgDetails.bankDetails.fcraAccount.branchCode})</div>
+                      <div><strong className="text-gray-900">Account No:</strong> <code className="bg-white px-1.5 py-0.5 rounded border border-gray-200 font-bold text-blue-800">{orgDetails.bankDetails.fcraAccount.accountNo}</code></div>
+                      <div><strong className="text-gray-900">Account Type:</strong> {orgDetails.bankDetails.fcraAccount.accountType}</div>
+                      <div><strong className="text-gray-900">Account Opening Date:</strong> {orgDetails.bankDetails.fcraAccount.openingDate}</div>
                       <div><strong className="text-gray-900">IFSC Code:</strong> <code className="bg-white px-1.5 py-0.5 rounded border border-gray-200">{orgDetails.bankDetails.fcraAccount.ifsc}</code></div>
-                      <div><strong className="text-gray-900">SWIFT Code:</strong> <code className="bg-white px-1.5 py-0.5 rounded border border-gray-200">{orgDetails.bankDetails.fcraAccount.swiftCode}</code></div>
+                      <div><strong className="text-gray-900">SWIFT Code:</strong> <code className="bg-white px-1.5 py-0.5 rounded border border-gray-200 font-bold text-purple-700">{orgDetails.bankDetails.fcraAccount.swiftCode}</code></div>
+                      <div className="pt-1 text-[11px] text-gray-600"><strong className="text-gray-800">Address:</strong> {orgDetails.bankDetails.fcraAccount.address}</div>
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => handleCopy(`${orgDetails.bankDetails.localAccount.accountName}\nAcc: ${orgDetails.bankDetails.localAccount.accountNo}\nIFSC: ${orgDetails.bankDetails.localAccount.ifsc}`)}
-                    className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 rounded-lg text-xs flex items-center justify-center space-x-2 transition-colors border border-gray-300"
-                  >
-                    {copiedBank ? <Check size={14} className="text-rlhp-green" /> : <Copy size={14} />}
-                    <span>{copiedBank ? 'Bank Details Copied!' : 'Copy Domestic Bank Details'}</span>
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleCopy(`${orgDetails.bankDetails.localAccount.accountName}\nAcc: ${orgDetails.bankDetails.localAccount.accountNo}\nIFSC: ${orgDetails.bankDetails.localAccount.ifsc}`)}
+                      className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 rounded-lg text-xs flex items-center justify-center space-x-1.5 transition-colors border border-gray-300"
+                    >
+                      {copiedBank ? <Check size={14} className="text-rlhp-green" /> : <Copy size={14} />}
+                      <span>{copiedBank ? 'Copied Domestic!' : 'Copy Domestic Details'}</span>
+                    </button>
+                    <button
+                      onClick={() => handleCopy(`Account Name: ${orgDetails.bankDetails.fcraAccount.accountName}\nBank: ${orgDetails.bankDetails.fcraAccount.bankName}\nBranch: ${orgDetails.bankDetails.fcraAccount.branch}\nBranch Code: ${orgDetails.bankDetails.fcraAccount.branchCode}\nAccount No: ${orgDetails.bankDetails.fcraAccount.accountNo}\nAccount Type: ${orgDetails.bankDetails.fcraAccount.accountType}\nIFSC Code: ${orgDetails.bankDetails.fcraAccount.ifsc}\nSWIFT Code: ${orgDetails.bankDetails.fcraAccount.swiftCode}\nAddress: ${orgDetails.bankDetails.fcraAccount.address}`)}
+                      className="flex-1 bg-blue-50 hover:bg-blue-100 text-blue-900 font-semibold py-2 rounded-lg text-xs flex items-center justify-center space-x-1.5 transition-colors border border-blue-300"
+                    >
+                      <Copy size={14} />
+                      <span>Copy FCRA Details</span>
+                    </button>
+                  </div>
                 </div>
               )}
             </>

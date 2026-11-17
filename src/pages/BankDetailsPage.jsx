@@ -73,15 +73,18 @@ export default function BankDetailsPage() {
               </h3>
               <div className="text-xs space-y-2 text-gray-700 bg-blue-50/50 p-4 rounded-xl border border-blue-100">
                 <div><strong className="text-gray-900">Account Name:</strong> {orgDetails.bankDetails.fcraAccount.accountName}</div>
-                <div><strong className="text-gray-900">Bank Name:</strong> {orgDetails.bankDetails.fcraAccount.bankName} (FCRA Cell)</div>
+                <div><strong className="text-gray-900">Bank Name:</strong> {orgDetails.bankDetails.fcraAccount.bankName}</div>
+                <div><strong className="text-gray-900">Branch:</strong> {orgDetails.bankDetails.fcraAccount.branch} (Branch Code: {orgDetails.bankDetails.fcraAccount.branchCode})</div>
                 <div><strong className="text-gray-900">Account No:</strong> <code className="bg-white px-2 py-0.5 rounded border border-gray-200 font-bold text-blue-700 text-sm">{orgDetails.bankDetails.fcraAccount.accountNo}</code></div>
+                <div><strong className="text-gray-900">Account Type:</strong> {orgDetails.bankDetails.fcraAccount.accountType}</div>
+                <div><strong className="text-gray-900">Account Opening Date:</strong> {orgDetails.bankDetails.fcraAccount.openingDate}</div>
                 <div><strong className="text-gray-900">IFSC Code:</strong> <code className="bg-white px-2 py-0.5 rounded border border-gray-200 font-bold text-gray-800">{orgDetails.bankDetails.fcraAccount.ifsc}</code></div>
                 <div><strong className="text-gray-900">SWIFT Code:</strong> <code className="bg-white px-2 py-0.5 rounded border border-gray-200 font-bold text-purple-700">{orgDetails.bankDetails.fcraAccount.swiftCode}</code></div>
                 <div className="pt-1 text-[11px] text-gray-500"><strong className="text-gray-700">Address:</strong> {orgDetails.bankDetails.fcraAccount.address}</div>
               </div>
             </div>
             <button
-              onClick={() => copyText(`${orgDetails.bankDetails.fcraAccount.accountName}\nBank: ${orgDetails.bankDetails.fcraAccount.bankName}\nAcc No: ${orgDetails.bankDetails.fcraAccount.accountNo}\nIFSC: ${orgDetails.bankDetails.fcraAccount.ifsc}\nSWIFT: ${orgDetails.bankDetails.fcraAccount.swiftCode}`, 'fcra')}
+              onClick={() => copyText(`Account Name: ${orgDetails.bankDetails.fcraAccount.accountName}\nBank: ${orgDetails.bankDetails.fcraAccount.bankName}\nBranch: ${orgDetails.bankDetails.fcraAccount.branch}\nBranch Code: ${orgDetails.bankDetails.fcraAccount.branchCode}\nAccount No: ${orgDetails.bankDetails.fcraAccount.accountNo}\nAccount Type: ${orgDetails.bankDetails.fcraAccount.accountType}\nIFSC: ${orgDetails.bankDetails.fcraAccount.ifsc}\nSWIFT: ${orgDetails.bankDetails.fcraAccount.swiftCode}\nAddress: ${orgDetails.bankDetails.fcraAccount.address}`, 'fcra')}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-2 transition-colors shadow-sm cursor-pointer mt-2"
             >
               {copiedFCRA ? <Check size={14} className="text-white" /> : <Copy size={14} />}

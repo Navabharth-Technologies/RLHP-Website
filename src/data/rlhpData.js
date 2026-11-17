@@ -37,13 +37,16 @@ export const orgDetails = {
       address: "47, SBM Colony, Mahadevapura Main Road, Udayagiri, Mysore – 570019"
     },
     fcraAccount: {
-      bankName: "Indian Bank",
-      branch: "Udayagiri Extension Branch (FCRA Cell), Mysore",
+      bankName: "State Bank of India",
+      branch: "New Delhi Main Branch",
+      branchCode: "00691",
       accountName: "Rural Literacy and Health Programme",
-      accountNo: "511530562",
-      ifsc: "IDIB000U015",
-      swiftCode: "IDIBINBBMSR",
-      address: "47, SBM Colony, Mahadevapura Main Road, Udayagiri, Mysore – 570019"
+      accountNo: "40115773008",
+      accountType: "FCRA Current Account",
+      openingDate: "05/04/2021",
+      ifsc: "SBIN0000691",
+      swiftCode: "SBININBB104",
+      address: "FCRA Cell, 4th Floor, State Bank of India, New Delhi Main Branch, 11, Sansad Marg, New Delhi – 110001."
     }
   },
   vision: "To create a just, free, equitable and sustainable society",
@@ -70,7 +73,7 @@ export const orgDetails = {
   executiveDirector: {
     name: "Saraswathi K",
     designation: "Executive Director",
-    image: ""
+    image: "/images/team/saraswathi_k.jpg"
   },
 
   // Inception Story
@@ -886,28 +889,44 @@ export const newsArticlesData = [
 
 export const awardsData = [
   {
-    id: "award-1",
-    title: "State Best Child Welfare Service Award",
-    organization: "Government of Karnataka",
-    year: "2018",
-    image: "/images/about/best_service_award.jpg",
-    description: "Honoured for exemplary contribution towards rescue, rehabilitation, and protection of vulnerable children."
+    id: "award-panchayat-2026",
+    title: "Recognition on National Panchayat Raj Day",
+    organization: "National Panchayat Raj Ministry / Karnataka",
+    year: "2026",
+    category: "Panchayat Raj & Rural Governance",
+    description: "Honoured for exemplary contribution towards grassroots democratic empowerment, Gram Panchayat linkages, and community governance."
   },
   {
-    id: "award-2",
-    title: "Nalwadi Krishnaraja Wadiyar Social Excellence Award",
-    organization: "Mysuru District Administration",
-    year: "2020",
-    image: "/images/about/nalwadi_award.jpg",
-    description: "Recognised for four decades of dedicated service to underprivileged Pourakarmikas, women, and rural families."
+    id: "award-wadiyar-2025",
+    title: "Rajarshi Shri Nalwadi Krishnaraja Wadiyar Award",
+    organization: "Mysuru District Administration & Royal Legacy Foundation",
+    year: "2025",
+    category: "Social Leadership & Community Welfare",
+    description: "Conferred in recognition of transformative social impact, women self-help federations, and dedicated child rescue services."
   },
   {
-    id: "award-3",
+    id: "award-chaitanya-2024",
     title: "Chaitanya Shri Award",
-    organization: "Social Welfare Federation",
-    year: "2022",
-    image: "/images/about/chaitanya_shri_award.jpg",
-    description: "Conferred in recognition of community mobilization, women empowerment, and child rights awareness."
+    organization: "Social Welfare Federation of Karnataka",
+    year: "2024",
+    category: "Community Mobilization & Child Rights",
+    description: "Awarded for exceptional leadership in protecting vulnerable children, eliminating child labour, and strengthening community-based health."
+  },
+  {
+    id: "award-selfservice-2023",
+    title: "Best Self-Service Organization Award",
+    organization: "State NGO Coordination Council",
+    year: "2023",
+    category: "Voluntary Sector Excellence",
+    description: "Recognized as an outstanding grassroots non-profit organisation demonstrating selfless devotion, financial transparency, and ethical community leadership."
+  },
+  {
+    id: "award-environment-2013",
+    title: "Environment Protection and Neglected Communities Empowerment Award",
+    organization: "Environmental & Social Action Coalition",
+    year: "2013",
+    category: "Eco-Development & Marginalized Welfare",
+    description: "Conferred for sustainable eco-restoration, organic farming promotion, clean drinking water access, and empowering neglected rural populations."
   }
 ];
 

@@ -237,6 +237,46 @@ export default function Home({ setCurrentPage, onNavClick }) {
       designation: "Kumbrallimata Village",
       tag: "Child Health & Nutrition",
       gender: "girl"
+    },
+    {
+      text: "I faced many challenges due to my family’s financial difficulties. I had to work in agricultural fields and take care of my four younger sisters. Through RLHP’s free vocational training programme, I learned tailoring and embroidery, along with essential life skills. With RLHP’s support, I started my own tailoring work and now earn ₹10,000 per month. Today, I am able to support my family and my sisters’ education. I am grateful to RLHP for helping me become confident, independent and self-reliant.",
+      name: "Yashodha",
+      note: "Name changed to protect privacy",
+      designation: "Vocational Livelihood Graduate",
+      tag: "Tailoring & Self-Reliance",
+      gender: "girl"
+    },
+    {
+      text: "I am from Chikkalingadalli village in Kalaburagi district. With RLHP’s support, I conduct joyful learning classes, helping eight children return to formal education, and have formed eight women’s self-help groups. Inspired by RLHP’s training, I encouraged my father to adopt organic farming. With ₹30,000 support through RLHP’s Income Generation Programme (IGP), I purchased cows, started selling milk and began using cow dung and urine as organic manure. These efforts have improved my family’s income and soil fertility. I am proud to contribute to my community through education, women’s empowerment and sustainable farming.",
+      name: "Lakshmi",
+      note: "Name changed to protect privacy",
+      designation: "Chikkalingadalli, Kalaburagi",
+      tag: "Education, SHG & Organic Farming",
+      gender: "girl"
+    },
+    {
+      text: "I am a resident of Hosahalli village, where more than 150 families struggled to access safe drinking water despite having a water purification unit. The unit remained non-functional for years. During a community meeting facilitated by RLHP, we raised this concern. RLHP immediately approached the concerned department and coordinated with officials to resolve the issue. Following their intervention, the unit was repaired, and villagers were guided on its proper use. Today, our community has access to safe drinking water. We are grateful to RLHP for listening to our concerns and helping bring this positive change to our village.",
+      name: "Savithri",
+      note: "Name changed to protect privacy",
+      designation: "Hosahalli Village",
+      tag: "Community Drinking Water & Advocacy",
+      gender: "girl"
+    },
+    {
+      text: "During my first pregnancy, I faced several health challenges and needed regular medical attention. With RLHP’s timely support, I received guidance on regular health check-ups, blood pressure monitoring, nutrition, personal hygiene and pregnancy care. Through the RCH awareness sessions, I became more aware of the importance of maternal health and taking proper care during pregnancy. I delivered a baby weighing 2.15 kg. Today, both my baby and I are stable. I sincerely thank RLHP for standing by me and supporting me throughout my pregnancy.",
+      name: "Anitha",
+      note: "Name changed to protect privacy",
+      designation: "Maternal Health Beneficiary",
+      tag: "Maternal & Child Health Care",
+      gender: "girl"
+    },
+    {
+      text: "Sasthapur village in Basavakalyan Taluk, with approximately 1,800 households, faced challenges due to alcoholism, which affected women, children and family well-being. During home visits, the RLHP team identified the issue and listened to women's concerns about domestic violence and financial difficulties. Through capacity-building training and awareness programmes, RLHP empowered women to raise their voices and take collective action. Women mobilised in front of the Gram Panchayat and demanded the permanent closure of the liquor shop. Following their protest and intervention by the concerned officials, the liquor shop was permanently closed.",
+      name: "Sasthapur Women's Collective",
+      note: "Community Action Story",
+      designation: "Basavakalyan Taluk",
+      tag: "Community Mobilization & Social Change",
+      gender: "girl"
     }
   ];
 

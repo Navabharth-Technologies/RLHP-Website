@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { impactStats } from '../data/rlhpData';
+import { impactStats, awardsData } from '../data/rlhpData';
 import {
   Award, ShieldCheck, Heart, Users, CheckCircle2, Activity, Handshake, BookOpen,
-  Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin
+  Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin, Sparkles, Medal
 } from 'lucide-react';
 
 export default function ImpactPage() {
   const [footprintVisibleCount, setFootprintVisibleCount] = useState(0);
   const footprintRef = useRef(null);
   const [footprintStarted, setFootprintStarted] = useState(false);
+
+  const [awardsVisibleCount, setAwardsVisibleCount] = useState(0);
+  const awardsRef = useRef(null);
+  const [awardsStarted, setAwardsStarted] = useState(false);
 
   const iconMap = {
     Clock: Clock,
@@ -213,6 +217,34 @@ export default function ImpactPage() {
     }
   }, [footprintStarted, footprintVisibleCount, highlightCards.length]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setAwardsStarted(true);
+        }
+      },
+      { threshold: 0.02, rootMargin: '100px' }
+    );
+    if (awardsRef.current) observer.observe(awardsRef.current);
+    const fb = setTimeout(() => setAwardsStarted(true), 1200);
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!awardsStarted) return;
+    if (awardsVisibleCount < awardsData.length) {
+      const timer = setTimeout(() => {
+        setAwardsVisibleCount((prev) => prev + 1);
+      }, 110);
+      return () => clearTimeout(timer);
+    }
+  }, [awardsStarted, awardsVisibleCount]);
+
   return (
     <div className="space-y-12 font-sans pb-16">
       {/* ── Page Banner ── */}
@@ -308,6 +340,76 @@ export default function ImpactPage() {
 
                   {/* Bottom Accent Line */}
                   <div className={`mt-6 w-10 h-1 rounded-full ${card.accentBar} group-hover:w-20 transition-all duration-300`} />
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ─── Awards & Recognition Section (Below Transformative Community Footprint) ─── */}
+        <section className="space-y-8 pt-8 border-t border-gray-150">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-50 border border-amber-200 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+              <Medal size={14} className="text-amber-600" />
+              Honours &amp; Recognitions
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+              Awards &amp; Recognition
+            </h2>
+            <div className="w-12 h-1 bg-amber-500 mx-auto rounded-full" />
+            <p className="text-xs sm:text-sm text-gray-500 pt-1">
+              State, governmental, and institutional recognitions honouring RLHP's dedicated grassroots service.
+            </p>
+          </div>
+
+          <div ref={awardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {awardsData.map((award, idx) => {
+              const isVisible = awardsStarted && idx < awardsVisibleCount;
+              return (
+                <div
+                  key={award.id}
+                  className={`relative rounded-3xl p-7 bg-gradient-to-br from-amber-50/40 via-white to-amber-50/20 border-2 border-amber-200/80 hover:border-amber-500 shadow-xs hover:shadow-[0_20px_45px_-10px_rgba(245,158,11,0.35)] hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group overflow-hidden ${
+                    isVisible
+                      ? 'opacity-100 translate-y-0 scale-100'
+                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                  }`}
+                  style={{ willChange: 'transform, opacity' }}
+                >
+                  <div>
+                    {/* Top Year Badge & Trophy Icon */}
+                    <div className="flex items-center justify-between gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 border border-amber-200 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+                        <Award size={26} />
+                      </div>
+                      <span className="text-xs font-black text-amber-800 bg-amber-100/90 border border-amber-300 px-3 py-1 rounded-full tracking-wide font-sans shadow-2xs">
+                        {award.year}
+                      </span>
+                    </div>
+
+                    {/* Category */}
+                    <p className="text-[11px] font-bold text-amber-700 uppercase tracking-wide mb-1.5">
+                      {award.category}
+                    </p>
+
+                    {/* Award Title */}
+                    <h3 className="font-extrabold text-lg sm:text-xl text-gray-900 leading-snug tracking-tight group-hover:text-amber-900 transition-colors mb-2">
+                      {award.title}
+                    </h3>
+
+                    {/* Organization */}
+                    <div className="text-xs font-semibold text-gray-600 mb-2 flex items-center gap-1.5">
+                      <Sparkles size={13} className="text-amber-500 shrink-0" />
+                      <span>{award.organization}</span>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-xs text-gray-500 leading-relaxed text-justify">
+                      {award.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom Amber Accent Line */}
+                  <div className="mt-6 w-10 h-1 rounded-full bg-amber-500 group-hover:w-20 transition-all duration-300" />
                 </div>
               );
             })}

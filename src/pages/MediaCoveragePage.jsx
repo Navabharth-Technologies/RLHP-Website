@@ -21,9 +21,6 @@ export default function MediaCoveragePage({ setCurrentPage, onNavClick }) {
           <h1 className="text-3xl sm:text-5xl font-extrabold mb-4">
             Media <span className="text-rlhp-accentgreen">Coverage</span>
           </h1>
-          <p className="text-gray-300 text-base sm:text-lg max-w-[650px] mx-auto">
-            How leading Kannada and English regional dailies report on RLHP's campaigns, rescue operations, and community milestones across South India.
-          </p>
         </div>
       </section>
 
@@ -38,7 +35,7 @@ export default function MediaCoveragePage({ setCurrentPage, onNavClick }) {
                   className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                 >
                   {/* Newspaper Image (Clickable to open) */}
-                  <div 
+                  <div
                     onClick={() => setSelectedImage(media)}
                     className="relative h-64 sm:h-72 bg-slate-50 border-b border-gray-100 p-3 flex items-center justify-center overflow-hidden cursor-pointer"
                   >
