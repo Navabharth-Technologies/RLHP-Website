@@ -216,10 +216,10 @@ export default function ImpactPage() {
   return (
     <div className="space-y-12 font-sans pb-16">
       {/* ── Page Banner ── */}
-      <section className="bg-rlhp-darkgreen text-white py-16 px-4 sm:px-8 text-center">
-        <div className="max-w-7xl mx-auto space-y-3">
-          <h1 className="text-3xl sm:text-5xl font-extrabold">Our Impact</h1>
-          <p className="text-xs sm:text-sm text-rlhp-lightgreen max-w-xl mx-auto font-medium">
+      <section className="bg-rlhp-darkgreen text-white py-16 px-4 sm:px-8 text-center flex flex-col items-center justify-center">
+        <div className="w-full max-w-4xl mx-auto space-y-3 flex flex-col items-center text-center">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-center w-full">Our Impact</h1>
+          <p className="text-xs sm:text-sm text-rlhp-lightgreen text-center mx-auto font-medium leading-relaxed max-w-xl">
             42+ years of measurable, lasting transformation in children &amp; communities.
           </p>
         </div>
