@@ -355,12 +355,12 @@ export const officialPartners = [
   },
   {
     name: "ChildFund International",
-    logoImage: "/images/partners/CHILDFUND.jpeg",
+    logoImage: "/images/partners/CHILDFUND.png",
     description: "Child protection & youth sponsorship"
   },
   {
     name: "Kluber Lubrications",
-    logoImage: "/images/partners/Kluber Lubrications.webp",
+    logoImage: "/images/partners/Kluber Lubrications.png",
     description: "Education support for underprivileged children"
   },
   {

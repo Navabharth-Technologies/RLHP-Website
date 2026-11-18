@@ -400,14 +400,13 @@ export default function ImpactPage() {
                     }`}
                   style={{ willChange: 'transform, opacity' }}
                 >
-                  {/* Photo with zoom and motion animation */}
-                  <div className="h-64 sm:h-72 w-full overflow-hidden relative bg-gray-100">
+                  {/* Complete photo fully visible without chopping or cropping */}
+                  <div className="h-72 sm:h-80 w-full overflow-hidden relative bg-gray-50 flex items-center justify-center p-3">
                     <img
                       src={`${import.meta.env.BASE_URL}${award.image.replace(/^\//, '')}`}
                       alt={award.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-300" />
                   </div>
                 </div>
               );
@@ -415,7 +414,7 @@ export default function ImpactPage() {
           </div>
         </section>
 
-        {/* ─── BOOKS & RESEARCH PUBLICATIONS SECTION (Matching Financials PDF Style) ─── */}
+        {/* ─── BOOKS & RESEARCH PUBLICATIONS SECTION (Matching Financials PDF Style - 3 in 1 Row) ─── */}
         <section className="space-y-8 pt-8 border-t border-gray-150">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
@@ -424,7 +423,7 @@ export default function ImpactPage() {
             <div className="w-12 h-1 bg-rlhp-green mx-auto rounded-full" />
           </div>
 
-          <div ref={booksRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto gap-8">
+          <div ref={booksRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {booksData.map((book, idx) => {
               const isVisible = booksStarted && idx < booksVisibleCount;
               return (
