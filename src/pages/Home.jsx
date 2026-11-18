@@ -35,11 +35,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
   const [prioritiesStarted, setPrioritiesStarted] = useState(false);
   const [selectedPriorityIndex, setSelectedPriorityIndex] = useState(null);
 
-  // 3. Our Activity Reports 4 cards cascade
-  const [reportsVisibleCount, setReportsVisibleCount] = useState(0);
-  const reportsRef = useRef(null);
-  const [reportsStarted, setReportsStarted] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -95,34 +90,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
       return () => clearTimeout(timer);
     }
   }, [prioritiesStarted, prioritiesVisibleCount]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
-          setReportsStarted(true);
-        }
-      },
-      { threshold: 0.05, rootMargin: '100px' }
-    );
-    if (reportsRef.current) observer.observe(reportsRef.current);
-    const fb = setTimeout(() => setReportsStarted(true), 1500);
-    return () => {
-      observer.disconnect();
-      clearTimeout(fb);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!reportsStarted) return;
-    if (reportsVisibleCount < 4) {
-      const timer = setTimeout(() => {
-        setReportsVisibleCount((prev) => prev + 1);
-      }, 140);
-      return () => clearTimeout(timer);
-    }
-  }, [reportsStarted, reportsVisibleCount]);
 
   // List of all 4 annual reports for cards, detail view and related posts
   const annualReportsList = [
@@ -969,7 +936,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 7: OUR Activity Reports (Interactive Flipbook Reports matching reference 2)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section id="our-programmes" ref={reportsRef} className="relative py-24 bg-white border-t border-gray-100 overflow-hidden">
+      <section id="our-programmes" className="relative py-24 bg-white border-t border-gray-100 overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-14">
@@ -979,64 +946,53 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <div className="w-16 h-[3px] bg-rlhp-green mx-auto rounded-full mb-3" />
           </div>
 
-          {/* 4 Cards Grid - Timer Cascade Animation */}
+          {/* 4 Cards Grid - Replicating Reference 2 Design with uploaded cover images 2, 3, 4, 5 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
-            {annualReportsList.map((item, idx) => {
-              const isVisible = reportsStarted && idx < reportsVisibleCount;
-              return (
-                <div
-                  key={idx}
-                  onClick={() => {
-                    setSelectedReportDetail(item);
-                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                  }}
-                  className={`group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:border-rlhp-green/50 transition-all duration-500 flex flex-col cursor-pointer transform ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0 scale-100' 
-                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                  } hover:-translate-y-1.5`}
-                  style={{
-                    transitionDelay: `${(idx % 4) * 50}ms`,
-                    willChange: 'transform, opacity'
-                  }}
-                >
-                  {/* Book Cover Container */}
-                  <div className="relative aspect-[3/4.2] w-full overflow-hidden bg-gray-100 flex items-center justify-center p-3">
-                    <div className="relative w-full h-full rounded-lg overflow-hidden shadow-md group-hover:shadow-lg transition-shadow bg-white flex items-center justify-center">
-                      <img
-                        src={item.cover}
-                        alt={item.title}
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Book spine overlay */}
-                      <div className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-black/30 to-transparent pointer-events-none" />
-                      {/* Hover badge */}
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span className="px-4 py-2 rounded-full bg-rlhp-green text-white text-xs font-bold shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                          <BookOpen size={14} /> Read Report
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-base font-bold text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug line-clamp-2">
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    <div className="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between">
-                      <span className="text-xs font-bold text-rlhp-green group-hover:underline flex items-center gap-1">
-                        Read More <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+            {annualReportsList.map((item, idx) => (
+              <div
+                key={idx}
+                onClick={() => {
+                  setSelectedReportDetail(item);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:border-rlhp-green/50 transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
+              >
+                {/* Book Cover Container */}
+                <div className="relative aspect-[3/4.2] w-full overflow-hidden bg-gray-100 flex items-center justify-center p-3">
+                  <div className="relative w-full h-full rounded-lg overflow-hidden shadow-md group-hover:shadow-lg transition-shadow bg-white flex items-center justify-center">
+                    <img
+                      src={item.cover}
+                      alt={item.title}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Book spine overlay */}
+                    <div className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-black/30 to-transparent pointer-events-none" />
+                    {/* Hover badge */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="px-4 py-2 rounded-full bg-rlhp-green text-white text-xs font-bold shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <BookOpen size={14} /> Read Report
                       </span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-rlhp-green/40 group-hover:bg-rlhp-green transition-colors" />
                     </div>
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Card Body */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-gray-900 group-hover:text-rlhp-green transition-colors leading-snug line-clamp-2">
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between">
+                    <span className="text-xs font-bold text-rlhp-green group-hover:underline flex items-center gap-1">
+                      Read More <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-rlhp-green/40 group-hover:bg-rlhp-green transition-colors" />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

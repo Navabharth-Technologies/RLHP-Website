@@ -50,16 +50,17 @@ export default function App() {
       }
     }
 
-    // Always ensure page starts immediately from the top
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-
     if (optionId && (pageId === 'about' || pageId === 'identity' || pageId === 'financials')) {
       setTimeout(() => {
         const el = document.getElementById(optionId);
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      }, 150);
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 

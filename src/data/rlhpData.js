@@ -1041,11 +1041,6 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_new_08.jpg"
   },
   {
-    "id": "gallery-new-11",
-    "image": "/images/gallery/gallery_new_11.jpg",
-    "remoteImage": "/images/gallery/gallery_new_11.jpg"
-  },
-  {
     "id": "gallery-new-12",
     "image": "/images/gallery/gallery_new_12.jpg",
     "remoteImage": "/images/gallery/gallery_new_12.jpg"
@@ -1246,6 +1241,21 @@ export const galleryData = [
     "id": "gallery-60",
     "image": "/images/gallery/gallery_60.jpg",
     "remoteImage": "/images/gallery/gallery_60.jpg"
+  },
+  {
+    "id": "gallery-end-1",
+    "image": "/images/gallery/gallery_end_01.jpg",
+    "remoteImage": "/images/gallery/gallery_end_01.jpg"
+  },
+  {
+    "id": "gallery-end-2",
+    "image": "/images/gallery/gallery_end_02.jpg",
+    "remoteImage": "/images/gallery/gallery_end_02.jpg"
+  },
+  {
+    "id": "gallery-end-3",
+    "image": "/images/gallery/gallery_end_03.jpg",
+    "remoteImage": "/images/gallery/gallery_end_03.jpg"
   }
 ];
 
