@@ -995,6 +995,81 @@ export const publicationsData = ourReportsList.map((r, i) => ({
 
 export const galleryData = [
   {
+    "id": "gallery-new-1",
+    "image": "/images/gallery/gallery_new_01.jpg",
+    "remoteImage": "/images/gallery/gallery_new_01.jpg"
+  },
+  {
+    "id": "gallery-new-2",
+    "image": "/images/gallery/gallery_new_02.jpg",
+    "remoteImage": "/images/gallery/gallery_new_02.jpg"
+  },
+  {
+    "id": "gallery-new-3",
+    "image": "/images/gallery/gallery_new_03.jpg",
+    "remoteImage": "/images/gallery/gallery_new_03.jpg"
+  },
+  {
+    "id": "gallery-new-4",
+    "image": "/images/gallery/gallery_new_04.jpg",
+    "remoteImage": "/images/gallery/gallery_new_04.jpg"
+  },
+  {
+    "id": "gallery-new-5",
+    "image": "/images/gallery/gallery_new_05.jpg",
+    "remoteImage": "/images/gallery/gallery_new_05.jpg"
+  },
+  {
+    "id": "gallery-new-6",
+    "image": "/images/gallery/gallery_new_06.jpg",
+    "remoteImage": "/images/gallery/gallery_new_06.jpg"
+  },
+  {
+    "id": "gallery-new-7",
+    "image": "/images/gallery/gallery_new_07.jpg",
+    "remoteImage": "/images/gallery/gallery_new_07.jpg"
+  },
+  {
+    "id": "gallery-new-8",
+    "image": "/images/gallery/gallery_new_08.jpg",
+    "remoteImage": "/images/gallery/gallery_new_08.jpg"
+  },
+  {
+    "id": "gallery-new-9",
+    "image": "/images/gallery/gallery_new_09.jpg",
+    "remoteImage": "/images/gallery/gallery_new_09.jpg"
+  },
+  {
+    "id": "gallery-new-10",
+    "image": "/images/gallery/gallery_new_10.jpg",
+    "remoteImage": "/images/gallery/gallery_new_10.jpg"
+  },
+  {
+    "id": "gallery-new-11",
+    "image": "/images/gallery/gallery_new_11.jpg",
+    "remoteImage": "/images/gallery/gallery_new_11.jpg"
+  },
+  {
+    "id": "gallery-new-12",
+    "image": "/images/gallery/gallery_new_12.jpg",
+    "remoteImage": "/images/gallery/gallery_new_12.jpg"
+  },
+  {
+    "id": "gallery-new-13",
+    "image": "/images/gallery/gallery_new_13.jpg",
+    "remoteImage": "/images/gallery/gallery_new_13.jpg"
+  },
+  {
+    "id": "gallery-new-14",
+    "image": "/images/gallery/gallery_new_14.jpg",
+    "remoteImage": "/images/gallery/gallery_new_14.jpg"
+  },
+  {
+    "id": "gallery-new-15",
+    "image": "/images/gallery/gallery_new_15.jpg",
+    "remoteImage": "/images/gallery/gallery_new_15.jpg"
+  },
+  {
     "id": "gallery-1",
     "image": "/images/gallery/gallery_01.jpg",
     "remoteImage": "/images/gallery/gallery_01.jpg"
@@ -1030,29 +1105,9 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_07.jpg"
   },
   {
-    "id": "gallery-8",
-    "image": "/images/gallery/gallery_08.jpg",
-    "remoteImage": "/images/gallery/gallery_08.jpg"
-  },
-  {
-    "id": "gallery-9",
-    "image": "/images/gallery/gallery_09.jpg",
-    "remoteImage": "/images/gallery/gallery_09.jpg"
-  },
-  {
-    "id": "gallery-10",
-    "image": "/images/gallery/gallery_10.jpg",
-    "remoteImage": "/images/gallery/gallery_10.jpg"
-  },
-  {
     "id": "gallery-11",
     "image": "/images/gallery/gallery_11.jpg",
     "remoteImage": "/images/gallery/gallery_11.jpg"
-  },
-  {
-    "id": "gallery-12",
-    "image": "/images/gallery/gallery_12.jpg",
-    "remoteImage": "/images/gallery/gallery_12.jpg"
   },
   {
     "id": "gallery-13",
