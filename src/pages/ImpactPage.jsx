@@ -3,8 +3,9 @@ import { impactStats, awardsData, booksData } from '../data/rlhpData';
 import {
   Award, ShieldCheck, Heart, Users, CheckCircle2, Activity, Handshake, BookOpen,
   Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin, Sparkles, Medal,
-  Download, FileText, ArrowUpRight, BookMarked
+  FileText, ArrowRight
 } from 'lucide-react';
+import FlipbookModal from '../components/FlipbookModal';
 
 export default function ImpactPage() {
   const [footprintVisibleCount, setFootprintVisibleCount] = useState(0);
@@ -18,6 +19,7 @@ export default function ImpactPage() {
   const [booksVisibleCount, setBooksVisibleCount] = useState(0);
   const booksRef = useRef(null);
   const [booksStarted, setBooksStarted] = useState(false);
+  const [activeFlipbook, setActiveFlipbook] = useState(null);
 
   const iconMap = {
     Clock: Clock,
@@ -392,11 +394,10 @@ export default function ImpactPage() {
               return (
                 <div
                   key={award.id}
-                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 group flex flex-col transform ${
-                    isVisible
-                      ? 'opacity-100 translate-y-0 scale-100'
-                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                  }`}
+                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 group flex flex-col transform ${isVisible
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    }`}
                   style={{ willChange: 'transform, opacity' }}
                 >
                   {/* Photo with zoom and motion animation */}
@@ -414,30 +415,23 @@ export default function ImpactPage() {
           </div>
         </section>
 
-        {/* ─── BOOKS & RESEARCH PUBLICATIONS SECTION (Under Awards & Recognition) ─── */}
+        {/* ─── BOOKS & RESEARCH PUBLICATIONS SECTION (Matching Financials PDF Style) ─── */}
         <section className="space-y-8 pt-8 border-t border-gray-150">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-bold text-rlhp-green uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
-              <BookMarked size={14} className="text-rlhp-green" />
-              Publications &amp; Reports
-            </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
               BOOKS &amp; RESEARCH STUDIES
             </h2>
             <div className="w-12 h-1 bg-rlhp-green mx-auto rounded-full" />
-            <p className="text-xs sm:text-sm text-gray-500 pt-1">
-              Field surveys, research evaluations, and comprehensive baseline reports published by RLHP.
-            </p>
           </div>
 
-          <div ref={booksRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={booksRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto gap-8">
             {booksData.map((book, idx) => {
               const isVisible = booksStarted && idx < booksVisibleCount;
-              const fileHref = `${import.meta.env.BASE_URL}${book.fileUrl.replace(/^\//, '')}`;
               return (
                 <div
                   key={book.id}
-                  className={`relative rounded-3xl p-7 bg-gradient-to-br from-emerald-50/40 via-white to-emerald-50/20 border-2 border-emerald-200/80 hover:border-rlhp-green shadow-xs hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.35)] hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group overflow-hidden ${
+                  onClick={() => setActiveFlipbook(book)}
+                  className={`group bg-white rounded-2xl p-6 sm:p-7 border-2 border-gray-200 hover:border-red-500 shadow-sm hover:shadow-[0_22px_45px_-10px_rgba(239,68,68,0.4)] transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-2 relative overflow-hidden transform ${
                     isVisible
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
@@ -445,53 +439,38 @@ export default function ImpactPage() {
                   style={{ willChange: 'transform, opacity' }}
                 >
                   <div>
-                    {/* Top PDF Icon Badge & Type Tag */}
-                    <div className="flex items-center justify-between gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-rlhp-green border border-emerald-200 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:bg-rlhp-green group-hover:text-white transition-all duration-300">
-                        <FileText size={24} />
-                      </div>
-                      <span className="text-[11px] font-bold text-rlhp-green bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full tracking-wide">
-                        {book.year}
+                    {/* Red Flat Stylized PDF Icon matching Financials Section */}
+                    <div className="w-28 h-36 mx-auto mb-6 rounded-2xl bg-[#EE3B3B] text-white p-4 flex flex-col items-center justify-between shadow-lg group-hover:scale-105 transition-transform duration-300">
+                      <span className="text-base font-black tracking-widest uppercase">
+                        PDF
                       </span>
+                      {/* Stylized document lines */}
+                      <div className="w-full space-y-1.5 px-1">
+                        <div className="w-full h-1 bg-white/80 rounded" />
+                        <div className="w-4/5 h-1 bg-white/80 rounded" />
+                        <div className="w-full h-1 bg-white/80 rounded" />
+                        <div className="w-3/5 h-1 bg-white/80 rounded" />
+                      </div>
+                      <FileText size={18} className="opacity-90" />
                     </div>
 
-                    {/* Category */}
-                    <p className="text-[11px] font-bold text-emerald-700 uppercase tracking-wide mb-1.5">
-                      {book.category}
-                    </p>
+                    {/* Category or Date */}
+                    <span className="text-xs font-semibold text-gray-400 block mb-1.5">
+                      {book.category || book.year}
+                    </span>
 
-                    {/* Book / Report Title */}
-                    <h3 className="font-extrabold text-base sm:text-lg text-gray-900 leading-snug tracking-tight group-hover:text-rlhp-darkgreen transition-colors mb-3">
+                    {/* Document Title */}
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors leading-snug">
                       {book.title}
                     </h3>
-
-                    {/* Description */}
-                    <p className="text-xs text-gray-600 leading-relaxed mb-6 text-justify">
-                      {book.description}
-                    </p>
                   </div>
 
-                  {/* Actions: View in New Tab / Download PDF */}
-                  <div className="pt-4 border-t border-emerald-100/80 flex items-center gap-3">
-                    <a
-                      href={fileHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 py-2.5 px-3 rounded-xl bg-rlhp-green hover:bg-rlhp-darkgreen text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-xs"
-                    >
-                      <BookOpen size={14} />
-                      <span>Read Online</span>
-                      <ArrowUpRight size={13} className="opacity-80" />
-                    </a>
-                    <a
-                      href={fileHref}
-                      download
-                      className="py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
-                      title="Download PDF"
-                    >
-                      <Download size={14} />
-                      <span className="hidden sm:inline">PDF</span>
-                    </a>
+                  {/* Bottom "Read More ->" link */}
+                  <div className="pt-6 border-t border-gray-100 mt-6 flex items-center justify-between">
+                    <span className="text-xs font-bold text-red-600 group-hover:underline flex items-center gap-1.5">
+                      Read More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-red-500/40 group-hover:bg-red-600 transition-colors" />
                   </div>
                 </div>
               );
@@ -499,6 +478,14 @@ export default function ImpactPage() {
           </div>
         </section>
       </div>
+
+      {/* Interactive 3D Book Turn Modal for Books PDF */}
+      {activeFlipbook && (
+        <FlipbookModal
+          report={activeFlipbook}
+          onClose={() => setActiveFlipbook(null)}
+        />
+      )}
     </div>
   );
 }
