@@ -3,7 +3,7 @@ import { impactStats, awardsData, booksData } from '../data/rlhpData';
 import {
   Award, ShieldCheck, Heart, Users, CheckCircle2, Activity, Handshake, BookOpen,
   Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin, Sparkles, Medal,
-  FileText, ArrowRight
+  FileText, ArrowRight, X, ZoomIn
 } from 'lucide-react';
 import FlipbookModal from '../components/FlipbookModal';
 
@@ -20,6 +20,7 @@ export default function ImpactPage() {
   const booksRef = useRef(null);
   const [booksStarted, setBooksStarted] = useState(false);
   const [activeFlipbook, setActiveFlipbook] = useState(null);
+  const [selectedAward, setSelectedAward] = useState(null);
 
   const iconMap = {
     Clock: Clock,
@@ -394,11 +395,13 @@ export default function ImpactPage() {
               return (
                 <div
                   key={award.id}
-                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 group flex flex-col transform ${isVisible
+                  onClick={() => setSelectedAward(award)}
+                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 group flex flex-col cursor-pointer transform ${isVisible
                     ? 'opacity-100 translate-y-0 scale-100'
                     : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}
                   style={{ willChange: 'transform, opacity' }}
+                  title="Click to view full image"
                 >
                   {/* Complete photo fully visible without chopping or cropping */}
                   <div className="h-72 sm:h-80 w-full overflow-hidden relative bg-gray-50 flex items-center justify-center p-3">
@@ -407,6 +410,13 @@ export default function ImpactPage() {
                       alt={award.title}
                       className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
+
+                    {/* Hover indicator for full view */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-amber-600 shadow-lg border border-amber-200 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                        <ZoomIn size={22} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
@@ -426,10 +436,18 @@ export default function ImpactPage() {
           <div ref={booksRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {booksData.map((book, idx) => {
               const isVisible = booksStarted && idx < booksVisibleCount;
+              const fileHref = `${import.meta.env.BASE_URL}${book.fileUrl.replace(/^\//, '')}`;
               return (
                 <div
                   key={book.id}
-                  onClick={() => setActiveFlipbook(book)}
+                  onClick={() => {
+                    const mapped = {
+                      ...book,
+                      pdfUrl: `${import.meta.env.BASE_URL}${book.fileUrl.replace(/^\//, '')}`,
+                      cover: `${import.meta.env.BASE_URL}${book.fileUrl.replace(/^\//, '')}`
+                    };
+                    setActiveFlipbook(mapped);
+                  }}
                   className={`group bg-white rounded-2xl p-6 sm:p-7 border-2 border-gray-200 hover:border-red-500 shadow-sm hover:shadow-[0_22px_45px_-10px_rgba(239,68,68,0.4)] transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-2 relative overflow-hidden transform ${
                     isVisible
                       ? 'opacity-100 translate-y-0 scale-100'
@@ -469,7 +487,15 @@ export default function ImpactPage() {
                     <span className="text-xs font-bold text-red-600 group-hover:underline flex items-center gap-1.5">
                       Read More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </span>
-                    <span className="w-2 h-2 rounded-full bg-red-500/40 group-hover:bg-red-600 transition-colors" />
+                    <a
+                      href={fileHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-xs font-semibold text-gray-400 hover:text-gray-700 underline"
+                    >
+                      Open PDF
+                    </a>
                   </div>
                 </div>
               );
@@ -484,6 +510,39 @@ export default function ImpactPage() {
           report={activeFlipbook}
           onClose={() => setActiveFlipbook(null)}
         />
+      )}
+
+      {/* Full View Modal for Awards & Recognition */}
+      {selectedAward && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setSelectedAward(null)}
+        >
+          <div
+            className="bg-white rounded-3xl p-4 sm:p-6 max-w-4xl w-full max-h-[92vh] flex flex-col items-center justify-center relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedAward(null)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 p-2 rounded-full cursor-pointer transition-colors shadow-xs"
+              title="Close (Esc)"
+            >
+              <X size={20} />
+            </button>
+            <div className="w-full h-full max-h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl bg-gray-50 p-2">
+              <img
+                src={`${import.meta.env.BASE_URL}${selectedAward.image.replace(/^\//, '')}`}
+                alt={selectedAward.title}
+                className="max-w-full max-h-[72vh] object-contain rounded-xl"
+              />
+            </div>
+            {selectedAward.title && (
+              <div className="mt-3 text-center">
+                <h4 className="text-base sm:text-lg font-bold text-gray-900">{selectedAward.title}</h4>
+              </div>
+            )}
+          </div>
+        </div>
       )}
     </div>
   );

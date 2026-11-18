@@ -1012,22 +1012,22 @@ export default function Home({ setCurrentPage, onNavClick }) {
           {/* Stagnant Static Grid: 4 Logos per row on desktop */}
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 items-center justify-center max-w-[1240px] mx-auto">
             {[
-              { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png` },
-              { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png` },
-              { name: 'Azim Premji Foundation', img: `${B}images/partners/azim-premji-logo.png` },
-              { name: 'ChildFund International', img: `${B}images/partners/childfund-logo.png` },
-              { name: 'Klüber Lubrication', img: `${B}images/partners/kluber-lubrication-logo.png` },
-              { name: 'terre des hommes', img: `${B}images/partners/terre-des-hommes-logo.png` },
-              { name: 'Federal Ministry for Economic Cooperation and Development', img: `${B}images/partners/federal-ministry-logo.png` },
-              { name: 'CESVI', img: `${B}images/partners/cesvi-logo.jpg` },
-              { name: 'Project Funded By the European Union', img: `${B}images/partners/european-union-logo.jpg` },
-              { name: 'WeWorld Intervita', img: `${B}images/partners/weworld-intervita-logo.png` },
-              { name: 'Charities Advisory Trust Good Gifts', img: `${B}images/partners/charities-advisory-trust-logo.png` },
-              { name: 'Childline 1098', img: `${B}images/partners/childline-1098-logo.png` },
+              { name: 'Wipro Foundation', img: `${B}images/partners/wipro-foundation-logo.png`, hoverBorder: 'hover:border-[#1F5486]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(31,84,134,0.35)]' },
+              { name: 'Mission Inde', img: `${B}images/partners/mission-inde-logo.png`, hoverBorder: 'hover:border-[#1E6B27]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(30,107,39,0.35)]' },
+              { name: 'Azim Premji Philanthropic Initiatives', img: `${B}images/partners/azim-premji-logo.png`, hoverBorder: 'hover:border-[#009FE3]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(0,159,227,0.35)]' },
+              { name: 'ChildFund International', img: `${B}images/partners/childfund-logo.png`, hoverBorder: 'hover:border-[#008542]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(0,133,66,0.35)]' },
+              { name: 'Klüber Lubrication', img: `${B}images/partners/kluber-lubrication-logo.png`, hoverBorder: 'hover:border-[#F2A900]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(242,169,0,0.4)]' },
+              { name: 'terre des hommes', img: `${B}images/partners/terre-des-hommes-logo.png`, hoverBorder: 'hover:border-[#E84626]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(232,70,38,0.35)]' },
+              { name: 'Federal Ministry for Economic Cooperation and Development', img: `${B}images/partners/federal-ministry-logo.png`, hoverBorder: 'hover:border-gray-800', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(0,0,0,0.25)]' },
+              { name: 'CESVI', img: `${B}images/partners/cesvi-logo.jpg`, hoverBorder: 'hover:border-[#009639]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(0,150,57,0.35)]' },
+              { name: 'Project Funded By the European Union', img: `${B}images/partners/european-union-logo.jpg`, hoverBorder: 'hover:border-[#003399]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(0,51,153,0.35)]' },
+              { name: 'WeWorld Intervita', img: `${B}images/partners/weworld-intervita-logo.png`, hoverBorder: 'hover:border-[#E40046]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(228,0,70,0.35)]' },
+              { name: 'Charities Advisory Trust Good Gifts', img: `${B}images/partners/charities-advisory-trust-logo.png`, hoverBorder: 'hover:border-[#1E6B27]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(30,107,39,0.35)]' },
+              { name: 'Childline 1098', img: `${B}images/partners/childline-1098-logo.png`, hoverBorder: 'hover:border-[#1E6B27]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(30,107,39,0.35)]' },
             ].map((p, idx) => (
               <div
                 key={idx}
-                className="h-36 sm:h-40 bg-white border-2 border-gray-200/90 hover:border-rlhp-green rounded-3xl p-5 sm:p-6 flex items-center justify-center shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group cursor-default"
+                className={`h-36 sm:h-40 bg-white border-2 border-gray-200/90 ${p.hoverBorder} rounded-3xl p-5 sm:p-6 flex items-center justify-center shadow-xs ${p.hoverShadow} transition-all duration-300 hover:-translate-y-1.5 group cursor-default`}
                 title={p.name}
               >
                 <img
