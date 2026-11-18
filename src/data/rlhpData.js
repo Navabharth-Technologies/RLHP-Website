@@ -1010,11 +1010,6 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_new_02.jpg"
   },
   {
-    "id": "gallery-new-3",
-    "image": "/images/gallery/gallery_new_03.jpg",
-    "remoteImage": "/images/gallery/gallery_new_03.jpg"
-  },
-  {
     "id": "gallery-new-4",
     "image": "/images/gallery/gallery_new_04.jpg",
     "remoteImage": "/images/gallery/gallery_new_04.jpg"
@@ -1040,16 +1035,6 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_new_08.jpg"
   },
   {
-    "id": "gallery-new-9",
-    "image": "/images/gallery/gallery_new_09.jpg",
-    "remoteImage": "/images/gallery/gallery_new_09.jpg"
-  },
-  {
-    "id": "gallery-new-10",
-    "image": "/images/gallery/gallery_new_10.jpg",
-    "remoteImage": "/images/gallery/gallery_new_10.jpg"
-  },
-  {
     "id": "gallery-new-11",
     "image": "/images/gallery/gallery_new_11.jpg",
     "remoteImage": "/images/gallery/gallery_new_11.jpg"
@@ -1058,11 +1043,6 @@ export const galleryData = [
     "id": "gallery-new-12",
     "image": "/images/gallery/gallery_new_12.jpg",
     "remoteImage": "/images/gallery/gallery_new_12.jpg"
-  },
-  {
-    "id": "gallery-new-13",
-    "image": "/images/gallery/gallery_new_13.jpg",
-    "remoteImage": "/images/gallery/gallery_new_13.jpg"
   },
   {
     "id": "gallery-new-14",
@@ -1085,19 +1065,9 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_02.jpg"
   },
   {
-    "id": "gallery-3",
-    "image": "/images/gallery/gallery_03.jpg",
-    "remoteImage": "/images/gallery/gallery_03.jpg"
-  },
-  {
     "id": "gallery-4",
     "image": "/images/gallery/gallery_04.jpg",
     "remoteImage": "/images/gallery/gallery_04.jpg"
-  },
-  {
-    "id": "gallery-5",
-    "image": "/images/gallery/gallery_05.jpg",
-    "remoteImage": "/images/gallery/gallery_05.jpg"
   },
   {
     "id": "gallery-6",
@@ -1108,16 +1078,6 @@ export const galleryData = [
     "id": "gallery-7",
     "image": "/images/gallery/gallery_07.jpg",
     "remoteImage": "/images/gallery/gallery_07.jpg"
-  },
-  {
-    "id": "gallery-13",
-    "image": "/images/gallery/gallery_13.jpg",
-    "remoteImage": "/images/gallery/gallery_13.jpg"
-  },
-  {
-    "id": "gallery-14",
-    "image": "/images/gallery/gallery_14.jpg",
-    "remoteImage": "/images/gallery/gallery_14.jpg"
   },
   {
     "id": "gallery-15",
@@ -1138,11 +1098,6 @@ export const galleryData = [
     "id": "gallery-18",
     "image": "/images/gallery/gallery_18.jpg",
     "remoteImage": "/images/gallery/gallery_18.jpg"
-  },
-  {
-    "id": "gallery-19",
-    "image": "/images/gallery/gallery_19.jpg",
-    "remoteImage": "/images/gallery/gallery_19.jpg"
   },
   {
     "id": "gallery-20",
@@ -1173,36 +1128,6 @@ export const galleryData = [
     "id": "gallery-26",
     "image": "/images/gallery/gallery_26.jpg",
     "remoteImage": "/images/gallery/gallery_26.jpg"
-  },
-  {
-    "id": "gallery-28",
-    "image": "/images/gallery/gallery_28.jpg",
-    "remoteImage": "/images/gallery/gallery_28.jpg"
-  },
-  {
-    "id": "gallery-29",
-    "image": "/images/gallery/gallery_29.jpg",
-    "remoteImage": "/images/gallery/gallery_29.jpg"
-  },
-  {
-    "id": "gallery-30",
-    "image": "/images/gallery/gallery_30.jpg",
-    "remoteImage": "/images/gallery/gallery_30.jpg"
-  },
-  {
-    "id": "gallery-31",
-    "image": "/images/gallery/gallery_31.jpg",
-    "remoteImage": "/images/gallery/gallery_31.jpg"
-  },
-  {
-    "id": "gallery-32",
-    "image": "/images/gallery/gallery_32.jpg",
-    "remoteImage": "/images/gallery/gallery_32.jpg"
-  },
-  {
-    "id": "gallery-33",
-    "image": "/images/gallery/gallery_33.jpg",
-    "remoteImage": "/images/gallery/gallery_33.jpg"
   },
   {
     "id": "gallery-34",
@@ -1255,11 +1180,6 @@ export const galleryData = [
     "id": "gallery-44",
     "image": "/images/gallery/gallery_44.jpg",
     "remoteImage": "/images/gallery/gallery_44.jpg"
-  },
-  {
-    "id": "gallery-45",
-    "image": "/images/gallery/gallery_45.jpg",
-    "remoteImage": "/images/gallery/gallery_45.jpg"
   },
   {
     "id": "gallery-46",
@@ -1325,11 +1245,6 @@ export const galleryData = [
     "id": "gallery-58",
     "image": "/images/gallery/gallery_58.jpg",
     "remoteImage": "/images/gallery/gallery_58.jpg"
-  },
-  {
-    "id": "gallery-59",
-    "image": "/images/gallery/gallery_59.jpg",
-    "remoteImage": "/images/gallery/gallery_59.jpg"
   },
   {
     "id": "gallery-60",
