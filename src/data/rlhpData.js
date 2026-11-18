@@ -1000,29 +1000,9 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_hd_01.png"
   },
   {
-    "id": "gallery-hd-2",
-    "image": "/images/gallery/gallery_hd_02.png",
-    "remoteImage": "/images/gallery/gallery_hd_02.png"
-  },
-  {
     "id": "gallery-hd-3",
     "image": "/images/gallery/gallery_hd_03.png",
     "remoteImage": "/images/gallery/gallery_hd_03.png"
-  },
-  {
-    "id": "gallery-hd-4",
-    "image": "/images/gallery/gallery_hd_04.png",
-    "remoteImage": "/images/gallery/gallery_hd_04.png"
-  },
-  {
-    "id": "gallery-hd-5",
-    "image": "/images/gallery/gallery_hd_05.png",
-    "remoteImage": "/images/gallery/gallery_hd_05.png"
-  },
-  {
-    "id": "gallery-hd-6",
-    "image": "/images/gallery/gallery_hd_06.png",
-    "remoteImage": "/images/gallery/gallery_hd_06.png"
   },
   {
     "id": "gallery-new-16",
