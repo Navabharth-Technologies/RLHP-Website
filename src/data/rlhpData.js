@@ -995,6 +995,11 @@ export const publicationsData = ourReportsList.map((r, i) => ({
 
 export const galleryData = [
   {
+    "id": "gallery-new-16",
+    "image": "/images/gallery/gallery_new_16.jpg",
+    "remoteImage": "/images/gallery/gallery_new_16.jpg"
+  },
+  {
     "id": "gallery-new-1",
     "image": "/images/gallery/gallery_new_01.jpg",
     "remoteImage": "/images/gallery/gallery_new_01.jpg"
@@ -1103,11 +1108,6 @@ export const galleryData = [
     "id": "gallery-7",
     "image": "/images/gallery/gallery_07.jpg",
     "remoteImage": "/images/gallery/gallery_07.jpg"
-  },
-  {
-    "id": "gallery-11",
-    "image": "/images/gallery/gallery_11.jpg",
-    "remoteImage": "/images/gallery/gallery_11.jpg"
   },
   {
     "id": "gallery-13",
