@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { impactStats, awardsData } from '../data/rlhpData';
+import { impactStats, awardsData, booksData } from '../data/rlhpData';
 import {
   Award, ShieldCheck, Heart, Users, CheckCircle2, Activity, Handshake, BookOpen,
-  Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin, Sparkles, Medal
+  Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin, Sparkles, Medal,
+  Download, FileText, ArrowUpRight, BookMarked
 } from 'lucide-react';
 
 export default function ImpactPage() {
@@ -13,6 +14,10 @@ export default function ImpactPage() {
   const [awardsVisibleCount, setAwardsVisibleCount] = useState(0);
   const awardsRef = useRef(null);
   const [awardsStarted, setAwardsStarted] = useState(false);
+
+  const [booksVisibleCount, setBooksVisibleCount] = useState(0);
+  const booksRef = useRef(null);
+  const [booksStarted, setBooksStarted] = useState(false);
 
   const iconMap = {
     Clock: Clock,
@@ -245,6 +250,34 @@ export default function ImpactPage() {
     }
   }, [awardsStarted, awardsVisibleCount]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setBooksStarted(true);
+        }
+      },
+      { threshold: 0.02, rootMargin: '100px' }
+    );
+    if (booksRef.current) observer.observe(booksRef.current);
+    const fb = setTimeout(() => setBooksStarted(true), 1200);
+    return () => {
+      observer.disconnect();
+      clearTimeout(fb);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!booksStarted) return;
+    if (booksVisibleCount < booksData.length) {
+      const timer = setTimeout(() => {
+        setBooksVisibleCount((prev) => prev + 1);
+      }, 110);
+      return () => clearTimeout(timer);
+    }
+  }, [booksStarted, booksVisibleCount]);
+
   return (
     <div className="space-y-12 font-sans pb-16">
       {/* ── Page Banner ── */}
@@ -374,6 +407,91 @@ export default function ImpactPage() {
                       className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-300" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ─── BOOKS & RESEARCH PUBLICATIONS SECTION (Under Awards & Recognition) ─── */}
+        <section className="space-y-8 pt-8 border-t border-gray-150">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-bold text-rlhp-green uppercase tracking-wider bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+              <BookMarked size={14} className="text-rlhp-green" />
+              Publications &amp; Reports
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+              BOOKS &amp; RESEARCH STUDIES
+            </h2>
+            <div className="w-12 h-1 bg-rlhp-green mx-auto rounded-full" />
+            <p className="text-xs sm:text-sm text-gray-500 pt-1">
+              Field surveys, research evaluations, and comprehensive baseline reports published by RLHP.
+            </p>
+          </div>
+
+          <div ref={booksRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {booksData.map((book, idx) => {
+              const isVisible = booksStarted && idx < booksVisibleCount;
+              const fileHref = `${import.meta.env.BASE_URL}${book.fileUrl.replace(/^\//, '')}`;
+              return (
+                <div
+                  key={book.id}
+                  className={`relative rounded-3xl p-7 bg-gradient-to-br from-emerald-50/40 via-white to-emerald-50/20 border-2 border-emerald-200/80 hover:border-rlhp-green shadow-xs hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.35)] hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group overflow-hidden ${
+                    isVisible
+                      ? 'opacity-100 translate-y-0 scale-100'
+                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                  }`}
+                  style={{ willChange: 'transform, opacity' }}
+                >
+                  <div>
+                    {/* Top PDF Icon Badge & Type Tag */}
+                    <div className="flex items-center justify-between gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-rlhp-green border border-emerald-200 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:bg-rlhp-green group-hover:text-white transition-all duration-300">
+                        <FileText size={24} />
+                      </div>
+                      <span className="text-[11px] font-bold text-rlhp-green bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full tracking-wide">
+                        {book.year}
+                      </span>
+                    </div>
+
+                    {/* Category */}
+                    <p className="text-[11px] font-bold text-emerald-700 uppercase tracking-wide mb-1.5">
+                      {book.category}
+                    </p>
+
+                    {/* Book / Report Title */}
+                    <h3 className="font-extrabold text-base sm:text-lg text-gray-900 leading-snug tracking-tight group-hover:text-rlhp-darkgreen transition-colors mb-3">
+                      {book.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs text-gray-600 leading-relaxed mb-6 text-justify">
+                      {book.description}
+                    </p>
+                  </div>
+
+                  {/* Actions: View in New Tab / Download PDF */}
+                  <div className="pt-4 border-t border-emerald-100/80 flex items-center gap-3">
+                    <a
+                      href={fileHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-2.5 px-3 rounded-xl bg-rlhp-green hover:bg-rlhp-darkgreen text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                    >
+                      <BookOpen size={14} />
+                      <span>Read Online</span>
+                      <ArrowUpRight size={13} className="opacity-80" />
+                    </a>
+                    <a
+                      href={fileHref}
+                      download
+                      className="py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                      title="Download PDF"
+                    >
+                      <Download size={14} />
+                      <span className="hidden sm:inline">PDF</span>
+                    </a>
                   </div>
                 </div>
               );

@@ -926,6 +926,63 @@ export const awardsData = [
   }
 ];
 
+export const booksData = [
+  {
+    id: "book-1",
+    title: "Economic Empowerment or Enslavement: Study on Microcredit, Migration and Women's Status in Chamarajanagar District",
+    category: "Research Study & Women's Empowerment",
+    year: "Research Report",
+    fileName: "economic_empowerment_microcredit_study.pdf",
+    fileUrl: "/books/economic_empowerment_microcredit_study.pdf",
+    description: "An empirical socio-economic inquiry exploring the real impact of microfinance, labor migration, and self-help dynamics on marginalized rural women in Chamarajanagar."
+  },
+  {
+    id: "book-2",
+    title: "End-Line Evaluation Research Report on Child Labour Project in Bidar and Kalaburagi",
+    category: "Child Rights Evaluation",
+    year: "Evaluation Report",
+    fileName: "endline_evaluation_child_labour_bidar_kalaburagi.pdf",
+    fileUrl: "/books/endline_evaluation_child_labour_bidar_kalaburagi.pdf",
+    description: "Comprehensive endline impact assessment on child labour elimination, mainstreaming into formal schools, and community rehabilitation outcomes in North Karnataka."
+  },
+  {
+    id: "book-3",
+    title: "Baseline Report on Working Status of Children in Bidar and Kalaburagi Districts of Karnataka",
+    category: "Field Baseline Survey",
+    year: "Baseline Study",
+    fileName: "baseline_report_working_children_bidar_kalaburagi.pdf",
+    fileUrl: "/books/baseline_report_working_children_bidar_kalaburagi.pdf",
+    description: "In-depth baseline mapping documenting the prevalence, working conditions, school dropouts, and vulnerability factors of working children in Bidar and Kalaburagi."
+  },
+  {
+    id: "book-4",
+    title: "Baseline Survey Report on Adolescents from Basavakalyan (Bidar) and Chincholi (Kalaburagi)",
+    category: "Adolescent Well-Being",
+    year: "Survey Report",
+    fileName: "baseline_survey_adolescents_basavakalyan_chincholi.pdf",
+    fileUrl: "/books/baseline_survey_adolescents_basavakalyan_chincholi.pdf",
+    description: "Baseline situational analysis exploring adolescent health, education, life skills, child marriage prevention, and career prospects in Basavakalyan and Chincholi."
+  },
+  {
+    id: "book-5",
+    title: "Baseline Survey Report on Adolescents from Gundlupet Taluka, Chamarajanagar District",
+    category: "Adolescent Development",
+    year: "Survey Report",
+    fileName: "baseline_survey_adolescents_gundlupet.pdf",
+    fileUrl: "/books/baseline_survey_adolescents_gundlupet.pdf",
+    description: "Field survey detailing educational access, nutritional status, life skills development, and challenges faced by adolescent girls and boys in Gundlupet Taluka."
+  },
+  {
+    id: "book-6",
+    title: "Child Labour Project - Midterm Evaluation Final Report",
+    category: "Project Evaluation",
+    year: "Midterm Evaluation",
+    fileName: "child_labour_project_midterm_evaluation.pdf",
+    fileUrl: "/books/child_labour_project_midterm_evaluation.pdf",
+    description: "Rigorous mid-term project performance evaluation examining progress indicators, child tracking systems, Gram Panchayat actions, and school retention."
+  }
+];
+
 export const publicationsData = ourReportsList.map((r, i) => ({
   id: `pub-${i + 1}`,
   title: r.title,
