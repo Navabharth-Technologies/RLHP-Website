@@ -40,7 +40,7 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
     if (onNavClick) onNavClick(id, opt);
     else if (setCurrentPage) setCurrentPage(id);
     setMobileOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   /* Active state check */

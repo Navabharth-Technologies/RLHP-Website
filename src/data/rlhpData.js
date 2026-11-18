@@ -993,16 +993,12 @@ export const publicationsData = ourReportsList.map((r, i) => ({
   coverImage: "/images/gallery/annual_stakeholder_convention.jpg"
 }));
 
+
 export const galleryData = [
   {
     "id": "gallery-hd-1",
     "image": "/images/gallery/gallery_hd_01.png",
     "remoteImage": "/images/gallery/gallery_hd_01.png"
-  },
-  {
-    "id": "gallery-hd-3",
-    "image": "/images/gallery/gallery_hd_03.png",
-    "remoteImage": "/images/gallery/gallery_hd_03.png"
   },
   {
     "id": "gallery-new-16",
