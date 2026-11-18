@@ -230,12 +230,12 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                 <div
                   key={idx}
                   onClick={() => setSelectedProgramIndex(isSelected ? null : idx)}
-                  className={`relative h-[380px] sm:h-[400px] w-full rounded-3xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 bg-gray-900 ${
+                  className={`relative w-full rounded-3xl overflow-hidden cursor-pointer select-none transition-all duration-500 border border-gray-200/90 bg-white flex flex-col shadow-md hover:shadow-2xl ${
                     isAdolescent ? 'lg:col-start-2 lg:translate-x-1/2' : ''
                   } ${
                     isSelected 
-                      ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(16,185,129,0.6)] scale-[1.02]' 
-                      : `border-white/30 shadow-xl ${style.hoverGlow} hover:-translate-y-1.5`
+                      ? 'border-emerald-500 ring-2 ring-emerald-500/30 shadow-2xl scale-[1.02]' 
+                      : `${style.hoverGlow} hover:-translate-y-1.5`
                   } ${
                     isVisible 
                       ? 'opacity-100 translate-y-0 scale-100' 
@@ -245,51 +245,42 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                     willChange: 'transform, opacity',
                   }}
                 >
-                  {/* Full Image Displayed Without Chopping or Cropping */}
-                  <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gray-950 overflow-hidden">
+                  {/* Clean, Full Uncropped Image Container (No Blur, No Letterboxing Artifacts) */}
+                  <div className="relative w-full aspect-[16/10] bg-gray-100 overflow-hidden">
                     <img
                       src={imageSrc}
                       alt={prog.title}
-                      className={`w-full h-full object-cover transition-transform duration-700 ${
-                        isSelected ? 'scale-105 filter blur-[2px]' : 'hover:scale-105'
-                      }`}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
 
-                  {/* ── FRONT OVERLAY (Visible by default) ── */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent p-5 sm:p-6 flex flex-col justify-end transition-opacity duration-300 ${
-                      isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                    }`}
-                  >
-                    <div
-                      className="w-8 h-1 rounded-full mb-2.5"
-                      style={{ backgroundColor: style.accentColor }}
-                    />
-                    <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug drop-shadow-md">
-                      {prog.title}
-                    </h3>
-                  </div>
+                  {/* Card Content Footer */}
+                  <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between bg-white">
+                    <div>
+                      <div
+                        className="w-8 h-1 rounded-full mb-2.5"
+                        style={{ backgroundColor: style.accentColor }}
+                      />
+                      <h3 className="text-base sm:text-lg font-extrabold text-gray-900 leading-snug group-hover:text-rlhp-green transition-colors">
+                        {prog.title}
+                      </h3>
+                      <p className={`text-gray-600 text-xs sm:text-sm leading-relaxed mt-2.5 transition-all duration-300 ${
+                        isSelected ? 'line-clamp-none' : 'line-clamp-2'
+                      }`}>
+                        {prog.description}
+                      </p>
+                    </div>
 
-                  {/* ── SELECTED CONTENT OVERLAY (Appears on click without flipping) ── */}
-                  <div
-                    className={`absolute inset-0 p-6 sm:p-7 bg-gradient-to-br ${style.backGradient} backdrop-blur-sm text-white flex flex-col justify-center transition-all duration-300 ${
-                      isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-                    }`}
-                  >
-                    <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug mb-2.5">
-                      {prog.title}
-                    </h3>
-
-                    <div
-                      className="w-10 h-1 rounded-full mb-3"
-                      style={{ backgroundColor: style.accentColor }}
-                    />
-
-                    {/* Description */}
-                    <p className="text-white/95 text-xs sm:text-[13px] leading-relaxed font-normal text-justify">
-                      {prog.description}
-                    </p>
+                    <div className="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between">
+                      <span className="text-xs font-bold text-rlhp-green flex items-center gap-1.5">
+                        {isSelected ? 'Show Less' : 'Learn More'}
+                        <ArrowRight size={13} className={`transition-transform duration-300 ${isSelected ? '-rotate-90' : 'group-hover:translate-x-1'}`} />
+                      </span>
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: style.accentColor }}
+                      />
+                    </div>
                   </div>
                 </div>
               );
