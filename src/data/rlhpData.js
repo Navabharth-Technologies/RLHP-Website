@@ -995,6 +995,36 @@ export const publicationsData = ourReportsList.map((r, i) => ({
 
 export const galleryData = [
   {
+    "id": "gallery-hd-1",
+    "image": "/images/gallery/gallery_hd_01.png",
+    "remoteImage": "/images/gallery/gallery_hd_01.png"
+  },
+  {
+    "id": "gallery-hd-2",
+    "image": "/images/gallery/gallery_hd_02.png",
+    "remoteImage": "/images/gallery/gallery_hd_02.png"
+  },
+  {
+    "id": "gallery-hd-3",
+    "image": "/images/gallery/gallery_hd_03.png",
+    "remoteImage": "/images/gallery/gallery_hd_03.png"
+  },
+  {
+    "id": "gallery-hd-4",
+    "image": "/images/gallery/gallery_hd_04.png",
+    "remoteImage": "/images/gallery/gallery_hd_04.png"
+  },
+  {
+    "id": "gallery-hd-5",
+    "image": "/images/gallery/gallery_hd_05.png",
+    "remoteImage": "/images/gallery/gallery_hd_05.png"
+  },
+  {
+    "id": "gallery-hd-6",
+    "image": "/images/gallery/gallery_hd_06.png",
+    "remoteImage": "/images/gallery/gallery_hd_06.png"
+  },
+  {
     "id": "gallery-new-16",
     "image": "/images/gallery/gallery_new_16.jpg",
     "remoteImage": "/images/gallery/gallery_new_16.jpg"
@@ -1115,11 +1145,6 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_22.jpg"
   },
   {
-    "id": "gallery-23",
-    "image": "/images/gallery/gallery_23.jpg",
-    "remoteImage": "/images/gallery/gallery_23.jpg"
-  },
-  {
     "id": "gallery-24",
     "image": "/images/gallery/gallery_24.jpg",
     "remoteImage": "/images/gallery/gallery_24.jpg"
@@ -1230,11 +1255,6 @@ export const galleryData = [
     "id": "gallery-55",
     "image": "/images/gallery/gallery_55.jpg",
     "remoteImage": "/images/gallery/gallery_55.jpg"
-  },
-  {
-    "id": "gallery-56",
-    "image": "/images/gallery/gallery_56.jpg",
-    "remoteImage": "/images/gallery/gallery_56.jpg"
   },
   {
     "id": "gallery-57",
