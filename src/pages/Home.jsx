@@ -299,24 +299,17 @@ export default function Home({ setCurrentPage, onNavClick }) {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0a1628]/80 hidden md:block lg:hidden" />
         </div>
 
-        {/* Curved Green SVG Element on Desktop */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[48%] lg:w-[46%] pointer-events-none overflow-hidden z-[2] opacity-85 hidden md:block">
+        {/* Curved Green SVG Element on Desktop - Color #346B3E, fully covers the right side hero text without shading the children */}
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[50%] lg:w-[48%] xl:w-[46%] pointer-events-none overflow-hidden z-[2] hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <defs>
-              <linearGradient id="heroGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#1E6B27" stopOpacity="0.95" />
-                <stop offset="50%" stopColor="#16501D" stopOpacity="0.98" />
-                <stop offset="100%" stopColor="#0D2E11" stopOpacity="1" />
-              </linearGradient>
-            </defs>
             <path
-              d="M 200,0 Q 400,200 300,400 Q 200,600 250,800 Q 300,900 200,1000 L 1000,1000 L 1000,0 Z"
-              fill="url(#heroGreenGrad)"
+              d="M 120,0 Q 280,250 200,500 Q 120,750 180,1000 L 1000,1000 L 1000,0 Z"
+              fill="#346B3E"
             />
           </svg>
         </div>
