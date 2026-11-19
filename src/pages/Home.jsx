@@ -292,7 +292,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
         </div>
 
         {/* Curved Green Transparent SVG Element on Desktop */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] lg:w-[56%] xl:w-[54%] pointer-events-none overflow-hidden z-[2] hidden md:block">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[62%] lg:w-[58%] xl:w-[56%] pointer-events-none overflow-hidden z-[2] hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
@@ -301,8 +301,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
           >
             <path
               d="M 60,0 Q 220,250 140,500 Q 50,750 100,1000 L 1000,1000 L 1000,0 Z"
-              fill="#346B3E"
-              fillOpacity="0.78"
+              fill="#255A2F"
+              fillOpacity="0.88"
             />
           </svg>
         </div>
@@ -793,10 +793,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 5: IMPACT (Updated Stats)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-20 bg-gradient-to-b from-[#eaf5eb]/60 via-[#f2faf3]/40 to-white overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-b from-[#eaf5eb] via-[#f2faf3] to-[#fbfdfa] border-y border-emerald-100/60 overflow-hidden">
         {/* Subtle blur circles */}
-        <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-green-100/40 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-emerald-100/30 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-emerald-200/30 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-green-200/25 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">

@@ -702,7 +702,7 @@ export default function OurIdentity({ setCurrentPage }) {
               {orgDetails.boardMembers.map((member, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center group cursor-pointer"
+                  className="bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center justify-between group cursor-pointer"
                   onClick={() => setSelectedPhoto({ src: member.image, name: member.name, title: member.designation })}
                 >
                   <div className="w-32 h-40 sm:w-36 sm:h-44 rounded-xl overflow-hidden bg-white p-1 border-2 border-rlhp-green/30 group-hover:border-rlhp-green shadow-xs shrink-0 group-hover:scale-105 transition-all">
@@ -713,12 +713,12 @@ export default function OurIdentity({ setCurrentPage }) {
                     />
                   </div>
 
-                  {/* Name and Designation Only as specified */}
-                  <div className="mt-4 space-y-1">
-                    <h4 className="text-base font-black text-gray-900 group-hover:text-rlhp-darkgreen transition-colors">
+                  {/* Name and Designation Only as specified - Centered */}
+                  <div className="mt-4 space-y-1 w-full text-center flex flex-col items-center justify-center">
+                    <h4 className="text-base font-black text-gray-900 group-hover:text-rlhp-darkgreen transition-colors text-center w-full">
                       {member.name}
                     </h4>
-                    <p className="text-xs font-extrabold text-rlhp-green">
+                    <p className="text-xs font-extrabold text-rlhp-green text-center w-full">
                       {member.designation}
                     </p>
                   </div>
@@ -727,19 +727,19 @@ export default function OurIdentity({ setCurrentPage }) {
             </div>
 
             {/* C. OUR EXECUTIVE DIRECTOR */}
-            <div className="pt-8 border-t border-gray-150 space-y-6">
-              <div className="space-y-1">
+            <div className="pt-8 border-t border-gray-150 space-y-6 text-center flex flex-col items-center">
+              <div className="space-y-1 text-center flex flex-col items-center">
                 <span className="text-xs font-bold text-rlhp-green uppercase tracking-wider bg-rlhp-lightgreen px-3 py-1 rounded-full">
                   Leadership
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-rlhp-darkgreen tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-rlhp-darkgreen tracking-tight text-center">
                   Our Executive Director
                 </h3>
               </div>
 
-              <div className="max-w-xs">
+              <div className="w-full max-w-xs flex justify-center mx-auto">
                 <div
-                  className="bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center group cursor-pointer"
+                  className="w-full bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center justify-between group cursor-pointer"
                   onClick={() => {
                     if (orgDetails.executiveDirector?.image) {
                       setSelectedPhoto({
@@ -765,12 +765,12 @@ export default function OurIdentity({ setCurrentPage }) {
                     )}
                   </div>
 
-                  {/* Name and Designation Only */}
-                  <div className="mt-4 space-y-1">
-                    <h4 className="text-base font-black text-gray-900 group-hover:text-rlhp-darkgreen transition-colors">
+                  {/* Name and Designation Only - Centered */}
+                  <div className="mt-4 space-y-1 w-full text-center flex flex-col items-center justify-center">
+                    <h4 className="text-base font-black text-gray-900 group-hover:text-rlhp-darkgreen transition-colors text-center w-full">
                       {orgDetails.executiveDirector?.name || 'Saraswathi K'}
                     </h4>
-                    <p className="text-xs font-extrabold text-rlhp-green">
+                    <p className="text-xs font-extrabold text-rlhp-green text-center w-full">
                       {orgDetails.executiveDirector?.designation || 'Executive Director'}
                     </p>
                   </div>
