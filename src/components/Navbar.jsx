@@ -58,9 +58,8 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
 
       {/* ══════════ MAIN NAVIGATION BAR (Top bar removed per user request) ══════════ */}
       <nav
-        className={`bg-[#1c1d1f] transition-all duration-300 border-b border-white/5 ${
-          scrolled ? 'shadow-2xl' : ''
-        }`}
+        className={`bg-[#1c1d1f] transition-all duration-300 border-b border-white/5 ${scrolled ? 'shadow-2xl' : ''
+          }`}
       >
         <div className="max-w-[1600px] mx-auto px-3 sm:px-5 lg:px-6 xl:px-8">
           <div className="flex items-center justify-between h-[86px] sm:h-[94px]">
@@ -129,9 +128,8 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
 
         {/* ══════════ MOBILE DRAWER ══════════ */}
         <div
-          className={`lg:hidden border-t border-gray-800 bg-[#1c1d1f] overflow-hidden transition-all duration-300 ease-in-out ${
-            mobileOpen ? 'max-h-[85vh] opacity-100' : 'max-h-0 opacity-0'
-          }`}
+          className={`lg:hidden border-t border-gray-800 bg-[#1c1d1f] overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? 'max-h-[85vh] opacity-100' : 'max-h-0 opacity-0'
+            }`}
         >
           <div className="px-5 py-4 space-y-1.5 overflow-y-auto max-h-[80vh]">
             {NAV.map((item) => (
@@ -139,10 +137,9 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
                 key={item.label}
                 onClick={() => go(item.id)}
                 className={`w-full text-left px-4 py-3 rounded-lg text-[14px] font-bold transition-colors
-                  ${
-                    active(item)
-                      ? 'bg-white/10 text-[#4CAF50] border-l-4 border-[#4CAF50]'
-                      : 'text-white hover:bg-white/5'
+                  ${active(item)
+                    ? 'bg-white/10 text-[#4CAF50] border-l-4 border-[#4CAF50]'
+                    : 'text-white hover:bg-white/5'
                   }`}
               >
                 {item.label}

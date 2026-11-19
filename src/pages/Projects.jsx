@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
-import { 
-  Users, Handshake, CheckCircle2, Heart, Scale, BookOpen, 
-  Sparkles, Award, ArrowRight, ShieldCheck, Activity, Building2, 
+import {
+  Users, Handshake, CheckCircle2, Heart, Scale, BookOpen,
+  Sparkles, Award, ArrowRight, ShieldCheck, Activity, Building2,
   Leaf, UserCheck, Flame, Baby, HelpCircle, GraduationCap
 } from 'lucide-react';
 
@@ -73,7 +73,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
 
   return (
     <div className="font-sans bg-gray-50/50">
-      
+
       {/* ─── 1. TOP HERO SECTION: WHAT WE DO (Exact Replica of Reference 3) ─── */}
       <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#eaf4eb]/90 via-[#f2f8f3] to-white border-b border-green-100/60 overflow-hidden">
         {/* Soft decorative glow */}
@@ -82,7 +82,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
 
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            
+
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
               <div>
@@ -230,17 +230,14 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                 <div
                   key={idx}
                   onClick={() => setSelectedProgramIndex(isSelected ? null : idx)}
-                  className={`relative h-[380px] sm:h-[400px] w-full rounded-3xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 bg-gray-900 ${
-                    isAdolescent ? 'lg:col-start-2 lg:translate-x-1/2' : ''
-                  } ${
-                    isSelected 
-                      ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(16,185,129,0.6)] scale-[1.02]' 
+                  className={`relative h-[380px] sm:h-[400px] w-full rounded-3xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 bg-gray-900 ${isAdolescent ? 'lg:col-start-2 lg:translate-x-1/2' : ''
+                    } ${isSelected
+                      ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(16,185,129,0.6)] scale-[1.02]'
                       : `border-white/30 shadow-xl ${style.hoverGlow} hover:-translate-y-1.5`
-                  } ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0 scale-100' 
+                    } ${isVisible
+                      ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                  }`}
+                    }`}
                   style={{
                     willChange: 'transform, opacity',
                   }}
@@ -250,17 +247,15 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                     <img
                       src={imageSrc}
                       alt={prog.title}
-                      className={`w-full h-full object-cover transition-transform duration-700 ${
-                        isSelected ? 'scale-105 filter blur-[2px]' : 'hover:scale-105'
-                      }`}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${isSelected ? 'scale-105 filter blur-[2px]' : 'hover:scale-105'
+                        }`}
                     />
                   </div>
 
                   {/* ── FRONT OVERLAY (Visible by default) ── */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent p-5 sm:p-6 flex flex-col justify-end transition-opacity duration-300 ${
-                      isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                    }`}
+                    className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent p-5 sm:p-6 flex flex-col justify-end transition-opacity duration-300 ${isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                      }`}
                   >
                     <div
                       className="w-8 h-1 rounded-full mb-2.5"
@@ -273,9 +268,8 @@ export default function Projects({ setCurrentPage, onNavClick }) {
 
                   {/* ── SELECTED CONTENT OVERLAY (Appears on click without flipping) ── */}
                   <div
-                    className={`absolute inset-0 p-6 sm:p-7 bg-gradient-to-br ${style.backGradient} backdrop-blur-sm text-white flex flex-col justify-center transition-all duration-300 ${
-                      isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-                    }`}
+                    className={`absolute inset-0 p-6 sm:p-7 bg-gradient-to-br ${style.backGradient} backdrop-blur-sm text-white flex flex-col justify-center transition-all duration-300 ${isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+                      }`}
                   >
                     <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug mb-2.5">
                       {prog.title}
@@ -301,7 +295,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
       {/* ─── 3. WITH WHOM WE WORK (In Elegant Midnight Emerald Container) ─── */}
       <section className="w-full bg-[#132A1C] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 shadow-inner">
         <div className="max-w-6xl mx-auto space-y-8">
-          
+
           {/* Header */}
           <div className="text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">

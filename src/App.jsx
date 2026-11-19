@@ -73,7 +73,7 @@ export default function App() {
         return <AboutUs setCurrentPage={setCurrentPage} />;
       case 'programmes':
         return (
-          <Programmes 
+          <Programmes
             selectedProgrammeId={selectedProgrammeId}
             setSelectedProgrammeId={setSelectedProgrammeId}
             setCurrentPage={setCurrentPage}
@@ -83,10 +83,10 @@ export default function App() {
         return <WhereWeWork />;
       case 'projects':
         return (
-          <Projects 
-            initialCategory={selectedProjectCategory} 
-            setCurrentPage={setCurrentPage} 
-            onNavClick={handleNavClick} 
+          <Projects
+            initialCategory={selectedProjectCategory}
+            setCurrentPage={setCurrentPage}
+            onNavClick={handleNavClick}
           />
         );
       case 'impact':
@@ -101,12 +101,12 @@ export default function App() {
         return <SuccessStoriesPage onSelectNews={(item) => setSelectedMedia(item)} setCurrentPage={setCurrentPage} onNavClick={handleNavClick} />;
       case 'publications':
         return (
-          <PublicationsPage 
+          <PublicationsPage
             initialTab={selectedPublicationTab}
-            onSelectMedia={(item) => setSelectedMedia(item)} 
-            onSelectNews={(item) => setSelectedMedia(item)} 
-            setCurrentPage={setCurrentPage} 
-            onNavClick={handleNavClick} 
+            onSelectMedia={(item) => setSelectedMedia(item)}
+            onSelectNews={(item) => setSelectedMedia(item)}
+            setCurrentPage={setCurrentPage}
+            onNavClick={handleNavClick}
           />
         );
       case 'mis':
@@ -135,9 +135,9 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 font-sans selection:bg-rlhp-green selection:text-white">
       {/* Sticky Navbar with working dropdowns and all 7 menu items */}
-      <Navbar 
-        currentPage={currentPage} 
-        setCurrentPage={setCurrentPage} 
+      <Navbar
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         onNavClick={handleNavClick}
       />
 
@@ -147,14 +147,14 @@ export default function App() {
       </main>
 
       {/* Global Dark Green Footer */}
-      <Footer 
-        setCurrentPage={setCurrentPage} 
+      <Footer
+        setCurrentPage={setCurrentPage}
         onNavClick={handleNavClick}
       />
 
-      <ImageModal 
-        item={selectedMedia} 
-        onClose={() => setSelectedMedia(null)} 
+      <ImageModal
+        item={selectedMedia}
+        onClose={() => setSelectedMedia(null)}
       />
     </div>
   );

@@ -443,28 +443,6 @@ Today, I am a skilled carpenter and earn around ₹15,000 per month. I am self-r
 My dream is to start my own carpentry business and create opportunities for children who come from difficult backgrounds like mine. I want to support other children and contribute to society, especially those from deprived communities. I will always be grateful to RLHP and Asha Kirana for giving me a safe home, education, skills and, most importantly, a dignified life.”`
   },
   {
-    id: "shwetha",
-    name: "Shwetha",
-    role: "Kumbrallimata Village",
-    designation: "Mother of Manoj (recovered from malnutrition)",
-    nameChanged: true,
-    image: "/images/gallery/maternal_health_awareness.jpg",
-    tag: "Child Malnutrition Recovery",
-    programme: "Maternal & Child Nutrition",
-    quote: "“My three-year-old son Manoj was underweight, weighing just 10.5 kg, and was not attending the Anganwadi regularly. With the guidance and support of RLHP, he was enrolled in the Anganwadi and began receiving nutritious food and supplements. Gradually, his health improved, and today he weighs 13.1 kg, is active and happy. I am grateful to RLHP and the Anganwadi worker for helping my child move towards a healthier future and educating me about the importance of child nutrition.”",
-    fullStory: `“My name is Shwetha, and I am the mother of my three-year-old son, Manoj. There was a time when I felt deeply worried and helpless seeing my child so weak. At an age when he should have been active and healthy, he weighed only 10.5 kg. As a mother, it was painful to see him that way, but I did not know what to do or how to help him.
-
-Manoj was not attending the Anganwadi and spent most of his time playing outside. He was not receiving proper food at regular intervals, and I was not aware of how important good nutrition is for a child’s growth and development.
-
-Everything began to change when the Rural Literacy and Health Programme (RLHP) visited our village. The RLHP team identified my child’s condition and guided me with care and patience. They did not simply give us advice; they supported us throughout the process. With their guidance, we enrolled Manoj in the Anganwadi, where he began receiving regular nutritious meals, eggs and supplements such as ragi mixture and Spirulina.
-
-Slowly, I began to notice a positive change in my child. He became more active, started eating better and gradually regained his happiness and energy. As a mother, seeing these changes brought me immense relief and joy.
-
-Today, Manoj weighs 13.1 kg. He is healthy, happy and enjoys playing with other children. Seeing him grow and play with confidence fills my heart with happiness.
-
-I am deeply thankful to RLHP and the Anganwadi worker for their care and support. RLHP not only helped my child move towards a healthier life but also helped me understand the importance of nutrition and better childcare. Their support has truly made a meaningful difference in our lives.”`
-  },
-  {
     id: "sahana",
     name: "Sahana",
     role: "Channarayapatna",
