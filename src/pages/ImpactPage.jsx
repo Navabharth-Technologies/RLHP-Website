@@ -389,14 +389,24 @@ export default function ImpactPage() {
             <div className="w-12 h-1 bg-amber-500 mx-auto rounded-full" />
           </div>
 
-          <div ref={awardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={awardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
             {awardsData.map((award, idx) => {
               const isVisible = awardsStarted && idx < awardsVisibleCount;
+              // Row 1 (first 3 items, landscape): spans 2 cols in a 6-col grid (3 cards per row)
+              // Row 2 (last 2 items, portrait): centered in between the 3 columns of row 1!
+              // For 2 cards centered in a 6-col grid, col 1 starts at col 2 (span 2), col 2 is col 4 (span 2) or span 2 each
+              const isRow2 = idx >= 3;
+              const gridSpanClass = !isRow2
+                ? 'lg:col-span-2'
+                : idx === 3
+                  ? 'lg:col-span-2 lg:col-start-2'
+                  : 'lg:col-span-2';
+
               return (
                 <div
                   key={award.id}
                   onClick={() => setSelectedAward(award)}
-                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 group flex flex-col cursor-pointer transform ${isVisible
+                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between cursor-pointer transform ${gridSpanClass} ${isVisible
                     ? 'opacity-100 translate-y-0 scale-100'
                     : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}
@@ -404,7 +414,7 @@ export default function ImpactPage() {
                   title="Click to view full image"
                 >
                   {/* Complete photo fully visible without chopping or cropping */}
-                  <div className="h-72 sm:h-80 w-full overflow-hidden relative bg-gray-50 flex items-center justify-center p-3">
+                  <div className="h-64 sm:h-72 w-full overflow-hidden relative bg-gray-50 flex items-center justify-center p-3">
                     <img
                       src={`${import.meta.env.BASE_URL}${award.image.replace(/^\//, '')}`}
                       alt={award.title}
@@ -417,6 +427,14 @@ export default function ImpactPage() {
                         <ZoomIn size={22} />
                       </div>
                     </div>
+                  </div>
+
+                  {/* Title added below image of each card */}
+                  <div className="p-4 sm:p-5 border-t border-amber-100 bg-white text-center flex flex-col items-center justify-center">
+                    <h3 className="text-sm sm:text-base font-extrabold text-gray-900 group-hover:text-amber-700 transition-colors leading-snug">
+                      {award.title}
+                    </h3>
+                    <div className="w-8 h-1 bg-amber-400 rounded-full mt-2" />
                   </div>
                 </div>
               );

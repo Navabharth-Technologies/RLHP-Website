@@ -879,12 +879,6 @@ export const awardsData = [
     image: "/images/awards/award_wadiyar_2025.jpg"
   },
   {
-    id: "award-wadiyar-2025-1",
-    title: "Rajarshi Shri Nalwadi Krishnaraja Wadiyar Award 2025 (Felicitation)",
-    year: "2025",
-    image: "/images/awards/award_wadiyar_2025_1.jpg"
-  },
-  {
     id: "award-chaitanya-2024",
     title: "Chaitanya Shri Award 2024",
     year: "2024",
