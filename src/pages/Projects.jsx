@@ -242,28 +242,29 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                     willChange: 'transform, opacity',
                   }}
                 >
-                  {/* Full Image Displayed Without Chopping or Cropping */}
+                  {/* Full Image Displayed Across the Complete Card Without Chopping or Blur */}
                   <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gray-950 overflow-hidden">
                     <img
                       src={imageSrc}
                       alt={prog.title}
-                      className={`w-full h-full object-cover transition-transform duration-700 ${isSelected ? 'scale-105 filter blur-[2px]' : 'hover:scale-105'
-                        }`}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${
+                        idx === 7 ? 'object-[center_top]' : 'object-center'
+                      } ${isSelected ? 'scale-105 filter blur-[2px]' : 'hover:scale-105'}`}
                     />
                   </div>
 
                   {/* ── FRONT OVERLAY (Visible by default) ── */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent p-5 sm:p-6 flex flex-col justify-end transition-opacity duration-300 ${isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-5 sm:p-6 flex flex-col justify-end transition-opacity duration-300 ${isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
                       }`}
                   >
-                    <div
-                      className="w-8 h-1 rounded-full mb-2.5"
-                      style={{ backgroundColor: style.accentColor }}
-                    />
                     <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug drop-shadow-md">
                       {prog.title}
                     </h3>
+                    <div
+                      className="w-12 h-1 rounded-full mt-2.5"
+                      style={{ backgroundColor: style.accentColor }}
+                    />
                   </div>
 
                   {/* ── SELECTED CONTENT OVERLAY (Appears on click without flipping) ── */}
