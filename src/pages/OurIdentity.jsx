@@ -35,17 +35,15 @@ export default function OurIdentity({ setCurrentPage }) {
           setPrinciplesStarted(true);
         }
       },
-      { threshold: 0.02, rootMargin: '100px' }
+      { threshold: 0.15 }
     );
 
     if (principlesRef.current) {
       observer.observe(principlesRef.current);
     }
-    const fb = setTimeout(() => setPrinciplesStarted(true), 1200);
 
     return () => {
       observer.disconnect();
-      clearTimeout(fb);
     };
   }, []);
 
@@ -54,7 +52,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (principlesVisibleCount < orgDetails.principles.length) {
       const timer = setTimeout(() => {
         setPrinciplesVisibleCount((prev) => prev + 1);
-      }, 100);
+      }, 90);
       return () => clearTimeout(timer);
     }
   }, [principlesStarted, principlesVisibleCount]);
@@ -68,17 +66,15 @@ export default function OurIdentity({ setCurrentPage }) {
           setValuesStarted(true);
         }
       },
-      { threshold: 0.02, rootMargin: '100px' }
+      { threshold: 0.15 }
     );
 
     if (valuesRef.current) {
       observer.observe(valuesRef.current);
     }
-    const fb = setTimeout(() => setValuesStarted(true), 1200);
 
     return () => {
       observer.disconnect();
-      clearTimeout(fb);
     };
   }, []);
 
@@ -87,7 +83,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (valuesVisibleCount < orgDetails.coreValues.length) {
       const timer = setTimeout(() => {
         setValuesVisibleCount((prev) => prev + 1);
-      }, 100);
+      }, 90);
       return () => clearTimeout(timer);
     }
   }, [valuesStarted, valuesVisibleCount]);
@@ -101,17 +97,15 @@ export default function OurIdentity({ setCurrentPage }) {
           setJourneyStarted(true);
         }
       },
-      { threshold: 0.02, rootMargin: '100px' }
+      { threshold: 0.15 }
     );
 
     if (journeyRef.current) {
       observer.observe(journeyRef.current);
     }
-    const fb = setTimeout(() => setJourneyStarted(true), 1200);
 
     return () => {
       observer.disconnect();
-      clearTimeout(fb);
     };
   }, []);
 
