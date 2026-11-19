@@ -292,7 +292,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
         </div>
 
         {/* Curved Green Transparent SVG Element on Desktop */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[54%] lg:w-[50%] pointer-events-none overflow-hidden z-[2] hidden md:block">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] lg:w-[56%] xl:w-[54%] pointer-events-none overflow-hidden z-[2] hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
@@ -300,18 +300,18 @@ export default function Home({ setCurrentPage, onNavClick }) {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M 120,0 Q 300,250 200,500 Q 100,750 160,1000 L 1000,1000 L 1000,0 Z"
+              d="M 60,0 Q 220,250 140,500 Q 50,750 100,1000 L 1000,1000 L 1000,0 Z"
               fill="#346B3E"
-              fillOpacity="0.75"
+              fillOpacity="0.78"
             />
           </svg>
         </div>
 
-        {/* Hero Content Container - Fully Responsive & Optimized for Mobile, Tablet and Desktop */}
-        <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 pt-36 pb-12 sm:py-20 flex justify-end">
-          <div className="w-full max-w-[560px] lg:mr-4 xl:mr-10 bg-slate-950/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 sm:p-7 md:p-0 rounded-3xl md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
+        {/* Hero Content Container - Aligned further right so text is completely placed on the green transparent shade */}
+        <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 pt-36 pb-12 sm:py-20 flex justify-end">
+          <div className="w-full max-w-[500px] lg:max-w-[520px] lg:mr-2 xl:mr-6 bg-slate-950/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 sm:p-7 md:p-0 rounded-3xl md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
             {/* Main Headline with Highlighted Underline and Vibrant Accent */}
-            <h1 className="text-2xl sm:text-4xl lg:text-[52px] font-bold text-white leading-[1.25] sm:leading-[1.2] mb-6 sm:mb-7 tracking-tight drop-shadow-md">
+            <h1 className="text-2xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-bold text-white leading-[1.25] sm:leading-[1.2] mb-6 sm:mb-7 tracking-tight drop-shadow-md">
               <span className="text-[#A7F3D0] font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
                 Transforming Lives of Children, Women and{' '}
               </span>
@@ -352,7 +352,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             </div>
 
             {/* Hero Metrics Strip */}
-            <div className="pt-5 sm:pt-6 border-t border-white/20 grid grid-cols-3 gap-3 sm:gap-6 max-w-[480px]">
+            <div className="pt-5 sm:pt-6 border-t border-white/20 grid grid-cols-3 gap-3 sm:gap-6 max-w-[460px]">
               <div>
                 <div className="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">2M+</div>
                 <div className="text-[10px] sm:text-sm text-gray-200 font-medium uppercase tracking-wider mt-0.5">Lives Reached</div>
