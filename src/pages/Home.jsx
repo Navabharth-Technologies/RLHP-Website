@@ -231,14 +231,6 @@ export default function Home({ setCurrentPage, onNavClick }) {
       gender: "boy"
     },
     {
-      text: "My three-year-old son Manoj was underweight, weighing just 10.5 kg, and was not attending the Anganwadi regularly. With the guidance and support of RLHP, he was enrolled in the Anganwadi and began receiving nutritious food and supplements. Gradually, his health improved, and today he weighs 13.1 kg, is active and happy. I am grateful to RLHP and the Anganwadi worker for helping my child move towards a healthier future and educating me about the importance of child nutrition.",
-      name: "Shwetha",
-      note: "Name changed to protect privacy",
-      designation: "Kumbrallimata Village",
-      tag: "Child Health & Nutrition",
-      gender: "girl"
-    },
-    {
       text: "I faced many challenges due to my family’s financial difficulties. I had to work in agricultural fields and take care of my four younger sisters. Through RLHP’s free vocational training programme, I learned tailoring and embroidery, along with essential life skills. With RLHP’s support, I started my own tailoring work and now earn ₹10,000 per month. Today, I am able to support my family and my sisters’ education. I am grateful to RLHP for helping me become confident, independent and self-reliant.",
       name: "Yashodha",
       note: "Name changed to protect privacy",
@@ -502,6 +494,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-wide">
               OUR PROGRAMME <span className="text-[#E49E23]">PRIORITIES</span>
             </h2>
+            <div className="w-24 h-1 bg-[#E49E23] mx-auto rounded-full" />
           </div>
 
           {/* Cards Grid: 1st row has 4 cards, next row has 3 cards on desktop */}
@@ -570,10 +563,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
                       className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20 p-5 flex flex-col justify-end transition-opacity duration-300 ${isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
                         }`}
                     >
-                      <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
                       <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
                         {card.title}
                       </h3>
+                      <div className="w-10 h-1 bg-[#E49E23] rounded-full mt-2" />
                       <div className="mt-3 flex items-center justify-between pt-2 border-t border-white/15">
                         <span className="text-[11px] font-semibold text-emerald-300">
                           {card.metric}
@@ -667,10 +660,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
                       className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20 p-5 flex flex-col justify-end transition-opacity duration-300 ${isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
                         }`}
                     >
-                      <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
                       <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
                         {card.title}
                       </h3>
+                      <div className="w-10 h-1 bg-[#E49E23] rounded-full mt-2" />
                       <div className="mt-3 flex items-center justify-between pt-2 border-t border-white/15">
                         <span className="text-[11px] font-semibold text-emerald-300">
                           {card.metric}
@@ -800,41 +793,42 @@ export default function Home({ setCurrentPage, onNavClick }) {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 5: IMPACT (Updated Stats)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-20 bg-white overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-b from-[#eaf5eb]/60 via-[#f2faf3]/40 to-white overflow-hidden">
         {/* Subtle blur circles */}
-        <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-green-50 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-green-50 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-green-100/40 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-emerald-100/30 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
               <span className="text-rlhp-green">IMPACT</span>
             </h2>
+            <div className="w-16 h-1 bg-rlhp-green mx-auto rounded-full mt-3" />
           </div>
 
-          {/* 3 Impact Stat Cards — Highlighted with Logo Color Matching Green Shade on Hover */}
+          {/* 3 Impact Stat Cards — Highlighted with Logo Color Matching Green Shade */}
           <div className="grid sm:grid-cols-3 gap-8 max-w-[900px] mx-auto mb-14">
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl hover:border-rlhp-green/60 hover:bg-[#236B28]/10 hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer">
+            <div className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
               <div className="text-4xl sm:text-5xl font-black text-rlhp-green group-hover:text-rlhp-darkgreen leading-none mb-2 drop-shadow-sm transition-colors">
                 9.5 Lakh+
               </div>
-              <div className="text-sm font-bold text-gray-600 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
+              <div className="text-sm font-bold text-gray-700 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
                 Lives Transformed
               </div>
             </div>
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl hover:border-rlhp-green/60 hover:bg-[#236B28]/10 hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer">
+            <div className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
               <div className="text-4xl sm:text-5xl font-black text-rlhp-green group-hover:text-rlhp-darkgreen leading-none mb-2 drop-shadow-sm transition-colors">
                 3 Lakh+
               </div>
-              <div className="text-sm font-bold text-gray-600 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
+              <div className="text-sm font-bold text-gray-700 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
                 Children Mainstreamed
               </div>
             </div>
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl hover:border-rlhp-green/60 hover:bg-[#236B28]/10 hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer">
+            <div className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
               <div className="text-4xl sm:text-5xl font-black text-rlhp-green group-hover:text-rlhp-darkgreen leading-none mb-2 drop-shadow-sm transition-colors">
                 42+ Years
               </div>
-              <div className="text-sm font-bold text-gray-600 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
+              <div className="text-sm font-bold text-gray-700 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
                 Of Impact
               </div>
             </div>
@@ -870,6 +864,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-md">
               Together, <span className="text-[#66BB6A]">We Make a Difference</span>
             </h2>
+            <div className="w-24 h-1 bg-[#66BB6A] mx-auto rounded-full mt-3" />
           </div>
 
           {/* 3 Action Cards (Transparent with Low Opacity, Blurred Backdrop & Smooth Animations) */}

@@ -90,12 +90,29 @@ export default function AnnualReportDetailPage({
           pagesList.push({ type: 'img', src: report.cover, label: 'Front Cover' });
         }
 
-        // Render first few pages immediately so book displays without delay
-        const initialLoadCount = Math.min(effectiveCount, 4);
+        // Render pages from PDF.
+        // For report-2025-2026, page 2 in the PDF is a newspaper clipping that should be shown at the end (after the report content, right before the back cover).
+        const is2025Report = report.id === 'report-2025-2026';
+        let pagesToRender = [];
+        if (is2025Report) {
+          // Render page 1, then pages 3 to effectiveCount, and finally page 2
+          for (let p = 1; p <= effectiveCount; p++) {
+            if (p !== 2) pagesToRender.push(p);
+          }
+          pagesToRender.push(2); // move page 2 newspaper clipping to the end
+        } else {
+          for (let p = 1; p <= effectiveCount; p++) {
+            pagesToRender.push(p);
+          }
+        }
 
-        for (let i = 1; i <= initialLoadCount; i++) {
+        // Render first few pages immediately so book displays without delay
+        const initialLoadCount = Math.min(pagesToRender.length, 4);
+
+        for (let idx = 0; idx < initialLoadCount; idx++) {
           if (isCancelled) return;
-          const page = await pdf.getPage(i);
+          const pageNum = pagesToRender[idx];
+          const page = await pdf.getPage(pageNum);
           // High clarity 2.2x scale for sharp text reading
           const viewport = page.getViewport({ scale: 2.2 });
 
@@ -105,7 +122,7 @@ export default function AnnualReportDetailPage({
           const context = canvas.getContext('2d', { alpha: false });
 
           await page.render({ canvasContext: context, viewport }).promise;
-          pagesList.push({ type: 'canvas', dataUrl: canvas.toDataURL('image/jpeg', 0.95), pageNum: i });
+          pagesList.push({ type: 'canvas', dataUrl: canvas.toDataURL('image/jpeg', 0.95), pageNum });
         }
 
         if (isCancelled) return;
@@ -113,9 +130,10 @@ export default function AnnualReportDetailPage({
         setLoading(false);
 
         // Lazily render remaining pages in background
-        for (let i = initialLoadCount + 1; i <= effectiveCount; i++) {
+        for (let idx = initialLoadCount; idx < pagesToRender.length; idx++) {
           if (isCancelled) return;
-          const page = await pdf.getPage(i);
+          const pageNum = pagesToRender[idx];
+          const page = await pdf.getPage(pageNum);
           const viewport = page.getViewport({ scale: 2.2 });
 
           const canvas = document.createElement('canvas');
@@ -124,9 +142,9 @@ export default function AnnualReportDetailPage({
           const context = canvas.getContext('2d', { alpha: false });
 
           await page.render({ canvasContext: context, viewport }).promise;
-          pagesList.push({ type: 'canvas', dataUrl: canvas.toDataURL('image/jpeg', 0.95), pageNum: i });
+          pagesList.push({ type: 'canvas', dataUrl: canvas.toDataURL('image/jpeg', 0.95), pageNum });
           
-          if (!isCancelled && i % 3 === 0) {
+          if (!isCancelled && idx % 3 === 0) {
             setRenderedPages([...pagesList]);
           }
         }

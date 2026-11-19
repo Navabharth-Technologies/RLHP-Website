@@ -278,11 +278,10 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${
-                      is2026 ? 'lg:col-start-2' : ''
-                    } ${isVisible
-                      ? 'opacity-100 translate-y-0 scale-100'
-                      : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
+                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${is2026 ? 'lg:col-start-2' : ''
+                      } ${isVisible
+                        ? 'opacity-100 translate-y-0 scale-100'
+                        : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                       }`}
                     style={{ willChange: 'transform, opacity' }}
                   >
@@ -696,9 +695,6 @@ export default function OurIdentity({ setCurrentPage }) {
               <h3 className="text-2xl sm:text-3xl font-extrabold text-rlhp-darkgreen tracking-tight">
                 Board Members
               </h3>
-              <p className="text-xs text-gray-500">
-                Governed by a dedicated Board of Management ensuring transparency, integrity, and child rights advocacy.
-              </p>
             </div>
 
             {/* Board Members Cards - Name and Designation Only */}
