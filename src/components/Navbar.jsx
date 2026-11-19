@@ -58,39 +58,39 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
 
       {/* ══════════ MAIN NAVIGATION BAR (Top bar removed per user request) ══════════ */}
       <nav
-        className={`bg-[#1c1d1f] transition-all duration-300 border-b border-white/5 ${scrolled ? 'shadow-2xl' : ''
+        className={`bg-[#1c1d1f] transition-all duration-300 ${scrolled ? 'shadow-2xl' : ''
           }`}
       >
-        <div className="w-full px-3 sm:px-4 lg:px-5 xl:px-6">
-          <div className="flex items-center justify-between h-[86px] sm:h-[92px] gap-2">
+        <div className="w-full px-3 sm:px-4 lg:px-4 xl:px-6">
+          <div className="flex items-center justify-between h-[86px] sm:h-[94px] gap-2 sm:gap-4">
 
             {/* ── Logo + Brand ── */}
             <button
               onClick={() => go('home')}
-              className="flex items-center gap-2 sm:gap-3 flex-shrink min-w-0 text-left group"
+              className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 text-left group"
             >
               <img
                 src={`${B}rlhp-logo.png`}
                 alt="RLHP Logo"
                 className="h-11 w-11 sm:h-13 sm:w-13 lg:h-14 lg:w-14 rounded-full object-contain bg-white p-0.5 ring-2 ring-[#236B28]/60 group-hover:ring-[#4CAF50] transition-all duration-200 shadow-lg shrink-0"
               />
-              <div className="leading-tight min-w-0">
-                <span className="block text-[#4CAF50] font-black text-[15px] sm:text-[18px] lg:text-[17px] xl:text-[20px] 2xl:text-[22px] tracking-tight group-hover:text-[#66BB6A] transition-colors drop-shadow-sm truncate">
+              <div className="leading-tight whitespace-nowrap">
+                <span className="block text-[#4CAF50] font-black text-[13.5px] sm:text-[16px] md:text-[18px] lg:text-[16px] xl:text-[19px] 2xl:text-[21px] tracking-tight group-hover:text-[#66BB6A] transition-colors drop-shadow-sm">
                   Rural Literacy &amp; Health Programme (RLHP)
                 </span>
-                <span className="block text-white text-[10.5px] sm:text-[12px] lg:text-[11.5px] xl:text-[13px] 2xl:text-[13.5px] font-semibold tracking-normal opacity-90 mt-0.5 truncate">
+                <span className="block text-white text-[10px] sm:text-[11.5px] md:text-[12.5px] lg:text-[11px] xl:text-[12.5px] 2xl:text-[13px] font-semibold tracking-normal opacity-90 mt-0.5">
                   Empowering People Through Health, Education &amp; Livelihood
                 </span>
               </div>
             </button>
 
             {/* ── Desktop Navigation Menu (Direct Links, Auto Responsive spacing & font size) ── */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-3 flex-shrink-0">
+            <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 2xl:gap-2.5 flex-shrink-0">
               {NAV.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => go(item.id)}
-                  className={`px-1.5 xl:px-2 py-1.5 text-[11px] xl:text-[12.5px] 2xl:text-[13.5px] font-bold rounded transition-colors duration-150 whitespace-nowrap
+                  className={`px-1.5 xl:px-2 py-1.5 text-[10.5px] xl:text-[12px] 2xl:text-[13px] font-bold rounded transition-colors duration-150 whitespace-nowrap
                     ${active(item) ? 'text-[#4CAF50]' : 'text-white hover:text-[#4CAF50]'}`}
                 >
                   {item.label}
