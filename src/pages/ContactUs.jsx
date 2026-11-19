@@ -13,20 +13,61 @@ export default function ContactUs() {
   });
   const [isHuman, setIsHuman] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [statusMessage, setStatusMessage] = useState({ type: '', text: '' });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isHuman) {
       alert('Please check the verification box.');
       return;
     }
     setSubmitted(true);
-    setTimeout(() => {
-      alert('Thank you for contacting RLHP! We have received your message.');
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      setIsHuman(false);
+    setStatusMessage({ type: '', text: '' });
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/rlhpintervita@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          _cc: 'mysore@rlhp.org',
+          _subject: `New RLHP Contact Inquiry from ${formData.name}: ${formData.subject || 'General Message'}`,
+          _template: 'table'
+        })
+      });
+
+      if (response.ok) {
+        setStatusMessage({
+          type: 'success',
+          text: 'Thank you for contacting RLHP! Your message has been sent successfully to rlhpintervita@gmail.com and mysore@rlhp.org.'
+        });
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setIsHuman(false);
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      // Fallback: create mailto link so user can still directly send email
+      const mailtoUrl = `mailto:rlhpintervita@gmail.com?cc=mysore@rlhp.org&subject=${encodeURIComponent(
+        formData.subject || 'Contact Inquiry'
+      )}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+      )}`;
+      window.location.href = mailtoUrl;
+      setStatusMessage({
+        type: 'info',
+        text: 'Opening your email client to send your message directly to rlhpintervita@gmail.com & mysore@rlhp.org.'
+      });
+    } finally {
       setSubmitted(false);
-    }, 800);
+    }
   };
 
   return (
@@ -177,13 +218,27 @@ export default function ContactUs() {
                 </div>
               </div>
 
+              {/* Status feedback message */}
+              {statusMessage.text && (
+                <div
+                  className={`p-4 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 ${
+                    statusMessage.type === 'success'
+                      ? 'bg-green-100 text-green-900 border border-green-300'
+                      : 'bg-blue-100 text-blue-900 border border-blue-300'
+                  }`}
+                >
+                  <CheckCircle2 size={18} className="flex-shrink-0 text-emerald-600" />
+                  <span>{statusMessage.text}</span>
+                </div>
+              )}
+
               {/* Submit Button */}
               <button
                 type="submit"
                 disabled={submitted}
-                className="w-full py-3.5 px-6 rounded-xl bg-[#236B28] hover:bg-[#154219] text-white font-extrabold text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                className="w-full py-3.5 px-6 rounded-xl bg-[#236B28] hover:bg-[#154219] text-white font-extrabold text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer disabled:opacity-60"
               >
-                {submitted ? 'Submitting...' : 'Submit'}
+                {submitted ? 'Sending Message...' : 'Submit'}
               </button>
             </form>
           </div>

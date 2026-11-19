@@ -116,11 +116,6 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
                   <FileText size={18} className="opacity-90" />
                 </div>
 
-                {/* Date */}
-                <span className="text-xs font-semibold text-gray-400 block mb-1.5">
-                  {item.date}
-                </span>
-
                 {/* Document Title */}
                 <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors leading-snug">
                   {item.title}
