@@ -291,7 +291,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
           <img
             src={heroImage}
             alt="RLHP Child Education"
-            className="w-full h-full object-cover object-[15%_center] sm:object-[8%_center] lg:object-[2%_20%]"
+            className="w-full h-full object-cover object-[left_center] sm:object-[left_center] lg:object-[left_20%]"
             style={{ imageRendering: 'auto' }}
           />
           {/* Subtle gradient overlay on mobile & tablet to guarantee text readability without covering the smiling child */}
@@ -299,8 +299,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0a1628]/80 hidden md:block lg:hidden" />
         </div>
 
-        {/* Curved Green SVG Element on Desktop - Color #346B3E, fully covers the right side hero text without shading the children */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[50%] lg:w-[48%] xl:w-[46%] pointer-events-none overflow-hidden z-[2] hidden md:block">
+        {/* Curved Green Transparent SVG Element on Desktop */}
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[54%] lg:w-[50%] pointer-events-none overflow-hidden z-[2] hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
@@ -308,8 +308,9 @@ export default function Home({ setCurrentPage, onNavClick }) {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M 120,0 Q 280,250 200,500 Q 120,750 180,1000 L 1000,1000 L 1000,0 Z"
+              d="M 120,0 Q 300,250 200,500 Q 100,750 160,1000 L 1000,1000 L 1000,0 Z"
               fill="#346B3E"
+              fillOpacity="0.75"
             />
           </svg>
         </div>
@@ -547,31 +548,27 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   <div
                     key={i}
                     onClick={() => setSelectedPriorityIndex(isSelected ? null : i)}
-                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${
-                      isSelected 
-                        ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(76,175,80,0.6)] scale-[1.02]' 
-                        : 'border-white/20 shadow-xl hover:border-rlhp-green/70 hover:shadow-[0_20px_40px_-10px_rgba(76,175,80,0.4)] hover:-translate-y-1.5'
-                    } ${
-                      isVisible
+                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${isSelected
+                      ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(76,175,80,0.6)] scale-[1.02]'
+                      : 'border-white/20 shadow-xl hover:border-rlhp-green/70 hover:shadow-[0_20px_40px_-10px_rgba(76,175,80,0.4)] hover:-translate-y-1.5'
+                      } ${isVisible
                         ? 'opacity-100 translate-y-0 scale-100'
                         : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                    }`}
+                      }`}
                     style={{ willChange: 'transform, opacity' }}
                   >
                     {/* Background Image */}
                     <img
                       src={card.img}
                       alt={card.title}
-                      className={`w-full h-full object-cover transition-transform duration-700 ${
-                        isSelected ? 'scale-110 filter blur-[2px]' : 'hover:scale-105'
-                      }`}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${isSelected ? 'scale-110 filter blur-[2px]' : 'hover:scale-105'
+                        }`}
                     />
 
                     {/* Default Overlay & Title (when not selected) */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20 p-5 flex flex-col justify-end transition-opacity duration-300 ${
-                        isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                      }`}
+                      className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20 p-5 flex flex-col justify-end transition-opacity duration-300 ${isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        }`}
                     >
                       <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
                       <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
@@ -586,9 +583,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
                     {/* Selected Content Card (appears on selection/click) */}
                     <div
-                      className={`absolute inset-0 p-6 bg-gradient-to-br from-[#123615]/95 via-[#1b431e]/95 to-[#236B28]/95 backdrop-blur-sm text-white flex flex-col justify-between transition-all duration-300 ${
-                        isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-                      }`}
+                      className={`absolute inset-0 p-6 bg-gradient-to-br from-[#123615]/95 via-[#1b431e]/95 to-[#236B28]/95 backdrop-blur-sm text-white flex flex-col justify-between transition-all duration-300 ${isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+                        }`}
                     >
                       <div>
                         <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-2">
@@ -649,31 +645,27 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   <div
                     key={idx}
                     onClick={() => setSelectedPriorityIndex(isSelected ? null : i)}
-                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${
-                      isSelected 
-                        ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(76,175,80,0.6)] scale-[1.02]' 
-                        : 'border-white/20 shadow-xl hover:border-rlhp-green/70 hover:shadow-[0_20px_40px_-10px_rgba(76,175,80,0.4)] hover:-translate-y-1.5'
-                    } ${
-                      isVisible
+                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${isSelected
+                      ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(76,175,80,0.6)] scale-[1.02]'
+                      : 'border-white/20 shadow-xl hover:border-rlhp-green/70 hover:shadow-[0_20px_40px_-10px_rgba(76,175,80,0.4)] hover:-translate-y-1.5'
+                      } ${isVisible
                         ? 'opacity-100 translate-y-0 scale-100'
                         : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
-                    }`}
+                      }`}
                     style={{ willChange: 'transform, opacity' }}
                   >
                     {/* Background Image */}
                     <img
                       src={card.img}
                       alt={card.title}
-                      className={`w-full h-full object-cover transition-transform duration-700 ${
-                        isSelected ? 'scale-110 filter blur-[2px]' : 'hover:scale-105'
-                      }`}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${isSelected ? 'scale-110 filter blur-[2px]' : 'hover:scale-105'
+                        }`}
                     />
 
                     {/* Default Overlay & Title (when not selected) */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20 p-5 flex flex-col justify-end transition-opacity duration-300 ${
-                        isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                      }`}
+                      className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20 p-5 flex flex-col justify-end transition-opacity duration-300 ${isSelected ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        }`}
                     >
                       <div className="w-8 h-1 bg-[#E49E23] rounded-full mb-2.5" />
                       <h3 className="text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md">
@@ -688,9 +680,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
                     {/* Selected Content Card (appears on selection/click) */}
                     <div
-                      className={`absolute inset-0 p-6 bg-gradient-to-br from-[#123615]/95 via-[#1b431e]/95 to-[#236B28]/95 backdrop-blur-sm text-white flex flex-col justify-between transition-all duration-300 ${
-                        isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-                      }`}
+                      className={`absolute inset-0 p-6 bg-gradient-to-br from-[#123615]/95 via-[#1b431e]/95 to-[#236B28]/95 backdrop-blur-sm text-white flex flex-col justify-between transition-all duration-300 ${isSelected ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+                        }`}
                     >
                       <div>
                         <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug mb-2">
@@ -755,9 +746,8 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   className={`flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}
                 >
                   <div
-                    className={`w-full lg:w-[88%] relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:border-rlhp-green hover:shadow-xl hover:shadow-rlhp-green/10 transition-all duration-300 group ${
-                      isEven ? 'lg:mr-auto' : 'lg:ml-auto'
-                    }`}
+                    className={`w-full lg:w-[88%] relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:border-rlhp-green hover:shadow-xl hover:shadow-rlhp-green/10 transition-all duration-300 group ${isEven ? 'lg:mr-auto' : 'lg:ml-auto'
+                      }`}
                   >
                     {/* Top Quote Icon Badge */}
                     <div className={`absolute -top-4 ${isEven ? 'left-6 sm:left-8' : 'right-6 sm:right-8'} w-8 h-8 rounded-full bg-green-50 border border-green-200 group-hover:bg-rlhp-green group-hover:border-rlhp-green transition-colors flex items-center justify-center shadow-sm`}>
