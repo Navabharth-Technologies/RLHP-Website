@@ -49,7 +49,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
 
             {/* Left Column (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
-              <ScrollReveal typewriter duration={950}>
+              <div>
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold italic font-serif text-rlhp-green tracking-wide leading-none mb-4">
                   Financials
                 </h1>
@@ -57,7 +57,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
                 <p className="text-lg sm:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   Audited financial reports and statutory certifications.
                 </p>
-              </ScrollReveal>
+              </div>
 
               {/* Breadcrumb indicator */}
               <div className="pt-2 text-xs sm:text-sm font-semibold text-gray-500">
@@ -74,7 +74,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
 
             {/* Right Slanted Children Picture (Authentic gallery photo) */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <ScrollReveal delay={200} duration={850} className="relative group max-w-md w-full transform sm:rotate-2 hover:rotate-0 transition-all duration-500">
+              <div className="relative group max-w-md w-full transform sm:rotate-2 hover:rotate-0 transition-all duration-500">
                 <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white">
                   <img
                     src={`${B}images/financials_hero_hq.jpg`}
@@ -83,7 +83,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
-              </ScrollReveal>
+              </div>
             </div>
 
           </div>

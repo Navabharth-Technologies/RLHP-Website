@@ -216,15 +216,13 @@ export default function ContactUs() {
 
           {/* Left Column: Send us a Message Form (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
-            <ScrollReveal typewriter duration={900}>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-                Send us a Message
-              </h2>
-            </ScrollReveal>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+              Send us a Message
+            </h2>
 
             <form onSubmit={handleSubmit} noValidate className="space-y-5">
               {/* Name */}
-              <ScrollReveal delay={50} duration={750}>
+              <div>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Name <span className="text-red-500">*</span>
@@ -249,10 +247,10 @@ export default function ContactUs() {
                       : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
                   }`}
                 />
-              </ScrollReveal>
+              </div>
 
               {/* Email */}
-              <ScrollReveal delay={120} duration={750}>
+              <div>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Email <span className="text-red-500">*</span>
@@ -277,10 +275,10 @@ export default function ContactUs() {
                       : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
                   }`}
                 />
-              </ScrollReveal>
+              </div>
 
               {/* Phone */}
-              <ScrollReveal delay={180} duration={750}>
+              <div>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Phone (10 digits)
@@ -303,10 +301,10 @@ export default function ContactUs() {
                       : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
                   }`}
                 />
-              </ScrollReveal>
+              </div>
 
               {/* Subject */}
-              <ScrollReveal delay={240} duration={750}>
+              <div>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Subject <span className="text-red-500">*</span>
@@ -329,7 +327,7 @@ export default function ContactUs() {
                       : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
                   }`}
                 />
-              </ScrollReveal>
+              </div>
 
               {/* Message */}
               <div>

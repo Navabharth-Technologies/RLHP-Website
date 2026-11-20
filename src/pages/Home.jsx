@@ -390,7 +390,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Story & Bullets (7 cols) */}
             <div className="lg:col-span-7 space-y-6 flex flex-col justify-center">
-              <ScrollReveal typewriter duration={950} className="space-y-4">
+              <div className="space-y-4">
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-snug">
                   42+ Years Working for Children's Rights
                 </h3>
@@ -403,7 +403,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     We work in the most marginalized communities—from urban poor to rural population, where others see impossibility, we see children full of potential and communities ready to transform.
                   </p>
                 </div>
-              </ScrollReveal>
+              </div>
 
               {/* Bullet checkmarks */}
               <ul className="space-y-3.5 pt-1">
@@ -414,25 +414,25 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   'Operation across 10 districts in Karnataka and four states in South India',
                   '7 Offices with Mysuru as Regional Headquarters',
                 ].map((item, idx) => (
-                  <ScrollReveal key={idx} delay={idx * 160} duration={850} tag="li" className="flex items-start gap-3">
+                  <li key={idx} className="flex items-start gap-3">
                     <span className="w-5 h-5 rounded-full bg-rlhp-green/10 text-rlhp-green flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check size={13} strokeWidth={3} />
                     </span>
                     <span className="text-gray-700 text-sm font-medium text-justify">{item}</span>
-                  </ScrollReveal>
+                  </li>
                 ))}
               </ul>
             </div>
 
             {/* Right Column: Commitment Image Card (5 cols) - cropped & fitted proportionally */}
             <div className="lg:col-span-5 flex justify-center items-center">
-              <ScrollReveal delay={200} duration={900} className="relative w-full max-w-[460px] aspect-[4/4.2] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
+              <div className="relative w-full max-w-[460px] aspect-[4/4.2] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
                 <img
                   src={`${B}images/child_drinking_water.jpg`}
                   alt="Child - RLHP Community Impact"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-              </ScrollReveal>
+              </div>
             </div>
           </div>
 

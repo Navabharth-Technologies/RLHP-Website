@@ -79,7 +79,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
 
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
-              <ScrollReveal typewriter duration={950}>
+              <div>
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-none mb-4 lowercase">
                   what we <span className="text-rlhp-green italic font-serif">do</span>
                 </h1>
@@ -87,7 +87,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                 <p className="text-lg sm:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   {orgDetails.whatWeDo}
                 </p>
-              </ScrollReveal>
+              </div>
 
               {/* Breadcrumb indicator */}
               <div className="pt-2 text-xs sm:text-sm font-semibold text-gray-400">
@@ -297,26 +297,26 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           </div>
 
           {/* Intro text */}
-          <ScrollReveal typewriter duration={900} className="text-sm sm:text-base text-emerald-100 leading-relaxed max-w-4xl mx-auto text-center font-medium space-y-3">
+          <div className="text-sm sm:text-base text-emerald-100 leading-relaxed max-w-4xl mx-auto text-center font-medium space-y-3">
             <p>
               RLHP works with children, families and communities living in vulnerable and marginalised situations across urban, peri-urban and rural areas of South India. Our focus is on reaching those who face social, economic and geographical barriers to education, healthcare, protection and livelihood opportunities.
             </p>
             <p>
               We work closely with children, adolescents, youth, women and families who experience different forms of vulnerability and exclusion:
             </p>
-          </ScrollReveal>
+          </div>
 
           {/* Target Groups Bullet List */}
           <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/20 max-w-4xl mx-auto space-y-4 text-gray-900">
             <ul className="space-y-4 sm:space-y-5">
               {orgDetails.withWhomWeWork.groups.map((group, idx) => (
-                <ScrollReveal tag="li" delay={idx * 120} duration={750} key={idx} className="flex items-start gap-3.5">
+                <li key={idx} className="flex items-start gap-3.5">
                   <span className="w-3 h-3 rounded-full bg-rlhp-green mt-1.5 flex-shrink-0 shadow-xs" />
                   <div className="text-base sm:text-lg leading-relaxed">
                     <strong className="text-gray-950 font-extrabold text-base sm:text-lg tracking-tight">{group.title}:</strong>{' '}
                     <span className="text-gray-800 font-medium">{group.description}</span>
                   </div>
-                </ScrollReveal>
+                </li>
               ))}
             </ul>
           </div>
@@ -332,13 +332,13 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/20 max-w-4xl mx-auto space-y-4 text-gray-900">
             <ul className="space-y-4 sm:space-y-5">
               {orgDetails.withWhomWeWork.collaborations.map((collab, idx) => (
-                <ScrollReveal tag="li" delay={idx * 120} duration={750} key={idx} className="flex items-start gap-3.5">
+                <li key={idx} className="flex items-start gap-3.5">
                   <span className="w-3 h-3 rounded-full bg-rlhp-green mt-1.5 flex-shrink-0 shadow-xs" />
                   <div className="text-base sm:text-lg leading-relaxed">
                     <strong className="text-gray-950 font-extrabold text-base sm:text-lg tracking-tight">{collab.title}</strong> –{' '}
                     <span className="text-gray-800 font-medium">{collab.description}</span>
                   </div>
-                </ScrollReveal>
+                </li>
               ))}
             </ul>
           </div>

@@ -210,28 +210,26 @@ export default function OurIdentity({ setCurrentPage }) {
 
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-4">
-              <ScrollReveal typewriter duration={900}>
-                <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
-                  Inception Story
-                </h2>
-                <AnimatedWaveUnderline className="w-44 h-3.5 mb-3" />
-                <div className="bg-gradient-to-br from-emerald-50/40 via-white to-gray-50/50 border-l-4 border-rlhp-green p-6 sm:p-8 rounded-r-2xl shadow-2xs space-y-4">
-                  <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium text-justify">
-                    Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
-                  </p>
-                </div>
-              </ScrollReveal>
+              <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
+                Inception Story
+              </h2>
+              <AnimatedWaveUnderline className="w-44 h-3.5 mb-3" />
+              <div className="bg-gradient-to-br from-emerald-50/40 via-white to-gray-50/50 border-l-4 border-rlhp-green p-6 sm:p-8 rounded-r-2xl shadow-2xs space-y-4">
+                <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium text-justify">
+                  Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
+                </p>
+              </div>
             </div>
 
             {/* Right Card (5 Cols) - HD Enhanced Inception Gathering Photo with Smooth Animation */}
             <div className="lg:col-span-5 flex justify-center items-start">
-              <ScrollReveal delay={200} duration={850} className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-700 hover:-translate-y-1.5 cursor-pointer">
+              <div className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-700 hover:-translate-y-1.5 cursor-pointer">
                 <img
                   src={`${import.meta.env.BASE_URL}images/inception_story_meeting.jpg`}
                   alt="Inception Story - Community Foundation Meeting"
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
                 />
-              </ScrollReveal>
+              </div>
             </div>
 
           </div>

@@ -12,7 +12,8 @@ export default function ScrollReveal({
   duration = 750,
   typewriter = false,
   tag = 'div',
-  threshold = 0.12,
+  threshold = 0.05,
+  rootMargin = '50px 0px 50px 0px',
   ...props
 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,6 +23,18 @@ export default function ScrollReveal({
     const el = domRef.current;
     if (!el) return;
 
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return;
+    }
+
+    // Check if element is already in viewport or above it
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= (window.innerHeight || document.documentElement.clientHeight)) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -29,12 +42,12 @@ export default function ScrollReveal({
           observer.unobserve(el);
         }
       },
-      { threshold }
+      { threshold, rootMargin }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [threshold, rootMargin]);
 
   const Tag = tag;
 
