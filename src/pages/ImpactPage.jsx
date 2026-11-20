@@ -420,13 +420,6 @@ export default function ImpactPage() {
                       alt={award.title}
                       className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-
-                    {/* Hover indicator for full view */}
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-amber-600 shadow-lg border border-amber-200 transform scale-75 group-hover:scale-100 transition-transform duration-300">
-                        <ZoomIn size={22} />
-                      </div>
-                    </div>
                   </div>
 
                   {/* Title added below image of each card */}

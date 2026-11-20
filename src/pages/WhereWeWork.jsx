@@ -12,10 +12,7 @@ export default function WhereWeWork() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center max-w-2xl mx-auto">
-          <h2 className="text-xl font-bold text-rlhp-darkgreen">Geographic Footprint in Karnataka</h2>
-          <p className="text-xs text-gray-600 mt-2 leading-relaxed">
-            RLHP operates in 10 districts of Karnataka covering South and North Karnataka, reaching a population of over 9.65 lakh people. Click on any district pin below to view specific local facilities, shelter homes, and community federations.
-          </p>
+          <h2 className="text-xl font-bold text-rlhp-darkgreen">Our Reach Across Karnataka</h2>
         </div>
 
         <KarnatakaMap />

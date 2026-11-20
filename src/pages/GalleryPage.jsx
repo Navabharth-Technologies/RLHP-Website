@@ -77,16 +77,9 @@ export default function GalleryPage({ onSelectMedia }) {
                       style={{
                         objectPosition: item.objectPosition || 'center'
                       }}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       loading="lazy"
                     />
-
-                    {/* Minimal hover overlay with zoom icon only */}
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="w-11 h-11 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white transform scale-75 group-hover:scale-100 transition-transform duration-300 shadow-lg border border-white/20">
-                        <ZoomIn size={22} />
-                      </div>
-                    </div>
                   </div>
                 </div>
               );
