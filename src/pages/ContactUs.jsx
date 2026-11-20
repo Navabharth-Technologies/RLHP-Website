@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -11,12 +11,103 @@ export default function ContactUs() {
     subject: '',
     message: '',
   });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [isHuman, setIsHuman] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [statusMessage, setStatusMessage] = useState({ type: '', text: '' });
 
+  // Standard field validators
+  const validateField = (field, value) => {
+    let error = '';
+    const trimmed = (value || '').trim();
+
+    if (field === 'name') {
+      if (!trimmed) {
+        error = 'Full name is required';
+      } else if (trimmed.length < 2) {
+        error = 'Name must be at least 2 characters';
+      } else if (!/^[a-zA-Z\s.'-]+$/.test(trimmed)) {
+        error = 'Name can only contain letters, spaces, and hyphens';
+      }
+    }
+
+    if (field === 'email') {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!trimmed) {
+        error = 'Email address is required';
+      } else if (!emailRegex.test(trimmed)) {
+        error = 'Please enter a valid email address (e.g. name@example.com)';
+      }
+    }
+
+    if (field === 'phone') {
+      // Clean non-digits
+      const digitsOnly = (value || '').replace(/\D/g, '');
+      if (trimmed && digitsOnly.length < 10) {
+        error = 'Please enter a valid 10-digit mobile or phone number';
+      } else if (trimmed && digitsOnly.length > 13) {
+        error = 'Phone number is too long';
+      }
+    }
+
+    if (field === 'subject') {
+      if (!trimmed) {
+        error = 'Subject is required';
+      } else if (trimmed.length < 3) {
+        error = 'Subject must be at least 3 characters';
+      }
+    }
+
+    if (field === 'message') {
+      if (trimmed && trimmed.length < 5) {
+        error = 'Message should be at least 5 characters';
+      }
+    }
+
+    return error;
+  };
+
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (touched[field]) {
+      const err = validateField(field, value);
+      setErrors((prev) => ({ ...prev, [field]: err }));
+    }
+  };
+
+  const handleBlur = (field) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const err = validateField(field, formData[field]);
+    setErrors((prev) => ({ ...prev, [field]: err }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate all fields
+    const newErrors = {
+      name: validateField('name', formData.name),
+      email: validateField('email', formData.email),
+      phone: validateField('phone', formData.phone),
+      subject: validateField('subject', formData.subject),
+      message: validateField('message', formData.message),
+    };
+
+    setErrors(newErrors);
+    setTouched({
+      name: true,
+      email: true,
+      phone: true,
+      subject: true,
+      message: true,
+    });
+
+    const hasErrors = Object.values(newErrors).some((err) => Boolean(err));
+    if (hasErrors) {
+      return;
+    }
+
     if (!isHuman) {
       alert('Please check the verification box.');
       return;
@@ -32,13 +123,13 @@ export default function ContactUs() {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: formData.subject,
-          message: formData.message,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
           _cc: 'mysore@rlhp.org',
-          _subject: `New RLHP Contact Inquiry from ${formData.name}: ${formData.subject || 'General Message'}`,
+          _subject: `New RLHP Contact Inquiry from ${formData.name.trim()}: ${formData.subject.trim() || 'General Message'}`,
           _template: 'table'
         })
       });
@@ -49,6 +140,8 @@ export default function ContactUs() {
           text: 'Thank you for contacting RLHP! Your message has been sent successfully to rlhpintervita@gmail.com and mysore@rlhp.org.'
         });
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setTouched({});
+        setErrors({});
         setIsHuman(false);
       } else {
         throw new Error('Submission failed');
@@ -126,76 +219,138 @@ export default function ContactUs() {
               Send us a Message
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} noValidate className="space-y-5">
               {/* Name */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                  Name
-                </label>
+                <div className="flex justify-between items-center mb-1.5">
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  {touched.name && errors.name && (
+                    <span className="text-[11px] font-semibold text-red-600 flex items-center gap-1">
+                      <AlertCircle size={12} /> {errors.name}
+                    </span>
+                  )}
+                </div>
                 <input
                   type="text"
-                  required
                   placeholder="Your full name"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40 text-sm bg-white"
+                  onChange={(e) => handleChange('name', e.target.value)}
+                  onBlur={() => handleBlur('name')}
+                  className={`w-full px-4 py-3 rounded-xl border-2 transition-colors text-sm bg-white ${
+                    touched.name && errors.name
+                      ? 'border-red-500 focus:outline-none focus:ring-2 focus:ring-red-400/40 bg-red-50/20'
+                      : touched.name && !errors.name
+                      ? 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
+                      : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
+                  }`}
                 />
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                  Email
-                </label>
+                <div className="flex justify-between items-center mb-1.5">
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  {touched.email && errors.email && (
+                    <span className="text-[11px] font-semibold text-red-600 flex items-center gap-1">
+                      <AlertCircle size={12} /> {errors.email}
+                    </span>
+                  )}
+                </div>
                 <input
                   type="email"
-                  required
                   placeholder="your.email@example.com"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40 text-sm bg-white"
+                  onChange={(e) => handleChange('email', e.target.value)}
+                  onBlur={() => handleBlur('email')}
+                  className={`w-full px-4 py-3 rounded-xl border-2 transition-colors text-sm bg-white ${
+                    touched.email && errors.email
+                      ? 'border-red-500 focus:outline-none focus:ring-2 focus:ring-red-400/40 bg-red-50/20'
+                      : touched.email && !errors.email
+                      ? 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
+                      : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
+                  }`}
                 />
               </div>
 
               {/* Phone */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                  Phone
-                </label>
+                <div className="flex justify-between items-center mb-1.5">
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    Phone (10 digits)
+                  </label>
+                  {touched.phone && errors.phone && (
+                    <span className="text-[11px] font-semibold text-red-600 flex items-center gap-1">
+                      <AlertCircle size={12} /> {errors.phone}
+                    </span>
+                  )}
+                </div>
                 <input
                   type="tel"
                   placeholder="+91 XXXXX XXXXX"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40 text-sm bg-white"
+                  onChange={(e) => handleChange('phone', e.target.value)}
+                  onBlur={() => handleBlur('phone')}
+                  className={`w-full px-4 py-3 rounded-xl border-2 transition-colors text-sm bg-white ${
+                    touched.phone && errors.phone
+                      ? 'border-red-500 focus:outline-none focus:ring-2 focus:ring-red-400/40 bg-red-50/20'
+                      : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
+                  }`}
                 />
               </div>
 
               {/* Subject */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                  Subject
-                </label>
+                <div className="flex justify-between items-center mb-1.5">
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    Subject <span className="text-red-500">*</span>
+                  </label>
+                  {touched.subject && errors.subject && (
+                    <span className="text-[11px] font-semibold text-red-600 flex items-center gap-1">
+                      <AlertCircle size={12} /> {errors.subject}
+                    </span>
+                  )}
+                </div>
                 <input
                   type="text"
                   placeholder="Your Subject"
                   value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40 text-sm bg-white"
+                  onChange={(e) => handleChange('subject', e.target.value)}
+                  onBlur={() => handleBlur('subject')}
+                  className={`w-full px-4 py-3 rounded-xl border-2 transition-colors text-sm bg-white ${
+                    touched.subject && errors.subject
+                      ? 'border-red-500 focus:outline-none focus:ring-2 focus:ring-red-400/40 bg-red-50/20'
+                      : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
+                  }`}
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                  Message (optional)
-                </label>
+                <div className="flex justify-between items-center mb-1.5">
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    Message (optional)
+                  </label>
+                  {touched.message && errors.message && (
+                    <span className="text-[11px] font-semibold text-red-600 flex items-center gap-1">
+                      <AlertCircle size={12} /> {errors.message}
+                    </span>
+                  )}
+                </div>
                 <textarea
                   rows="5"
                   placeholder="Tell us how we can help..."
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40 text-sm bg-white resize-y"
+                  onChange={(e) => handleChange('message', e.target.value)}
+                  onBlur={() => handleBlur('message')}
+                  className={`w-full px-4 py-3 rounded-xl border-2 transition-colors text-sm bg-white resize-y ${
+                    touched.message && errors.message
+                      ? 'border-red-500 focus:outline-none focus:ring-2 focus:ring-red-400/40 bg-red-50/20'
+                      : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
+                  }`}
                 />
               </div>
 

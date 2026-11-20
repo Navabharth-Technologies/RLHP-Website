@@ -1098,11 +1098,6 @@ export const galleryData = [
     "remoteImage": "/images/gallery/gallery_35.jpg"
   },
   {
-    "id": "gallery-36",
-    "image": "/images/gallery/gallery_36.jpg",
-    "remoteImage": "/images/gallery/gallery_36.jpg"
-  },
-  {
     "id": "gallery-37",
     "image": "/images/gallery/gallery_37.jpg",
     "remoteImage": "/images/gallery/gallery_37.jpg"
