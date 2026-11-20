@@ -6,12 +6,14 @@ export default function Footer({ setCurrentPage, onNavClick }) {
   const B = import.meta.env.BASE_URL;
 
   const handleNav = (pageId, optionId = null) => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     if (onNavClick) {
       onNavClick(pageId, optionId);
     } else if (setCurrentPage) {
       setCurrentPage(pageId);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

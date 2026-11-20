@@ -37,10 +37,14 @@ export default function Navbar({ currentPage, setCurrentPage, onNavClick }) {
 
   /* Navigate handler */
   const go = (id, opt = null) => {
+    // Instantly reset scroll to top so the new page renders from top to bottom
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
     if (onNavClick) onNavClick(id, opt);
     else if (setCurrentPage) setCurrentPage(id);
     setMobileOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   /* Active state check */
