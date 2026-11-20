@@ -57,7 +57,7 @@ export default function GalleryPage({ onSelectMedia }) {
                 <div
                   key={item.id}
                   onClick={() => onSelectMedia && onSelectMedia(item)}
-                  className={`bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:border-rlhp-green/60 transition-all duration-500 cursor-pointer group relative flex flex-col transform ${isVisible
+                  className={`bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:border-rlhp-green/60 transition-all duration-700 cursor-pointer group relative flex flex-col transform ${isVisible
                     ? 'opacity-100 translate-y-0 scale-100'
                     : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}

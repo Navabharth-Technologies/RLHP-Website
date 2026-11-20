@@ -302,7 +302,7 @@ export default function ImpactPage() {
             return (
               <div
                 key={stat.id}
-                className={`flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-gray-50/60 hover:bg-emerald-50/80 border-2 border-transparent hover:border-emerald-500 hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer transform ${isVisible
+                className={`flex flex-col items-center p-4 sm:p-5 rounded-2xl bg-gray-50/60 hover:bg-emerald-50/80 border-2 border-transparent hover:border-emerald-500 hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.4)] transition-all duration-700 hover:-translate-y-1.5 group cursor-pointer transform ${isVisible
                   ? 'opacity-100 translate-y-0 scale-100'
                   : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                   }`}
@@ -342,7 +342,7 @@ export default function ImpactPage() {
               return (
                 <div
                   key={idx}
-                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group overflow-hidden ${isVisible
+                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-700 flex flex-col justify-between group overflow-hidden ${isVisible
                     ? 'opacity-100 translate-y-0 scale-100'
                     : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}
@@ -406,7 +406,7 @@ export default function ImpactPage() {
                 <div
                   key={award.id}
                   onClick={() => setSelectedAward(award)}
-                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between cursor-pointer transform ${gridSpanClass} ${isVisible
+                  className={`relative rounded-3xl overflow-hidden bg-white border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-700 group flex flex-col justify-between cursor-pointer transform ${gridSpanClass} ${isVisible
                     ? 'opacity-100 translate-y-0 scale-100'
                     : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}

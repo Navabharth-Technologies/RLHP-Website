@@ -56,7 +56,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
     if (whoWeAreVisibleCount < 4) {
       const timer = setTimeout(() => {
         setWhoWeAreVisibleCount((prev) => prev + 1);
-      }, 220);
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [whoWeAreStarted, whoWeAreVisibleCount]);
@@ -82,7 +82,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
     if (prioritiesVisibleCount < 7) {
       const timer = setTimeout(() => {
         setPrioritiesVisibleCount((prev) => prev + 1);
-      }, 220);
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [prioritiesStarted, prioritiesVisibleCount]);
@@ -447,7 +447,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
               return (
                 <div
                   key={i}
-                  className={`bg-gradient-to-br from-rlhp-green to-rlhp-darkgreen rounded-2xl p-5 text-center text-white shadow-md hover:shadow-[0_20px_40px_-10px_rgba(34,197,94,0.4)] transition-all duration-500 hover:-translate-y-2 border border-white/20 ${isVisible
+                  className={`bg-gradient-to-br from-rlhp-green to-rlhp-darkgreen rounded-2xl p-5 text-center text-white shadow-md hover:shadow-[0_20px_40px_-10px_rgba(34,197,94,0.4)] transition-all duration-700 hover:-translate-y-2 border border-white/20 ${isVisible
                     ? 'opacity-100 translate-y-0 scale-100'
                     : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}
@@ -537,7 +537,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   <div
                     key={i}
                     onClick={() => setSelectedPriorityIndex(isSelected ? null : i)}
-                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${isSelected
+                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-700 border-2 ${isSelected
                       ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(76,175,80,0.6)] scale-[1.02]'
                       : 'border-white/20 shadow-xl hover:border-rlhp-green/70 hover:shadow-[0_20px_40px_-10px_rgba(76,175,80,0.4)] hover:-translate-y-1.5'
                       } ${isVisible
@@ -634,7 +634,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   <div
                     key={idx}
                     onClick={() => setSelectedPriorityIndex(isSelected ? null : i)}
-                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-500 border-2 ${isSelected
+                    className={`relative h-[380px] sm:h-[400px] w-full rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-700 border-2 ${isSelected
                       ? 'border-emerald-400 shadow-[0_20px_45px_-10px_rgba(76,175,80,0.6)] scale-[1.02]'
                       : 'border-white/20 shadow-xl hover:border-rlhp-green/70 hover:shadow-[0_20px_40px_-10px_rgba(76,175,80,0.4)] hover:-translate-y-1.5'
                       } ${isVisible

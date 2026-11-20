@@ -52,7 +52,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (principlesVisibleCount < orgDetails.principles.length) {
       const timer = setTimeout(() => {
         setPrinciplesVisibleCount((prev) => prev + 1);
-      }, 200);
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [principlesStarted, principlesVisibleCount]);
@@ -83,7 +83,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (valuesVisibleCount < orgDetails.coreValues.length) {
       const timer = setTimeout(() => {
         setValuesVisibleCount((prev) => prev + 1);
-      }, 200);
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [valuesStarted, valuesVisibleCount]);
@@ -114,7 +114,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (journeyVisibleCount < orgDetails.journey.length) {
       const timer = setTimeout(() => {
         setJourneyVisibleCount((prev) => prev + 1);
-      }, 220);
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [journeyStarted, journeyVisibleCount]);
@@ -188,7 +188,7 @@ export default function OurIdentity({ setCurrentPage }) {
 
             {/* Right Image (5 Cols) - Single Clean Card as requested */}
             <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
-              <div className="relative w-full max-w-[480px] aspect-[4/3.1] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group hover:shadow-emerald-950/20 transition-all duration-500">
+              <div className="relative w-full max-w-[480px] aspect-[4/3.1] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group hover:shadow-emerald-950/20 transition-all duration-700">
                 <img
                   src={`${import.meta.env.BASE_URL}images/about_us_children.jpg`}
                   alt="RLHP Children - About Us"
@@ -222,7 +222,7 @@ export default function OurIdentity({ setCurrentPage }) {
 
             {/* Right Card (5 Cols) - HD Enhanced Inception Gathering Photo with Smooth Animation */}
             <div className="lg:col-span-5 flex justify-center items-start">
-              <div className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-500 hover:-translate-y-1.5 cursor-pointer">
+              <div className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-700 hover:-translate-y-1.5 cursor-pointer">
                 <img
                   src={`${import.meta.env.BASE_URL}images/inception_story_meeting.jpg`}
                   alt="Inception Story - Community Foundation Meeting"
@@ -272,7 +272,7 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${is2026 ? 'lg:col-start-2' : ''
+                    className={`relative bg-gradient-to-b from-white to-emerald-50/25 rounded-2xl p-6 sm:p-7 border-2 border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_20px_45px_-10px_rgba(16,185,129,0.4)] transition-all duration-700 hover:-translate-y-2 flex flex-col justify-between group h-full cursor-default transform ${is2026 ? 'lg:col-start-2' : ''
                       } ${isVisible
                         ? 'opacity-100 translate-y-0 scale-100'
                         : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
@@ -319,7 +319,7 @@ export default function OurIdentity({ setCurrentPage }) {
         <section id="mission-vision" className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Mission Card - Classic Deep Navy / Midnight Sapphire */}
           <div
-            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-blue-400/30"
+            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group border border-blue-400/30"
             style={{
               background: 'linear-gradient(135deg, #0f2038 0%, #173256 50%, #0a1628 100%)',
             }}
@@ -350,7 +350,7 @@ export default function OurIdentity({ setCurrentPage }) {
 
           {/* Vision Card - Classic Warm Terracotta / Rich Bronze Amber */}
           <div
-            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-amber-400/30"
+            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group border border-amber-400/30"
             style={{
               background: 'linear-gradient(135deg, #431407 0%, #78350f 50%, #290d04 100%)',
             }}
@@ -462,7 +462,7 @@ export default function OurIdentity({ setCurrentPage }) {
                 return (
                   <div
                     key={idx}
-                    className={`relative p-7 rounded-3xl bg-white border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-500 group flex flex-col justify-between cursor-pointer overflow-hidden ${isVisible
+                    className={`relative p-7 rounded-3xl bg-white border-2 border-gray-150 ${theme.hoverBorder} ${theme.hoverGlow} hover:-translate-y-2.5 transition-all duration-700 group flex flex-col justify-between cursor-pointer overflow-hidden ${isVisible
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                       }`}
