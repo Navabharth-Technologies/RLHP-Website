@@ -94,27 +94,25 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               </div>
             </div>
 
-            {/* Right Images (5 Cols) - Side-by-Side Dual Non-Overlapping Cards with Full Clarity */}
+            {/* Right Images (5 Cols) - Side-by-Side Dual Cards with Clear Faces and No Blur */}
             <div className="lg:col-span-5 relative flex items-center justify-center pt-6 lg:pt-0">
-              <div className="relative w-full max-w-[540px] flex flex-row items-center justify-center gap-4 sm:gap-6">
-                {/* Left Card: Community Healthcare Worker */}
-                <div className="flex-1 h-[270px] sm:h-[320px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-500 bg-gray-100 group">
+              <div className="relative w-full max-w-[560px] flex flex-row items-center justify-center gap-4 sm:gap-6">
+                {/* Left Card: Doctor Examining Child - Clean fit without blur, doctor & child faces clearly visible */}
+                <div className="flex-1 h-[270px] sm:h-[320px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-500 bg-emerald-50 flex items-center justify-center group">
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_2.jpg`}
                     alt="What We Do - RLHP Community Healthcare"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-[28%_top] group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Right Card: Girl with Books & Learning Materials */}
-                <div className="flex-1 h-[270px] sm:h-[320px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-500 bg-gray-100 group">
+                <div className="flex-1 h-[270px] sm:h-[320px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-500 bg-emerald-50 flex items-center justify-center group">
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_girl_face.jpg`}
                     alt="What We Do - RLHP Girl with Books"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Ambient glow backdrop */}
