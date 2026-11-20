@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { downloadPDFDocument } from '../utils/fileDownloader';
 import AnnualReportDetailPage from './AnnualReportDetailPage';
+import ScrollReveal from '../components/ScrollReveal';
 
 const B = import.meta.env.BASE_URL;
 
@@ -389,7 +390,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Story & Bullets (7 cols) */}
             <div className="lg:col-span-7 space-y-6 flex flex-col justify-center">
-              <div className="space-y-4">
+              <ScrollReveal typewriter duration={950} className="space-y-4">
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-snug">
                   42+ Years Working for Children's Rights
                 </h3>
@@ -402,7 +403,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     We work in the most marginalized communities—from urban poor to rural population, where others see impossibility, we see children full of potential and communities ready to transform.
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Bullet checkmarks */}
               <ul className="space-y-3.5 pt-1">
@@ -413,25 +414,25 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   'Operation across 10 districts in Karnataka and four states in South India',
                   '7 Offices with Mysuru as Regional Headquarters',
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
+                  <ScrollReveal key={idx} delay={idx * 160} duration={850} tag="li" className="flex items-start gap-3">
                     <span className="w-5 h-5 rounded-full bg-rlhp-green/10 text-rlhp-green flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check size={13} strokeWidth={3} />
                     </span>
                     <span className="text-gray-700 text-sm font-medium text-justify">{item}</span>
-                  </li>
+                  </ScrollReveal>
                 ))}
               </ul>
             </div>
 
             {/* Right Column: Commitment Image Card (5 cols) - cropped & fitted proportionally */}
             <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative w-full max-w-[460px] aspect-[4/4.2] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
+              <ScrollReveal delay={200} duration={900} className="relative w-full max-w-[460px] aspect-[4/4.2] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
                 <img
                   src={`${B}images/child_drinking_water.jpg`}
                   alt="Child - RLHP Community Impact"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
+              </ScrollReveal>
             </div>
           </div>
 
@@ -730,8 +731,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
             {testimonials.map((t, i) => {
               const isEven = i % 2 === 0;
               return (
-                <div
+                <ScrollReveal
                   key={i}
+                  delay={120}
+                  duration={850}
                   className={`flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}
                 >
                   <div
@@ -773,7 +776,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                       )}
                     </div>
                   </div>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -804,30 +807,30 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
           {/* 3 Impact Stat Cards — Highlighted with Logo Color Matching Green Shade */}
           <div className="grid sm:grid-cols-3 gap-8 max-w-[900px] mx-auto mb-14">
-            <div className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
+            <ScrollReveal delay={100} duration={800} className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
               <div className="text-4xl sm:text-5xl font-black text-rlhp-green group-hover:text-rlhp-darkgreen leading-none mb-2 drop-shadow-sm transition-colors">
                 9.5 Lakh+
               </div>
               <div className="text-sm font-bold text-gray-700 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
                 Lives Transformed
               </div>
-            </div>
-            <div className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
+            </ScrollReveal>
+            <ScrollReveal delay={250} duration={800} className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
               <div className="text-4xl sm:text-5xl font-black text-rlhp-green group-hover:text-rlhp-darkgreen leading-none mb-2 drop-shadow-sm transition-colors">
                 3 Lakh+
               </div>
               <div className="text-sm font-bold text-gray-700 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
                 Children Mainstreamed
               </div>
-            </div>
-            <div className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
+            </ScrollReveal>
+            <ScrollReveal delay={400} duration={800} className="bg-white/90 border-2 border-emerald-500/30 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:border-rlhp-green hover:bg-[#236B28]/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer backdrop-blur-sm ring-1 ring-emerald-500/20">
               <div className="text-4xl sm:text-5xl font-black text-rlhp-green group-hover:text-rlhp-darkgreen leading-none mb-2 drop-shadow-sm transition-colors">
                 42+ Years
               </div>
               <div className="text-sm font-bold text-gray-700 group-hover:text-gray-900 uppercase tracking-wider transition-colors">
                 Of Impact
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Quote Box below stats */}
@@ -866,9 +869,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
           {/* 3 Action Cards (Transparent with Low Opacity, Blurred Backdrop & Smooth Animations) */}
           <div className="grid md:grid-cols-3 gap-8 mb-14">
             {/* Card 1: Donate Today */}
-            <div
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
-              style={{ animationDelay: '100ms' }}
+            <ScrollReveal
+              delay={100}
+              duration={850}
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none"
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
                 <Heart size={60} className="fill-rlhp-accentgreen/20 group-hover:fill-[#4CAF50]/35 transition-all" />
@@ -876,12 +880,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
               <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-md">
                 Donate Today
               </h3>
-            </div>
+            </ScrollReveal>
 
             {/* Card 2: Corporate Partnership */}
-            <div
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
-              style={{ animationDelay: '250ms' }}
+            <ScrollReveal
+              delay={250}
+              duration={850}
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none"
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
                 <Handshake size={60} />
@@ -889,12 +894,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
               <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-md">
                 Corporate Partnership
               </h3>
-            </div>
+            </ScrollReveal>
 
             {/* Card 3: Volunteer Your Skills */}
-            <div
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none animate-fade-in-up"
-              style={{ animationDelay: '400ms' }}
+            <ScrollReveal
+              delay={400}
+              duration={850}
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-[#4CAF50] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl hover:shadow-[0_20px_45px_rgba(35,107,40,0.35)] hover:-translate-y-2.5 transition-all duration-300 group select-none"
             >
               <div className="text-rlhp-accentgreen mb-6 group-hover:scale-115 group-hover:text-[#4CAF50] transition-all duration-300">
                 <Users size={60} />
@@ -902,7 +908,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
               <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#4CAF50] transition-colors drop-shadow-md">
                 Volunteer Your Skills
               </h3>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -923,8 +929,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
           {/* 4 Cards Grid - Replicating Reference 2 Design with uploaded cover images 2, 3, 4, 5 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
             {annualReportsList.map((item, idx) => (
-              <div
+              <ScrollReveal
                 key={idx}
+                delay={idx * 160}
+                duration={850}
                 onClick={() => {
                   setSelectedReportDetail(item);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -965,7 +973,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                     <span className="w-1.5 h-1.5 rounded-full bg-rlhp-green/40 group-hover:bg-rlhp-green transition-colors" />
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -999,8 +1007,10 @@ export default function Home({ setCurrentPage, onNavClick }) {
               { name: 'Charities Advisory Trust Good Gifts', img: `${B}images/partners/charities-advisory-trust-logo.png`, hoverBorder: 'hover:border-[#1E6B27]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(30,107,39,0.35)]' },
               { name: 'Childline 1098', img: `${B}images/partners/childline-1098-logo.png`, hoverBorder: 'hover:border-[#1E6B27]', hoverShadow: 'hover:shadow-[0_16px_35px_-8px_rgba(30,107,39,0.35)]' },
             ].map((p, idx) => (
-              <div
+              <ScrollReveal
                 key={idx}
+                delay={idx * 80}
+                duration={750}
                 className={`h-36 sm:h-40 bg-white border-2 border-gray-200/90 ${p.hoverBorder} rounded-3xl p-5 sm:p-6 flex items-center justify-center shadow-xs ${p.hoverShadow} transition-all duration-300 hover:-translate-y-1.5 group cursor-default`}
                 title={p.name}
               >
@@ -1009,7 +1019,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
                   alt={p.name}
                   className="w-full h-full max-h-24 sm:max-h-28 object-contain filter contrast-105 group-hover:scale-105 transition-transform duration-300"
                 />
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

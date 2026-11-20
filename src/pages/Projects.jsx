@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
+import ScrollReveal from '../components/ScrollReveal';
 import {
   Users, Handshake, CheckCircle2, Heart, Scale, BookOpen,
   Sparkles, Award, ArrowRight, ShieldCheck, Activity, Building2,
@@ -78,7 +79,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
 
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
-              <div>
+              <ScrollReveal typewriter duration={950}>
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-none mb-4 lowercase">
                   what we <span className="text-rlhp-green italic font-serif">do</span>
                 </h1>
@@ -86,7 +87,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                 <p className="text-lg sm:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   {orgDetails.whatWeDo}
                 </p>
-              </div>
+              </ScrollReveal>
 
               {/* Breadcrumb indicator */}
               <div className="pt-2 text-xs sm:text-sm font-semibold text-gray-400">
@@ -98,22 +99,22 @@ export default function Projects({ setCurrentPage, onNavClick }) {
             <div className="lg:col-span-5 relative flex items-center justify-center pt-6 lg:pt-0">
               <div className="relative w-full max-w-[560px] flex flex-row items-center justify-center gap-4 sm:gap-6">
                 {/* Left Card: Doctor Examining Child - Clean fit without blur, doctor & child faces clearly visible */}
-                <div className="flex-1 h-[500px] sm:h-[320px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-700 bg-emerald-50 flex items-center justify-center group">
+                <ScrollReveal delay={150} duration={850} className="flex-1 h-[500px] sm:h-[320px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-700 bg-emerald-50 flex items-center justify-center group">
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_2.jpg`}
                     alt="What We Do - RLHP Community Healthcare"
                     className="w-full h-full object-cover object-[45%_top] group-hover:scale-105 transition-transform duration-700"
                   />
-                </div>
+                </ScrollReveal>
 
                 {/* Right Card: Girl with Books & Learning Materials */}
-                <div className="flex-1 h-[270px] sm:h-[320px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-700 bg-emerald-50 flex items-center justify-center group">
+                <ScrollReveal delay={300} duration={850} className="flex-1 h-[270px] sm:h-[320px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-700 bg-emerald-50 flex items-center justify-center group">
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_girl_face.jpg`}
                     alt="What We Do - RLHP Girl with Books"
                     className="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700"
                   />
-                </div>
+                </ScrollReveal>
 
                 {/* Ambient glow backdrop */}
                 <div className="absolute inset-4 bg-emerald-100/50 rounded-3xl -z-10 blur-xl pointer-events-none" />
@@ -296,26 +297,26 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           </div>
 
           {/* Intro text */}
-          <div className="text-sm sm:text-base text-emerald-100 leading-relaxed max-w-4xl mx-auto text-center font-medium space-y-3">
+          <ScrollReveal typewriter duration={900} className="text-sm sm:text-base text-emerald-100 leading-relaxed max-w-4xl mx-auto text-center font-medium space-y-3">
             <p>
               RLHP works with children, families and communities living in vulnerable and marginalised situations across urban, peri-urban and rural areas of South India. Our focus is on reaching those who face social, economic and geographical barriers to education, healthcare, protection and livelihood opportunities.
             </p>
             <p>
               We work closely with children, adolescents, youth, women and families who experience different forms of vulnerability and exclusion:
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Target Groups Bullet List */}
           <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/20 max-w-4xl mx-auto space-y-4 text-gray-900">
             <ul className="space-y-4 sm:space-y-5">
               {orgDetails.withWhomWeWork.groups.map((group, idx) => (
-                <li key={idx} className="flex items-start gap-3.5">
+                <ScrollReveal tag="li" delay={idx * 120} duration={750} key={idx} className="flex items-start gap-3.5">
                   <span className="w-3 h-3 rounded-full bg-rlhp-green mt-1.5 flex-shrink-0 shadow-xs" />
                   <div className="text-base sm:text-lg leading-relaxed">
                     <strong className="text-gray-950 font-extrabold text-base sm:text-lg tracking-tight">{group.title}:</strong>{' '}
                     <span className="text-gray-800 font-medium">{group.description}</span>
                   </div>
-                </li>
+                </ScrollReveal>
               ))}
             </ul>
           </div>
@@ -331,13 +332,13 @@ export default function Projects({ setCurrentPage, onNavClick }) {
           <div className="bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-white/20 max-w-4xl mx-auto space-y-4 text-gray-900">
             <ul className="space-y-4 sm:space-y-5">
               {orgDetails.withWhomWeWork.collaborations.map((collab, idx) => (
-                <li key={idx} className="flex items-start gap-3.5">
+                <ScrollReveal tag="li" delay={idx * 120} duration={750} key={idx} className="flex items-start gap-3.5">
                   <span className="w-3 h-3 rounded-full bg-rlhp-green mt-1.5 flex-shrink-0 shadow-xs" />
                   <div className="text-base sm:text-lg leading-relaxed">
                     <strong className="text-gray-950 font-extrabold text-base sm:text-lg tracking-tight">{collab.title}</strong> –{' '}
                     <span className="text-gray-800 font-medium">{collab.description}</span>
                   </div>
-                </li>
+                </ScrollReveal>
               ))}
             </ul>
           </div>

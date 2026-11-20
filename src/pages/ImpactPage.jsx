@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { impactStats, awardsData, booksData } from '../data/rlhpData';
+import ScrollReveal from '../components/ScrollReveal';
 import {
   Award, ShieldCheck, Heart, Users, CheckCircle2, Activity, Handshake, BookOpen,
   Home, Shield, GraduationCap, LifeBuoy, Clock, MapPin, Sparkles, Medal,

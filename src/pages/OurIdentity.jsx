@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import JourneyArtwork from '../components/journeyIllustrations/JourneyArtwork';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
+import ScrollReveal from '../components/ScrollReveal';
 import {
   Compass, Target, Heart, Award, Shield, CheckCircle2,
   Users, Calendar, MapPin, Handshake, Sparkles, Building2,
@@ -209,26 +210,28 @@ export default function OurIdentity({ setCurrentPage }) {
 
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-4">
-              <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
-                Inception Story
-              </h2>
-              <AnimatedWaveUnderline className="w-44 h-3.5 mb-3" />
-              <div className="bg-gradient-to-br from-emerald-50/40 via-white to-gray-50/50 border-l-4 border-rlhp-green p-6 sm:p-8 rounded-r-2xl shadow-2xs space-y-4">
-                <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium text-justify">
-                  Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
-                </p>
-              </div>
+              <ScrollReveal typewriter duration={900}>
+                <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
+                  Inception Story
+                </h2>
+                <AnimatedWaveUnderline className="w-44 h-3.5 mb-3" />
+                <div className="bg-gradient-to-br from-emerald-50/40 via-white to-gray-50/50 border-l-4 border-rlhp-green p-6 sm:p-8 rounded-r-2xl shadow-2xs space-y-4">
+                  <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium text-justify">
+                    Rural Literacy and Health Programme (RLHP) was registered under the Karnataka Societies Registration Act, 1960 in 1984. It marked the coming together of a group of dedicated and like-minded people who were motivated to make a difference to the lives of the underprivileged, disadvantaged and deprived sections of society. RLHP is governed by a Board of Management.
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
 
             {/* Right Card (5 Cols) - HD Enhanced Inception Gathering Photo with Smooth Animation */}
             <div className="lg:col-span-5 flex justify-center items-start">
-              <div className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-700 hover:-translate-y-1.5 cursor-pointer">
+              <ScrollReveal delay={200} duration={850} className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-700 hover:-translate-y-1.5 cursor-pointer">
                 <img
                   src={`${import.meta.env.BASE_URL}images/inception_story_meeting.jpg`}
                   alt="Inception Story - Community Foundation Meeting"
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
                 />
-              </div>
+              </ScrollReveal>
             </div>
 
           </div>
@@ -318,7 +321,9 @@ export default function OurIdentity({ setCurrentPage }) {
         {/* 5. MISSION & VISION (Classic, Standardized Distinct Brand Colors - Deep Sapphire & Rich Warm Terracotta Amber) */}
         <section id="mission-vision" className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Mission Card - Classic Deep Navy / Midnight Sapphire */}
-          <div
+          <ScrollReveal
+            delay={100}
+            duration={850}
             className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group border border-blue-400/30"
             style={{
               background: 'linear-gradient(135deg, #0f2038 0%, #173256 50%, #0a1628 100%)',
@@ -346,10 +351,12 @@ export default function OurIdentity({ setCurrentPage }) {
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Vision Card - Classic Warm Terracotta / Rich Bronze Amber */}
-          <div
+          <ScrollReveal
+            delay={250}
+            duration={850}
             className="relative overflow-hidden rounded-3xl p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 group border border-amber-400/30"
             style={{
               background: 'linear-gradient(135deg, #431407 0%, #78350f 50%, #290d04 100%)',
@@ -377,7 +384,7 @@ export default function OurIdentity({ setCurrentPage }) {
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* 6. OUR CORE VALUES (6 Core Values with Simple Aesthetic Colors, Smooth Hover Elevation & Motion) */}
@@ -654,8 +661,10 @@ export default function OurIdentity({ setCurrentPage }) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {orgDetails.founders.map((founder, idx) => (
-                <div
+                <ScrollReveal
                   key={idx}
+                  delay={idx * 160}
+                  duration={850}
                   className="bg-white/10 hover:bg-white/15 border border-white/15 p-6 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-5 transition-all group"
                 >
                   <div
@@ -675,7 +684,7 @@ export default function OurIdentity({ setCurrentPage }) {
                     <h4 className="text-xl font-black text-white">{founder.name}</h4>
                     <p className="text-xs text-emerald-200 font-semibold">{founder.designation}</p>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -694,8 +703,10 @@ export default function OurIdentity({ setCurrentPage }) {
             {/* Board Members Cards - Name and Designation Only */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {orgDetails.boardMembers.map((member, idx) => (
-                <div
+                <ScrollReveal
                   key={idx}
+                  delay={(idx % 4) * 120}
+                  duration={750}
                   className="bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center justify-between group cursor-pointer"
                   onClick={() => setSelectedPhoto({ src: member.image, name: member.name, title: member.designation })}
                 >
@@ -716,7 +727,7 @@ export default function OurIdentity({ setCurrentPage }) {
                       {member.designation}
                     </p>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
 
@@ -732,7 +743,9 @@ export default function OurIdentity({ setCurrentPage }) {
               </div>
 
               <div className="w-full max-w-xs flex justify-center mx-auto">
-                <div
+                <ScrollReveal
+                  delay={100}
+                  duration={850}
                   className="w-full bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center justify-between group cursor-pointer"
                   onClick={() => {
                     if (orgDetails.executiveDirector?.image) {
@@ -768,7 +781,7 @@ export default function OurIdentity({ setCurrentPage }) {
                       {orgDetails.executiveDirector?.designation || 'Executive Director'}
                     </p>
                   </div>
-                </div>
+                </ScrollReveal>
               </div>
             </div>
           </div>

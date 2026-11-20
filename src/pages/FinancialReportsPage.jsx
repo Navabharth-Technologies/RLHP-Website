@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, FileText, Download, Eye, X, BookOpen } from 'lucide-react';
 import FlipbookModal from '../components/FlipbookModal';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
+import ScrollReveal from '../components/ScrollReveal';
 
 const B = import.meta.env.BASE_URL;
 
@@ -48,7 +49,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
 
             {/* Left Column (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
-              <div>
+              <ScrollReveal typewriter duration={950}>
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold italic font-serif text-rlhp-green tracking-wide leading-none mb-4">
                   Financials
                 </h1>
@@ -56,7 +57,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
                 <p className="text-lg sm:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   Audited financial reports and statutory certifications.
                 </p>
-              </div>
+              </ScrollReveal>
 
               {/* Breadcrumb indicator */}
               <div className="pt-2 text-xs sm:text-sm font-semibold text-gray-500">
@@ -73,7 +74,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
 
             {/* Right Slanted Children Picture (Authentic gallery photo) */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative group max-w-md w-full transform sm:rotate-2 hover:rotate-0 transition-all duration-500">
+              <ScrollReveal delay={200} duration={850} className="relative group max-w-md w-full transform sm:rotate-2 hover:rotate-0 transition-all duration-500">
                 <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white">
                   <img
                     src={`${B}images/financials_hero_hq.jpg`}
@@ -82,7 +83,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
 
           </div>
@@ -95,8 +96,10 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl gap-8">
           {financialReportsList.map((item, idx) => (
-            <div
+            <ScrollReveal
               key={idx}
+              delay={idx * 180}
+              duration={850}
               onClick={() => setActiveFlipbook(item)}
               className="group bg-white rounded-2xl p-6 sm:p-7 border-2 border-gray-200 hover:border-red-500 shadow-sm hover:shadow-[0_22px_45px_-10px_rgba(239,68,68,0.4)] transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-2 relative overflow-hidden"
             >
@@ -129,7 +132,7 @@ export default function FinancialReportsPage({ setCurrentPage, onNavClick, onSel
                 </span>
                 <span className="w-2 h-2 rounded-full bg-red-500/40 group-hover:bg-red-600 transition-colors" />
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>

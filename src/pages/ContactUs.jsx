@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { orgDetails } from '../data/rlhpData';
 import AnimatedWaveUnderline from '../components/AnimatedWaveUnderline';
+import ScrollReveal from '../components/ScrollReveal';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 
 export default function ContactUs() {
@@ -215,13 +216,15 @@ export default function ContactUs() {
 
           {/* Left Column: Send us a Message Form (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-              Send us a Message
-            </h2>
+            <ScrollReveal typewriter duration={900}>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+                Send us a Message
+              </h2>
+            </ScrollReveal>
 
             <form onSubmit={handleSubmit} noValidate className="space-y-5">
               {/* Name */}
-              <div>
+              <ScrollReveal delay={50} duration={750}>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Name <span className="text-red-500">*</span>
@@ -246,10 +249,10 @@ export default function ContactUs() {
                       : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
                   }`}
                 />
-              </div>
+              </ScrollReveal>
 
               {/* Email */}
-              <div>
+              <ScrollReveal delay={120} duration={750}>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Email <span className="text-red-500">*</span>
@@ -274,10 +277,10 @@ export default function ContactUs() {
                       : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
                   }`}
                 />
-              </div>
+              </ScrollReveal>
 
               {/* Phone */}
-              <div>
+              <ScrollReveal delay={180} duration={750}>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Phone (10 digits)
@@ -300,10 +303,10 @@ export default function ContactUs() {
                       : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
                   }`}
                 />
-              </div>
+              </ScrollReveal>
 
               {/* Subject */}
-              <div>
+              <ScrollReveal delay={240} duration={750}>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Subject <span className="text-red-500">*</span>
@@ -326,7 +329,7 @@ export default function ContactUs() {
                       : 'border-[#236B28] focus:outline-none focus:ring-2 focus:ring-[#236B28]/40'
                   }`}
                 />
-              </div>
+              </ScrollReveal>
 
               {/* Message */}
               <div>
@@ -406,7 +409,7 @@ export default function ContactUs() {
 
             <div className="space-y-4">
               {/* Card 1: Call Us */}
-              <div className="p-6 rounded-2xl border-2 border-[#236B28] bg-white flex items-center gap-5 shadow-xs hover:shadow-md transition-shadow">
+              <ScrollReveal delay={100} duration={800} className="p-6 rounded-2xl border-2 border-[#236B28] bg-white flex items-center gap-5 shadow-xs hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 rounded-full bg-[#236B28] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
                   <Phone size={22} />
                 </div>
@@ -417,10 +420,10 @@ export default function ContactUs() {
                     (+91) 7022252030
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Card 2: Email Us */}
-              <div className="p-6 rounded-2xl border-2 border-[#236B28] bg-white flex items-center gap-5 shadow-xs hover:shadow-md transition-shadow">
+              <ScrollReveal delay={200} duration={800} className="p-6 rounded-2xl border-2 border-[#236B28] bg-white flex items-center gap-5 shadow-xs hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 rounded-full bg-[#236B28] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
                   <Mail size={22} />
                 </div>
@@ -431,10 +434,10 @@ export default function ContactUs() {
                     mysore@rlhp.org
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Card 3: Visit Us */}
-              <div className="p-6 rounded-2xl border-2 border-[#236B28] bg-white flex items-center gap-5 shadow-xs hover:shadow-md transition-shadow">
+              <ScrollReveal delay={300} duration={800} className="p-6 rounded-2xl border-2 border-[#236B28] bg-white flex items-center gap-5 shadow-xs hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 rounded-full bg-[#236B28] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
                   <MapPin size={22} />
                 </div>
@@ -445,10 +448,10 @@ export default function ContactUs() {
                     Udayagiri Post, Mysuru, Karnataka, India – 570019
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Card 4: Working Hours */}
-              <div className="p-6 rounded-2xl border-2 border-[#236B28] bg-white flex items-center gap-5 shadow-xs hover:shadow-md transition-shadow">
+              <ScrollReveal delay={400} duration={800} className="p-6 rounded-2xl border-2 border-[#236B28] bg-white flex items-center gap-5 shadow-xs hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 rounded-full bg-[#236B28] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
                   <Clock size={22} />
                 </div>
@@ -459,10 +462,10 @@ export default function ContactUs() {
                     09:30 AM – 05:30 PM
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Card 5: Connect on Social Media */}
-              <div className="p-6 rounded-2xl border-2 border-[#236B28] bg-gradient-to-r from-emerald-50/60 to-white flex items-center justify-between shadow-xs">
+              <ScrollReveal delay={500} duration={800} className="p-6 rounded-2xl border-2 border-[#236B28] bg-gradient-to-r from-emerald-50/60 to-white flex items-center justify-between shadow-xs">
                 <div>
                   <h4 className="font-extrabold text-base text-gray-950">Follow Our Updates</h4>
                   <p className="text-xs text-gray-600 font-medium mt-0.5">Stay connected on our social channels</p>
@@ -496,7 +499,7 @@ export default function ContactUs() {
                     <Youtube size={20} />
                   </a>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
 
