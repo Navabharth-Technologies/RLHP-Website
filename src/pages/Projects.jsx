@@ -42,7 +42,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
     if (visibleCount < orgDetails.ourPrograms.length) {
       const timer = setTimeout(() => {
         setVisibleCount((prev) => prev + 1);
-      }, 90);
+      }, 200);
       return () => clearTimeout(timer);
     }
   }, [hasStarted, visibleCount]);

@@ -56,7 +56,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
     if (whoWeAreVisibleCount < 4) {
       const timer = setTimeout(() => {
         setWhoWeAreVisibleCount((prev) => prev + 1);
-      }, 90);
+      }, 220);
       return () => clearTimeout(timer);
     }
   }, [whoWeAreStarted, whoWeAreVisibleCount]);
@@ -82,7 +82,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
     if (prioritiesVisibleCount < 7) {
       const timer = setTimeout(() => {
         setPrioritiesVisibleCount((prev) => prev + 1);
-      }, 90);
+      }, 220);
       return () => clearTimeout(timer);
     }
   }, [prioritiesStarted, prioritiesVisibleCount]);

@@ -52,7 +52,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (principlesVisibleCount < orgDetails.principles.length) {
       const timer = setTimeout(() => {
         setPrinciplesVisibleCount((prev) => prev + 1);
-      }, 90);
+      }, 200);
       return () => clearTimeout(timer);
     }
   }, [principlesStarted, principlesVisibleCount]);
@@ -83,7 +83,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (valuesVisibleCount < orgDetails.coreValues.length) {
       const timer = setTimeout(() => {
         setValuesVisibleCount((prev) => prev + 1);
-      }, 90);
+      }, 200);
       return () => clearTimeout(timer);
     }
   }, [valuesStarted, valuesVisibleCount]);
@@ -114,7 +114,7 @@ export default function OurIdentity({ setCurrentPage }) {
     if (journeyVisibleCount < orgDetails.journey.length) {
       const timer = setTimeout(() => {
         setJourneyVisibleCount((prev) => prev + 1);
-      }, 90);
+      }, 220);
       return () => clearTimeout(timer);
     }
   }, [journeyStarted, journeyVisibleCount]);
