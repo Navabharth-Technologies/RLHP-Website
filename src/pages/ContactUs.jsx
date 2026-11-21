@@ -196,14 +196,14 @@ export default function ContactUs() {
 
             {/* Right Card Image (5 Cols) - Distinct High-Resolution Community Forum Image */}
             <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
-              <div className="relative w-full max-w-[460px] h-[300px] sm:h-[340px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white transition-transform duration-500 hover:scale-[1.02] group">
+              <ScrollReveal delay={200} duration={1000} className="relative w-full max-w-[460px] h-[300px] sm:h-[340px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white transition-transform duration-500 hover:scale-[1.02] group">
                 <img
                   src={`${import.meta.env.BASE_URL}images/contact_hero_hq.jpg`}
                   alt="Contact RLHP Community Forum"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-              </div>
+              </ScrollReveal>
             </div>
 
           </div>

@@ -234,13 +234,11 @@ export default function ImpactPage() {
           setAwardsStarted(true);
         }
       },
-      { threshold: 0.02, rootMargin: '100px' }
+      { threshold: 0.15 }
     );
     if (awardsRef.current) observer.observe(awardsRef.current);
-    const fb = setTimeout(() => setAwardsStarted(true), 1200);
     return () => {
       observer.disconnect();
-      clearTimeout(fb);
     };
   }, []);
 
@@ -249,7 +247,7 @@ export default function ImpactPage() {
     if (awardsVisibleCount < awardsData.length) {
       const timer = setTimeout(() => {
         setAwardsVisibleCount((prev) => prev + 1);
-      }, 110);
+      }, 350);
       return () => clearTimeout(timer);
     }
   }, [awardsStarted, awardsVisibleCount]);

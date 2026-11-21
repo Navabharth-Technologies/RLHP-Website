@@ -9,11 +9,11 @@ export default function ScrollReveal({
   children,
   className = '',
   delay = 0,
-  duration = 750,
+  duration = 900,
   typewriter = false,
   tag = 'div',
-  threshold = 0.05,
-  rootMargin = '50px 0px 50px 0px',
+  threshold = 0.15,
+  rootMargin = '0px',
   ...props
 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,13 +24,6 @@ export default function ScrollReveal({
     if (!el) return;
 
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
-      setIsVisible(true);
-      return;
-    }
-
-    // Check if element is already in viewport or above it
-    const rect = el.getBoundingClientRect();
-    if (rect.top <= (window.innerHeight || document.documentElement.clientHeight)) {
       setIsVisible(true);
       return;
     }

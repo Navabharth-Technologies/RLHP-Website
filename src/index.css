@@ -86,9 +86,9 @@
 /* Universal Smooth Scroll Reveal Component Styles */
 .scroll-reveal-item {
   opacity: 0;
-  transform: translateY(28px) scale(0.98);
-  transition: opacity var(--duration, 750ms) cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
-              transform var(--duration, 750ms) cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
+  transform: translateY(32px) scale(0.96);
+  transition: opacity var(--duration, 950ms) cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+              transform var(--duration, 950ms) cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
   will-change: opacity, transform;
 }
 

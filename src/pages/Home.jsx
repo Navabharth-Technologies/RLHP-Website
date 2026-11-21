@@ -426,13 +426,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
             {/* Right Column: Commitment Image Card (5 cols) - cropped & fitted proportionally */}
             <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative w-full max-w-[460px] aspect-[4/4.2] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
+              <ScrollReveal delay={200} duration={1000} className="relative w-full max-w-[460px] aspect-[4/4.2] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1C5620]/30 group">
                 <img
                   src={`${B}images/child_drinking_water.jpg`}
                   alt="Child - RLHP Community Impact"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
+              </ScrollReveal>
             </div>
           </div>
 

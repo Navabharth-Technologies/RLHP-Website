@@ -189,13 +189,13 @@ export default function OurIdentity({ setCurrentPage }) {
 
             {/* Right Image (5 Cols) - Single Clean Card as requested */}
             <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
-              <div className="relative w-full max-w-[480px] aspect-[4/3.1] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group hover:shadow-emerald-950/20 transition-all duration-700">
+              <ScrollReveal delay={200} duration={1000} className="relative w-full max-w-[480px] aspect-[4/3.1] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group hover:shadow-emerald-950/20 transition-all duration-700">
                 <img
                   src={`${import.meta.env.BASE_URL}images/about_us_children.jpg`}
                   alt="RLHP Children - About Us"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
+              </ScrollReveal>
             </div>
 
           </div>
@@ -223,13 +223,13 @@ export default function OurIdentity({ setCurrentPage }) {
 
             {/* Right Card (5 Cols) - HD Enhanced Inception Gathering Photo with Smooth Animation */}
             <div className="lg:col-span-5 flex justify-center items-start">
-              <div className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-700 hover:-translate-y-1.5 cursor-pointer">
+              <ScrollReveal delay={200} duration={1000} className="relative w-full max-w-[460px] aspect-[4/3.3] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border-4 border-white bg-slate-900 group transition-all duration-700 hover:-translate-y-1.5 cursor-pointer">
                 <img
                   src={`${import.meta.env.BASE_URL}images/inception_story_meeting.jpg`}
                   alt="Inception Story - Community Foundation Meeting"
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
                 />
-              </div>
+              </ScrollReveal>
             </div>
 
           </div>
