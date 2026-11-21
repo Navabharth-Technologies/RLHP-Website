@@ -698,35 +698,67 @@ export default function OurIdentity({ setCurrentPage }) {
               </h3>
             </div>
 
-            {/* Board Members Cards - Name and Designation Only */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {orgDetails.boardMembers.map((member, idx) => (
-                <ScrollReveal
-                  key={idx}
-                  delay={(idx % 4) * 120}
-                  duration={750}
-                  className="bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center justify-between group cursor-pointer"
-                  onClick={() => setSelectedPhoto({ src: member.image, name: member.name, title: member.designation })}
-                >
-                  <div className="w-32 h-40 sm:w-36 sm:h-44 rounded-xl overflow-hidden bg-white p-1 border-2 border-rlhp-green/30 group-hover:border-rlhp-green shadow-xs shrink-0 group-hover:scale-105 transition-all">
-                    <img
-                      src={`${import.meta.env.BASE_URL}${member.image.replace(/^\//, '')}`}
-                      alt={member.name}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
+            {/* Board Members Cards - Row 1 has 4 cards, Row 2 has 3 cards centered in-between */}
+            <div className="space-y-6">
+              {/* Row 1: 4 Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {orgDetails.boardMembers.slice(0, 4).map((member, idx) => (
+                  <ScrollReveal
+                    key={idx}
+                    delay={idx * 120}
+                    duration={750}
+                    className="bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center justify-between group cursor-pointer"
+                    onClick={() => setSelectedPhoto({ src: member.image, name: member.name, title: member.designation })}
+                  >
+                    <div className="w-32 h-40 sm:w-36 sm:h-44 rounded-xl overflow-hidden bg-white p-1 border-2 border-rlhp-green/30 group-hover:border-rlhp-green shadow-xs shrink-0 group-hover:scale-105 transition-all">
+                      <img
+                        src={`${import.meta.env.BASE_URL}${member.image.replace(/^\//, '')}`}
+                        alt={member.name}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
 
-                  {/* Name and Designation Only as specified - Centered */}
-                  <div className="mt-4 space-y-1 w-full text-center flex flex-col items-center justify-center">
-                    <h4 className="text-base font-black text-gray-900 group-hover:text-rlhp-darkgreen transition-colors text-center w-full">
-                      {member.name}
-                    </h4>
-                    <p className="text-xs font-extrabold text-rlhp-green text-center w-full">
-                      {member.designation}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
+                    <div className="mt-4 space-y-1 w-full text-center flex flex-col items-center justify-center">
+                      <h4 className="text-base font-black text-gray-900 group-hover:text-rlhp-darkgreen transition-colors text-center w-full">
+                        {member.name}
+                      </h4>
+                      <p className="text-xs font-extrabold text-rlhp-green text-center w-full">
+                        {member.designation}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+
+              {/* Row 2: 3 Cards Centered directly in-between the 4 columns of the 1st row */}
+              <div className="flex flex-wrap justify-center gap-6">
+                {orgDetails.boardMembers.slice(4).map((member, idx) => (
+                  <ScrollReveal
+                    key={idx + 4}
+                    delay={(idx + 4) * 120}
+                    duration={750}
+                    className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] bg-gray-50/80 hover:bg-white p-5 rounded-2xl border border-gray-200 hover:border-rlhp-green shadow-2xs hover:shadow-md transition-all duration-300 text-center flex flex-col items-center justify-between group cursor-pointer"
+                    onClick={() => setSelectedPhoto({ src: member.image, name: member.name, title: member.designation })}
+                  >
+                    <div className="w-32 h-40 sm:w-36 sm:h-44 rounded-xl overflow-hidden bg-white p-1 border-2 border-rlhp-green/30 group-hover:border-rlhp-green shadow-xs shrink-0 group-hover:scale-105 transition-all">
+                      <img
+                        src={`${import.meta.env.BASE_URL}${member.image.replace(/^\//, '')}`}
+                        alt={member.name}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+
+                    <div className="mt-4 space-y-1 w-full text-center flex flex-col items-center justify-center">
+                      <h4 className="text-base font-black text-gray-900 group-hover:text-rlhp-darkgreen transition-colors text-center w-full">
+                        {member.name}
+                      </h4>
+                      <p className="text-xs font-extrabold text-rlhp-green text-center w-full">
+                        {member.designation}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
 
             {/* C. OUR EXECUTIVE DIRECTOR */}
