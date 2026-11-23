@@ -28,11 +28,11 @@ export default function MediaCoveragePage({ setCurrentPage, onNavClick }) {
       <section className="py-14 bg-gray-50">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           {allArticles.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
               {allArticles.map((media, idx) => (
                 <article
                   key={idx}
-                  className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                  className="w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                 >
                   {/* Newspaper Image (Clickable to open) */}
                   <div

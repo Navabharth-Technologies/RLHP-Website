@@ -334,14 +334,14 @@ export default function ImpactPage() {
           </div>
 
           {/* All Transformative Cards with cascade timer animation matching Our Principles */}
-          <div ref={footprintRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={footprintRef} className="flex flex-wrap justify-center gap-6">
             {highlightCards.map((card, idx) => {
               const Icon = card.icon;
               const isVisible = footprintStarted && idx < footprintVisibleCount;
               return (
                 <div
                   key={idx}
-                  className={`relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-700 flex flex-col justify-between group overflow-hidden ${isVisible
+                  className={`w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] relative rounded-3xl p-7 bg-gradient-to-br ${card.bgGradient} border-2 ${card.borderColor} shadow-xs ${card.hoverGlow} hover:-translate-y-2 transition-all duration-700 flex flex-col justify-between group overflow-hidden ${isVisible
                     ? 'opacity-100 translate-y-0 scale-100'
                     : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
                     }`}
@@ -443,7 +443,7 @@ export default function ImpactPage() {
             <div className="w-12 h-1 bg-rlhp-green mx-auto rounded-full" />
           </div>
 
-          <div ref={booksRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={booksRef} className="flex flex-wrap justify-center gap-6">
             {booksData.map((book, idx) => {
               const isVisible = booksStarted && idx < booksVisibleCount;
               const fileHref = `${import.meta.env.BASE_URL}${book.fileUrl.replace(/^\//, '')}`;
@@ -458,7 +458,7 @@ export default function ImpactPage() {
                     };
                     setActiveFlipbook(mapped);
                   }}
-                  className={`group bg-white rounded-2xl p-6 sm:p-7 border-2 border-gray-200 hover:border-red-500 shadow-sm hover:shadow-[0_22px_45px_-10px_rgba(239,68,68,0.4)] transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-2 relative overflow-hidden transform ${
+                  className={`w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group bg-white rounded-2xl p-6 sm:p-7 border-2 border-gray-200 hover:border-red-500 shadow-sm hover:shadow-[0_22px_45px_-10px_rgba(239,68,68,0.4)] transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-2 relative overflow-hidden transform ${
                     isVisible
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
