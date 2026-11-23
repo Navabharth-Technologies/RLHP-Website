@@ -289,7 +289,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
         </div>
 
         {/* Curved Green Transparent SVG Element on Desktop */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[62%] lg:w-[58%] xl:w-[56%] pointer-events-none overflow-hidden z-[2] hidden md:block">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[54%] lg:w-[49%] xl:w-[46%] pointer-events-none overflow-hidden z-[2] hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
@@ -299,14 +299,14 @@ export default function Home({ setCurrentPage, onNavClick }) {
             <path
               d="M 60,0 Q 220,250 140,500 Q 50,750 100,1000 L 1000,1000 L 1000,0 Z"
               fill="#255A2F"
-              fillOpacity="0.88"
+              fillOpacity="0.80"
             />
           </svg>
         </div>
 
         {/* Hero Content Container - Aligned further right so text is completely placed on the green transparent shade */}
-        <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 pt-36 pb-12 sm:py-20 flex justify-end">
-          <div className="w-full max-w-[500px] lg:max-w-[520px] lg:mr-2 xl:mr-6 bg-slate-950/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 sm:p-7 md:p-0 rounded-3xl md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12 pt-36 pb-12 sm:py-20 flex justify-end">
+          <div className="w-full max-w-[480px] lg:max-w-[490px] xl:max-w-[500px] bg-slate-950/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 sm:p-7 md:p-0 rounded-3xl md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
             {/* Main Headline with Highlighted Underline and Vibrant Accent */}
             <h1 className="text-2xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-bold text-white leading-[1.25] sm:leading-[1.2] mb-6 sm:mb-7 tracking-tight drop-shadow-md">
               <span className="text-[#A7F3D0] font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
