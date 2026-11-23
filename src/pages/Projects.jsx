@@ -95,20 +95,20 @@ export default function Projects({ setCurrentPage, onNavClick }) {
               </div>
             </div>
 
-            {/* Right Images (6 Cols) - Side-by-Side Dual Cards with Increased Width for Full Face Visibility */}
+            {/* Right Images (6 Cols) - Decreased Length (Height) and Increased Width so Faces are Clearly Visible */}
             <div className="lg:col-span-6 relative flex items-center justify-center pt-6 lg:pt-0">
-              <div className="relative w-full max-w-[700px] flex flex-row items-center justify-center gap-4 sm:gap-6">
-                {/* Left Card: Doctor Examining Child - Wider card so both doctor and children faces are clearly visible */}
-                <ScrollReveal delay={150} duration={850} className="flex-1 min-w-0 h-[380px] sm:h-[420px] lg:h-[440px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-700 bg-emerald-50 flex items-center justify-center group">
+              <div className="relative w-full max-w-[760px] flex flex-row items-center justify-center gap-5 sm:gap-7">
+                {/* Left Card: Doctor Examining Child - Wider, landscape proportion with lower height so faces are fully clear */}
+                <ScrollReveal delay={150} duration={850} className="flex-1 min-w-0 h-[280px] sm:h-[310px] lg:h-[325px] rounded-3xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-700 bg-emerald-50 flex items-center justify-center group">
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_2.jpg`}
                     alt="What We Do - RLHP Community Healthcare"
-                    className="w-full h-full object-cover object-[25%_center] group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-[30%_25%] group-hover:scale-105 transition-transform duration-700"
                   />
                 </ScrollReveal>
 
                 {/* Right Card: Girl with Books & Learning Materials */}
-                <ScrollReveal delay={300} duration={850} className="flex-1 min-w-0 h-[380px] sm:h-[420px] lg:h-[440px] rounded-2xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-700 bg-emerald-50 flex items-center justify-center group">
+                <ScrollReveal delay={300} duration={850} className="flex-1 min-w-0 h-[280px] sm:h-[310px] lg:h-[325px] rounded-3xl overflow-hidden shadow-xl border-4 border-white hover:scale-105 transition-all duration-700 bg-emerald-50 flex items-center justify-center group">
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_girl_face.jpg`}
                     alt="What We Do - RLHP Girl with Books"
