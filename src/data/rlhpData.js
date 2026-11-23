@@ -952,6 +952,24 @@ export const booksData = [
     fileName: "child_labour_project_midterm_evaluation.pdf",
     fileUrl: "/books/child_labour_project_midterm_evaluation.pdf",
     description: "Rigorous mid-term project performance evaluation examining progress indicators, child tracking systems, Gram Panchayat actions, and school retention."
+  },
+  {
+    id: "book-7",
+    title: "Handbook on Individual Education Programme",
+    category: "Special Education Handbook",
+    year: "Educational Handbook",
+    fileName: "Handbook on Individual Education Programme.pdf",
+    fileUrl: "/documents/Handbook on Individual Education Programme.pdf",
+    description: "Comprehensive practical manual for educators and caregivers on formulating, executing, and evaluating Individualized Education Programmes (IEP) for inclusive child development."
+  },
+  {
+    id: "book-8",
+    title: "Handbook on Parent-Teacher Meeting",
+    category: "Parent & Community Engagement",
+    year: "Educator & Parent Guide",
+    fileName: "Handbook on Parent-Teacher Meeting.pdf",
+    fileUrl: "/documents/Handbook on Parent-Teacher Meeting.pdf",
+    description: "In-depth guide detailing best practices, structured agendas, and collaborative strategies for conducting impactful Parent-Teacher Meetings to foster child learning and well-being."
   }
 ];
 
