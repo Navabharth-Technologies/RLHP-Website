@@ -112,7 +112,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_girl_face.jpg`}
                     alt="What We Do - RLHP Girl with Books"
-                    className="w-full h-full object-cover object-[center_12%] group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-12%] group-hover:scale-105 transition-transform duration-700"
                   />
                 </ScrollReveal>
 
