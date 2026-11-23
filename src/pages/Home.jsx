@@ -289,7 +289,7 @@ export default function Home({ setCurrentPage, onNavClick }) {
         </div>
 
         {/* Curved Green Transparent SVG Element on Desktop */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[54%] lg:w-[49%] xl:w-[46%] pointer-events-none overflow-hidden z-[2] hidden md:block">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[58%] lg:w-[54%] xl:w-[51%] pointer-events-none overflow-hidden z-[2] hidden md:block">
           <svg
             className="w-full h-full object-cover"
             viewBox="0 0 1000 1000"
