@@ -103,7 +103,7 @@ export default function Projects({ setCurrentPage, onNavClick }) {
                   <img
                     src={`${import.meta.env.BASE_URL}images/what_we_do_2.jpg`}
                     alt="What We Do - RLHP Community Healthcare"
-                    className="w-full h-full object-cover object-[40%_25%] group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                 </ScrollReveal>
 
