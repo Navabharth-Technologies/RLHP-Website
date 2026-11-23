@@ -306,13 +306,13 @@ export default function Home({ setCurrentPage, onNavClick }) {
 
         {/* Hero Content Container - Aligned further right so text is completely placed on the green transparent shade */}
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12 pt-36 pb-12 sm:py-20 flex justify-end">
-          <div className="w-full max-w-[480px] lg:max-w-[490px] xl:max-w-[500px] bg-slate-950/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 sm:p-7 md:p-0 rounded-3xl md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
+          <div className="w-full max-w-[530px] lg:max-w-[550px] xl:max-w-[560px] bg-slate-950/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 sm:p-7 md:p-0 rounded-3xl md:rounded-none border border-white/10 md:border-none shadow-2xl md:shadow-none">
             {/* Main Headline with Highlighted Underline and Vibrant Accent */}
-            <h1 className="text-2xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-bold text-white leading-[1.25] sm:leading-[1.2] mb-6 sm:mb-7 tracking-tight drop-shadow-md">
+            <h1 className="text-2xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.25] sm:leading-[1.2] mb-6 sm:mb-7 tracking-tight drop-shadow-md">
               <span className="text-[#A7F3D0] font-extrabold drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
                 Transforming Lives of Children, Women and{' '}
               </span>
-              <span className="relative inline-block text-[#34D399] font-black drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
+              <span className="relative inline-block text-[#34D399] font-black drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] whitespace-nowrap">
                 Community at Large
                 <svg
                   className="absolute -bottom-2 left-0 w-full overflow-visible"
